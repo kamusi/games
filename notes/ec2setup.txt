@@ -1,0 +1,329 @@
+Source: http://www.name.com/blog/general/development/2012/01/so-you-want-free-web-hosting-an-amazon-ec2-how-to/
+
+Change access rights for private key:
+
+chmod 600 ec2.pem
+ssh -i ec2.pem ec2-user@54.148.149.85
+
+Install Yum package manager:
+
+sudo yum -y update
+
+Install LAMP:
+
+sudo yum -y install httpd php mysql mysql-server
+
+Start HTTP server:
+
+sudo /etc/init.d/httpd start
+
+Start MySql:
+
+sudo /etc/init.d/mysqld start
+
+Set autostart (on boot) for HTTP server:
+
+sudo chkconfig httpd on
+
+Set autostart (on boot) for MySql server:
+
+sudo chkconfig mysqld on
+
+Apache server folder:
+
+cd /var/www/html
+
+Copy files:
+
+scp -i ec2.pem -r prototype ec2-user@54.148.149.85:scp_temp
+
+Create Database:
+
+sudo su
+SHOW DATABASES;
+CREATE DATABASE kamusi;
+mysql> USE kamusi;
+mysql> CREATE TABLE wordnet (ID INT, Word VARCHAR(64), Definition VARCHAR(256));
+
+Install mysql driver for php
+
+yum install php-mysql
+
+Run php script:
+
+sudo php load_wordnet_data.php
+
+Modify Apache configuration file (to allow apache to use mysql):
+
+vi /etc/httpd/conf/httpd.conf
+
+[Uncomment out the following, and set document root to /var/www/html]
+
+#<VirtualHost *:80>
+#    ServerAdmin webmaster@dummy-host.example.com
+#    DocumentRoot /www/docs/dummy-host.example.com
+#    ServerName dummy-host.example.com
+#    ErrorLog logs/dummy-host.example.com-error_log
+#    CustomLog logs/dummy-host.example.com-access_log common
+#</VirtualHost>
+
+Restart Apache:
+
+/etc/init.d/httpd restart
+
+http://www.alexkorn.com/blog/2011/03/getting-php-mysql-running-amazon-ec2/
+
+Install mod_ssl:
+
+sudo yum install mod_ssl
+
+Obtaining a digital certificate:
+
+Generate public/private key pair:
+
+openssl req -nodes -newkey rsa:2048 -keyout myserver.key -out server.csr
+
+https://devcenter.heroku.com/articles/ssl-certificate-self
+
+openssl x509 -req -days 365 -in server.csr -signkey myserver.key -out server.crt
+
+https://www.digicert.com/ssl-certificate-installation-apache.htm
+https://www.sslshopper.com/article-how-to-create-and-install-an-apache-self-signed-certificate.html
+
+Place these files on server in /etc/ssl/certs
+
+Add the following to etc/httpd/conf/httpd.conf:
+
+<VirtualHost *:443>
+    ServerAdmin webmaster@dummy-host.example.com
+    DocumentRoot /var/www/html
+    ServerName dummy-host.example.com
+    SSLEngine on
+    SSLCertificateFile /etc/ssl/certs/server.crt
+    SSLCertificateKeyFile /etc/ssl/certs/myserver.key
+    ErrorLog logs/dummy-host.example.com-error_log
+    CustomLog logs/dummy-host.example.com-access_log common
+</VirtualHost>
+
+Restart Apache:
+
+/etc/init.d/httpd restart
+
+[WEB SITE UP]
+
+[FURTHER DEVELOPMENT:]
+
+Create Database:
+
+sudo su
+SHOW DATABASES;
+CREATE DATABASE kamusi;
+mysql> USE kamusi;
+mysql> CREATE TABLE rankedwords (ID INT, Word VARCHAR(64), PartOfSpeech VARCHAR(16), Rank INT);
+mysql> CREATE TABLE users (UserID VARCHAR(64));
+mysql> CREATE TABLE definitions (DefinitionID INT, WordID INT, Definition VARCHAR(256), UserID VARCHAR(64));
+
+php load_ranked_words.php
+
+Set primary keys:
+
+ALTER TABLE rankedwords ADD PRIMARY KEY(ID);
+
+ALTER TABLE definitions ADD PRIMARY KEY(DefinitionID);
+
+ALTER TABLE users ADD PRIMARY KEY(UserID);
+
+Add foreign keys:
+
+ALTER TABLE definitions ADD CONSTRAINT FK_RANKEDWORDS FOREIGN KEY (WordID) REFERENCES rankedwords (ID);
+
+ALTER TABLE definitions ADD CONSTRAINT FK_USERS FOREIGN KEY (UserID) REFERENCES users (UserID);
+
+Add Index [this speeds up the join queries dramatically]:
+
+CREATE INDEX RankIndex ON rankedwords(Rank);
+
+ALTER TABLE definitions MODIFY COLUMN DefinitionID INT auto_increment;
+
+[VOTING FUNCTIONALITY]
+
+ALTER TABLE definitions ADD COLUMN Votes INT DEFAULT 0;
+
+CREATE TABLE a AS SELECT r.ID, r.Word, w.Definition FROM rankedwords AS r LEFT JOIN wordnet AS w ON r.Word = w.Word;
+
+[UPGRADE TO PHP 5.4]
+
+yum remove php
+
+yum remove php-common-5.3.29-1.7.amzn1.x86_64
+
+yum remove httpd-tools-2.2.29-1.4.amzn1.x86_64
+
+yum install httpd24
+
+yum install php54
+
+yum install php54-mysql
+
+yum install mod24_ssl
+
+[INSTALLING FACEBOOK SDK FOR PHP PENDING]
+
+Install composer:
+
+curl -sS https://getcomposer.org/installer | php
+
+Install Facebook SDK:
+
+create composer.json:
+
+{
+"require" : {
+    "facebook/php-sdk-v4" : "4.0.*"
+  }
+}
+
+php composer.phar install
+
+[UPGRADE TO PHP 5.5]
+
+yum remove php
+
+yum remove php54-common-5.4.34-1.62.amzn1.x86_64
+
+yum remove httpd24
+
+yum remove httpd-tools
+
+sudo yum install php55 php55-devel php55-common php55-cli php55-pecl-apc php55-pdo php55-mysql php55-xml php55-gd php55-mbstring php-pear php55-mysqlnd
+
+yum install mod24_ssl
+
+service httpd restart
+
+ALTER TABLE users ADD COLUMN Points INT DEFAULT 0;
+
+CREATE TABLE pos (ID VARCHAR(64), Full VARCHAR(256));
+
+INSERT INTO pos (Code, Full) VALUES ('det', 'determiner');
+INSERT INTO pos (Code, Full) VALUES ('adv', 'adverb');
+INSERT INTO pos (Code, Full) VALUES ('v', 'verb');
+INSERT INTO pos (Code, Full) VALUES ('n', 'noun');
+INSERT INTO pos (Code, Full) VALUES ('adj', 'adjective');
+INSERT INTO pos (Code, Full) VALUES ('prep', 'preposition');
+INSERT INTO pos (Code, Full) VALUES ('conj', 'conjunction');
+INSERT INTO pos (Code, Full) VALUES ('interj', 'interjection');
+INSERT INTO pos (Code, Full) VALUES ('u', 'u');
+INSERT INTO pos (Code, Full) VALUES ('det.pron', 'det.pron');
+INSERT INTO pos (Code, Full) VALUES ('pron.pers', 'personal pronoun');
+INSERT INTO pos (Code, Full) VALUES ('n.prop', 'proper noun');
+INSERT INTO pos (Code, Full) VALUES ('num', 'cardinal number');
+INSERT INTO pos (Code, Full) VALUES ('neg', 'neg');
+INSERT INTO pos (Code, Full) VALUES ('ex', 'ex');
+INSERT INTO pos (Code, Full) VALUES ('infinitive marke', 'infinitive marker');
+INSERT INTO pos (Code, Full) VALUES('noun', 'noun');
+INSERT INTO pos (Code, Full) VALUES('verb', 'verb');
+INSERT INTO pos (Code, Full) VALUES('adjective', 'adjective');
+INSERT INTO pos (Code, Full) VALUES('adjective_satellite', 'adjective satellite');
+INSERT INTO pos (Code, Full) VALUES('adverb', 'adverb');
+INSERT INTO pos (Code, Full) VALUES('phrase', 'phrase');
+
+CREATE TABLE pos (ID INT auto_increment, Code VARCHAR(64), Full VARCHAR(64), PRIMARY KEY (ID), FOREIGN KEY (Code) REFERENCES rankedwords(PartOfSpeech));
+
+
+
+ALTER TABLE users ADD COLUMN Rating INT DEFAULT 0;
+ALTER TABLE users ADD COLUMN Position INT DEFAULT 1;
+
+ALTER TABLE rankedwords ADD COLUMN Consensus TINYINT(1) DEFAULT 0;
+
+[AT SOME POINT THE SERVER WENT DOWN (WEB SITE WAS UNREACHABLE) THOUGH THE NODE WAS STILL ACTIVE]
+
+[ec2-user@ip-172-31-16-173 html]$ sudo /etc/init.d/httpd restart
+Stopping httpd:                                            [FAILED]
+Starting httpd:                                            [  OK  ]
+
+
+
+CREATE TABLE admin (Alias VARCHAR(64), Email VARCHAR(256));
+
+ALTER TABLE users ADD Notify INT DEFAULT 0;
+
+
+[PREVENT VISITORS FROM BROWSING WEB SITE CONTENTS]
+
+In /etc/httpd/conf/httpd.conf, find 
+
+# Further relax access to the default document root:
+<Directory "/var/www/html">
+    #
+    # Possible values for the Options directive are "None", "All",
+    # or any combination of:
+    #   Indexes Includes FollowSymLinks SymLinksifOwnerMatch ExecCGI MultiViews
+    #
+    # Note that "MultiViews" must be named *explicitly* --- "Options All"
+    # doesn't give it to you.
+    #
+    # The Options directive is both complicated and important.  Please see
+    # http://httpd.apache.org/docs/2.4/mod/core.html#options
+    # for more information.
+    #
+    Options Indexes FollowSymLinks
+
+    #
+    # AllowOverride controls what directives may be placed in .htaccess files.
+    # It can be "All", "None", or any combination of the keywords:
+    #   Options FileInfo AuthConfig Limit
+    #
+    AllowOverride None
+
+    #
+    # Controls who can get stuff from this server.
+    #
+    Require all granted
+</Directory>
+
+The lines "Options Indexes FollowSymLinks", and "AllowOverride None" where commented out and "Options -Indexes" was added. Note this is not really a security measure, it just hides the site's contents from visitors. (http://www.thesitewizard.com/apache/prevent-directory-listing-htaccess.shtml)
+
+/etc/init.d/httpd restart
+
+ALTER TABLE users ADD Mute INT DEFAULT 0;
+
+ALTER TABLE users ADD NumReports INT DEFAULT 0;
+
+CREATE TABLE languages (ID INT auto_increment, LanguageName VARCHAR(64), PRIMARY KEY(ID));
+
+CREATE TABLE translations (ID INT auto_increment, LanguageID INT, DefinitionID INT, UserID VARCHAR(64), FOREIGN KEY (LanguageID) REFERENCES languages(ID), Word VARCHAR(64), PRIMARY KEY(ID), FOREIGN KEY (DefinitionID) REFERENCES definitions(DefinitionID), FOREIGN KEY (UserID) REFERENCES users(USERID));
+
+INSERT INTO languages (Language) VALUES("English");
+INSERT INTO languages (Language) VALUES("French");
+
+ALTER TABLE translations ADD COLUMN UserID VARCHAR(64);
+
+ALTER TABLE translations ADD CONSTRAINT FK_USERS FOREIGN KEY (UserID) REFERENCES users (UserID);
+
+[Resetting MySql passwords]
+
+kill `cat /var/run/mysqld/mysqld.pid`
+
+Create text file (anywhere) and insert the following:
+
+UPDATE mysql.user SET Password=PASSWORD('') WHERE User='root';
+FLUSH PRIVILEGES;
+
+Then restart MySQL in safe mode:
+
+mysqld_safe --init-file=[FILE LOCATION] &
+
+[Installing phpmyadmin]
+
+cd /var/www/html
+
+wget http://www.sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.0.3/phpMyAdmin-4.0.3-all-languages.tar.bz2
+
+tar -jxf phpMyAdmin-4.0.3-all-languages.tar.bz2 -C /var/www/html
+
+mv phpMyAdmin-4.0.3-all-languages phpmyadmin
+
+rm -rf phpMyAdmin-4.0.3-all-languages.tar.bz2
+
