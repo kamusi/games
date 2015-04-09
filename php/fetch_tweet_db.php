@@ -23,10 +23,13 @@ if (!mysqli_set_charset($con, "utf8")) {
 // NOT CHECKING INPUTS MAKES THIS VULNERABLE TO SQL INJECTION
 $sql = "SELECT DISTINCT TweetID,Text ,Author  FROM TweetContext WHERE WordID='" . $wordID . "';";
 $result = mysqli_query($con, $sql);
-$results_array = mysqli_fetch_all($result,MYSQLI_ASSOC);
+$results_array = array();
+while ($row = $result->fetch_assoc()) {
+    $results_array[] = $row;
+}
+ mysqli_fetch_all($result,MYSQLI_ASSOC);
 
 
-#$results_array = $result->fetch_all();
 
 $jsonData = json_encode($results_array);
 
