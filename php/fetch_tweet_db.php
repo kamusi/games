@@ -24,6 +24,7 @@ if (!mysqli_set_charset($con, "utf8")) {
 $sql = "SELECT DISTINCT TweetID,Text ,Author  FROM TweetContext WHERE WordID='" . $wordID . "';";
 $result = mysqli_query($con, $sql);
 $results_array = array();
+var_dump($result);
 while ($row = $result->fetch_assoc()) {
     $results_array[] = $row;
 }
