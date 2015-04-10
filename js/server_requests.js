@@ -337,7 +337,7 @@ function submit_definition(definition) {
 }
 
 
-function check_user(response) {
+function check_user() {
     //WARNING : have to wait for fb response to complete,e else error!
 
     console.log("CHECK USER")
@@ -360,7 +360,6 @@ function check_user(response) {
                 // document.getElementById('profile_name').innerHTML = response.name;
             }
             //set_greeting(response.name);
-            userID = response.id;
             initialise(userID);
             console.log("USERID IS SET: " + userID);
             get_randomForTweets();
@@ -368,7 +367,7 @@ function check_user(response) {
         }
     }
     var noCache = new Date().getTime();
-    xmlhttp.open("GET","php/check_user.php?userID=" + response.id + "&noCache=" + noCache, true);
+    xmlhttp.open("GET","php/check_user.php?userID=" + userID);
     xmlhttp.send();
 }
 
