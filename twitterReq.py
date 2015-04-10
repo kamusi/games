@@ -15,7 +15,9 @@ API_KEY = 'V6LusI8cyP0ePYKwIQCgKiPoe'
 API_SECRET = 'NnY2sC0JZWw3BHfeqMSTY9iUQfwUHv4lRAKs3YvdOt70EAkpTI'
 ACCESS_TOKEN = '2399957756-FdFxU8AAykuhA7ieWSyIbX4WCHNG9ZENNvDjRQY'
 ACCESS_TOKEN_SECRET = 'GDJgTSWBjtxKtj8TKgIlouN0cOjnpIFizq07e4WgTcuUa'
-logging.captureWarnings(True)
+
+urllib3.disable_warnings()
+#todo change this
 
 def search(keyword, amount):
 
