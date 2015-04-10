@@ -360,6 +360,7 @@ function check_user(response) {
             userID = response.id;
             initialise(userID);
             console.log("USERID IS SET: " + userID);
+            get_randomForTweets();
 
         }
     }
