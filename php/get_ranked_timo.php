@@ -29,7 +29,7 @@ $result = mysqli_query($con, $sql);
 $results_array = $result->fetch_assoc();
 
 $user_position = $results_array["PositionMode1"];
-var_dump($results_array);
+var_dump($userID);
 
 // Retrieve ID of word with first Rank greater than user_position, i.e. the first word with a sense.
 $sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
