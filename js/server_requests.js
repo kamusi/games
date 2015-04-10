@@ -356,7 +356,7 @@ function check_user(response) {
                 // document.getElementById('greeting').innerHTML = 'Welcome, ' + response.name + '!';
                 // document.getElementById('profile_name').innerHTML = response.name;
             }
-            set_greeting(response.name);
+            //set_greeting(response.name);
             userID = response.id;
             initialise(userID);
             console.log("USERID IS SET: " + userID);
