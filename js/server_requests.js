@@ -359,6 +359,7 @@ function check_user(response) {
             set_greeting(response.name);
             userID = response.id;
             initialise(userID);
+            console.log("USERID IS SET: " + userID);
 
         }
     }
