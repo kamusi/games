@@ -174,7 +174,7 @@ function enter_game3() {
   		check_user(response);
 	});
 		console.log("USERID after this : " + userID)
-
+get_randomForTweets();
 	//get_tweets("mouse");
 }
 

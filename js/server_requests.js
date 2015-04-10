@@ -34,7 +34,7 @@ console.log("getting the data : " + xmlhttp.responseText)
 
 function get_randomForTweets() {
     var returnVal;
-    console.log("In random for tweets function with userId: " + userId)
+    console.log("In random for tweets function with userId: " + userID)
     //remove previous tweet entries
     document.getElementById("twitterWords").innerHTML = '';
 
@@ -359,7 +359,7 @@ function check_user(response) {
             set_greeting(response.name);
             userID = response.id;
             initialise(userID);
-                get_randomForTweets();
+
         }
     }
     var noCache = new Date().getTime();
