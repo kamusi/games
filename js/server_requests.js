@@ -88,6 +88,7 @@ function get_tweets(alreadyDisplayed) {
                 var listOfAll = results_array.filter(function(elem, pos) {
                     return results_array.indexOf(elem) == pos;
                   });
+                realIndex = 0
             listOfAll.forEach(function(elem, index){
                 realIndex = alreadyDisplayed + index;
                 last20Tweets[realIndex] = elem;
