@@ -1,4 +1,3 @@
-from twython import Twython, TwythonError, TwythonRateLimitError, TwythonAuthError
 from datetime import datetime
 from time import sleep
 from sys import maxint
