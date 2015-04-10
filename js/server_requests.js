@@ -34,7 +34,7 @@ console.log("getting the data : " + xmlhttp.responseText)
 
 function get_randomForTweets() {
     var returnVal;
-    console.log("In random for tweets function")
+    console.log("In random for tweets function with userId: " + userId)
     //remove previous tweet entries
     document.getElementById("twitterWords").innerHTML = '';
 
