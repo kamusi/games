@@ -10,8 +10,11 @@ import tweepy
 import json
 import urllib
 # assuming twitter_authentication.py contains each of the 4 oauth elements (1 per line)
-from twitter_authentication import API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET
-
+#from twitter_authentication import API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET
+API_KEY = 'V6LusI8cyP0ePYKwIQCgKiPoe'
+API_SECRET = 'NnY2sC0JZWw3BHfeqMSTY9iUQfwUHv4lRAKs3YvdOt70EAkpTI'
+ACCESS_TOKEN = '2399957756-FdFxU8AAykuhA7ieWSyIbX4WCHNG9ZENNvDjRQY'
+ACCESS_TOKEN_SECRET = 'GDJgTSWBjtxKtj8TKgIlouN0cOjnpIFizq07e4WgTcuUa'
 
 def search(keyword, amount):
 
@@ -39,9 +42,7 @@ def search(keyword, amount):
     return returnText
 
 def main(keyword, amount):
-    print "Can you see me???"
-#    print json.dumps(search(keyword, amount))
-    print (search(keyword, amount))
+    print json.dumps(search(keyword, amount))
 
 def remove_non_ascii(text):
     return text.join(i for i in text if ord(i)<128)
