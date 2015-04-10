@@ -7,7 +7,7 @@ $amount = $_GET['amount'];
 
 
 
-$output = shell_exec("python ../twitterReq.py " . $keyword . " " . $amount);
+$output = shell_exec("python2.7 ../twitterReq.py " . $keyword . " " . $amount);
 
 echo($output);
 
