@@ -9,6 +9,7 @@ import traceback
 import tweepy
 import json
 import urllib
+import urllib3
 # assuming twitter_authentication.py contains each of the 4 oauth elements (1 per line)
 #from twitter_authentication import API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET
 API_KEY = 'V6LusI8cyP0ePYKwIQCgKiPoe'
