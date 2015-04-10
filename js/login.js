@@ -68,3 +68,17 @@ function request() {
         console.log(response);
     });
 }
+
+function publishStory() {
+  FB.ui({
+    method: 'feed',
+    name: window.psDialogName,
+    caption: window.psDialogCaption,
+    description: window.psDialogDesc,
+    link: window.psDialogLink,
+    picture: window.psDialogPicture
+  },
+  function(response) {
+    console.log('publishStory() response: ', response);
+  });
+}
