@@ -41,7 +41,9 @@ $stmt->fetch();
 
 $stmt->close();
 
-
+var_dump($totalScoreOfTweet);
+var_dump($data["wordID"]);
+var_dump($data["tweetID"]);
 
 #get all concerned users;
 $stmt = $mysqli->prepare("SELECT DISTINCT UserID FROM TweetContext");# WHERE WordID= ? AND TweetID= ?;");
@@ -59,21 +61,21 @@ $stmt->close();
 #Check if this tweet has been voted as bad by at least 2 users
 if ($totalScoreOfTweet < -1 ) {
 	
-$stmt = $mysqli->prepare("DELETE FROM TweetContext WHERE WordID= ? AND TweetID= ?;");
-$stmt->bind_param("is", $data["wordID"], $data["tweetID"]);
-$stmt->execute();
-$result = $stmt->get_result();
-$stmt->close();
+	$stmt = $mysqli->prepare("DELETE FROM TweetContext WHERE WordID= ? AND TweetID= ?;");
+	$stmt->bind_param("is", $data["wordID"], $data["tweetID"]);
+	$stmt->execute();
+	$result = $stmt->get_result();
+	$stmt->close();
 
 
-foreach($concernedUsers as $user) {
+	foreach($concernedUsers as $user) {
 
-$stmt = $mysqli->prepare("UPDATE users SET Points = Points + 1 WHERE UserID=?;");
-$stmt->bind_param("s", $user);
-$stmt->execute();
-$stmt->close();
+		$stmt = $mysqli->prepare("UPDATE users SET Points = Points + 1 WHERE UserID=?;");
+		$stmt->bind_param("s", $user);
+		$stmt->execute();
+		$stmt->close();
 
-}
+	}
 }
 
 #after 5 upvotes, this tweet is a definite example for that word. Remove it from temp db and add it to the definitive db
