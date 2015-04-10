@@ -40,6 +40,7 @@ def search(keyword, amount):
     return returnText
 
 def main(keyword, amount):
+    print "Can you see me???"
 #    print json.dumps(search(keyword, amount))
     print (search(keyword, amount))
 
