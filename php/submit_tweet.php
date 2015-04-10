@@ -76,7 +76,7 @@ $stmt->close();
 }
 }
 
-#after 5 upvotes, this tweet is a definite example for that word. Remove it from temp db
+#after 5 upvotes, this tweet is a definite example for that word. Remove it from temp db and add it to the definitive db
 if ($totalScoreOfTweet > 4 ) {
 
 	foreach($concernedUsers as $user) {
@@ -90,6 +90,11 @@ if ($totalScoreOfTweet > 4 ) {
 
 	$stmt = $mysqli->prepare("INSERT INTO WordTweet (WordID, TweetID) VALUES (?,?);");
 	$stmt->bind_param("is", $data["wordID"], $data["tweetID"]);
+	$stmt->execute();
+	$stmt->close();	
+
+	$stmt = $mysqli->prepare("INSERT INTO Tweets (TweetID, Text, Author) VALUES (?,?,?);");
+	$stmt->bind_param("sss", $data["tweetID"], $data["tweetText"], $data["tweetAuthor"]  );
 	$stmt->execute();
 	$stmt->close();	
 

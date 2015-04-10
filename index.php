@@ -143,7 +143,7 @@ function generateToken() {
 							</span>
 						</div>
 						<div id="footer-next3">
-							<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick="submitTweets(); get_randomForTweets();">
+							<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick="submitTweets(); setTimeout(get_randomForTweets, 500);">
 						</div>
 					</div>
 				</div>

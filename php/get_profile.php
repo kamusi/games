@@ -1,12 +1,13 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
 include 'validate_token.php';
 
 $userID = $_GET['userID'];
 $token = $_GET['token'];
 
 if(!validate_token($token)) {
-	die();
+#	die();
 }
 
 // session_start();

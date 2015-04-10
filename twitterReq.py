@@ -14,24 +14,6 @@ import urllib
 from twitter_authentication import API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET
 
 
-class WhatToStore(object):
-    def __init__(self):
-        self.text = 1
-        self.author = 2
-
-def authenticate(APP_KEY, APP_SECRET):
-    while True:
-        write_log('Authenticating to Twitter...\n')
-        try:
-            twitter = Twython(APP_KEY, APP_SECRET, oauth_version=2)
-            ACCESS_TOKEN = twitter.obtain_access_token()
-            ret = Twython(APP_KEY, access_token=ACCESS_TOKEN)
-            write_log('Authentication successful\n')
-            return ret
-        except TwythonAuthError, e:
-            traceback.print_exc()
-            sleep(WAIT_BETWEEN_AUTH)
-
 def search(keyword, amount):
 
     auth = tweepy.OAuthHandler(API_KEY, API_SECRET)
@@ -39,7 +21,7 @@ def search(keyword, amount):
     api = tweepy.API(auth)
     text = api.search(q=keyword, rpp=500, count=100, include_entities=True)
     returnText = []
-    i = 0;
+    i = 1;
    #getting at tweet back based on it s id 
   #  status = api.get_status(id="112652479837110273").text
   #  print status
@@ -49,10 +31,11 @@ def search(keyword, amount):
             conn = urllib.urlopen("http://www.wdyl.com/profanity?q="+ urllib.quote(a.text.encode("utf-8"))) 
             response = conn.read()
             if json.loads(response)["response"] == "false" :
-                returnText.append({"Text": a.text, "Author": a.author.screen_name, "TweetID": a.id})
-                i = i+1
-            if(i > 19):
-                 break
+                if not a.text in returnText :
+                    returnText.append({"Text": a.text, "Author": a.author.screen_name, "TweetID": a.id})
+                    i = i+1
+                    if i > int(amount) :
+                         break
 
     return returnText
 

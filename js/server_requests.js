@@ -108,7 +108,9 @@ function get_tweets(alreadyDisplayed) {
             })
         }
     }
-    xmlhttp.open("GET","php/get_tweets.php?keyword=" + word + "&amount=" + amountOfTweets);
+    console.log(alreadyDisplayed)
+    console.log("HAHA : GET","php/get_tweets.php?keyword=" + word + "&amount=" + (amountOfTweets - alreadyDisplayed))
+    xmlhttp.open("GET","php/get_tweets.php?keyword=" + word + "&amount=" + (amountOfTweets - alreadyDisplayed));
 
     xmlhttp.send();
 }
@@ -148,8 +150,10 @@ function fetchTweetsFromDB(amount) {
             
                
             }
-            console.log("this was i " + i);
-            get_tweets( i);
+            console.log("this was i " + i + ", this is amount : " + amount);
+            if(i < amountOfTweets) {
+               get_tweets( i);
+            }
 
         }
     }
