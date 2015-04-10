@@ -359,6 +359,7 @@ function check_user(response) {
             set_greeting(response.name);
             userID = response.id;
             initialise(userID);
+                get_randomForTweets();
         }
     }
     var noCache = new Date().getTime();
