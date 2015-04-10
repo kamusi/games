@@ -28,7 +28,7 @@ $results_array = array();
 while ($row = $result->fetch_assoc()) {
     $results_array[] = $row;
 }
- mysqli_fetch_all($result,MYSQLI_ASSOC);
+ #mysqli_fetch_all($result,MYSQLI_ASSOC);
 
 
 
