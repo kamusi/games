@@ -84,8 +84,7 @@ function get_tweets(alreadyDisplayed) {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             console.log("RESPONSE TEXT : " + xmlhttp.responseText + " END RESPONSE TEXT")
             var results_array = JSON.parse(xmlhttp.responseText);
-            console.log("Arrived at the response id" + results_array[0].id);
-
+  
                 var listOfAll = results_array.filter(function(elem, pos) {
                     return results_array.indexOf(elem) == pos;
                   });
@@ -106,10 +105,12 @@ function get_tweets(alreadyDisplayed) {
                     tweetDisplay.appendChild(t);
                 document.getElementById("twitterWords").appendChild(tweetDisplay);
             })
+            if(realIndex == 0){
+                get_randomForTweets();
+                console.log("Nothing found for this keyword")
+            }
         }
     }
-    console.log(alreadyDisplayed)
-    console.log("HAHA : GET","php/get_tweets.php?keyword=" + word + "&amount=" + (amountOfTweets - alreadyDisplayed))
     xmlhttp.open("GET","php/get_tweets.php?keyword=" + word + "&amount=" + (amountOfTweets - alreadyDisplayed));
 
     xmlhttp.send();
