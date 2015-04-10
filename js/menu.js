@@ -170,6 +170,9 @@ function enter_game3() {
 	// document.getElementById("footer-next1").style.display = "none";
 	// document.getElementById("footer-next2").style.display = "inline-block";
 	//pause_animation();
+		FB.api('/me', function(response) {
+  		check_user(response);
+	});
 	get_randomForTweets();
 	//get_tweets("mouse");
 }
