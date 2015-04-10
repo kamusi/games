@@ -41,10 +41,6 @@ $stmt->fetch();
 
 $stmt->close();
 
-var_dump($totalScoreOfTweet);
-var_dump($data["wordID"]);
-var_dump($data["tweetID"]);
-
 #get all concerned users;
 $stmt = $mysqli->prepare("SELECT DISTINCT UserID FROM TweetContext");# WHERE WordID= ? AND TweetID= ?;");
 #$stmt->bind_param("is", $data["wordID"], $data["tweetID"]);
