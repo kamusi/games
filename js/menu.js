@@ -185,7 +185,9 @@ function display_about() {
 }
 
 function display_profile() {
-	check_user( {id: "858265020879794", name: "blabla"} )
+	FB.api('/me', function(response) {
+  		check_user(response);
+	});
 	document.getElementById("settings").style.display = "none";
 	document.getElementById("welcome").style.display = "none";
 	document.getElementById("game").style.display = "none";

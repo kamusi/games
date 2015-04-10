@@ -210,9 +210,6 @@ function sendBadExampleToDB(tweet){
         console.log(data);
     });
 
-//   xmlhttp.open("GET","php/submit_tweet.php?wordID=" + wordID + "&tweetID=" + tweet.TweetID  + "&tweetText=" + tweet.Text + "&userID=" + userID+ "&tweetAuthor=" + tweet.Author + "&good=-1", true);
- //   xmlhttp.send();
-  //  console.log("Just sent request to the db")
 }
 
 function sendGoodExampleToDB(tweet){
@@ -246,9 +243,6 @@ function sendGoodExampleToDB(tweet){
         console.log(data);
     });
 
-//   xmlhttp.open("GET","php/submit_tweet.php?wordID=" + wordID + "&tweetID=" + tweet.TweetID  + "&tweetText=" + tweet.Text + "&userID=" + userID+ "&tweetAuthor=" + tweet.Author + "&good=1", true);
- //  xmlhttp.open("GET","php/get_tweets.php?keyword=" + tweet);
- //   xmlhttp.send();
     console.log("Just sent request to the db" + tweet.Author )
 }
 
