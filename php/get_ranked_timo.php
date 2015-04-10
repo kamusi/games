@@ -19,8 +19,9 @@ $user = 'root';
 $pass = '';
 $db = 'kamusi';
 
-
-
+var_dump($userID);
+var_dump($userID);
+var_dump($userID);
 $con = mysqli_connect('localhost', $user, $pass, $db);
 
 // NOT CHECKING INPUTS MAKES THIS VULNERABLE TO SQL INJECTION
@@ -29,7 +30,6 @@ $result = mysqli_query($con, $sql);
 $results_array = $result->fetch_assoc();
 
 $user_position = $results_array["PositionMode1"];
-var_dump($user_position);
 
 // Retrieve ID of word with first Rank greater than user_position, i.e. the first word with a sense.
 $sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
