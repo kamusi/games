@@ -19,9 +19,6 @@ $user = 'root';
 $pass = '';
 $db = 'kamusi';
 
-var_dump($userID);
-var_dump($userID);
-var_dump($userID);
 $con = mysqli_connect('localhost', $user, $pass, $db);
 
 // NOT CHECKING INPUTS MAKES THIS VULNERABLE TO SQL INJECTION

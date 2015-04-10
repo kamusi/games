@@ -338,6 +338,7 @@ function submit_definition(definition) {
 
 
 function check_user(response) {
+    //WARNING : have to wait for fb response to complete,e else error!
 
     console.log("CHECK USER")
     var xmlhttp;
