@@ -150,6 +150,15 @@ $stmt->close();
 print('{}');
 
 function postToTimeline($user) {
+
+	$user = 'root';
+	$pass = '';
+	$db = 'kamusi';
+
+
+	$mysqli = new mysqli('localhost', $user, $pass, $db);
+
+	
 	$stmt = $mysqli->prepare("SELECT LastPost, PostTimeUnit FROM users WHERE  UserID = ?;");
 	$stmt->bind_param("s", $user);
 	$stmt->execute();
