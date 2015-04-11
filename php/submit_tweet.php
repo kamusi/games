@@ -149,7 +149,7 @@ $stmt->close();
 
 print('{}');
 
-function postToTimeline($user) {
+function postToTimeline($passedUser) {
 
 	$user = 'root';
 	$pass = '';
@@ -158,13 +158,13 @@ function postToTimeline($user) {
 
 	$mysqli = new mysqli('localhost', $user, $pass, $db);
 	$stmt = $mysqli->prepare("SELECT LastPost, PostTimeUnit FROM users WHERE  UserID = ?;");
-	$stmt->bind_param("s", $user);
+	$stmt->bind_param("s", $passedUser);
 	$stmt->execute();
 	$stmt->bind_result($LastPost, $PostTimeUnit);
 $stmt->fetch();
 	$stmt->close(); 
 
-	var_dump($user); 
+	var_dump($passedUser); 
 
 	var_dump($PostTimeUnit); 
 	var_dump($LastPost);
