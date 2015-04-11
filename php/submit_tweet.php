@@ -57,7 +57,7 @@ $stmt->close();
 
 
 #Check if this tweet has been voted as bad by at least 2 users
-if ($totalScoreOfTweet < 5 ) {
+if ($totalScoreOfTweet < -1 ) {
 	
 	$stmt = $mysqli->prepare("DELETE FROM TweetContext WHERE WordID= ? AND TweetID= ?;");
 	$stmt->bind_param("is", $data["wordID"], $data["tweetID"]);
@@ -79,7 +79,7 @@ if ($totalScoreOfTweet < 5 ) {
 }
 
 #after 5 upvotes, this tweet is a definite example for that word. Remove it from temp db and add it to the definitive db
-if ($totalScoreOfTweet > 0 ) {  #TODO PUT THID NACK TO 4
+if ($totalScoreOfTweet > 4 ) {  #TODO PUT THID NACK TO 4
 
 	foreach($concernedUsers as $user) {
 
