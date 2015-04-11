@@ -161,7 +161,10 @@ function postToTimeline($user) {
 	$stmt->bind_param("s", $user);
 	$stmt->execute();
 	$stmt->bind_result($LastPost, $PostTimeUnit);
+$stmt->fetch();
 	$stmt->close(); 
+
+	var_dump($user); 
 
 	var_dump($PostTimeUnit); 
 	var_dump($LastPost);
