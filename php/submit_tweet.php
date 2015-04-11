@@ -91,7 +91,7 @@ if ($totalScoreOfTweet > 0 ) {  #TODO PUT THID NACK TO 4
 
 	}
 
-	postToTimeline();
+	postToTimeline($data["userID"]);
 
 	$stmt = $mysqli->prepare("INSERT INTO WordTweet (WordID, TweetID, UserID, ts) VALUES (?,?,?, UTC_TIMESTAMP());");
 	$stmt->bind_param("iss", $data["wordID"], $data["tweetID"], $data["userID"]);
@@ -150,7 +150,7 @@ $stmt->close();
 
 echo json_encode($returnText);
 
-function postToTimeline() {
+function postToTimeline($currentUser) {
 
 	$user = 'root';
 	$pass = '';
@@ -159,7 +159,7 @@ function postToTimeline() {
 
 	$mysqli = new mysqli('localhost', $user, $pass, $db);
 	$stmt = $mysqli->prepare("SELECT LastPost, PostTimeUnit FROM users WHERE  UserID = ?;");
-	$stmt->bind_param("s", $data["userID"]);
+	$stmt->bind_param("s", $currentUser);
 	$stmt->execute();
 	$stmt->bind_result($LastPost, $PostTimeUnit);
 	$stmt->fetch();
