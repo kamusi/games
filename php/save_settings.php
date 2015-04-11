@@ -22,13 +22,13 @@ if (!mysqli_set_charset($con, "utf8")) {
 }
 
 $stmt = $mysqli->prepare("UPDATE users SET NotificationTimeUnit=? WHERE UserID=$userID;");
-$stmt->bind_param("s",  $data["notify"]);
+$stmt->bind_param("s",  $notify);
 
 $stmt->execute();
 $stmt->close();
 
 $stmt = $mysqli->prepare("UPDATE users SET PostTimeUnit=? WHERE UserID=$userID;");
-$stmt->bind_param("s",  $data["notify"]);
+$stmt->bind_param("s",  $post);
 
 $stmt->execute();
 $stmt->close();
