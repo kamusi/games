@@ -506,6 +506,8 @@ function saveSettings() {
     console.log("Begin save settings")
     whenToNotify = document.getElementById("notifications").selectedIndex;
     whenToPost = document.getElementById("posts").selectedIndex;
+
+    console.log("VARS : " + whenToPost + whenToNotify)
      var xmlhttp;
      
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
