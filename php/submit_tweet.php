@@ -41,9 +41,9 @@ $stmt->fetch();
 
 $stmt->close();
 
-#get all concerned users;
+get all concerned users;
 $stmt = $mysqli->prepare("SELECT DISTINCT UserID FROM TweetContext WHERE WordID= ? AND TweetID= ?;");
-#$stmt->bind_param("is", $data["wordID"], $data["tweetID"]);
+$stmt->bind_param("is", $data["wordID"], $data["tweetID"]);
 $stmt->execute();
 $result = $stmt->get_result();
 
