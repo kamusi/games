@@ -30,7 +30,7 @@ $stmt = $mysqli->prepare("INSERT INTO TweetContext (TweetID, Text, Author, UserI
 $stmt->bind_param("ssssii",  $data["tweetID"],$data["tweetText"], $data["tweetAuthor"],$data["userID"], $data["wordID"], $data["good"]);
 
 $stmt->execute();
-echo $mysqli->error($stmt);
+echo $mysqli->error;
 $stmt->close();
 
 
