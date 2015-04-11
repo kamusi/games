@@ -11,15 +11,7 @@ $user = 'root';
 $pass = '';
 $db = 'kamusi';
 
-$con = mysqli_connect('localhost', $user, $pass, $db);
-
-if (!$con) {
-	die('Could not connect: ' . mysqli_error($con));
-}
-
-if (!mysqli_set_charset($con, "utf8")) {
-    echo "PROBLEM WITH UTF 8 ENCODIG";
-}
+$mysqli = new mysqli('localhost', $user, $pass, $db);
 
 $stmt = $mysqli->prepare("UPDATE users SET NotificationTimeUnit=? WHERE UserID=$userID;");
 $stmt->bind_param("s",  $notify);
