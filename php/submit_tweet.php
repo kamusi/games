@@ -30,6 +30,7 @@ $stmt = $mysqli->prepare("INSERT INTO TweetContext (TweetID, Text, Author, UserI
 $stmt->bind_param("ssssii",  $data["tweetID"],$data["tweetText"], $data["tweetAuthor"],$data["userID"], $data["wordID"], $data["good"]);
 
 $stmt->execute();
+
 $stmt->close();
 
 
@@ -56,7 +57,7 @@ $stmt->close();
 
 
 #Check if this tweet has been voted as bad by at least 2 users
-if ($totalScoreOfTweet < -1 ) {
+if ($totalScoreOfTweet < 5 ) {
 	
 	$stmt = $mysqli->prepare("DELETE FROM TweetContext WHERE WordID= ? AND TweetID= ?;");
 	$stmt->bind_param("is", $data["wordID"], $data["tweetID"]);
