@@ -182,7 +182,8 @@ function postToTimeline($currentUser) {
 	$stmt->close();  
 
 		$returnText = "My tweet " . $tweetText . " got accepted as excellent example for the word " . $word;
-
+		var_dump($returnText);
+		var_dump($tweetText);
 	}
 
 }
