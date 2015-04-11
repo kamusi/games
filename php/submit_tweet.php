@@ -30,7 +30,7 @@ $stmt = $mysqli->prepare("INSERT INTO TweetContext (TweetID, Text, Author, UserI
 $stmt->bind_param("ssssii",  $data["tweetID"],$data["tweetText"], $data["tweetAuthor"],$data["userID"], $data["wordID"], $data["good"]);
 
 $stmt->execute();
-echo $mysqli->error;
+
 $stmt->close();
 
 
@@ -79,7 +79,7 @@ if ($totalScoreOfTweet < -1 ) {
 }
 
 #after 5 upvotes, this tweet is a definite example for that word. Remove it from temp db and add it to the definitive db
-if ($totalScoreOfTweet > 4 ) {  #TODO PUT THID NACK TO 4
+if ($totalScoreOfTweet > 0 ) {  #TODO PUT THID NACK TO 4
 
 	foreach($concernedUsers as $user) {
 
