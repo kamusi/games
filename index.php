@@ -220,7 +220,7 @@ function generateToken() {
 				<div id="settings-main">
 					<p>My language is...</p>
 					</br>
-					<select onchange= size="1">
+					<select id="language" onchange= size="1">
 			  			<option>English</option>
 			  			<option>Français</option>
 			  			<option>tiếng Việt</option>
@@ -228,15 +228,16 @@ function generateToken() {
 					</br></br>
 					<p>Notify me about new points I earned...</p>
 					</br>
-					<select size="1">
+					<select id="notifications" size="1">
 			  			<option>Real time</option>
 			  			<option>Once daily</option>
 			  			<option>Once weekly</option>
 			  			<option>When pigs fly...</option>
 					</select>
+					</br></br>
 					<p>Post achievements to my timeline...</p>
 					
-					<select size="1">
+					<select id= "posts" size="1">
 			  			<option>Always (Every time I have a winning entry)</option>
 			  			<option>Often (Max once a day)</option>
 			  			<option>Sometimes (Max once a week)</option>

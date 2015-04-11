@@ -6,6 +6,10 @@ var definitionID;
 var groupID;
 var amountOfTweets;
 
+//vars for posts to wall
+var whenToPost;
+var whenToNotify;
+
 var translationID;
 
 var last20Tweets = {}
@@ -338,7 +342,6 @@ function submit_definition(definition) {
 
 
 function check_user() {
-    //WARNING : have to wait for fb response to complete,e else error!
 
     console.log("CHECK USER")
     var xmlhttp;
@@ -497,4 +500,20 @@ function submit_translation(translation) {
     var noCache = new Date().getTime();
     xmlhttp.open("GET","php/submit_translation.php?translation=" + translation + "&wordID=" + translationID + "&userID=" + userID + "&noCache=" + noCache, true);
     xmlhttp.send();
+}
+
+function saveSettings() {
+    whenToNotify = document.getElementById("notifications").selectedIndex;
+    whenToPost = document.getElementById("posts").selectedIndex;
+     var xmlhttp;
+     
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    var noCache = new Date().getTime();
+    xmlhttp.open("GET","php/save_settings.php?userID=" + userID + "&notify=" + whenToNotify + "&post=" + whenToPost);
+    xmlhttp.send();   
 }
