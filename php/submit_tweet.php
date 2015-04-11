@@ -91,7 +91,7 @@ if ($totalScoreOfTweet > 0 ) {  #TODO PUT THID NACK TO 4
 
 	}
 
-	postToTimeline($user);
+	postToTimeline();
 
 	$stmt = $mysqli->prepare("INSERT INTO WordTweet (WordID, TweetID, UserID, ts) VALUES (?,?,?, UTC_TIMESTAMP());");
 	$stmt->bind_param("iss", $data["wordID"], $data["tweetID"], $data["userID"]);
