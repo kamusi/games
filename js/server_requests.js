@@ -362,7 +362,7 @@ function check_user() {
                 // document.getElementById('greeting').innerHTML = 'Welcome, ' + response.name + '!';
                 // document.getElementById('profile_name').innerHTML = response.name;
             }
-            //set_greeting(response.name);
+            set_greeting(response.name);
             initialise(userID);
             console.log("USERID IS SET: " + userID);
             get_randomForTweets();

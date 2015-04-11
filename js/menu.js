@@ -173,6 +173,7 @@ function enter_game3() {
 	FB.getLoginStatus(function(response) {
   alert('OK');
 		FB.api('/me', function(response) {
+			set_greeting(response.name);
 			userID = response.id;
   		check_user();
 	});
