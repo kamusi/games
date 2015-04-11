@@ -71,6 +71,8 @@ if ($totalScoreOfTweet < -1 ) {
 		$stmt->execute();
 		$stmt->close();
 
+
+
 	}
 }
 
@@ -84,10 +86,12 @@ if ($totalScoreOfTweet > 4 ) {
 		$stmt->execute();
 		$stmt->close();
 
+		postToTimeline($user);
+
 	}
 
-	$stmt = $mysqli->prepare("INSERT INTO WordTweet (WordID, TweetID) VALUES (?,?);");
-	$stmt->bind_param("is", $data["wordID"], $data["tweetID"]);
+	$stmt = $mysqli->prepare("INSERT INTO WordTweet (WordID, TweetID, UserID, ts) VALUES (?,?,?, UTC_TIMESTAMP());");
+	$stmt->bind_param("iss", $data["wordID"], $data["tweetID"], $data["userID"]);
 	$stmt->execute();
 	$stmt->close();	
 
@@ -144,5 +148,16 @@ $stmt->close();
 
 
 print('{}');
+
+function postToTimeline($user) {
+	$stmt = $mysqli->prepare("SELECT LastPost, PostTimeUnit FROM users WHERE  UserID = ?;");
+	$stmt->bind_param("s", $user);
+	$stmt->execute();
+	$result = $stmt->get_result();
+	$stmt->close(); 
+
+	var_dump($result["LastPost"]); 
+
+}
 
 ?>
