@@ -180,7 +180,7 @@ function submitTweets() {
             console.log("about to send this to php " + last20Tweets[i].TweetID )
         }
         else {
-            sendBadExampleToDB(last20Tweets[i]);
+            //sendBadExampleToDB(last20Tweets[i]);
         }
     }
 

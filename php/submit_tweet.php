@@ -77,7 +77,7 @@ if ($totalScoreOfTweet < -1 ) {
 }
 
 #after 5 upvotes, this tweet is a definite example for that word. Remove it from temp db and add it to the definitive db
-if ($totalScoreOfTweet > 0 ) {
+if ($totalScoreOfTweet > 0 ) {  #TODO PUT THID NACK TO 4
 
 	foreach($concernedUsers as $user) {
 
