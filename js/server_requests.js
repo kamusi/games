@@ -503,12 +503,14 @@ function submit_translation(translation) {
 }
 
 function saveSettings() {
+    console.log("Begin save settings")
     whenToNotify = document.getElementById("notifications").selectedIndex;
     whenToPost = document.getElementById("posts").selectedIndex;
      var xmlhttp;
      
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
+        console.log("END save settings")
     }
     else {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
