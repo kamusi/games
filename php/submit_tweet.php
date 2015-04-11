@@ -11,7 +11,7 @@ $user = 'root';
 $pass = '';
 $db = 'kamusi';
 
-$returnText = "lalala"
+$returnText = "lalala";
 
 $mysqli = new mysqli('localhost', $user, $pass, $db);
 
