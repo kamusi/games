@@ -11,7 +11,7 @@ $user = 'root';
 $pass = '';
 $db = 'kamusi';
 
-$returnText = "lalala";
+$returnText = "nothing";
 
 $mysqli = new mysqli('localhost', $user, $pass, $db);
 
@@ -166,7 +166,22 @@ function postToTimeline() {
 
 
 	if($PostTimeUnit== "0") {
-		#post right away
+
+		$stmt = $mysqli->prepare("SELECT Text FROM TweetContext WHERE WordID= ? AND TweetID= ?;");
+		$stmt->bind_param("is", $data["wordID"], $data["tweetID"]);
+		$stmt->execute();
+		$stmt->bind_result($tweetText);
+		$stmt->fetch();
+	$stmt->close();
+
+		$stmt = $mysqli->prepare("SELECT Word FROM words WHERE WordID= ? ;");
+		$stmt->bind_param("i", $data["wordID"]);
+		$stmt->execute();
+		$stmt->bind_result($word);
+		$stmt->fetch();
+	$stmt->close();  
+
+		$returnText = "My tweet " . $tweetText . " got accepted as excellent example for the word " . $word
 
 	}
 
