@@ -174,7 +174,7 @@ function postToTimeline($currentUser) {
 		$stmt->fetch();
 	$stmt->close();
 
-		$stmt = $mysqli->prepare("SELECT Word FROM words WHERE WordID= ? ;");
+		$stmt = $mysqli->prepare("SELECT Word FROM words WHERE ID= ? ;");
 		$stmt->bind_param("i", $data["wordID"]);
 		$stmt->execute();
 		$stmt->bind_result($word);
