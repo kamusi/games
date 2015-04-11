@@ -175,7 +175,7 @@ function generateToken() {
 					</div>
 				</div>
 				<div id="about-footer">
-					<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick();return_to_game();">
+					<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick(); saveSettings();return_to_game(); ">
 				</div>
 			</div>
 			<div id="profile">
