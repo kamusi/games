@@ -146,7 +146,7 @@ $stmt->close();
 }
 
 #$result = mysqli_query($con, $sql) or die(mysqli_error($con));
-
+	var_dump($data["userID"]);
 
 echo json_encode($returnText);
 
@@ -159,13 +159,13 @@ function postToTimeline() {
 
 	$mysqli = new mysqli('localhost', $user, $pass, $db);
 	$stmt = $mysqli->prepare("SELECT LastPost, PostTimeUnit FROM users WHERE  UserID = ?;");
-	$stmt->bind_param("s", $data["UserID"]);
+	$stmt->bind_param("s", $data["userID"]);
 	$stmt->execute();
 	$stmt->bind_result($LastPost, $PostTimeUnit);
 	$stmt->fetch();
 	$stmt->close(); 
 
-
+	var_dump($data["userID"]);
 	if($PostTimeUnit == "0") {
 
 		$stmt = $mysqli->prepare("SELECT Text FROM TweetContext WHERE WordID= ? AND TweetID= ?;");
