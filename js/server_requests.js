@@ -517,8 +517,7 @@ function saveSettings() {
     }
         xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            obj = JSON.parse(xmlhttp.responseText);
-            console.log("END save settings : " + obj)
+            console.log("END save settings : " + xmlhttp.responseText)
         }
     }
 
