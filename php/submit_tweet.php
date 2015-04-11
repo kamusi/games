@@ -147,7 +147,7 @@ $stmt->close();
 #$result = mysqli_query($con, $sql) or die(mysqli_error($con));
 
 
-print('{text:' . $returnText . '}');
+echo json_encode($returnText);
 
 function postToTimeline() {
 
