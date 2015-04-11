@@ -181,7 +181,7 @@ function postToTimeline() {
 		$stmt->fetch();
 	$stmt->close();  
 
-		$returnText = "My tweet " . $tweetText . " got accepted as excellent example for the word " . $word
+		$returnText = "My tweet " . $tweetText . " got accepted as excellent example for the word " . $word;
 
 	}
 
