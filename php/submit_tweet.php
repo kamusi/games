@@ -1,40 +1,4 @@
 <?php
-require_once( 'facebook/Entities/AccessToken.php' );
-// added in v4.0.5
-require_once( 'facebook/HttpClients/FacebookHttpable.php' );
-require_once( 'facebook/HttpClients/FacebookCurl.php' );
-require_once( 'facebook/HttpClients/FacebookCurlHttpClient.php' );
-
-// added in v4.0.0
-require_once( 'facebook/FacebookSession.php' );
-require_once( 'facebook/FacebookRedirectLoginHelper.php' );
-require_once( 'facebook/FacebookRequest.php' );
-require_once( 'facebook/FacebookResponse.php' );
-require_once( 'facebook/FacebookSDKException.php' );
-require_once( 'facebook/FacebookRequestException.php' );
-require_once( 'facebook/FacebookOtherException.php' );
-require_once( 'facebook/FacebookAuthorizationException.php' );
-require_once( 'facebook/GraphObject.php' );
-require_once( 'facebook/GraphSessionInfo.php' );
-
-// added in v4.0.5
-use Facebook\FacebookHttpable;
-use Facebook\FacebookCurl;
-use Facebook\FacebookCurlHttpClient;
-
-// added in v4.0.0
-use Facebook\FacebookSession;
-use Facebook\FacebookRedirectLoginHelper;
-use Facebook\FacebookRequest;
-use Facebook\FacebookResponse;
-use Facebook\FacebookSDKException;
-use Facebook\FacebookRequestException;
-use Facebook\FacebookOtherException;
-use Facebook\FacebookAuthorizationException;
-use Facebook\GraphObject;
-use Facebook\GraphSessionInfo;
-
-
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
@@ -47,6 +11,7 @@ $user = 'root';
 $pass = '';
 $db = 'kamusi';
 
+$returnText = "lalala"
 
 $mysqli = new mysqli('localhost', $user, $pass, $db);
 
@@ -182,7 +147,7 @@ $stmt->close();
 #$result = mysqli_query($con, $sql) or die(mysqli_error($con));
 
 
-print('{}');
+print('{text:' . $returnText . '}');
 
 function postToTimeline() {
 
@@ -202,17 +167,7 @@ function postToTimeline() {
 
 	if($PostTimeUnit== "0") {
 		#post right away
-		$helper = new FacebookJavaScriptLoginHelper();
-try {
-  $session = $helper->getSession();
-} catch(FacebookRequestException $ex) {
-  // When Facebook returns an error
-} catch(\Exception $ex) {
-  // When validation fails or other local issues
-}
-if ($session) {
-  // Logged in
-}
+
 	}
 
 }
