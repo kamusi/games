@@ -1,4 +1,40 @@
 <?php
+require_once( 'facebook/Entities/AccessToken.php' );
+// added in v4.0.5
+require_once( 'facebook/HttpClients/FacebookHttpable.php' );
+require_once( 'facebook/HttpClients/FacebookCurl.php' );
+require_once( 'facebook/HttpClients/FacebookCurlHttpClient.php' );
+
+// added in v4.0.0
+require_once( 'facebook/FacebookSession.php' );
+require_once( 'facebook/FacebookRedirectLoginHelper.php' );
+require_once( 'facebook/FacebookRequest.php' );
+require_once( 'facebook/FacebookResponse.php' );
+require_once( 'facebook/FacebookSDKException.php' );
+require_once( 'facebook/FacebookRequestException.php' );
+require_once( 'facebook/FacebookOtherException.php' );
+require_once( 'facebook/FacebookAuthorizationException.php' );
+require_once( 'facebook/GraphObject.php' );
+require_once( 'facebook/GraphSessionInfo.php' );
+
+// added in v4.0.5
+use Facebook\FacebookHttpable;
+use Facebook\FacebookCurl;
+use Facebook\FacebookCurlHttpClient;
+
+// added in v4.0.0
+use Facebook\FacebookSession;
+use Facebook\FacebookRedirectLoginHelper;
+use Facebook\FacebookRequest;
+use Facebook\FacebookResponse;
+use Facebook\FacebookSDKException;
+use Facebook\FacebookRequestException;
+use Facebook\FacebookOtherException;
+use Facebook\FacebookAuthorizationException;
+use Facebook\GraphObject;
+use Facebook\GraphSessionInfo;
+
+
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
@@ -86,9 +122,10 @@ if ($totalScoreOfTweet > 0 ) {  #TODO PUT THID NACK TO 4
 		$stmt->execute();
 		$stmt->close();
 
-		postToTimeline($user);
 
 	}
+
+	postToTimeline($user);
 
 	$stmt = $mysqli->prepare("INSERT INTO WordTweet (WordID, TweetID, UserID, ts) VALUES (?,?,?, UTC_TIMESTAMP());");
 	$stmt->bind_param("iss", $data["wordID"], $data["tweetID"], $data["userID"]);
@@ -117,12 +154,10 @@ if ($totalScoreOfTweet > 0 ) {  #TODO PUT THID NACK TO 4
 	$stmt->fetch();
 
 	$stmt->close();	
+
 	if($numberOfRefsForThatWord > 2) {
-	var_dump($data["wordID"]);
-	$stmt = $mysqli->prepare("UPDATE rank SET GotEnoughExamples=1 WHERE ID= ? ;");
-	$stmt->bind_param("i", $data["wordID"]);
-	$stmt->execute();
-	$stmt->close();	
+
+		#to determine when we are linked to kamusi db. probably put rank to 0
 	}
 
 }
@@ -149,7 +184,7 @@ $stmt->close();
 
 print('{}');
 
-function postToTimeline($passedUser) {
+function postToTimeline() {
 
 	$user = 'root';
 	$pass = '';
@@ -158,16 +193,27 @@ function postToTimeline($passedUser) {
 
 	$mysqli = new mysqli('localhost', $user, $pass, $db);
 	$stmt = $mysqli->prepare("SELECT LastPost, PostTimeUnit FROM users WHERE  UserID = ?;");
-	$stmt->bind_param("s", $passedUser);
+	$stmt->bind_param("s", $data["userID"]);
 	$stmt->execute();
 	$stmt->bind_result($LastPost, $PostTimeUnit);
-$stmt->fetch();
+	$stmt->fetch();
 	$stmt->close(); 
 
-	var_dump($passedUser); 
 
-	var_dump($PostTimeUnit); 
-	var_dump($LastPost);
+	if($PostTimeUnit== "0") {
+		#post right away
+		$helper = new FacebookJavaScriptLoginHelper();
+try {
+  $session = $helper->getSession();
+} catch(FacebookRequestException $ex) {
+  // When Facebook returns an error
+} catch(\Exception $ex) {
+  // When validation fails or other local issues
+}
+if ($session) {
+  // Logged in
+}
+	}
 
 }
 
