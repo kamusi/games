@@ -165,8 +165,8 @@ function postToTimeline() {
 	$stmt->fetch();
 	$stmt->close(); 
 
-
-	if($PostTimeUnit== "0") {
+	var_dump($PostTimeUnit);
+	if($PostTimeUnit == "0") {
 
 		$stmt = $mysqli->prepare("SELECT Text FROM TweetContext WHERE WordID= ? AND TweetID= ?;");
 		$stmt->bind_param("is", $data["wordID"], $data["tweetID"]);
