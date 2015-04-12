@@ -68,12 +68,12 @@ function request() {
     });
 }
 
-function publishStory() {
+function publishStory(text) {
   FB.ui({
     method: 'feed',
     name: window.psDialogName,
     caption: window.psDialogCaption,
-    description: window.psDialogDesc,
+    description: text,
     link: window.psDialogLink,
     picture: window.psDialogPicture
   },
