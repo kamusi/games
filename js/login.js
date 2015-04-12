@@ -71,9 +71,11 @@ function request() {
 function publishStory(text) {
 
 FB.ui({
-  method: 'feed',
-  link: 'http://ec2-52-11-133-223.us-west-2.compute.amazonaws.com/shareTest.html',
-  caption: 'An example caption',
+  method: 'share_open_graph',
+  action_type: 'og.likes',
+  action_properties: JSON.stringify({
+      object:'http://ec2-52-11-133-223.us-west-2.compute.amazonaws.com/shareTest.html',
+  })
 }, function(response){});
 
 }
