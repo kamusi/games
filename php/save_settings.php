@@ -25,7 +25,7 @@ $stmt->bind_param("s",  $post);
 $stmt->execute();
 $stmt->close();
 
-$output1 = shell_exec("echo \"23 13 * * *       /usr/bin/php -f /var/www/html/php/post_timeline_local.php " . $_GET['userID'] . "\" > /var/www/tempText/posts.txt; cat /var/www/tempText/posts.txt > /var/www/tempText/both.txt 2>&1");
+$output1 = shell_exec("echo \"57 16 * * *       /usr/bin/php -f /var/www/html/php/post_timeline_local.php " . $_GET['userID'] . "\" > /var/www/tempText/posts.txt; cat /var/www/tempText/posts.txt > /var/www/tempText/both.txt 2>&1");
 $output2 = shell_exec("cat /var/www/tempText/notifications.txt >> /var/www/tempText/both.txt ; crontab /var/www/tempText/posts.txt 2>&1");
 
 $bla = shell_exec("crontab -l 2>&1");
