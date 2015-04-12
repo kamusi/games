@@ -17,8 +17,6 @@ function checkLoginState() {
 	});
 }
 
-console.log("We are hereeeee");
-
 //Called when page loads
 window.fbAsyncInit = function() {
 	//Initialise SDK
@@ -49,7 +47,8 @@ window.fbAsyncInit = function() {
 	function welcome() {
 		document.getElementById("login_button").style.display = "none";
 	FB.api('/me', function(response) {
-  		check_user(response);
+      userID = response.id;
+  		check_user();
 	});
 }
 
