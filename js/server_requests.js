@@ -244,7 +244,7 @@ function sendGoodExampleToDB(tweet){
     .done( function( data ) {
         console.log('done');
         //Posts only happen if a word was accepted. Thus, it was a wod flagged as good by the user
-        publishStory(data);
+        
     })
     .fail( function( data ) {
         console.log('fail');
