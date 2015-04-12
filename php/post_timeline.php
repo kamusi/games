@@ -19,9 +19,10 @@ $stmt->execute();
 $stmt->bind_result($LastPost, $WordTweetsSinceLastPost, $PostTimeUnit);
 $stmt->fetch();
 $stmt->close(); 
-
+$returnValue = array();
 
 if($PostTimeUnit == "0") {
+
 	echo json_encode($WordTweetsSinceLastPost);
 }
 
