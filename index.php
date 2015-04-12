@@ -24,7 +24,7 @@ function generateToken() {
 </head>
 
 <?php
-	$newToken = generateToken();
+$newToken = generateToken();
 ?>
 
 <body> <!-- onkeypress="secondEnter(event)" -->
@@ -35,7 +35,7 @@ function generateToken() {
 				<img id="logo" src="media/logo.png" onmousedown="animate_logo();">
 				<img title="Better English" id="enter1" class="shaded_enter" src="media/uk.png" onmousedown="playClick();enter_game1();">
 				<img title="Từ này là" id="enter2" class="shaded_enter" src="media/vn.png" onmousedown="playClick();enter_game2();">
- 				<img title="TweetGame" id="enter3" class="animateenter" src="media/xbox.png" onmousedown="playClick();enter_game3();">
+				<img title="TweetGame" id="enter3" class="animateenter" src="media/xbox.png" onmousedown="playClick();enter_game3();">
 			</div>
 			<div id="game" ng-app>
 				<div id="controls">
@@ -119,7 +119,7 @@ function generateToken() {
 						</div>
 					</div>
 				</div>
-			
+				
 				<div id="gamezone3" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 					<div id="gamezone-main3" >
 						<div id="entry">
@@ -141,125 +141,131 @@ function generateToken() {
 							<span id="login_button">
 								<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
 							</span>
+							<div
+							class="fb-like"
+							data-share="true"
+							data-width="450"
+							data-show-faces="true">
 						</div>
-						<div id="footer-next3">
-							<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick="submitTweets(); setTimeout(get_randomForTweets, 500);">
-						</div>
 					</div>
-				</div>
-				</div>
-			<div id="about">
-				<div id="about-main">
-					<div id="about-data">
-						<h2>About</h2>
-						<p>
-						The Kamusi Project (<a href="http://kamusi.org/" target="_blank">http://kamusi.org/</a>) is a participatory international effort dedicated to improving knowledge of the world's languages. Our long term mission is to produce dictionaries and other language resources for every language, and to make those resources available for free to everyone.
-						</p>
-						</br>
-						<h2>How to write a great definition</h2>
-						<p>
-						Definitions are explanations of what a word means. They are not single words (those are synonyms). You can usually use a definition instead of the actual word. Stick to these rules:
-						</p>
-						<ul>
-							<li> Short and sweet: A definition should be as brief as possible to explain the concept, but long enough to describe it fully. If the same word has different meanings, those are different concepts with different definitions- a definition in Kamusi only explains *one* concept.
-							</li>
-							<li> Easy does it: Use the simplest words you can -definitions should not force readers to jump around the dictionary more, unless technical terms are absolutely necessary.
-							</li>
-							<li> No circles: Definitions should NOT contain the word that is being defined, nor its close relatives. "Happiness" is "A feeling of joy.", not "The feeling of being happy." Definitions should not be circular - we cannot now say "joy" is "A feeling of happiness."
-							</li>
-							<li> No fluff: Do not start with "A term meaning", or "This is a", or "X refers to", etc. Style: Begin with a Capital letter and end with a period.
-							</li>
-						</ul>
-						</br>
-						For more information, you can watch this video: <a href="https://www.youtube.com/watch?v=aaqOQQOYuHA" target="_blank">https://www.youtube.com/watch?v=aaqOQQOYuHA</a>
+					<div id="footer-next3">
+						<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick="submitTweets(); setTimeout(get_randomForTweets, 500);">
 					</div>
-				</div>
-				<div id="about-footer">
-					<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick();return_to_game(); ">
-				</div>
-			</div>
-			<div id="profile">
-				<div id="profile-main">
-					<div id="profile-avatar-wrapper">
-						<img id="profile_avatar" src="" width="200">
-					</div>
-					<div id="profile-info-wrapper">
-						<table id="profile_info">
-							<tr>
-								<td>Name</td>
-								<td id="profile_name"></td>
-							</tr>
-							<tr>
-								<td>Points</td>
-								<td id="profile_points"></td>
-							</tr>
-							<tr>
-								<td>Pending points</td>
-								<td id="pending_points"></td>
-							</tr>
-							<tr>
-								<td>Attempts</td>
-								<td id="profile_attempts"></td>
-							</tr>
-						</table>
-					</div>
-					<div id="profile_trophies_wrapper">
-						<table id="profile_trophies"></table>
-					</div>
-				</div>
-				<div id="profile-footer">
-					<div id="profile-footer-left">
-						<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick();return_to_game();">
-					</div>
-					<div id="profile-footer-right">
-						<img id="settings_button" title="Settings" class="control" src="media/settings.png" onclick="playClick();display_settings();">
-					</div>
-				</div>
-			</div>
-			<div id="settings">
-				<div id="settings-main">
-					<p>My language is...</p>
-					</br>
-					<select id="language" onchange= size="1">
-			  			<option>English</option>
-			  			<option>Français</option>
-			  			<option>tiếng Việt</option>
-					</select>
-					</br></br>
-					<p>Notify me about new points I earned...</p>
-					</br>
-					<select id="notifications" size="1">
-			  			<option>Real time</option>
-			  			<option>Once daily</option>
-			  			<option>Once weekly</option>
-			  			<option>When pigs fly...</option>
-					</select>
-					</br></br>
-					<p>Post achievements to my timeline...</p>
-					
-					<select id= "posts" size="1">
-			  			<option>Always (Every time I have a winning entry)</option>
-			  			<option>Often (Max once a day)</option>
-			  			<option>Sometimes (Max once a week)</option>
-			  			<option>Occasionnally (Max once monthly)</option>
-			  			<option>When pigs fly...</option>
-					</select>
-					<!-- <div id="settings-data">
-					</div> -->
-				</div>
-				<div id="settings-footer">
-					<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick(); saveSettings(); display_profile();">
 				</div>
 			</div>
 		</div>
+		<div id="about">
+			<div id="about-main">
+				<div id="about-data">
+					<h2>About</h2>
+					<p>
+						The Kamusi Project (<a href="http://kamusi.org/" target="_blank">http://kamusi.org/</a>) is a participatory international effort dedicated to improving knowledge of the world's languages. Our long term mission is to produce dictionaries and other language resources for every language, and to make those resources available for free to everyone.
+					</p>
+				</br>
+				<h2>How to write a great definition</h2>
+				<p>
+					Definitions are explanations of what a word means. They are not single words (those are synonyms). You can usually use a definition instead of the actual word. Stick to these rules:
+				</p>
+				<ul>
+					<li> Short and sweet: A definition should be as brief as possible to explain the concept, but long enough to describe it fully. If the same word has different meanings, those are different concepts with different definitions- a definition in Kamusi only explains *one* concept.
+					</li>
+					<li> Easy does it: Use the simplest words you can -definitions should not force readers to jump around the dictionary more, unless technical terms are absolutely necessary.
+					</li>
+					<li> No circles: Definitions should NOT contain the word that is being defined, nor its close relatives. "Happiness" is "A feeling of joy.", not "The feeling of being happy." Definitions should not be circular - we cannot now say "joy" is "A feeling of happiness."
+					</li>
+					<li> No fluff: Do not start with "A term meaning", or "This is a", or "X refers to", etc. Style: Begin with a Capital letter and end with a period.
+					</li>
+				</ul>
+			</br>
+			For more information, you can watch this video: <a href="https://www.youtube.com/watch?v=aaqOQQOYuHA" target="_blank">https://www.youtube.com/watch?v=aaqOQQOYuHA</a>
+		</div>
 	</div>
-	<script type="text/javascript"> var token = "<?php echo $newToken; ?>"; </script>
-	<script src="js/server_requests.js"></script>
-	<script src="js/login.js"></script>
-	<script src="js/sound.js"></script>
-	<script src="js/menu.js"></script>	
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="js/animation.js"></script>
+	<div id="about-footer">
+		<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick();return_to_game(); ">
+	</div>
+</div>
+<div id="profile">
+	<div id="profile-main">
+		<div id="profile-avatar-wrapper">
+			<img id="profile_avatar" src="" width="200">
+		</div>
+		<div id="profile-info-wrapper">
+			<table id="profile_info">
+				<tr>
+					<td>Name</td>
+					<td id="profile_name"></td>
+				</tr>
+				<tr>
+					<td>Points</td>
+					<td id="profile_points"></td>
+				</tr>
+				<tr>
+					<td>Pending points</td>
+					<td id="pending_points"></td>
+				</tr>
+				<tr>
+					<td>Attempts</td>
+					<td id="profile_attempts"></td>
+				</tr>
+			</table>
+		</div>
+		<div id="profile_trophies_wrapper">
+			<table id="profile_trophies"></table>
+		</div>
+	</div>
+	<div id="profile-footer">
+		<div id="profile-footer-left">
+			<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick();return_to_game();">
+		</div>
+		<div id="profile-footer-right">
+			<img id="settings_button" title="Settings" class="control" src="media/settings.png" onclick="playClick();display_settings();">
+		</div>
+	</div>
+</div>
+<div id="settings">
+	<div id="settings-main">
+		<p>My language is...</p>
+	</br>
+	<select id="language" onchange= size="1">
+		<option>English</option>
+		<option>Français</option>
+		<option>tiếng Việt</option>
+	</select>
+</br></br>
+<p>Notify me about new points I earned...</p>
+</br>
+<select id="notifications" size="1">
+	<option>Real time</option>
+	<option>Once daily</option>
+	<option>Once weekly</option>
+	<option>When pigs fly...</option>
+</select>
+</br></br>
+<p>Post achievements to my timeline...</p>
+
+<select id= "posts" size="1">
+	<option>Always (Every time I have a winning entry)</option>
+	<option>Often (Max once a day)</option>
+	<option>Sometimes (Max once a week)</option>
+	<option>Occasionnally (Max once monthly)</option>
+	<option>When pigs fly...</option>
+</select>
+					<!-- <div id="settings-data">
+				</div> -->
+			</div>
+			<div id="settings-footer">
+				<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick(); saveSettings(); display_profile();">
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript"> var token = "<?php echo $newToken; ?>"; </script>
+<script src="js/server_requests.js"></script>
+<script src="js/login.js"></script>
+<script src="js/sound.js"></script>
+<script src="js/menu.js"></script>	
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="js/animation.js"></script>
 </body>
 </html>
