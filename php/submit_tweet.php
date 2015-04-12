@@ -88,8 +88,6 @@ if ($totalScoreOfTweet > 0 ) {  #TODO PUT THID NACK TO 4
 		$stmt->execute();
 		$stmt->close();
 
-		var_dump($user);
-
 
 	}
 
@@ -165,6 +163,8 @@ function postToTimeline($currentUser) {
 	$stmt->bind_result($LastPost, $PostTimeUnit);
 	$stmt->fetch();
 	$stmt->close(); 
+
+	var_dump($PostTimeUnit);
 
 	if($PostTimeUnit == "0") {
 
