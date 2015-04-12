@@ -70,14 +70,12 @@ function request() {
 
 function publishStory(text) {
 
-  FB.ui({
-  method: 'share',
-  href: 'https://developers.facebook.com/docs/',
-  title: "spindilou",
-  description: text,
-}, function(response){
-     console.log('publishStory() response: ', response);
-
-});
+FB.ui({
+  method: 'share_open_graph',
+  action_type: 'og.contribute to',
+  action_properties: JSON.stringify({
+      object:'https://developers.facebook.com/docs/',
+  })
+}, function(response){});
 
 }
