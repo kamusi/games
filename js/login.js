@@ -72,8 +72,8 @@ function publishStory(text) {
 
   FB.ui({
   method: 'share',
-  og:title: "spindilou",
-  og:description: text,
+  title: "spindilou",
+  description: text,
 }, function(response){
      console.log('publishStory() response: ', response);
 
