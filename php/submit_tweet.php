@@ -166,7 +166,7 @@ function postToTimeline($currentUser) {
 
 
 	if($PostTimeUnit == "0") {
-		var_dump($PostTimeUnit);
+		global $returnText;
 
 		$stmt = $mysqli->prepare("SELECT Text FROM TweetContext WHERE WordID= ? AND TweetID= ?;");
 		$stmt->bind_param("is", $data["wordID"], $data["tweetID"]);
@@ -182,7 +182,7 @@ function postToTimeline($currentUser) {
 		$stmt->fetch();
 		$stmt->close();  
 
-		global $returnText = "My tweet " . $tweetText . " got accepted as excellent example for the word " . $word;
+		$returnText = "My tweet " . $tweetText . " got accepted as excellent example for the word " . $word;
 
 	}
 
