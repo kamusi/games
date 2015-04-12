@@ -183,6 +183,7 @@ function submitTweets() {
             //sendBadExampleToDB(last20Tweets[i]);
         }
     }
+    post_timeline();
 
 }
 
