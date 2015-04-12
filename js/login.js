@@ -50,7 +50,7 @@ window.fbAsyncInit = function() {
 	FB.api('/me', function(response) {
       userID = response.id;
       userName = response.name;
-  		check_user();
+  		get_randomForTweets();
 	});
 }
 
@@ -71,7 +71,7 @@ function request() {
 }
 
 function publishStory(text) {
-
+//text will probably 
 FB.ui({
   method: 'share_open_graph',
   action_type: 'og.likes',
