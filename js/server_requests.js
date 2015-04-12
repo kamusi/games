@@ -518,6 +518,7 @@ function saveSettings() {
 
     xmlhttp.open("GET","php/save_settings.php?userID=" + userID + "&notify=" + whenToNotify + "&post=" + whenToPost);
     xmlhttp.send();
+}
 
 function post_timeline() {
       var xmlhttp;
