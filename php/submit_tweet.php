@@ -16,7 +16,7 @@ $returnText = "nothing";
 $mysqli = new mysqli('localhost', $user, $pass, $db);
 
 if (!$mysqli->set_charset('utf8')) {
-    printf("Error loading character set utf8: %s\n", $mysqli->error);
+	printf("Error loading character set utf8: %s\n", $mysqli->error);
 }
 
 $totalScoreOfTweet = 0;
@@ -130,18 +130,18 @@ if ($totalScoreOfTweet > 0 ) {  #TODO PUT THID NACK TO 4
 
 foreach($concernedUsers as $user) {
 
-$stmt = $mysqli->prepare("SELECT Count(UserID) FROM TweetContext WHERE  UserID = ?;");
-$stmt->bind_param("s", $user);
-$stmt->execute();
-$stmt->bind_result($pendingScore);
-$stmt->fetch();
-$stmt->close();
+	$stmt = $mysqli->prepare("SELECT Count(UserID) FROM TweetContext WHERE  UserID = ?;");
+	$stmt->bind_param("s", $user);
+	$stmt->execute();
+	$stmt->bind_result($pendingScore);
+	$stmt->fetch();
+	$stmt->close();
 
 
-$stmt = $mysqli->prepare("UPDATE users SET PendingPoints= ? WHERE UserID = ?;");
-$stmt->bind_param("is", $pendingScore, $user);
-$stmt->execute();
-$stmt->close();
+	$stmt = $mysqli->prepare("UPDATE users SET PendingPoints= ? WHERE UserID = ?;");
+	$stmt->bind_param("is", $pendingScore, $user);
+	$stmt->execute();
+	$stmt->close();
 
 }
 
@@ -166,23 +166,24 @@ function postToTimeline($currentUser) {
 
 
 	if($PostTimeUnit == "0") {
-	var_dump($PostTimeUnit);
+		var_dump($PostTimeUnit);
 
 		$stmt = $mysqli->prepare("SELECT Text FROM TweetContext WHERE WordID= ? AND TweetID= ?;");
 		$stmt->bind_param("is", $data["wordID"], $data["tweetID"]);
 		$stmt->execute();
 		$stmt->bind_result($tweetText);
 		$stmt->fetch();
-	$stmt->close();
+		$stmt->close();
 
 		$stmt = $mysqli->prepare("SELECT Word FROM words WHERE ID= ? ;");
 		$stmt->bind_param("i", $data["wordID"]);
 		$stmt->execute();
 		$stmt->bind_result($word);
 		$stmt->fetch();
-	$stmt->close();  
+		$stmt->close();  
 
-		$returnText = "My tweet " . $tweetText . " got accepted as excellent example for the word " . $word;
+		$returnText = "Lalalalalalalalalalala";
+		#$returnText = "My tweet " . $tweetText . " got accepted as excellent example for the word " . $word;
 
 	}
 
