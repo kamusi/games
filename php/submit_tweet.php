@@ -182,8 +182,7 @@ function postToTimeline($currentUser) {
 		$stmt->fetch();
 		$stmt->close();  
 
-		$returnText = "Lalalalalalalalalalala";
-		#$returnText = "My tweet " . $tweetText . " got accepted as excellent example for the word " . $word;
+		global $returnText = "My tweet " . $tweetText . " got accepted as excellent example for the word " . $word;
 
 	}
 
