@@ -25,4 +25,9 @@ $stmt->bind_param("s",  $post);
 $stmt->execute();
 $stmt->close();
 
+$output1 = shell_exec("echo \"23 13 * * *       /usr/bin/php -f /var/www/html/php/post_timeline_local.php " . $_GET['userID'] . "\" > /posts.txt; cat posts.txt > both.txt");
+$output2 = shell_exec("cat /notifications.txt >> /both.txt ; crontab /posts.txt");
+
+echo($output2);
+
 ?>
