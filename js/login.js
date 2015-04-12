@@ -71,7 +71,8 @@ function request() {
 }
 
 function publishStory(text) {
-//text will probably 
+//text will be the number of achievements, for now the number of validated tweets.
+//We will send out a link containing userID and # of validated tweets
 FB.ui({
   method: 'share_open_graph',
   action_type: 'og.likes',

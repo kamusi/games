@@ -26,7 +26,7 @@ function get_random() {
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-console.log("getting the data : " + xmlhttp.responseText)
+            console.log("getting the data : " + xmlhttp.responseText)
             obj = JSON.parse(xmlhttp.responseText);
             document.getElementById("word").innerHTML = obj.Word;
             document.getElementById("definition").innerHTML = obj.Definition;
@@ -54,7 +54,7 @@ function get_randomForTweets() {
             console.log("JSON DATA LOOKS LIKE : " +xmlhttp.responseText)
             obj = JSON.parse(xmlhttp.responseText);
             console.log("response was : " + xmlhttp.responseText);
-console.log("getting the data in random for tweets : " + obj[0].Word);
+            console.log("getting the data in random for tweets : " + obj[0].Word);
             groupID = obj[0].GroupID;
             wordID = obj[0].WordID;
             console.log("word id BeCaAAAME : " + wordID)
@@ -84,30 +84,30 @@ function get_tweets(alreadyDisplayed) {
     else {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
-        xmlhttp.onreadystatechange=function() {
+    xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             console.log("RESPONSE TEXT : " + xmlhttp.responseText + " END RESPONSE TEXT")
             var results_array = JSON.parse(xmlhttp.responseText);
-  
-                var listOfAll = results_array.filter(function(elem, pos) {
-                    return results_array.indexOf(elem) == pos;
-                  });
-                realIndex = 0
+            
+            var listOfAll = results_array.filter(function(elem, pos) {
+                return results_array.indexOf(elem) == pos;
+            });
+            realIndex = 0
             listOfAll.forEach(function(elem, index){
                 realIndex = alreadyDisplayed + index;
                 last20Tweets[realIndex] = elem;
-                 var tweetDisplay = document.createElement("P");
-                    tweetDisplay.id = "tweetDisplay" + realIndex;
-                    tweetDisplay.name = "elem" ;
-                    tweetDisplay.type = "text";
+                var tweetDisplay = document.createElement("P");
+                tweetDisplay.id = "tweetDisplay" + realIndex;
+                tweetDisplay.name = "elem" ;
+                tweetDisplay.type = "text";
 
                 var newInput = document.createElement("INPUT");
-                    newInput.id = "checkbox" + realIndex;
-                    newInput.name = "checkbox" ;
-                    newInput.type = "checkbox";
-                    var t = document.createTextNode(elem.Text);
-                    tweetDisplay.appendChild(newInput);
-                    tweetDisplay.appendChild(t);
+                newInput.id = "checkbox" + realIndex;
+                newInput.name = "checkbox" ;
+                newInput.type = "checkbox";
+                var t = document.createTextNode(elem.Text);
+                tweetDisplay.appendChild(newInput);
+                tweetDisplay.appendChild(t);
                 document.getElementById("twitterWords").appendChild(tweetDisplay);
             })
             if(realIndex == 0){
@@ -130,7 +130,7 @@ function fetchTweetsFromDB(amount) {
     else {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
-        xmlhttp.onreadystatechange=function() {
+    xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 
 
@@ -140,40 +140,40 @@ function fetchTweetsFromDB(amount) {
             var i = 0
             for( i = 0; i<amount && typeof results_array[i] !== 'undefined'; i++) {
                 last20Tweets[i] = results_array[i];
-                 var tweetDisplay = document.createElement("P");
-                    tweetDisplay.id = "tweetDisplay" + i;
-                    tweetDisplay.name = "elem" ;
-                    tweetDisplay.type = "text";
+                var tweetDisplay = document.createElement("P");
+                tweetDisplay.id = "tweetDisplay" + i;
+                tweetDisplay.name = "elem" ;
+                tweetDisplay.type = "text";
 
                 var newInput = document.createElement("INPUT");
-                    newInput.id = "checkbox" + i;
-                    newInput.name = "checkbox" ;
-                    newInput.type = "checkbox";
-                    var t = document.createTextNode(results_array[i].Text);
-                    tweetDisplay.appendChild(newInput);
-                    tweetDisplay.appendChild(t);
+                newInput.id = "checkbox" + i;
+                newInput.name = "checkbox" ;
+                newInput.type = "checkbox";
+                var t = document.createTextNode(results_array[i].Text);
+                tweetDisplay.appendChild(newInput);
+                tweetDisplay.appendChild(t);
                 document.getElementById("twitterWords").appendChild(tweetDisplay);
-            
-               
+                
+                
             }
             console.log("this was i " + i + ", this is amount : " + amount);
             if(i < amountOfTweets) {
-               get_tweets( i);
-            }
+             get_tweets( i);
+         }
 
-        }
-    }
-    console.log("WORD ID IS : "+ wordID)
+     }
+ }
+ console.log("WORD ID IS : "+ wordID)
 
-    xmlhttp.open("GET","php/fetch_tweet_db.php?wordID=" + wordID + "&amount=" + amount);
+ xmlhttp.open("GET","php/fetch_tweet_db.php?wordID=" + wordID + "&amount=" + amount);
 
-    xmlhttp.send();
+ xmlhttp.send();
 
 
 }
 
 function submitTweets() {
-        var listToSubmit = [];
+    var listToSubmit = [];
     for(var i= 0; i < amountOfTweets; i++) {
         if(document.getElementById("checkbox"+i).checked) {
             sendGoodExampleToDB(last20Tweets[i])
@@ -183,7 +183,9 @@ function submitTweets() {
             //sendBadExampleToDB(last20Tweets[i]);
         }
     }
-    post_timeline();
+    if(whenToPost== "0") {
+        post_timeline();
+    }
 
 }
 
@@ -197,10 +199,10 @@ function sendBadExampleToDB(tweet){
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-        console.log("DB esponse was:  : " + xmlhttp.responseText)
+            console.log("DB esponse was:  : " + xmlhttp.responseText)
+        }
     }
-    }
-        var json_data= {"wordID": wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "tweetAuthor":tweet.Author, "good" : -1    }
+    var json_data= {"wordID": wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "tweetAuthor":tweet.Author, "good" : -1    }
 
     $.ajax({
         type: 'POST',
@@ -228,30 +230,30 @@ function sendGoodExampleToDB(tweet){
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
-         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+       if (xmlhttp.readyState==4 && xmlhttp.status==200) {
         console.log("DB esponse was:  : " + xmlhttp.responseText)
     }
-    }
+}
 
-    var json_data= {"wordID": wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "tweetAuthor":tweet.Author, "good" : 1    }
+var json_data= {"wordID": wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "tweetAuthor":tweet.Author, "good" : 1    }
 
-    $.ajax({
-        type: 'POST',
-        url: 'php/submit_tweet.php',
-        data: {json: JSON.stringify(json_data)},
-        dataType: 'json'
-    })
-    .done( function( data ) {
-        console.log('done');
+$.ajax({
+    type: 'POST',
+    url: 'php/submit_tweet.php',
+    data: {json: JSON.stringify(json_data)},
+    dataType: 'json'
+})
+.done( function( data ) {
+    console.log('done');
         //Posts only happen if a word was accepted. Thus, it was a wod flagged as good by the user
         
     })
-    .fail( function( data ) {
-        console.log('fail');
-        console.log(data);
-    });
+.fail( function( data ) {
+    console.log('fail');
+    console.log(data);
+});
 
-    console.log("Just sent request to the db" + tweet.Author )
+console.log("Just sent request to the db" + tweet.Author )
 }
 
 function updateScores(){
@@ -263,16 +265,16 @@ function updateScores(){
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
-         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+       if (xmlhttp.readyState==4 && xmlhttp.status==200) {
         console.log("DB esponse was:  : " + xmlhttp.responseText)
     }
-    }
+}
 
 
 
  //  xmlhttp.open("GET","php/get_tweets.php?keyword=" + tweet);
-    xmlhttp.send();
-    console.log("Just sent request to the db" + tweet.Author )
+ xmlhttp.send();
+ console.log("Just sent request to the db" + tweet.Author )
 
 }
 
@@ -289,12 +291,12 @@ function get_ranked() {
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-		console.log("LALALAL : " + xmlhttp.responseText)
-            var results_array = JSON.parse(xmlhttp.responseText);
+          console.log("LALALAL : " + xmlhttp.responseText)
+          var results_array = JSON.parse(xmlhttp.responseText);
 
-            clear_definitions();
-            wordID = results_array[0].WordID;
-            groupID = results_array[0].GroupID;
+          clear_definitions();
+          wordID = results_array[0].WordID;
+          groupID = results_array[0].GroupID;
             // if(results_array[0].Consensus == 1) {
             //     set_consensus_word(results_array[0].Word, results_array[0].PartOfSpeech, results_array[0].Definition);
             //     add_definition(results_array[0].DefinitionID, '✓ That is a good definition');
@@ -305,20 +307,20 @@ function get_ranked() {
             //     }
             // }
             // else {
-            set_word(results_array[0].Word, results_array[0].PartOfSpeech);
-            add_definition(-1, "? I can't say - skip this one...", 'definitions');
+                set_word(results_array[0].Word, results_array[0].PartOfSpeech);
+                add_definition(-1, "? I can't say - skip this one...", 'definitions');
 
-            document.getElementById("consensus").innerHTML = "General Sense:";
+                document.getElementById("consensus").innerHTML = "General Sense:";
 
-            for(var i = 0; i < results_array.length; i++) {
-                if(results_array[i].Author == 'wordnet') {
-                    set_consensus(results_array[i].Definition);
-                    add_definition(results_array[i].DefinitionID, "▶ Keep the General Sense. It's a good definition as is!");
+                for(var i = 0; i < results_array.length; i++) {
+                    if(results_array[i].Author == 'wordnet') {
+                        set_consensus(results_array[i].Definition);
+                        add_definition(results_array[i].DefinitionID, "▶ Keep the General Sense. It's a good definition as is!");
+                    }
+                    else if(results_array[i].Definition != undefined) {
+                        add_definition(results_array[i].DefinitionID, "▶ " + results_array[i].Definition);
+                    }
                 }
-                else if(results_array[i].Definition != undefined) {
-                    add_definition(results_array[i].DefinitionID, "▶ " + results_array[i].Definition);
-                }
-            }
             // }
             definitionID = -1;
         }
@@ -357,7 +359,7 @@ function check_user() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             obj = JSON.parse(xmlhttp.responseText);
             document.getElementById('profile_name').innerHTML = userName;
- 
+            
 
             initialise(userID);
             console.log("USERID IS SET: " + userID);
@@ -505,15 +507,15 @@ function saveSettings() {
     whenToNotify = document.getElementById("notifications").selectedIndex;
     whenToPost = document.getElementById("posts").selectedIndex;
 
-     var xmlhttp;
-     
+    var xmlhttp;
+    
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
     }
     else {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
-        xmlhttp.onreadystatechange=function() {
+    xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             console.log("END save settings : " + xmlhttp.responseText)
         }
@@ -524,15 +526,15 @@ function saveSettings() {
 }
 
 function post_timeline() {
-      var xmlhttp;
-     
+  var xmlhttp;
+  
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
     }
     else {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
-        xmlhttp.onreadystatechange=function() {
+    xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             obj = JSON.parse(xmlhttp.responseText);
             console.log("# of new definitions from user : " + obj)

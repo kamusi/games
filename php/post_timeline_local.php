@@ -2,7 +2,7 @@
 
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
-$userID = $_GET['userID'];
+$userID = $argv[1];
 
 
 // USING ROOT IS A SECURITY CONCERN
