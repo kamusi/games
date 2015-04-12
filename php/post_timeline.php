@@ -13,7 +13,7 @@ $db = 'kamusi';
 
 
 $mysqli = new mysqli('localhost', $user, $pass, $db);
-$stmt = $mysqli->prepare("SELECT LastPost,WordTweetsSinceLastPost, PostTimeUnit,  FROM users WHERE  UserID = ?;");
+$stmt = $mysqli->prepare("SELECT LastPost,WordTweetsSinceLastPost, PostTimeUnit  FROM users WHERE  UserID = ?;");
 $stmt->bind_param("s", $userID);
 $stmt->execute();
 $stmt->bind_result($LastPost, $WordTweetsSinceLastPost, $PostTimeUnit);
