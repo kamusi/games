@@ -72,6 +72,7 @@ function publishStory(text) {
 
   FB.ui({
   method: 'share',
+  href: 'https://developers.facebook.com/docs/',
   title: "spindilou",
   description: text,
 }, function(response){
