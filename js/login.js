@@ -1,4 +1,5 @@
 <!--Load and initialise the Facebook API. xfbml checks for active login-->
+userName = "???"
 function statusChangeCallback(response) {
     if (response.status === 'connected') {
       	welcome();
@@ -48,6 +49,7 @@ window.fbAsyncInit = function() {
 		document.getElementById("login_button").style.display = "none";
 	FB.api('/me', function(response) {
       userID = response.id;
+      userName = response.name;
   		check_user();
 	});
 }
