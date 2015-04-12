@@ -69,15 +69,13 @@ function request() {
 }
 
 function publishStory(text) {
+
   FB.ui({
-    method: 'feed',
-    name: window.psDialogName,
-    caption: window.psDialogCaption,
-    description: text,
-    link: window.psDialogLink,
-    picture: window.psDialogPicture
-  },
-  function(response) {
-    console.log('publishStory() response: ', response);
-  });
+  method: 'share',
+  href: 'https://developers.facebook.com/docs/',
+}, function(response){
+     console.log('publishStory() response: ', response);
+
+});
+  
 }
