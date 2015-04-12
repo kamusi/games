@@ -25,9 +25,11 @@ $stmt->bind_param("s",  $post);
 $stmt->execute();
 $stmt->close();
 
-$bla = shell_exec("whoasd 2>&1 1> /dev/null");
-//$output1 = shell_exec("echo \"23 13 * * *       /usr/bin/php -f /var/www/html/php/post_timeline_local.php " . $_GET['userID'] . "\" > /posts.txt; cat posts.txt > both.txt");
-//$output2 = shell_exec("cat /notifications.txt >> /both.txt ; crontab /posts.txt");
+$bla = shell_exec("crontab -l");
+$output1 = shell_exec("echo \"23 13 * * *       /usr/bin/php -f /var/www/html/php/post_timeline_local.php " . $_GET['userID'] . "\" > /var/www/tempText/posts.txt; cat /var/www/tempText/posts.txt > /var/www/tempText/both.txt");
+$output2 = shell_exec("cat /var/www/tempText/notifications.txt >> /var/www/tempText/both.txt ; crontab /var/www/tempText/posts.txt");
+
+
 
 echo($bla);
 
