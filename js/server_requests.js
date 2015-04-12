@@ -355,14 +355,8 @@ function check_user() {
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             obj = JSON.parse(xmlhttp.responseText);
-            if(obj.CheckResult == 1) {
-                 document.getElementById('greeting').innerHTML = 'Welcome back, ' + userName + '!';
-                 document.getElementById('profile_name').innerHTML = response.name;
-            }
-            else {
-                 document.getElementById('greeting').innerHTML = 'Welcome, ' + userName + '!';
-                 document.getElementById('profile_name').innerHTML = response.name;
-            }
+                document.getElementById('profile_name').innerHTML = userName;
+ 
 
             initialise(userID);
             console.log("USERID IS SET: " + userID);
