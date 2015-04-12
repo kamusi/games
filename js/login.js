@@ -74,7 +74,7 @@ FB.ui({
   method: 'share_open_graph',
   action_type: 'og.likes',
   action_properties: JSON.stringify({
-      object:'https://developers.facebook.com/docs/',
+      object:'http://ec2-52-11-133-223.us-west-2.compute.amazonaws.com/',
   })
 }, function(response){});
 
