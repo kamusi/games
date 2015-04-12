@@ -81,7 +81,7 @@ if ($totalScoreOfTweet < -1 ) {
 if ($totalScoreOfTweet > 0 ) {  #TODO PUT THID NACK TO 4
 // /!\ PUT BAK TO 4
 	foreach($concernedUsers as $user) {
-		$stmt = $mysqli->prepare("UPDATE users SET Points = Points + 1, NewPointsSinceLastNotification = NewPointsSinceLastNotification +1, NewPointsSinceLastPost= NewPointsSinceLastPost+1 WHERE UserID=?;");
+		$stmt = $mysqli->prepare("UPDATE users SET Points = Points + 1, NewPointsSinceLastNotification = NewPointsSinceLastNotification +1, WordTweetsSinceLastPost= WordTweetsSinceLastPost+1 WHERE UserID=?;");
 		$stmt->bind_param("s", $user);
 		$stmt->execute();
 		$stmt->close();
@@ -141,33 +141,6 @@ foreach($concernedUsers as $user) {
 
 }
 
-#$result = mysqli_query($con, $sql) or die(mysqli_error($con));
-
 echo json_encode($returnText);
-
-function postToTimeline($currentUser) {
-
-	$user = 'root';
-	$pass = '';
-	$db = 'kamusi';
-
-
-	$mysqli = new mysqli('localhost', $user, $pass, $db);
-	$stmt = $mysqli->prepare("SELECT LastPost, PostTimeUnit FROM users WHERE  UserID = ?;");
-	$stmt->bind_param("s", $currentUser);
-	$stmt->execute();
-	$stmt->bind_result($LastPost, $PostTimeUnit);
-	$stmt->fetch();
-	$stmt->close(); 
-
-
-	if($PostTimeUnit == "0") {
-		global $returnText;
-
-		
-		
-	}
-
-}
 
 ?>

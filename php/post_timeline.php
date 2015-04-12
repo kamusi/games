@@ -3,26 +3,26 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 $userID = $_GET['userID'];
-$notify = $_GET['notify'];
-$post = $_GET['post'];
+
 
 // USING ROOT IS A SECURITY CONCERN
+
 $user = 'root';
 $pass = '';
 $db = 'kamusi';
 
+
 $mysqli = new mysqli('localhost', $user, $pass, $db);
-
-$stmt = $mysqli->prepare("UPDATE users SET NotificationTimeUnit=? WHERE UserID=$userID;");
-$stmt->bind_param("s",  $notify);
-
+$stmt = $mysqli->prepare("SELECT LastPost,WordTweetsSinceLastPost, PostTimeUnit,  FROM users WHERE  UserID = ?;");
+$stmt->bind_param("s", $currentUser);
 $stmt->execute();
-$stmt->close();
+$stmt->bind_result($LastPost, $WordTweetsSinceLastPost, $PostTimeUnit);
+$stmt->fetch();
+$stmt->close(); 
 
-$stmt = $mysqli->prepare("UPDATE users SET PostTimeUnit=? WHERE UserID=$userID;");
-$stmt->bind_param("s",  $post);
 
-$stmt->execute();
-$stmt->close();
+if($PostTimeUnit == "0") {
+	echo json_encode($WordTweetsSinceLastPost);
+}
 
 ?>

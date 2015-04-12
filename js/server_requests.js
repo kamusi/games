@@ -517,5 +517,25 @@ function saveSettings() {
     }
 
     xmlhttp.open("GET","php/save_settings.php?userID=" + userID + "&notify=" + whenToNotify + "&post=" + whenToPost);
+    xmlhttp.send();
+
+function post_timeline() {
+      var xmlhttp;
+     
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+        xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            obj = JSON.parse(xmlhttp.responseText);
+            console.log(obj)
+            publishStory()
+        }
+    }
+
+    xmlhttp.open("GET","php/post_timeline.php?userID=" + userID); 
     xmlhttp.send();   
 }
