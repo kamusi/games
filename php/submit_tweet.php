@@ -88,6 +88,8 @@ if ($totalScoreOfTweet > 0 ) {  #TODO PUT THID NACK TO 4
 		$stmt->execute();
 		$stmt->close();
 
+		var_dump($user);
+
 
 	}
 
@@ -146,7 +148,6 @@ $stmt->close();
 }
 
 #$result = mysqli_query($con, $sql) or die(mysqli_error($con));
-	var_dump($data["userID"]);
 
 echo json_encode($returnText);
 
@@ -182,8 +183,7 @@ function postToTimeline($currentUser) {
 	$stmt->close();  
 
 		$returnText = "My tweet " . $tweetText . " got accepted as excellent example for the word " . $word;
-		var_dump($returnText);
-		var_dump($tweetText);
+
 	}
 
 }
