@@ -72,10 +72,11 @@ function publishStory(text) {
 
   FB.ui({
   method: 'share',
-  href: 'https://developers.facebook.com/docs/',
+  og:title: "spindilou",
+  og:description: text,
 }, function(response){
      console.log('publishStory() response: ', response);
 
 });
-  
+
 }
