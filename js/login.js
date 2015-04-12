@@ -72,7 +72,7 @@ function publishStory(text) {
 
 FB.ui({
   method: 'share_open_graph',
-  action_type: 'og.contribute to',
+  action_type: 'og.likes',
   action_properties: JSON.stringify({
       object:'https://developers.facebook.com/docs/',
   })
