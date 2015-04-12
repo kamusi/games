@@ -65,10 +65,9 @@ if ($totalScoreOfTweet < -1 ) {
 	$result = $stmt->get_result();
 	$stmt->close();
 
-
+//User gets notified for each point : upvotes and downvotes, but no posts for downvotes
 	foreach($concernedUsers as $user) {
-
-		$stmt = $mysqli->prepare("UPDATE users SET Points = Points + 1 WHERE UserID=?;");
+		$stmt = $mysqli->prepare("UPDATE users SET Points = Points + 1, NewPointsSinceLastNotification = NewPointsSinceLastNotification +1 WHERE UserID=?;");
 		$stmt->bind_param("s", $user);
 		$stmt->execute();
 		$stmt->close();
@@ -77,21 +76,18 @@ if ($totalScoreOfTweet < -1 ) {
 
 	}
 }
-
+//We count the number of new examples validated by user. That way we will be able to show the new ones we he arrives on the link.
 #after 5 upvotes, this tweet is a definite example for that word. Remove it from temp db and add it to the definitive db
 if ($totalScoreOfTweet > 0 ) {  #TODO PUT THID NACK TO 4
-
+// /!\ PUT BAK TO 4
 	foreach($concernedUsers as $user) {
-
-		$stmt = $mysqli->prepare("UPDATE users SET Points = Points + 1 WHERE UserID=?;");
+		$stmt = $mysqli->prepare("UPDATE users SET Points = Points + 1, NewPointsSinceLastNotification = NewPointsSinceLastNotification +1, NewPointsSinceLastPost= NewPointsSinceLastPost+1 WHERE UserID=?;");
 		$stmt->bind_param("s", $user);
 		$stmt->execute();
 		$stmt->close();
 
 
 	}
-
-	postToTimeline($data["userID"]);
 
 	$stmt = $mysqli->prepare("INSERT INTO WordTweet (WordID, TweetID, UserID, ts) VALUES (?,?,?, UTC_TIMESTAMP());");
 	$stmt->bind_param("iss", $data["wordID"], $data["tweetID"], $data["userID"]);
@@ -168,22 +164,8 @@ function postToTimeline($currentUser) {
 	if($PostTimeUnit == "0") {
 		global $returnText;
 
-		$stmt = $mysqli->prepare("SELECT Text FROM TweetContext WHERE WordID= ? AND TweetID= ?;");
-		$stmt->bind_param("is", $data["wordID"], $data["tweetID"]);
-		$stmt->execute();
-		$stmt->bind_result($tweetText);
-		$stmt->fetch();
-		$stmt->close();
-
-		$stmt = $mysqli->prepare("SELECT Word FROM words WHERE ID= ? ;");
-		$stmt->bind_param("i", $data["wordID"]);
-		$stmt->execute();
-		$stmt->bind_result($word);
-		$stmt->fetch();
-		$stmt->close();  
-
-		$returnText = "My tweet " . $tweetText . " got accepted as excellent example for the word " . $word;
-
+		
+		
 	}
 
 }
