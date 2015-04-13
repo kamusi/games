@@ -70,8 +70,6 @@ if ( isset( $session ) ) {
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
-print_r(get_loaded_extensions());
-
 
 $userID = $_GET['userID'];
 	$user = 'root';
@@ -120,7 +118,7 @@ $userID = $_GET['userID'];
 	$request = new FacebookRequest(
 		$session,
 		'POST',
-		'/' . $user_id . '/notifications',
+		'/' . $user_ID . '/notifications',
 		array (
 	    	'href' => '',
 	    	'template' => "Your definition for '" . $word . "' has been voted best!",
