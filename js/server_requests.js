@@ -158,16 +158,16 @@ function fetchTweetsFromDB(amount) {
             }
             console.log("this was i " + i + ", this is amount : " + amount);
             if(i < amountOfTweets) {
-               get_tweets( i);
-           }
+             get_tweets( i);
+         }
 
-       }
-   }
-   console.log("WORD ID IS : "+ wordID)
+     }
+ }
+ console.log("WORD ID IS : "+ wordID)
 
-   xmlhttp.open("GET","php/fetch_tweet_db.php?wordID=" + wordID + "&amount=" + amount);
+ xmlhttp.open("GET","php/fetch_tweet_db.php?wordID=" + wordID + "&amount=" + amount);
 
-   xmlhttp.send();
+ xmlhttp.send();
 
 
 }
@@ -183,6 +183,9 @@ function submitTweets() {
             //sendBadExampleToDB(last20Tweets[i]);
         }
     }
+    trigger_notification()
+    console.log("NOT triggered??")
+
     if(whenToPost== "0") {
         publishStory(1)
     }
@@ -233,7 +236,7 @@ function sendGoodExampleToDB(tweet){
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
-     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+       if (xmlhttp.readyState==4 && xmlhttp.status==200) {
         console.log("DB esponse was:  : " + xmlhttp.responseText)
     }
 }
@@ -268,7 +271,7 @@ function updateScores(){
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
-     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+       if (xmlhttp.readyState==4 && xmlhttp.status==200) {
         console.log("DB esponse was:  : " + xmlhttp.responseText)
     }
 }
@@ -555,8 +558,6 @@ function post_timeline() {
                 console.log("No activity to post")
             }
             else {
-                trigger_notification()
-                console.log("NOT triggered??")
                 publishStory(obj)
             }
         }
