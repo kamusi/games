@@ -363,9 +363,11 @@ function check_user() {
 
             initialise(userID);
             console.log("USERID IS SET: " + userID);
+            console.log("INDEX is before : " + document.getElementById('notifications').selectedIndex)
             //get_randomForTweets();
             document.getElementById('notifications').selectedIndex = whenToNotify 
             document.getElementById('posts').selectedIndex= whenToPost
+            console.log("Index is after: " + document.getElementById('notifications').selectedIndex)
 
         }
     }
