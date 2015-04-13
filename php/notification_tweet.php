@@ -72,7 +72,6 @@ ini_set('display_errors', 'On');
 
 
 $userID = $_GET['userID'];
-var_dump($userID);
 	$user = 'root';
 	$pass = '';
 	$db = 'kamusi';
@@ -114,7 +113,6 @@ var_dump($userID);
 		echo $ex->getMessage();
 	}
 	$word= "ahaa";
-	var_dump($session);
 	// start session
 	$request = new FacebookRequest(
 		$session,
@@ -128,7 +126,6 @@ var_dump($userID);
 
 	$response = $request->execute();
 	$graphObject = $response->getGraphObject();
-	var_dump($response);
 	echo "Print this";
 
 
