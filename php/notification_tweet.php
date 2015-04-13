@@ -5,21 +5,21 @@ ini_set('display_errors', 'On');
 $userID = $_GET['userID'];
 
 // added in v4.0.5
-require_once( 'facebook/HttpClients/FacebookHttpable.php' );
-require_once( 'facebook/HttpClients/FacebookCurl.php' );
-require_once( 'facebook/HttpClients/FacebookCurlHttpClient.php' );
+require_once( 'Facebook/HttpClients/FacebookHttpable.php' );
+require_once( 'Facebook/HttpClients/FacebookCurl.php' );
+require_once( 'Facebook/HttpClients/FacebookCurlHttpClient.php' );
 
 // added in v4.0.0
-require_once( 'facebook/FacebookSession.php' );
-require_once( 'facebook/FacebookRedirectLoginHelper.php' );
-require_once( 'facebook/FacebookRequest.php' );
-require_once( 'facebook/FacebookResponse.php' );
-require_once( 'facebook/FacebookSDKException.php' );
-require_once( 'facebook/FacebookRequestException.php' );
-require_once( 'facebook/FacebookOtherException.php' );
-require_once( 'facebook/FacebookAuthorizationException.php' );
-require_once( 'facebook/GraphObject.php' );
-require_once( 'facebook/GraphSessionInfo.php' );
+require_once( 'Facebook/FacebookSession.php' );
+require_once( 'Facebook/FacebookRedirectLoginHelper.php' );
+require_once( 'Facebook/FacebookRequest.php' );
+require_once( 'Facebook/FacebookResponse.php' );
+require_once( 'Facebook/FacebookSDKException.php' );
+require_once( 'Facebook/FacebookRequestException.php' );
+require_once( 'Facebook/FacebookOtherException.php' );
+require_once( 'Facebook/FacebookAuthorizationException.php' );
+require_once( 'Facebook/GraphObject.php' );
+require_once( 'Facebook/GraphSessionInfo.php' );
 
 // added in v4.0.5
 use Facebook\FacebookHttpable;
