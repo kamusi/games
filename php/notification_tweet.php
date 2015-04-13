@@ -70,7 +70,7 @@ function send_notification($user_id, $word_id) {
 		// Graph API returned info, but it may mismatch the current app or have expired.
 		echo $ex->getMessage();
 	}
-	$word= "ahaa"
+	$word= "ahaa";
 
 	// start session
 	$request = new FacebookRequest(
