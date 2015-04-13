@@ -71,6 +71,11 @@ $stmt->fetch();
 $stmt->execute();
 $stmt->close();
 
+	$stmt = $mysqli->prepare("UPDATE users SET NewPointsSinceLastNotification=0  WHERE  UserID = ?;");
+	$stmt->bind_param("s", $userID);
+	$stmt->execute();
+	$stmt->close();
+
 if($newPoints == 0){
 	echo "Did not sent notif, no points were gained."
 }

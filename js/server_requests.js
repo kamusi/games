@@ -180,20 +180,21 @@ function submitTweets() {
             console.log("about to send this to php " + last20Tweets[i].TweetID )
         }
         else {
-            //sendBadExampleToDB(last20Tweets[i]);
+            sendBadExampleToDB(last20Tweets[i]);
         }
     }
     if(whenToNotify == "0"){
     trigger_notification()
     console.log("NOT triggered??")
 }
-
+/*
     if(whenToPost== "0") {
         publishStory(1) //this needs to change!!! post for each WINNING ENTRY
     }
     else {
         post_timeline();
-    }
+    }*/
+    post_timeline();
 
 }
 
