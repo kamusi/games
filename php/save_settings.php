@@ -62,7 +62,7 @@ switch ($notify) {
 }
 shell_exec("echo \"". $stringNotify . "       /usr/bin/php -f /var/www/html/php/notification_tweet_local.php " . $_GET['userID'] . "\" > /var/www/tempText/notifications.txt; 2>&1");
 
-$output2 = shell_exec("cat /var/www/tempText/notifications.txt >> /var/www/tempText/both.txt ; crontab /var/www/tempText/posts.txt 2>&1");
+$output2 = shell_exec("cat /var/www/tempText/notifications.txt >> /var/www/tempText/both.txt ; crontab /var/www/tempText/both.txt 2>&1");
 
 $bla = shell_exec("crontab -l 2>&1");
 
