@@ -1,6 +1,8 @@
 <?php
 
 
+
+session_start();
 require_once('Facebook/HttpClients/FacebookHttpable.php');
 require_once('Facebook/HttpClients/FacebookCurl.php');
 require_once('Facebook/HttpClients/FacebookCurlHttpClient.php');
