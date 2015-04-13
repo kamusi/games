@@ -69,6 +69,10 @@ if ( isset( $session ) ) {
 
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
+
+print_r(get_loaded_extensions();
+
+
 $userID = $_GET['userID'];
 	$user = 'root';
 	$pass = '';
