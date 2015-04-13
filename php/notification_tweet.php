@@ -67,7 +67,7 @@ $app_secret = $results_array["app_secret"];
 $mysqli = new mysqli('localhost', $user, $pass, $db);
 
 $stmt = $mysqli->prepare("SELECT  NewPointsSinceLastNotification FROM users WHERE UserID=?;");
-$stmt->bind_param("s", $user);
+$stmt->bind_param("s", $userID);
 $stmt->bind_result($newPoints);
 $stmt->fetch();
 $stmt->execute();
