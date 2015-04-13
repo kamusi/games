@@ -579,7 +579,8 @@ function trigger_notification() {
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("NOTIFICATION SHOULD HAVE BEEN TRIGGERED BY NOW")
+            console.log("NOTIFICATION SHOULD HAVE BEEN TRIGGERED BY NOW" + xmlhttp.responseText)
+
         }
     }
 
