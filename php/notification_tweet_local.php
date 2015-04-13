@@ -64,22 +64,27 @@ $results_array = $result->fetch_assoc();
 $app_id = $results_array["app_id"];
 $app_secret = $results_array["app_secret"];
 
-$stmt = $mysqli->prepare("SELECT  NewPointsSinceLastNotification FROM users WHERE UserID=?;");
-$stmt->bind_param("s", $user);
-$stmt->bind_result($newPoints);
-$stmt->fetch();
-$stmt->execute();
-$stmt->close();
+$mysqli = new mysqli('localhost', $user, $pass, $db);
 
-	$stmt = $mysqli->prepare("UPDATE users SET NewPointsSinceLastNotification=0  WHERE  UserID = ?;");
-	$stmt->bind_param("s", $userID);
-	$stmt->execute();
-	$stmt->close();
+$newPoints= 55;
 
+$sql =	"SELECT NewPointsSinceLastNotification FROM users WHERE UserID=" . $userID .";";
+
+$result = mysqli_query($con, $sql);
+
+$results_array = $result->fetch_assoc();
+$newPoints= $results_array["NewPointsSinceLastNotification"];
+
+
+
+var_dump($newPoints);
 if($newPoints == 0){
-	echo "Did not sent notif, no points were gained."
+	echo "Did not sent notif, no points were gained." .$userID ;
 }
 else {
+	$sql =	"UPDATE users SET NewPointsSinceLastNotification=0 WHERE UserID=" . $userID .";";
+
+$result = mysqli_query($con, $sql);
 	FacebookSession::setDefaultApplication($app_id, $app_secret);
 
 	// If you already have a valid access token:
@@ -108,7 +113,7 @@ else {
 		'/' . $userID . '/notifications',
 		array (
 			'href' => '',
-			'template' => "You just gained '" . $newPoints . " new points' !",
+			'template' => "You just gained " . $newPoints . " new points !",
 			)
 		);
 
