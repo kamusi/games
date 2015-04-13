@@ -66,13 +66,16 @@ $app_secret = $results_array["app_secret"];
 
 $mysqli = new mysqli('localhost', $user, $pass, $db);
 
-$stmt = $mysqli->prepare("SELECT  NewPointsSinceLastNotification FROM users WHERE UserID=?;");
+$newPoints= "";
+
+$stmt = $mysqli->prepare("SELECT NewPointsSinceLastNotification FROM users WHERE UserID=?;");
 $stmt->bind_param("s", $userID);
 $stmt->bind_result($newPoints);
 $stmt->fetch();
 $stmt->execute();
 $stmt->close();
 
+var_dump($newPoints);
 if($newPoints == 0){
 	echo "Did not sent notif, no points were gained." .$userID ;
 }
