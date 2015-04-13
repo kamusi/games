@@ -72,6 +72,7 @@ ini_set('display_errors', 'On');
 
 
 $userID = $_GET['userID'];
+var_dump($userID);
 	$user = 'root';
 	$pass = '';
 	$db = 'kamusi';
@@ -113,12 +114,12 @@ $userID = $_GET['userID'];
 		echo $ex->getMessage();
 	}
 	$word= "ahaa";
-
+	var_dump($session);
 	// start session
 	$request = new FacebookRequest(
 		$session,
 		'POST',
-		'/' . $user_ID . '/notifications',
+		'/' . $userID . '/notifications',
 		array (
 	    	'href' => '',
 	    	'template' => "Your definition for '" . $word . "' has been voted best!",
