@@ -46,20 +46,22 @@ switch ($post) {
 }
 
 $output1 = shell_exec("echo \"". $stringPost . "       /usr/bin/php -f /var/www/html/php/post_timeline_local.php " . $_GET['userID'] . "\" > /var/www/tempText/posts.txt; cat /var/www/tempText/posts.txt > /var/www/tempText/both.txt 2>&1");
-
+$stringNotify = "";
 switch ($notify) {
 	case '1':
 	//every day at midnight
-	$string = "00 00 * * *"; 
+	$stringNotify = "00 00 * * *"; 
 	break;
 	case '2':
 	//every sunday
-	$string = "00 00 * * 0";	
+	$stringNotify = "00 00 * * 0";	
 
 	break;
 	default:
 	break;
 }
+
+
 shell_exec("echo \"". $stringNotify . "       /usr/bin/php -f /var/www/html/php/notification_tweet_local.php " . $_GET['userID'] . "\" > /var/www/tempText/notifications.txt; 2>&1");
 
 $output2 = shell_exec("cat /var/www/tempText/notifications.txt >> /var/www/tempText/both.txt ; crontab /var/www/tempText/both.txt 2>&1");
