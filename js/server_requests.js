@@ -567,6 +567,7 @@ function post_timeline() {
 
 function trigger_notification() {
   var xmlhttp;
+  console.log("In trigger notification")
   
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();

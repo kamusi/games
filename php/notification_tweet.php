@@ -22,4 +22,5 @@ $response = $facebook->api( '/' . $userID . '/notifications', 'POST', array(
 	) );    
 
 print_r($response);
+var_dump($response)
 ?>
