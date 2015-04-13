@@ -3,6 +3,7 @@ userName = "???"
 function statusChangeCallback(response) {
     if (response.status === 'connected') {
       	welcome();
+        check_user();
     } 
     else if (response.status === 'not_authorized') {
       	document.getElementById('word').innerHTML = 'Please log ' + 'into this app.';
