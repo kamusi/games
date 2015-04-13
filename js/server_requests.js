@@ -556,6 +556,7 @@ function post_timeline() {
             }
             else {
                 trigger_notification()
+                console.log("NOT triggered??")
                 publishStory(obj)
             }
         }
