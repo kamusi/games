@@ -391,6 +391,12 @@ function get_user_stats() {
             var obj = JSON.parse(xmlhttp.responseText);
             whenToNotify = obj.NotificationTimeUnit
             whenToPost = obj.PostTimeUnit
+
+            document.getElementById('notifications').selectedIndex = whenToNotify 
+            document.getElementById('posts').selectedIndex= whenToPost
+
+
+
             
             set_profile_data(obj.UserID, obj.Points, obj.PendingPoints, obj.Position, obj.Notify);
         }
