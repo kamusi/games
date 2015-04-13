@@ -10,6 +10,7 @@ require_once( 'Facebook/HttpClients/FacebookCurl.php' );
 require_once( 'Facebook/HttpClients/FacebookCurlHttpClient.php' );
 
 // added in v4.0.0
+require_once('Facebook/Entities/AccessToken.php');
 require_once( 'Facebook/FacebookSession.php' );
 require_once( 'Facebook/FacebookRedirectLoginHelper.php' );
 require_once( 'Facebook/FacebookRequest.php' );
