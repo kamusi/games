@@ -183,8 +183,10 @@ function submitTweets() {
             //sendBadExampleToDB(last20Tweets[i]);
         }
     }
+    if(whenToNotify == "0"){
     trigger_notification()
     console.log("NOT triggered??")
+}
 
     if(whenToPost== "0") {
         publishStory(1) //this needs to change!!! post for each WINNING ENTRY
@@ -579,7 +581,7 @@ function trigger_notification() {
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("NOTIFICATION SHOULD HAVE BEEN TRIGGERED BY NOW" + xmlhttp.responseText)
+            console.log("NOTIFICATION RESPONSE" + xmlhttp.responseText)
 
         }
     }
