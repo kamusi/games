@@ -29,9 +29,6 @@ $stringPost = "";
 $stringNotify = "";
 
 switch ($post) {
-	case '0':
-	$stringPost = "#";
-	break;
 	case '1':
 	//every day at midnight
 	$stringPost = "00 00 * * *"; 
@@ -45,15 +42,13 @@ switch ($post) {
 	$stringPost = "00 00 1 * *";
 	break;
 	default:
+		$stringPost = "#";
 	break;
 }
 
 $output1 = shell_exec("echo \"". $stringPost . "       /usr/bin/php -f /var/www/html/php/post_timeline_local.php " . $_GET['userID'] . "\" > /var/www/tempText/posts.txt; cat /var/www/tempText/posts.txt > /var/www/tempText/both.txt 2>&1");
 $stringNotify = "";
 switch ($notify) {
-	case '0':
-	$stringNotify = "#";
-	break;
 	case '1':
 	//every day at midnight
 	$stringNotify = "00 00 * * *"; 
@@ -63,6 +58,7 @@ switch ($notify) {
 	$stringNotify = "00 00 * * 0";	
 	break;
 	default:
+		$stringNotify = "#";
 	break;
 }
 
