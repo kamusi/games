@@ -4,7 +4,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 $userID = $_GET['userID'];
 
-require_once( 'facebook/Entities/AccessToken.php' );
 // added in v4.0.5
 require_once( 'facebook/HttpClients/FacebookHttpable.php' );
 require_once( 'facebook/HttpClients/FacebookCurl.php' );
@@ -44,7 +43,21 @@ function send_notification($user_id, $word_id) {
 	$pass = '';
 	$db = 'kamusi';
 
+	$con = mysqli_connect('localhost', $user, $pass, $db);
 
+	if (!$con) {
+		die('Could not connect: ' . mysqli_error($con));
+	}
+
+	$sql =	"SELECT * FROM app;";
+
+	$result = mysqli_query($con, $sql);
+
+	$results_array = $result->fetch_assoc();
+
+	//These must be retrieved from the database
+	$app_id = $results_array["app_id"];
+	$app_secret = $results_array["app_secret"];
 
 	FacebookSession::setDefaultApplication($app_id, $app_secret);
 
@@ -53,10 +66,6 @@ function send_notification($user_id, $word_id) {
 
 	// If you're making app-level requests:
 	$session = FacebookSession::newAppSession();
-
-	//Mark user for notification on loading game
-	$sql = 	"UPDATE users SET Notify=1 WHERE UserID='" . $user_id . "'";
-	$query = mysqli_query($con, $sql);
 
 	// To validate the session:
 	try {
@@ -85,6 +94,7 @@ function send_notification($user_id, $word_id) {
 
 	$response = $request->execute();
 	$graphObject = $response->getGraphObject();
+	var_dump($response)
 }
 
 ?>
