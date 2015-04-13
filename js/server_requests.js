@@ -187,7 +187,7 @@ function submitTweets() {
     console.log("NOT triggered??")
 
     if(whenToPost== "0") {
-        publishStory(1)
+        publishStory(1) //this needs to change!!! post for each WINNING ENTRY
     }
     else {
         post_timeline();

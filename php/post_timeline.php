@@ -14,14 +14,14 @@ $db = 'kamusi';
 $WordTweetsSinceLastPost= 41;
 
 $mysqli = new mysqli('localhost', $user, $pass, $db);
-$stmt = $mysqli->prepare("SELECT DoPost, WordTweetsSinceLastPost  FROM users WHERE  UserID = ?;");
+$stmt = $mysqli->prepare("SELECT DoPost, WordTweetsSinceLastPost, PostTimeUnit  FROM users WHERE  UserID = ?;");
 $stmt->bind_param("s", $userID);
 $stmt->execute();
-$stmt->bind_result($DoPost,$WordTweetsSinceLastPost );
+$stmt->bind_result($DoPost,$WordTweetsSinceLastPost, $PostTimeUnit);
 $stmt->fetch();
 $stmt->close(); 
 $returnValue = array();
-if($DoPost==1) {
+if($DoPost==1 || $PostTimeUnit=='0') {
 
 	$stmt = $mysqli->prepare("UPDATE users SET WordTweetsSinceLastPost=0  WHERE  UserID = ?;");
 	$stmt->bind_param("s", $userID);

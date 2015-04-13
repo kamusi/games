@@ -95,6 +95,7 @@ function send_notification($user_id, $word_id) {
 	$response = $request->execute();
 	$graphObject = $response->getGraphObject();
 	var_dump($response);
+	echo "Print this";
 }
 
 ?>
