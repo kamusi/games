@@ -68,12 +68,14 @@ $mysqli = new mysqli('localhost', $user, $pass, $db);
 
 $newPoints= 55;
 
-$stmt = $mysqli->prepare("SELECT UserID FROM users WHERE UserID=?;");
-$stmt->bind_param("s", $userID);
-$stmt->bind_result($newPoints);
-$stmt->fetch();
-$stmt->execute();
-$stmt->close();
+$sql =	"SELECT NewPointsSinceLastNotification FROM users WHERE UserID=" . $userID .";";
+
+$result = mysqli_query($con, $sql);
+
+$results_array = $result->fetch_assoc();
+$newPoints= $results_array["NewPointsSinceLastNotification"];
+
+
 
 var_dump($newPoints);
 if($newPoints == 0){
@@ -108,7 +110,7 @@ else {
 		'/' . $userID . '/notifications',
 		array (
 			'href' => '',
-			'template' => "You just gained '" . $newPoints . " new points' !",
+			'template' => "You just gained " . $newPoints . " new points !",
 			)
 		);
 
