@@ -72,7 +72,7 @@ $stmt->execute();
 $stmt->close();
 
 if($newPoints == 0){
-	echo "Did not sent notif, no points were gained."
+	echo "Did not sent notif, no points were gained.";
 }
 else {
 	FacebookSession::setDefaultApplication($app_id, $app_secret);
