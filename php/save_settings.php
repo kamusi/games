@@ -53,6 +53,7 @@ $stringNotify = "";
 switch ($notify) {
 	case '0':
 	$stringNotify = "#";
+	break;
 	case '1':
 	//every day at midnight
 	$stringNotify = "00 00 * * *"; 
@@ -60,7 +61,6 @@ switch ($notify) {
 	case '2':
 	//every sunday
 	$stringNotify = "00 00 * * 0";	
-
 	break;
 	default:
 	break;
