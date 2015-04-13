@@ -82,6 +82,9 @@ if($newPoints == 0){
 	echo "Did not sent notif, no points were gained." .$userID ;
 }
 else {
+	$sql =	"UPDATE users SET NewPointsSinceLastNotification=0 WHERE UserID=" . $userID .";";
+
+$result = mysqli_query($con, $sql);
 	FacebookSession::setDefaultApplication($app_id, $app_secret);
 
 	// If you already have a valid access token:
