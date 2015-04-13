@@ -68,7 +68,7 @@ $mysqli = new mysqli('localhost', $user, $pass, $db);
 
 $newPoints= "";
 
-$stmt = $mysqli->prepare("SELECT NewPointsSinceLastNotification FROM users WHERE UserID=?;");
+$stmt = $mysqli->prepare("SELECT LastNotification FROM users WHERE UserID=?;");
 $stmt->bind_param("s", $userID);
 $stmt->bind_result($newPoints);
 $stmt->fetch();
