@@ -389,8 +389,8 @@ function get_user_stats() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             // alert(xmlhttp.responseText);
             var obj = JSON.parse(xmlhttp.responseText);
-            whenToNotify = Character.getNumericValue(obj.NotificationTimeUnit)
-            whenToPost = Character.getNumericValue(obj.PostTimeUnit)
+            whenToNotify = obj.NotificationTimeUnit
+            whenToPost = obj.PostTimeUnit
             
             set_profile_data(obj.UserID, obj.Points, obj.PendingPoints, obj.Position, obj.Notify);
         }
