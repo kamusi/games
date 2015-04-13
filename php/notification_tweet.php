@@ -38,7 +38,6 @@ use Facebook\FacebookAuthorizationException;
 use Facebook\GraphObject;
 use Facebook\GraphSessionInfo;
 
-function send_notification($user_id, $word_id) {
 	$user = 'root';
 	$pass = '';
 	$db = 'kamusi';
@@ -96,6 +95,6 @@ function send_notification($user_id, $word_id) {
 	$graphObject = $response->getGraphObject();
 	var_dump($response);
 	echo "Print this";
-}
+
 
 ?>
