@@ -1,0 +1,3 @@
+install packages httpd24 php54 with yum
+
+

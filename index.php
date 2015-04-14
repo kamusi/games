@@ -232,7 +232,7 @@ $newToken = generateToken();
 		<option>tiếng Việt</option>
 	</select>
 </br></br>
-<p>Notify me about new points I earned...</p>
+<p>Notify me about new points I earn...</p>
 </br>
 <select id="notifications" size="1">
 	<option>Real time</option>
@@ -247,8 +247,8 @@ $newToken = generateToken();
 	<option>Always (Every time I have a winning entry)</option>
 	<option>Often (Max once a day)</option>
 	<option>Sometimes (Max once a week)</option>
-	<option>Occasionnally (Max once monthly)</option>
-	<option>When pigs fly...</option>
+	<option>Occasionally (Max once monthly)</option>
+	<option>When pigs fly... (Never)</option>
 </select>
 					<!-- <div id="settings-data">
 				</div> -->
