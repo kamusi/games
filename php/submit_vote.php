@@ -44,6 +44,6 @@ if($votes == 3 && $user_id != 'wordnet') {
 
 update_user_rating($userID, $wordID);
 
-echo 'Success';
+echo 'Success' . $wordID;
 
 ?>
