@@ -26,7 +26,7 @@ $sql = "SELECT * FROM users WHERE UserID='" . $userID . "';";
 $result = mysqli_query($con, $sql);
 $results_array = $result->fetch_assoc();
 
-$user_position = $results_array["PositionMode1"];
+$user_position = $results_array["PositionModeTweet"];
 
 // Retrieve ID of word with first Rank greater than user_position, i.e. the first word with a sense.
 $sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
@@ -40,7 +40,7 @@ $word_id = $results_array['ID'];
 $new_rank = $results_array['Rank'] + 1;
 
 // increment user position
-$sql =	"UPDATE users SET PositionMode1 = " . $new_rank . " WHERE UserID = " . $userID . ";";
+$sql =	"UPDATE users SET PositionModeTweet = " . $new_rank . " WHERE UserID = " . $userID . ";";
 $result = mysqli_query($con, $sql);
 
 // Return all definitions corersponding to this GroupID
