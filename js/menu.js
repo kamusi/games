@@ -124,8 +124,8 @@ function initialise(userID) {
 	
 	set_avatar(userID);
 	console.log("INITLAIZINGGGGGGG")
-	//get_ranked();
-	//get_ranked_mode_2();
+	get_ranked();
+	get_ranked_mode_2();
 	get_user_stats();
 	get_user_trophies();
 	add_translation_dunno('? Tôi không biết...');
