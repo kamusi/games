@@ -1,29 +1,27 @@
 <?php
 
-require_once( 'facebook/Entities/AccessToken.php' );
-// added in v4.0.5
-require_once( 'facebook/HttpClients/FacebookHttpable.php' );
-require_once( 'facebook/HttpClients/FacebookCurl.php' );
-require_once( 'facebook/HttpClients/FacebookCurlHttpClient.php' );
 
-// added in v4.0.0
-require_once( 'facebook/FacebookSession.php' );
-require_once( 'facebook/FacebookRedirectLoginHelper.php' );
-require_once( 'facebook/FacebookRequest.php' );
-require_once( 'facebook/FacebookResponse.php' );
-require_once( 'facebook/FacebookSDKException.php' );
-require_once( 'facebook/FacebookRequestException.php' );
-require_once( 'facebook/FacebookOtherException.php' );
-require_once( 'facebook/FacebookAuthorizationException.php' );
-require_once( 'facebook/GraphObject.php' );
-require_once( 'facebook/GraphSessionInfo.php' );
+session_start();
+require_once( 'Facebook/Entities/AccessToken.php' );
+require_once( 'Facebook/Entities/SignedRequest.php' );
+require_once('Facebook/HttpClients/FacebookHttpable.php');
+require_once('Facebook/HttpClients/FacebookCurl.php');
+require_once('Facebook/HttpClients/FacebookCurlHttpClient.php');
+require_once('Facebook/FacebookSession.php');
+require_once('Facebook/FacebookRedirectLoginHelper.php');
+require_once('Facebook/FacebookRequest.php');
+require_once('Facebook/FacebookResponse.php');
+require_once('Facebook/FacebookSDKException.php');
+require_once('Facebook/FacebookRequestException.php');
+require_once('Facebook/FacebookOtherException.php');
+require_once('Facebook/FacebookAuthorizationException.php');
+require_once('Facebook/GraphObject.php');
+require_once('Facebook/GraphSessionInfo.php');
+require_once('Facebook/GraphUser.php');
 
-// added in v4.0.5
-use Facebook\FacebookHttpable;
-use Facebook\FacebookCurl;
-use Facebook\FacebookCurlHttpClient;
-
-// added in v4.0.0
+use Facebook\HttpClients\FacebookHttpable;
+use Facebook\HttpClients\FacebookCurl;
+use Facebook\HttpClients\FacebookCurlHttpClient;
 use Facebook\FacebookSession;
 use Facebook\FacebookRedirectLoginHelper;
 use Facebook\FacebookRequest;
@@ -34,6 +32,14 @@ use Facebook\FacebookOtherException;
 use Facebook\FacebookAuthorizationException;
 use Facebook\GraphObject;
 use Facebook\GraphSessionInfo;
+use Facebook\GraphUser;
+use Facebook\Entities\AccessToken;
+use Facebook\Entities\SignedRequest;
+
+
+
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
 
 function send_notification($user_id, $word_id) {
 	$user = 'root';
