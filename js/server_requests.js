@@ -60,7 +60,7 @@ function get_randomForTweets() {
 
             console.log("All the details : " + groupID + word + wordID + obj[0].Definition + obj[0].PartOfSpeech )
 
-            if(groupID == undefined || wordID == undefined || word == undefined || obj[0].Definition == undefined || obj[0].PartOfSpeech == undefined) {
+            if(groupID == '' || wordID == '' || word == '' || obj[0].Definition == '' || obj[0].PartOfSpeech == '') {
                 console.log("Fields are undefined when fetching a word, fetching the next word.")
                 get_randomForTweets();
             }
@@ -455,6 +455,11 @@ function submit_vote(definition_id, vote) {
     }
     else {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            obj = JSON.parse(xmlhttp.responseText);
+        }
+    }
     }
     console.log("WordID when submitting Vote : " + wordID)
 

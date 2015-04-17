@@ -46,6 +46,8 @@ function send_notification($user_id, $word_id) {
 	$pass = '';
 	$db = 'kamusi';
 
+	echo "The WORD ID IS : " . $word_id;
+
 	$con = mysqli_connect('localhost', $user, $pass, $db);
 
 	if (!$con) {

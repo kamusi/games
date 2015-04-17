@@ -38,7 +38,7 @@ if($votes == 3 && $user_id != 'wordnet') {
 			"SET Points = Points + 1 " . 
 			"WHERE UserID = '" . $user_id . "';";
 	$query = mysqli_query($con, $sql);
-
+	echo "THis is the WORDID : " $wordID
 	send_notification($user_id, $wordID);
 }
 
