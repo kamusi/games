@@ -64,7 +64,7 @@ function send_notification($user_id, $word_id) {
 	$app_id = $results_array["app_id"];
 	$app_secret = $results_array["app_secret"];
 
-	$sql = 	"SELECT Word FROM rankedwords " .
+	$sql = 	"SELECT Word FROM words " .
 			"WHERE ID='" . $word_id . "';";
 	$result = mysqli_query($con, $sql);
 
