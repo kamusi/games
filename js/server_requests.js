@@ -457,7 +457,7 @@ function submit_vote(definition_id, vote) {
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
             xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("AAAAAAAAAAAAAAAA" : + xmlhttp.responseText);
+            console.log("AAAAAAAAAAAAAAAA" : + xmlhttp.responseText)
         }
     }
     }
