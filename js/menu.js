@@ -392,9 +392,11 @@ function add_trophy(word, definition) {
 function vote() {
 	var user_definition = document.getElementById("input_tool_box").value;
 	if(definitionID != -1) {
+		console.log("Submitting Vote for definitionID : " + definitionID)
 		submit_vote(definitionID, 1);
 	}
 	else if(user_definition != default_value && user_definition.length >= min_length) {
+		console.log("Submitting new definition : " + user_definition)
 		submit_definition(user_definition);
 	}
 }
