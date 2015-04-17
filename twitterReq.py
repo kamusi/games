@@ -24,7 +24,7 @@ def search(keyword, amount):
     auth = tweepy.OAuthHandler(API_KEY, API_SECRET)
     auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
     api = tweepy.API(auth)
-    text = api.search(q=keyword, rpp=500, count=100, include_entities=True)
+    text = api.search(q=keyword + " -RT", rpp=500, count=100, include_entities=True)
     returnText = []
     i = 1;
    #getting at tweet back based on it s id 
