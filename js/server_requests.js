@@ -456,6 +456,7 @@ function submit_vote(definition_id, vote) {
     else {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
+    console.log("WordID when submitting Vote : " + wordID)
 
     xmlhttp.open("GET","php/submit_vote.php?wordID=" + wordID + "&definitionID=" + definition_id + "&vote=" + vote, true);
     xmlhttp.send();
