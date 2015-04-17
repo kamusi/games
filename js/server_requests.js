@@ -357,6 +357,7 @@ function submit_definition(definition) {
     else {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
+    console.log("When submitting definition, wordID is : " + wordID)
     xmlhttp.open("GET","php/submit_definition.php?wordID=" + wordID + "&groupID=" + groupID  + "&definition=" + definition + "&userID=" + userID, true);
     xmlhttp.send();
 }
