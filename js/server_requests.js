@@ -37,8 +37,7 @@ function get_random() {
 }
 
 function get_randomForTweets() {
-    var returnVal;
-    console.log("In random for tweets function with userId: " + userID)
+     console.log("In random for tweets function with userId: " + userID)
     //remove previous tweet entries
     document.getElementById("twitterWords").innerHTML = '';
 
@@ -57,16 +56,25 @@ function get_randomForTweets() {
             console.log("getting the data in random for tweets : " + obj[0].Word);
             groupID = obj[0].GroupID;
             wordID = obj[0].WordID;
+            word = obj[0].Word;
+
+            console.log("All the details : " + groupID + word + wordID + obj[0].Definition + obj[0].PartOfSpeech )
+
+            if(groupID == undefined || wordID == undefined || word == undefined || obj[0].Definition == undefined || obj[0].PartOfSpeech == undefined) {
+                console.log("Fields are undefined when fetching a word, fetching the next word.")
+                get_randomForTweets();
+            }
+            else {
             console.log("word id BeCaAAAME : " + wordID)
             document.getElementById("word3").innerHTML = obj[0].Word;
-            returnVal = obj[0].Word
-            word = obj[0].Word;
+            
             document.getElementById("def3").innerHTML = obj[0].Definition;
             document.getElementById("pos3").innerHTML = obj[0].PartOfSpeech;
+
+
             console.log("getting the data in EXECUTEDSFWEC : " + obj[0].Word);
-            console.log("we will return " + returnVal);
-            //get_tweets(returnVal, 20);
             fetchTweetsFromDB(20);
+        }
         }
     }
 

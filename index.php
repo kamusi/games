@@ -123,7 +123,7 @@ $newToken = generateToken();
 				<div id="gamezone3" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 					<div id="gamezone-main3" >
 						<div id="entry">
-							<p id="instructions">Check the tweets that are excellent examples of this meaning:  </p>
+							<p id="instructions">Check ONLY the tweets that are excellent examples of this meaning:  </p>
 							<p id="word3"></p>		
 							<p id="pos3"></p>					
 							<p id="def3"></p>
