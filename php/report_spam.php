@@ -22,7 +22,6 @@ $sql = "SELECT * FROM users WHERE userID='" . $userID . "';";
 $result = mysqli_query($con, $sql);
 $result_array = $result->fetch_assoc();
 
-var_dump($result_array);
 if($result_array["Mute"]) { //User has been muted before--ignore
 	//exit();
 }
