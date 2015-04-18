@@ -37,7 +37,7 @@ function get_random() {
 }
 
 function get_randomForTweets() {
-     console.log("In random for tweets function with userId: " + userID)
+   console.log("In random for tweets function with userId: " + userID)
     //remove previous tweet entries
     document.getElementById("twitterWords").innerHTML = '';
 
@@ -65,16 +65,16 @@ function get_randomForTweets() {
                 get_randomForTweets();
             }
             else {
-            console.log("word id BeCaAAAME : " + wordID)
-            document.getElementById("word3").innerHTML = obj[0].Word;
-            
-            document.getElementById("def3").innerHTML = obj[0].Definition;
-            document.getElementById("pos3").innerHTML = obj[0].PartOfSpeech;
+                console.log("word id BeCaAAAME : " + wordID)
+                document.getElementById("word3").innerHTML = obj[0].Word;
+                
+                document.getElementById("def3").innerHTML = obj[0].Definition;
+                document.getElementById("pos3").innerHTML = obj[0].PartOfSpeech;
 
 
-            console.log("getting the data in EXECUTEDSFWEC : " + obj[0].Word);
-            fetchTweetsFromDB(20);
-        }
+                console.log("getting the data in EXECUTEDSFWEC : " + obj[0].Word);
+                fetchTweetsFromDB(20);
+            }
         }
     }
 
@@ -166,16 +166,16 @@ function fetchTweetsFromDB(amount) {
             }
             console.log("this was i " + i + ", this is amount : " + amount);
             if(i < amountOfTweets) {
-             get_tweets( i);
-         }
+               get_tweets( i);
+           }
 
-     }
- }
- console.log("WORD ID IS : "+ wordID)
+       }
+   }
+   console.log("WORD ID IS : "+ wordID)
 
- xmlhttp.open("GET","php/fetch_tweet_db.php?wordID=" + wordID + "&amount=" + amount);
+   xmlhttp.open("GET","php/fetch_tweet_db.php?wordID=" + wordID + "&amount=" + amount);
 
- xmlhttp.send();
+   xmlhttp.send();
 
 
 }
@@ -192,9 +192,9 @@ function submitTweets() {
         }
     }
     if(whenToNotify == "0"){
-    trigger_notification()
-    console.log("NOT triggered??")
-}
+        trigger_notification()
+        console.log("NOT triggered??")
+    }
 /*
     if(whenToPost== "0") {
         publishStory(1) //this needs to change!!! post for each WINNING ENTRY
@@ -247,7 +247,7 @@ function sendGoodExampleToDB(tweet){
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
-       if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
         console.log("DB esponse was:  : " + xmlhttp.responseText)
     }
 }
@@ -282,7 +282,7 @@ function updateScores(){
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
-       if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
         console.log("DB esponse was:  : " + xmlhttp.responseText)
     }
 }
@@ -457,7 +457,7 @@ function submit_vote(definition_id, vote) {
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 
     }
-                xmlhttp.onreadystatechange=function() {
+    xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             console.log("AAAAAAAAAAAAAAAAd" + xmlhttp.responseText)
         }
@@ -475,7 +475,13 @@ function report_spam() {
     }
     else {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        alert("A spam report has been sent! Thanks!")
+        xmlhttp.onreadystatechange=function() {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+
+                alert("A spam report has been sent! Thanks!")
+            }
+        }
+
     }
 
     xmlhttp.open("GET","php/report_spam.php?wordID=" + wordID + "&definitionID=" + definitionID + "&userID=" + userID, true);
