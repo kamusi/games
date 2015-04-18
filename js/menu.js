@@ -363,15 +363,15 @@ function add_definition(id, definition) {
 	})(id);
 */
 
-	// img1.onmousedown = (function(id_num) {
-	// 	return function () {
-	// 		definitionID = id_num;
-	// 		report_spam(definitionID);
-	// 	};
-	// })(id);
+	 img1.onmousedown = (function(id_num) {
+	 	return function () {
+	 		definitionID = id_num;
+	 		report_spam(definitionID);
+	 	};
+	 })(id);
 
-	// li.appendChild(div_main);
-	// li.appendChild(div_footer);
+	 li.appendChild(div_main);
+	 li.appendChild(div_footer);
 	ul.appendChild(li);
 }
 
