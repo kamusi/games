@@ -314,17 +314,17 @@ function add_definition(id, definition) {
 	var ul = document.getElementById('definitions');
 	var li = document.createElement("li");
 	li.classList.add("inactive_definition");
-	// var div_main = document.createElement("div");
-	// div_main.classList.add("button_div_main");
-	// var div_footer = document.createElement("div");
-	// div_footer.classList.add("button_div_footer");
-	// div_main.innerHTML = definition;
+	 var div_main = document.createElement("div");
+	 div_main.classList.add("button_div_main");
+	 var div_footer = document.createElement("div");
+	 div_footer.classList.add("button_div_footer");
+	 div_main.innerHTML = definition;
 	li.innerHTML = definition;
-	// var img1 = document.createElement("img");
-	// img1.src = 'media/exclamation.png';
-	// img1.classList.add('vote_button');
-	// img1.title = "Report spam";
-	// div_footer.appendChild(img1);
+	 var img1 = document.createElement("img");
+	 img1.src = 'media/exclamation.png';
+	 img1.classList.add('vote_button');
+	 img1.title = "Report spam";
+	 div_footer.appendChild(img1);
 
 	li.onmousedown = (function(id_num) {
 		return function () {
