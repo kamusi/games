@@ -23,7 +23,7 @@ $result = mysqli_query($con, $sql);
 $result_array = $result->fetch_assoc();
 
 if($result_array["Mute"]) { //User has been muted before--ignore
-	//exit();
+	exit();
 }
 
 $num_reports = $result_array["NumReports"];
@@ -41,7 +41,7 @@ $definition = $results_array["Definition"];
 $sql =	"SELECT * FROM admin;";
 $result = mysqli_query($con, $sql);
 
-$row = $result->fetch_assoc(); 
+while ($row = $result->fetch_assoc()) {
 	$alias = $row["Alias"];
 	$to = $row["Email"];
 
@@ -74,8 +74,6 @@ $row = $result->fetch_assoc();
 	else {
 		echo("<p>Email delivery failed…</p>");
 	}
-
-
-echo "HEEEEELLLO";
+}
 
 ?>

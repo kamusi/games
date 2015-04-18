@@ -317,7 +317,7 @@ function add_definition(id, definition) {
 	 var div_main = document.createElement("div");
 	 div_main.classList.add("button_div_main");
 	 var div_footer = document.createElement("div");
-	 div_footer.classList.add("button_div_footer");
+	 div_footer.classList.add("BUTTON");
 	 div_main.innerHTML = definition;
 	li.innerHTML = definition;
 	 var img1 = document.createElement("img");
@@ -328,17 +328,6 @@ function add_definition(id, definition) {
 
 	li.onmousedown = (function(id_num) {
 		return function () {
-			/*
-			if (this.className == "active_definition") {
-				remove_active();
-				definitionID = -1;
-			}
-			else {
-				remove_active();
-				this.className = "active_definition";
-				definitionID = id_num;
-			}
-			*/
 
 			remove_active();
 			this.className = "active_definition";
@@ -349,19 +338,6 @@ function add_definition(id, definition) {
 			get_ranked();
 		};
 	})(id);
-/*
-	li.ondblclick = (function(id_num) {
-		return function () {
-			remove_active();
-			this.className = "active_definition";
-			definitionID = id_num;
-			playClick();
-			vote();
-			console.log("ADDING DEFINITION")
-			get_ranked();
-		};
-	})(id);
-*/
 
 	 img1.onmousedown = (function(id_num) {
 	 	return function () {
