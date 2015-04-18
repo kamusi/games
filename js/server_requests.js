@@ -470,6 +470,7 @@ function submit_vote(definition_id, vote) {
 
 function report_spam() {
     var xmlhttp;
+    alert("Sending spam report...")
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
     }
