@@ -475,6 +475,7 @@ function report_spam() {
     }
     else {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        alert("A spam report has been sent! Thanks!")
     }
 
     xmlhttp.open("GET","php/report_spam.php?wordID=" + wordID + "&definitionID=" + definitionID + "&userID=" + userID, true);
