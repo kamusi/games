@@ -41,7 +41,7 @@ $definition = $results_array["Definition"];
 $sql =	"SELECT * FROM admin;";
 $result = mysqli_query($con, $sql);
 
-while ($row = $result->fetch_assoc()) {
+$row = $result->fetch_assoc() 
 	$alias = $row["Alias"];
 	$to = $row["Email"];
 
@@ -74,8 +74,8 @@ while ($row = $result->fetch_assoc()) {
 	else {
 		echo("<p>Email delivery failed…</p>");
 	}
-}
 
-echo "HEEEEELLLOOOOO"
+
+echo "HEEEEELLLO";
 
 ?>
