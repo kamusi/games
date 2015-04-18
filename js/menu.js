@@ -370,7 +370,7 @@ function add_definition(id, definition) {
 	 	};
 	 })(id);
 
-	 li.appendChild(div_main);
+	 //li.appendChild(div_main);
 	 li.appendChild(div_footer);
 	ul.appendChild(li);
 }
