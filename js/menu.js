@@ -328,6 +328,7 @@ function add_definition(id, definition) {
 
 	li.onmousedown = (function(id_num) {
 		return function () {
+			/*
 			if (this.className == "active_definition") {
 				remove_active();
 				definitionID = -1;
@@ -337,9 +338,18 @@ function add_definition(id, definition) {
 				this.className = "active_definition";
 				definitionID = id_num;
 			}
+			*/
+
+			remove_active();
+			this.className = "active_definition";
+			definitionID = id_num;
+			playClick();
+			vote();
+			console.log("ADDING DEFINITION")
+			get_ranked();
 		};
 	})(id);
-
+/*
 	li.ondblclick = (function(id_num) {
 		return function () {
 			remove_active();
@@ -351,6 +361,7 @@ function add_definition(id, definition) {
 			get_ranked();
 		};
 	})(id);
+*/
 
 	// img1.onmousedown = (function(id_num) {
 	// 	return function () {
