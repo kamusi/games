@@ -317,7 +317,7 @@ function add_definition(id, definition) {
 	 var div_main = document.createElement("div");
 	 div_main.classList.add("button_div_main");
 	 var div_footer = document.createElement("div");
-	 div_footer.classList.add("BUTTON");
+	 div_footer.classList.add("button_div_footer");
 	 div_main.innerHTML = definition;
 	li.innerHTML = definition;
 	 var img1 = document.createElement("img");

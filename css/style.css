@@ -84,6 +84,7 @@ a a:hover, a:visited, a:link, a:active {
 }
 
 .button_div_footer {
+	transform: scale(6.00);
 	width:670px;
 	height:20px;
 	text-align:right;
