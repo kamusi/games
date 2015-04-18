@@ -67,7 +67,7 @@ function get_randomForTweets() {
             else {
                 console.log("word id BeCaAAAME : " + wordID)
                 document.getElementById("word3").innerHTML = obj[0].Word;
-                
+
                 document.getElementById("def3").innerHTML = obj[0].Definition;
                 document.getElementById("pos3").innerHTML = obj[0].PartOfSpeech;
 
@@ -478,7 +478,7 @@ function report_spam() {
         xmlhttp.onreadystatechange=function() {
             if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 
-                alert("A spam report has been sent! Thanks!")
+                alert("A spam report has been sent! Thanks!" + xmlhttp.responseText)
             }
         }
 
