@@ -41,7 +41,7 @@ $definition = $results_array["Definition"];
 $sql =	"SELECT * FROM admin;";
 $result = mysqli_query($con, $sql);
 
-$row = $result->fetch_assoc() 
+$row = $result->fetch_assoc(); 
 	$alias = $row["Alias"];
 	$to = $row["Email"];
 
