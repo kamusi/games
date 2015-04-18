@@ -26,7 +26,7 @@ var_dump($result_array);
 if($result_array["Mute"]) { //User has been muted before--ignore
 	//exit();
 }
-/*
+
 $num_reports = $result_array["NumReports"];
 
 $sql = "SELECT * FROM words WHERE ID=" . $wordID . ";";
@@ -76,7 +76,7 @@ $row = $result->fetch_assoc();
 		echo("<p>Email delivery failed…</p>");
 	}
 
-*/
+
 echo "HEEEEELLLO";
 
 ?>

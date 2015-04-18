@@ -476,15 +476,15 @@ function report_spam() {
     }
     else {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+
+
+    }
         xmlhttp.onreadystatechange=function() {
             if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 
                 alert("A spam report has been sent! Thanks!" + xmlhttp.responseText)
             }
         }
-
-    }
-
     xmlhttp.open("GET","php/report_spam.php?wordID=" + wordID + "&definitionID=" + definitionID + "&userID=" + userID, true);
     xmlhttp.send();
 }
