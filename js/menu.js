@@ -348,7 +348,7 @@ function add_definition(id, definition) {
 
 	 //li.appendChild(div_main);
 	 //li.appendChild(div_footer);
-	li.appendChild(img);
+	li.appendChild(img1);
 	
 	ul.appendChild(li);
 }
