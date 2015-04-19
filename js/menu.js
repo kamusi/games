@@ -213,6 +213,9 @@ function animate_logo() {
 	document.getElementById("enter1").classList.add("animateenter");
 	document.getElementById("enter2").classList.remove("shaded_enter");
 	document.getElementById("enter2").classList.add("animateenter");
+	document.getElementById("enter3").classList.remove("shaded_enter");
+	document.getElementById("enter3").classList.add("animateenter");
+
 }
 
 // function set_consensus_word(word, pos, definition) {

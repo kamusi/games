@@ -180,7 +180,8 @@ a a:hover, a:visited, a:link, a:active {
 #SubmitDef, #SubmitTrans {
 	transform: scale(0.70);
 	 float:right;
-	 height: 50%;
+	 height: 80%;
+	 width: 80%;
 }
 
 #game, #game2, #game3 {
