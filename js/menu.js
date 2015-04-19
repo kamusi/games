@@ -310,15 +310,15 @@ function add_translation_dunno(definition) {
 	ul.appendChild(li);
 }
 
-function add_definition(id, definition) {
+
+
+function add_definition(id, definition, spam) {
+
 	var ul = document.getElementById('definitions');
 	var li = document.createElement("li");
 	li.classList.add("inactive_definition");
-	 var div_main = document.createElement("div");
-	 div_main.classList.add("button_div_main");
 	 var div_footer = document.createElement("div");
 	 div_footer.classList.add("button_div_footer");
-	 div_main.innerHTML = definition;
 	li.innerHTML = definition;
 	 var img1 = document.createElement("img");
 	 img1.src = 'media/exclamation.png';
@@ -348,7 +348,9 @@ function add_definition(id, definition) {
 
 	 //li.appendChild(div_main);
 	 //li.appendChild(div_footer);
+	 if(spam){
 	li.appendChild(img1);
+}
 	
 	ul.appendChild(li);
 }

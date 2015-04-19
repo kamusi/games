@@ -325,17 +325,17 @@ function get_ranked() {
             // }
             // else {
                 set_word(results_array[0].Word, results_array[0].PartOfSpeech);
-                add_definition(-1, "? I can't say - skip this one...", 'definitions');
+                add_definition(-1, "? I can't say - skip this one...", 'definitions', false);
 
                 document.getElementById("consensus").innerHTML = "General Sense:";
 
                 for(var i = 0; i < results_array.length; i++) {
                     if(results_array[i].Author == 'wordnet') {
                         set_consensus(results_array[i].Definition);
-                        add_definition(results_array[i].DefinitionID, "▶ Keep the General Sense. It's a good definition as is!");
+                        add_definition(results_array[i].DefinitionID, "▶ Keep the General Sense. It's a good definition as is!", false);
                     }
                     else if(results_array[i].Definition != undefined) {
-                        add_definition(results_array[i].DefinitionID, "▶ " + results_array[i].Definition);
+                        add_definition(results_array[i].DefinitionID, "▶ " + results_array[i].Definition, true);
                     }
                 }
             // }
