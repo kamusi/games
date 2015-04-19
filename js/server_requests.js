@@ -333,9 +333,12 @@ function get_ranked() {
                     if(results_array[i].Author == 'wordnet') {
                         set_consensus(results_array[i].Definition);
                         add_definition(results_array[i].DefinitionID, "▶ Keep the General Sense. It's a good definition as is!", false);
+                        console.log("LOADING: Result " + i + " is defined")
                     }
                     else if(results_array[i].Definition != undefined) {
                         add_definition(results_array[i].DefinitionID, "▶ " + results_array[i].Definition, true);
+                        console.log("LOADING: Result " + i + " is NOT NOT NOTdefined")
+ 
                     }
                 }
             // }
