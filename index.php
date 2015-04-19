@@ -80,10 +80,6 @@ $newToken = generateToken();
 								<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
 							</span>
 						</div>
-						<div id="footer-next1">
-							<img title="Report spam" id="add_delete" class="control" src="media/alert.png" onclick="playClick();report_spam();">
-							<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick="playClick();vote();get_ranked();">
-						</div>
 					</div>
 				</div>
 				<div id="gamezone2" ng-controller="InlineEditorController2" ng-click="hideTooltip2();">
