@@ -177,6 +177,9 @@ a a:hover, a:visited, a:link, a:active {
 	width:100px;
 	float:left;
 }
+#SubmitDef {
+	transform: scale(0.75);
+}
 
 #game, #game2, #game3 {
 	width: 100%;
