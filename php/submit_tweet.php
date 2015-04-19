@@ -119,7 +119,12 @@ if ($totalScoreOfTweet > 0 ) {  #TODO PUT THID NACK TO 4
 
 	if($numberOfRefsForThatWord > 2) {
 
-		#to determine when we are linked to kamusi db. probably put rank to 0
+	$stmt = $mysqli->prepare("UPDATE rankedwords SET GotEnoughExamples=1 WHERE WordID= ?;");
+	$stmt->bind_param("i", $data["wordID"] );
+	$stmt->execute();
+
+	$stmt->close();	
+
 	}
 
 }
