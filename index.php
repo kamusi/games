@@ -51,6 +51,8 @@ $newToken = generateToken();
 				<div id="gamezone1" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 					<div id="gamezone-main1" >
 						<div id="entry">
+						<p id="instructions1">Write or vote for a definition!  </p>
+
 							<p id="word"></p>
 							<p id="pos"></p>
 							<p id="consensus"></p>
