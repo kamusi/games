@@ -114,15 +114,6 @@ $newToken = generateToken();
 							</div>
 						</div>
 					</div>
-					<div id="gamezone-footer2">
-						<div id="footer-greeting2">
-							<p id="greeting2"></p>
-							<!-- <span><img id="avatar" src="" width="50"></span> -->
-						</div>
-						<div id="footer-next2">
-							<img title="Next" id="next2" ng-click="clear2($event)" class="control" src="media/rightarrow.png" onclick="playClick();soumettre_traduction();get_ranked_mode_2();">
-						</div>
-					</div>
 				</div>
 				
 				<div id="gamezone3" ng-controller="InlineEditorController" ng-click="hideTooltip();">
