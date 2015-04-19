@@ -325,7 +325,7 @@ function get_ranked() {
             // }
             // else {
                 set_word(results_array[0].Word, results_array[0].PartOfSpeech);
-                add_definition(-1, "? I can't say - skip this one...", 'definitions', false);
+                add_definition(-1, "? I can't say - skip this one...", false);
 
                 document.getElementById("consensus").innerHTML = "General Sense:";
 
