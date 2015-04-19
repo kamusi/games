@@ -177,7 +177,7 @@ a a:hover, a:visited, a:link, a:active {
 	width:100px;
 	float:left;
 }
-#SubmitDef {
+#SubmitDef, #SubmitTrans {
 	transform: scale(0.75);
 	 	float:right;
 }

@@ -98,6 +98,8 @@ $newToken = generateToken();
 							</div>
 							<table id="translations">
 								<tr><td>
+								<img title="Submit" id="SubmitTrans" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick="playClick();;soumettre_traduction();get_ranked_mode_2();">
+						</div>	
 									<li ng-click="toggleTooltip2($event)" id="user_translation" class="inactive_definition">{{translation}}</li>
 								</td></tr>
 							</table>

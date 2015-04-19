@@ -123,6 +123,7 @@ function InlineEditorController2($scope){
 function initialise(userID) {
 	
 	set_avatar(userID);
+
 	console.log("INITLAIZINGGGGGGG")
 	get_ranked();
 	get_ranked_mode_2();
@@ -287,18 +288,6 @@ function add_translation_dunno(definition) {
 	li.innerHTML = definition;
 
 	li.onmousedown = (function() {
-		return function () {
-			if (this.className == "active_definition") {
-				this.className = "inactive_definition";
-			}
-			else {
-				document.getElementById('user_translation').className = 'inactive_definition';
-				this.className = "active_definition";
-			}
-		};
-	})();
-
-	li.ondblclick = (function() {
 		return function () {
 			document.getElementById('user_translation').className = 'inactive_definition';
 			this.className = "active_definition";
