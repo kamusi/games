@@ -179,6 +179,7 @@ a a:hover, a:visited, a:link, a:active {
 }
 #SubmitDef {
 	transform: scale(0.75);
+	 	float:right;
 }
 
 #game, #game2, #game3 {
