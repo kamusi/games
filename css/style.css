@@ -178,7 +178,6 @@ a a:hover, a:visited, a:link, a:active {
 	float:left;
 }
 #SubmitDef, #SubmitTrans {
-	transform: scale(0.70);
 	 float:right;
 	 height: 80%;
 	 width: 80%;
