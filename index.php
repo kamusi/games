@@ -59,10 +59,10 @@ $newToken = generateToken();
 							<div class="input_tool" ng-click="$event.stopPropagation()" ng-show="showtooltip">
 								<input id="input_tool_box" type="text" ng-model="value" ng-keypress="searchEnter($event);" onFocus="this.select()"/>
 						
-							</div>
+							</div>							
+							<table id="definitions">
 									<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick="playClick();vote();get_ranked();">
 						
-							<table id="definitions">
 								<tr><td>
 									<li ng-click="toggleTooltip($event)" id="user_definition" class="inactive_definition">{{value}}</li>
 								</td></tr>
