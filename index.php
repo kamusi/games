@@ -63,8 +63,8 @@ $newToken = generateToken();
 							<table id="definitions">
 
 								<tr><td>
-
-										<img title="Submit" id="SubmitDef" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick="playClick();vote();get_ranked();">
+								
+										<img title="Submit" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick="playClick();vote();get_ranked();">
 						
 									<li ng-click="toggleTooltip($event)" id="user_definition" class="inactive_definition">{{value}}</li>
 								</td></tr>
