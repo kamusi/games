@@ -181,6 +181,7 @@ a a:hover, a:visited, a:link, a:active {
 	transform: scale(0.60);
 	 float:right;
 	 height: 80%;
+	 height: 0;
 	 
 }
 
