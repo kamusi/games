@@ -207,12 +207,6 @@ function display_welcome() {
 }
 
 function animate_logo() {
-	FB.api('/me', function(response) {
-  		check_user(response);
-	});
-	
-	
-
 
 	document.getElementById("logo").classList.add("animatelogo");
 	document.getElementById("enter1").classList.remove("shaded_enter");
@@ -221,6 +215,14 @@ function animate_logo() {
 	document.getElementById("enter2").classList.add("animateenter");
 	document.getElementById("enter3").classList.remove("shaded_enter");
 	document.getElementById("enter3").classList.add("animateenter");
+
+}
+
+function animate_logo_firstTime(){
+	document.getElementById("logo").classList.add("animatelogo");
+	document.getElementById("enter0").classList.remove("shaded_enter");
+	document.getElementById("enter0").classList.add("animateenter");
+		
 
 }
 

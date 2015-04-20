@@ -417,6 +417,12 @@ function isNewUser() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             obj = JSON.parse(xmlhttp.responseText);
             console.log("REPONSE NEW USER : " + xmlhttp.responseText);
+            if(obj.CheckResult == "1") {
+                animate_logo();
+            }
+            else {
+               animate_logo_firstTime(); 
+            }
 
         }
     }
