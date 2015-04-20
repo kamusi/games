@@ -24,7 +24,7 @@ function checkLoginStateAfterFirstLogin() {
   FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
   });
-  location.reload(forceGet);
+  location.reload();
 }
 
 
