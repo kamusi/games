@@ -593,6 +593,7 @@ function saveSettings() {
     console.log("Begin save settings")
     whenToNotify = document.getElementById("notifications").selectedIndex;
     whenToPost = document.getElementById("posts").selectedIndex;
+    language = document.getElementById("language").selectedIndex
 
     var xmlhttp;
     
