@@ -219,13 +219,18 @@ function animate_logo() {
 }
 
 function animate_logo_firstTime(){
+	// get elements
+	var child = document.getElementById("enterLogin");
+	var parent = document.getElementById("enterLogin").parentNode().removeChild(child);
+ 
+
+	document.getElementById("enterLogin").remove
 	document.getElementById("logo").classList.add("animatelogo");
 	document.getElementById("enter0").classList.remove("shaded_enter");
 	document.getElementById("enter0").classList.add("animateenter");
 }
 
 function animate_logo_login(){
-	console.log("CRAP EXECUTEEEEEEEEEEEEEEEEES")
 	document.getElementById("logo").classList.add("animatelogo");
 	document.getElementById("enterLogin").classList.remove("shaded_enterLogin");
 	document.getElementById("enterLogin").classList.add("animateenterLogin");
