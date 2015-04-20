@@ -378,7 +378,6 @@ function check_user() {
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            obj = JSON.parse(xmlhttp.responseText);
             document.getElementById('profile_name').innerHTML = userName;
             
 
@@ -421,8 +420,8 @@ function isNewUser() {
 
         }
     }
-    xmlhttp.open("GET","php/check_user.php?userID=" + userID);
-    xmlhttp.send();
+   xmlhttp.open("GET","php/get_profile.php?userID=" + userID + "&token=" + token, true);
+     xmlhttp.send();
 }
 }
 
