@@ -20,6 +20,14 @@ function checkLoginState() {
 	});
 }
 
+function checkLoginStateAfterFirstLogin() {
+  FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+  });
+  location.reload(forceGet);
+}
+
+
 //Called when page loads
 window.fbAsyncInit = function() {
 	//Initialise SDK
