@@ -381,7 +381,7 @@ function check_user() {
             obj = JSON.parse(xmlhttp.responseText);
             document.getElementById('profile_name').innerHTML = userName;
             
-            
+
             initialise(userID);
             console.log("USERID IS SET: " + userID);
             console.log("INDEX is before : " + document.getElementById('notifications').selectedIndex)
@@ -408,7 +408,7 @@ function get_user_stats() {
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            // alert(xmlhttp.responseText);
+            alert(xmlhttp.responseText);
             var obj = JSON.parse(xmlhttp.responseText);
             whenToNotify = obj.NotificationTimeUnit
             whenToPost = obj.PostTimeUnit
