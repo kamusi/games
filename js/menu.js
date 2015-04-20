@@ -170,7 +170,7 @@ function enter_game3() {
 	// document.getElementById("gamezone-main2").style.display = "inline-block";
 	// document.getElementById("footer-next1").style.display = "none";
 	// document.getElementById("footer-next2").style.display = "inline-block";
-	//pause_animation();
+	pause_animation();
 
 
 }
