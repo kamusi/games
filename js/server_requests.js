@@ -448,7 +448,7 @@ function get_user_stats() {
             var obj = JSON.parse(xmlhttp.responseText);
             whenToNotify = obj.NotificationTimeUnit
             whenToPost = obj.PostTimeUnit
-            language= obj.Language;
+            language= obj.Language-1;
 
             document.getElementById('notifications').selectedIndex = whenToNotify 
             document.getElementById('posts').selectedIndex= whenToPost
