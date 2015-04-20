@@ -607,7 +607,7 @@ function saveSettings() {
             console.log("END save settings : " + xmlhttp.responseText)
         }
     }
-
+    console.log("Sending LANG : " + language)
     xmlhttp.open("GET","php/save_settings.php?userID=" + userID + "&notify=" + whenToNotify + "&post=" + whenToPost + "&language=" + (language +1));
     xmlhttp.send();
 }
