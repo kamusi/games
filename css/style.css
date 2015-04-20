@@ -367,7 +367,7 @@ a a:hover, a:visited, a:link, a:active {
 
 #enterLogin{
 	position: absolute;
-	top: 225px;
+	top: 235px;
 	left: 400px;
 }
 
@@ -376,13 +376,13 @@ a a:hover, a:visited, a:link, a:active {
 	left: 400px;
 }
 
-#enter0:hover {
+#enter0:hover, #enterLogin:hover {
 	transition: opacity 0s;
 	transform: scale(1.05);
 	opacity:1;
 }
 
-#enter0:hover:after {
+#enter0:hover:after, #enterLogin:hover:after {
 	transition: opacity 0s;
 	transform: scale(1);
 	opacity:0.5;
