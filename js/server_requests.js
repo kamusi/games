@@ -387,6 +387,7 @@ function check_user() {
             console.log("INDEX is before : " + document.getElementById('notifications').selectedIndex)
             //get_randomForTweets();
             document.getElementById('notifications').selectedIndex = whenToNotify 
+                        document.getElementById('language').selectedIndex= language-1
             document.getElementById('posts').selectedIndex= whenToPost
             console.log("Index is after: " + document.getElementById('notifications').selectedIndex)
 
