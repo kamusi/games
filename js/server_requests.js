@@ -416,7 +416,7 @@ function get_user_stats() {
             document.getElementById('notifications').selectedIndex = whenToNotify 
             document.getElementById('posts').selectedIndex= whenToPost
 
-            numSubmissions = obj.PositionMode1 + PositionMode2 + PositionModeTweet
+            numSubmissions = obj.PositionMode1 + obj.PositionMode2 + obj.PositionModeTweet
 
 
             
