@@ -387,7 +387,7 @@ function check_user() {
             console.log("INDEX is before : " + document.getElementById('notifications').selectedIndex)
             //get_randomForTweets();
             document.getElementById('notifications').selectedIndex = whenToNotify 
-                        document.getElementById('language').selectedIndex= language-1
+                        document.getElementById('language').selectedIndex= language
             document.getElementById('posts').selectedIndex= whenToPost
             console.log("Index is after: " + document.getElementById('notifications').selectedIndex)
 
@@ -448,10 +448,11 @@ function get_user_stats() {
             var obj = JSON.parse(xmlhttp.responseText);
             whenToNotify = obj.NotificationTimeUnit
             whenToPost = obj.PostTimeUnit
+            language= obj.Language;
 
             document.getElementById('notifications').selectedIndex = whenToNotify 
             document.getElementById('posts').selectedIndex= whenToPost
-            document.getElementById('language').selectedIndex= language-1
+            document.getElementById('language').selectedIndex= language
 
             numSubmissions = obj.PositionMode1 + obj.PositionMode2 + obj.PositionModeTweet
 
@@ -607,7 +608,7 @@ function saveSettings() {
         }
     }
 
-    xmlhttp.open("GET","php/save_settings.php?userID=" + userID + "&notify=" + whenToNotify + "&post=" + whenToPost + "&language=" + document.getElementById("language").selectedIndex + 1);
+    xmlhttp.open("GET","php/save_settings.php?userID=" + userID + "&notify=" + whenToNotify + "&post=" + whenToPost + "&language=" + document.getElementById("language").selectedIndex);
     xmlhttp.send();
 }
 
