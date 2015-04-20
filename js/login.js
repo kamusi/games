@@ -53,8 +53,9 @@ window.fbAsyncInit = function() {
       userName = response.name;
   		get_randomForTweets();
               check_user();
+                enter_game1()
               display_profile();
-              enter_game1()
+            
               display_settings();
 
 
