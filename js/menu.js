@@ -226,8 +226,8 @@ function animate_logo_firstTime(){
 
 function animate_logo_login(){
 	document.getElementById("logo").classList.add("animatelogo");
-	document.getElementById("enterLogin").classList.remove("shaded_enter");
-	document.getElementById("enterLogin").classList.add("animateenter");
+	document.getElementById("enterLogin").classList.remove("shaded_enterLogin");
+	document.getElementById("enterLogin").classList.add("animateenterLogin");
 }
 
 

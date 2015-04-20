@@ -305,6 +305,17 @@ a a:hover, a:visited, a:link, a:active {
 	display: none;
 }
 
+.shaded_enter_Login {
+
+	position: absolute;
+	-moz-opacity: 0;
+	-webkit-opacity: 0;
+	opacity: 0;
+	display: none;
+	top:0px;
+	left:0px;
+}
+
 .animateenter {
 	display: visible;
 	cursor:pointer;
@@ -312,6 +323,17 @@ a a:hover, a:visited, a:link, a:active {
   	-moz-opacity: 0.5;
   	-webkit-opacity: 0.5;
 	opacity: 0.5;
+}
+
+.animateenterLogin {
+	display: visible;
+	cursor:pointer;
+	position: absolute;
+  	-moz-opacity: 0.5;
+  	-webkit-opacity: 0.5;
+	opacity: 0.5;
+	top: 235px;
+	left: 400px;
 }
 
 #enter1 {
