@@ -219,10 +219,11 @@ function animate_logo() {
 }
 
 function animate_logo_firstTime(){
-	// get elements
+	
 	var child = document.getElementById("enterLogin");
+	if(child != undefined) {
 	var parent = document.getElementById("enterLogin").parentNode.removeChild(child);
- 
+ }
 
 	document.getElementById("enterLogin").remove
 	document.getElementById("logo").classList.add("animatelogo");
