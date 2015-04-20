@@ -1,5 +1,5 @@
 
-var userID; // = "858265020879794";
+var userID = "???"; // = "858265020879794";
 var wordID;
 var word;
 var definitionID;
