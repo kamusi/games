@@ -128,7 +128,7 @@ function initialise(userID) {
 
 	get_user_stats();
 	get_user_trophies();
-	add_translation_dunno('? Tôi không biết...');
+	//add_translation_dunno('? Tôi không biết...');
 
 }
 
