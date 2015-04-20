@@ -225,7 +225,6 @@ function animate_logo_firstTime(){
 	var parent = document.getElementById("enterLogin").parentNode.removeChild(child);
  }
 
-	document.getElementById("enterLogin").remove
 	document.getElementById("logo").classList.add("animatelogo");
 	document.getElementById("enter0").classList.remove("shaded_enter");
 	document.getElementById("enter0").classList.add("animateenter");
