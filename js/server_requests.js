@@ -416,10 +416,11 @@ function get_user_stats() {
             document.getElementById('notifications').selectedIndex = whenToNotify 
             document.getElementById('posts').selectedIndex= whenToPost
 
+            numSubmissions = obj.PositionMode1 + PositionMode2 + PositionModeTweet
 
 
             
-            set_profile_data(obj.UserID, obj.Points, obj.PendingPoints, obj.Position, obj.Notify);
+            set_profile_data(obj.UserID, obj.Points, obj.PendingPoints, obj.Points /numSubmissions, obj.Notify);
         }
     }
     // document.getElementById("token").innerHTML = token;

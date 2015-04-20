@@ -200,7 +200,7 @@ $newToken = generateToken();
 					<td id="pending_points"></td>
 				</tr>
 				<tr>
-					<td>Attempts</td>
+					<td>Ratio</td>
 					<td id="profile_attempts"></td>
 				</tr>
 			</table>

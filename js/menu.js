@@ -245,10 +245,10 @@ function set_greeting(userName) {
 	document.getElementById("profile_name").innerHTML = userName;
 }
 
-function set_profile_data(userID, points, pendingPoints, position, notify) {
+function set_profile_data(userID, points, pendingPoints, ratio, notify) {
 	document.getElementById("profile_points").innerHTML = points;
 	document.getElementById("pending_points").innerHTML = pendingPoints;
-	document.getElementById("profile_attempts").innerHTML = position;
+	document.getElementById("profile_attempts").innerHTML = ratio;
 	if(notify == 1) {
 		document.getElementById("gamezone2").style.display = "none";
 		display_profile();

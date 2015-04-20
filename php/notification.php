@@ -104,7 +104,7 @@ function send_notification($user_id, $word_id) {
 		'/' . $user_id . '/notifications',
 		array (
 	    	'href' => '',
-	    	'template' => "Your definition for '" . $word . "' has been voted best! wordid: " . $word_id,
+	    	'template' => "Your definition for '" . $word . "' has been voted best!",
 	  	)
 	);
 
