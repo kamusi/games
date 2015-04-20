@@ -26,8 +26,9 @@ $stmt->bind_param("s",  $post);
 $stmt->execute();
 $stmt->close();
 
+
 $stmt = $mysqli->prepare("UPDATE users SET Language=? WHERE UserID=$userID;");
-$stmt->bind_param("i",  intval($language)+1);
+$stmt->bind_param("i",  $language);
 
 $stmt->execute();
 $stmt->close();
