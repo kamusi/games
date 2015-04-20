@@ -187,7 +187,7 @@ function display_about() {
 
 function display_profile() {
 	FB.api('/me', function(response) {
-  		//check_user(response);
+  		check_user(response);
 	});
 	document.getElementById("settings").style.display = "none";
 	document.getElementById("welcome").style.display = "none";
