@@ -208,6 +208,9 @@ function display_welcome() {
 
 function animate_logo() {
 
+	isNewUser();
+	
+
 
 	document.getElementById("logo").classList.add("animatelogo");
 	document.getElementById("enter1").classList.remove("shaded_enter");
