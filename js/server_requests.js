@@ -381,7 +381,7 @@ function check_user() {
             obj = JSON.parse(xmlhttp.responseText);
             document.getElementById('profile_name').innerHTML = userName;
             
-
+            
             initialise(userID);
             console.log("USERID IS SET: " + userID);
             console.log("INDEX is before : " + document.getElementById('notifications').selectedIndex)

@@ -78,8 +78,8 @@ if ($totalScoreOfTweet < -1 ) {
 }
 //We count the number of new examples validated by user. That way we will be able to show the new ones we he arrives on the link.
 #after 5 upvotes, this tweet is a definite example for that word. Remove it from temp db and add it to the definitive db
-if ($totalScoreOfTweet > 0 ) {  #TODO PUT THID NACK TO 4
-// /!\ PUT BAK TO 4
+if ($totalScoreOfTweet > 4 ) {  
+// 
 	foreach($concernedUsers as $user) {
 		$stmt = $mysqli->prepare("UPDATE users SET Points = Points + 1, NewPointsSinceLastNotification = NewPointsSinceLastNotification +1, WordTweetsSinceLastPost= WordTweetsSinceLastPost+1 WHERE UserID=?;");
 		$stmt->bind_param("s", $user);

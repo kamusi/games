@@ -49,10 +49,14 @@ window.fbAsyncInit = function() {
 	function welcome() {
 		document.getElementById("login_button").style.display = "none";
 	FB.api('/me', function(response) {
+                  //check_user();
+initialise(userID);
       userID = response.id;
       userName = response.name;
+
+
   		get_randomForTweets();
-              check_user();
+
 
 
 
