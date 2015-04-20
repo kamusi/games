@@ -32,7 +32,7 @@ $newToken = generateToken();
 		<div id="portal">
 			<div id="welcome">
 				<canvas width="930" height="550" id="animation">Your browser doesn't support HTML5.</canvas>
-				<img id="logo" src="media/logo.png" onmousedown="animate_logo();">
+				<img id="logo" src="media/logo.png" onmousedown="isNewUser();">
 				<img title="Better English" id="enter1" class="shaded_enter" src="media/uk.png" onmousedown="playClick();enter_game1();">
 				<img title="Từ này là" id="enter2" class="shaded_enter" src="media/vn.png" onmousedown="playClick();enter_game2();">
 				<img title="TweetGame" id="enter3" class="shaded_enter" src="media/xbox.png" onmousedown="playClick();enter_game3();">

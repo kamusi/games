@@ -207,8 +207,10 @@ function display_welcome() {
 }
 
 function animate_logo() {
-
-	isNewUser();
+	FB.api('/me', function(response) {
+  		check_user(response);
+	});
+	
 	
 
 

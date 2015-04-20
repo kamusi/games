@@ -59,9 +59,6 @@ initialise(userID);
         get_ranked();
   get_ranked_mode_2();
 
-
-
-
 	});
 }
 

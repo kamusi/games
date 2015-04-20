@@ -400,6 +400,13 @@ function check_user() {
 function isNewUser() {
 
     console.log("Checking if New USER")
+
+    if(userID == "???"){
+        console.log("Waiting until becoming defined!")
+    }
+    else {
+        console.log("Defined!")
+    
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
@@ -414,9 +421,9 @@ function isNewUser() {
 
         }
     }
-    var noCache = new Date().getTime();
     xmlhttp.open("GET","php/check_user.php?userID=" + userID);
     xmlhttp.send();
+}
 }
 
 function get_user_stats() {
