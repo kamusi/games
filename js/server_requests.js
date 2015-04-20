@@ -6,9 +6,10 @@ var definitionID;
 var groupID;
 var amountOfTweets;
 
-//vars for posts to wall
+//settings saved
 var whenToPost;
 var whenToNotify;
+var language;
 
 var translationID;
 
@@ -449,6 +450,7 @@ function get_user_stats() {
 
             document.getElementById('notifications').selectedIndex = whenToNotify 
             document.getElementById('posts').selectedIndex= whenToPost
+            document.getElementById('language').selectedIndex= language-1
 
             numSubmissions = obj.PositionMode1 + obj.PositionMode2 + obj.PositionModeTweet
 
@@ -604,7 +606,7 @@ function saveSettings() {
         }
     }
 
-    xmlhttp.open("GET","php/save_settings.php?userID=" + userID + "&notify=" + whenToNotify + "&post=" + whenToPost);
+    xmlhttp.open("GET","php/save_settings.php?userID=" + userID + "&notify=" + whenToNotify + "&post=" + whenToPost + "&language=" + document.getElementById("language").selectedIndex + 1);
     xmlhttp.send();
 }
 

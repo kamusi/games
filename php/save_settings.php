@@ -5,6 +5,7 @@ ini_set('display_errors', 'On');
 $userID = $_GET['userID'];
 $notify = $_GET['notify'];
 $post = $_GET['post'];
+$language = $_GET['language'];
 
 // USING ROOT IS A SECURITY CONCERN
 $user = 'root';
@@ -21,6 +22,12 @@ $stmt->close();
 
 $stmt = $mysqli->prepare("UPDATE users SET PostTimeUnit=? WHERE UserID=$userID;");
 $stmt->bind_param("s",  $post);
+
+$stmt->execute();
+$stmt->close();
+
+$stmt = $mysqli->prepare("UPDATE users SET Language=? WHERE UserID=$userID;");
+$stmt->bind_param("s",  $language);
 
 $stmt->execute();
 $stmt->close();
