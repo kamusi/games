@@ -527,6 +527,7 @@ function get_ranked_mode_2() {
             document.getElementById("dictionary").href = "http://dictionary.reference.com/browse/" + underscored_word;
             document.getElementById("wordnik").href = "https://www.wordnik.com/words/" + underscored_word;
             translationID = obj.ID;
+            console.log("What was sent get_ranked_mode_2 : " + obj)
             // var newBottom = document.getElementById("translation_entry").getBoundingClientRect().bottom;
             // var intString = (newBottom + 100).toString() + "px";
             // document.getElementById("translation_input_tool_box").style.top="100px";
