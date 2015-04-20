@@ -402,10 +402,10 @@ function isNewUser() {
     console.log("Checking if New USER")
 
     if(userID == "???"){
-        console.log("Waiting until becoming defined!")
+        console.log("Waiting until becoming defined!" + userID)
     }
     else {
-        console.log("Defined!")
+        console.log("Defined!" + userID)
     
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -417,7 +417,7 @@ function isNewUser() {
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             obj = JSON.parse(xmlhttp.responseText);
-            console.log("REPONSE NEW USER : " + obj.language);
+            console.log("REPONSE NEW USER : " + xmlhttp.responseText);
 
         }
     }
