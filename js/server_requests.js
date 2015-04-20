@@ -420,8 +420,8 @@ function isNewUser() {
 
         }
     }
-   xmlhttp.open("GET","php/get_profile.php?userID=" + userID + "&token=" + token, true);
-     xmlhttp.send();
+    xmlhttp.open("GET","php/check_user.php?userID=" + userID);
+    xmlhttp.send();
 }
 }
 
