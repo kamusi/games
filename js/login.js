@@ -10,6 +10,7 @@ function statusChangeCallback(response) {
     }
     else {
       	document.getElementById('word').innerHTML = 'Please log ' + 'into Facebook.';
+        animate_logo_login();
     }
 }
 

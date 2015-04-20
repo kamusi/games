@@ -37,11 +37,8 @@ $newToken = generateToken();
 				<img title="Từ này là" id="enter2" class="shaded_enter" src="media/vn.png" onmousedown="playClick();enter_game2();">
 				<img title="TweetGame" id="enter3" class="shaded_enter" src="media/xbox.png" onmousedown="playClick();enter_game3();">
 				<img title="ChooseLanguage" id="enter0" class="shaded_enter" src="media/language_selector.png" onmousedown="playClick();enter_game1();display_profile();display_settings();">
-				<div  class="fb-like"
-							data-share="false"
-							data-width="450"
-							data-show-faces="false">
-						</div>
+				<fb:login-button scope="public_profile,email" id="enterLogin" class="shaded_enter" onlogin="checkLoginState();"></fb:login-button>
+
 			</div>
 			<div id="game" ng-app>
 				<div id="controls">

@@ -222,9 +222,14 @@ function animate_logo_firstTime(){
 	document.getElementById("logo").classList.add("animatelogo");
 	document.getElementById("enter0").classList.remove("shaded_enter");
 	document.getElementById("enter0").classList.add("animateenter");
-		
-
 }
+
+function animate_logo_login(){
+	document.getElementById("logo").classList.add("animatelogo");
+	document.getElementById("enterLogin").classList.remove("shaded_enter");
+	document.getElementById("enterLogin").classList.add("animateenter");
+}
+
 
 // function set_consensus_word(word, pos, definition) {
 // 	document.getElementById("word").innerHTML = word;
