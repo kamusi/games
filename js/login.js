@@ -3,6 +3,10 @@ userName = "???"
 function statusChangeCallback(response) {
     if (response.status === 'connected') {
       	welcome();
+          var child = document.getElementById("enterLogin");
+  if(child != undefined) {
+  var parent = document.getElementById("enterLogin").parentNode.removeChild(child);
+ }
 
     } 
     else if (response.status === 'not_authorized') {

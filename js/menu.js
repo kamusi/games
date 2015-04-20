@@ -220,10 +220,6 @@ function animate_logo() {
 
 function animate_logo_firstTime(){
 	
-	var child = document.getElementById("enterLogin");
-	if(child != undefined) {
-	var parent = document.getElementById("enterLogin").parentNode.removeChild(child);
- }
 
 	document.getElementById("logo").classList.add("animatelogo");
 	document.getElementById("enter0").classList.remove("shaded_enter");
