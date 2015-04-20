@@ -397,6 +397,28 @@ function check_user() {
     xmlhttp.send();
 }
 
+function isNewUser() {
+
+    console.log("Checking if New USER")
+    var xmlhttp;
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            obj = JSON.parse(xmlhttp.responseText);
+            console.log("REPONSE NEW USER : " + obj.language);
+
+        }
+    }
+    var noCache = new Date().getTime();
+    xmlhttp.open("GET","php/check_user.php?userID=" + userID);
+    xmlhttp.send();
+}
+
 function get_user_stats() {
     console.log(  "GET USER STATS")
     var xmlhttp;
