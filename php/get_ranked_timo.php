@@ -30,7 +30,7 @@ $user_position = $results_array["PositionModeTweet"];
 
 // Retrieve ID of word with first Rank greater than user_position, i.e. the first word with a sense.
 $sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
-$sql.=	"SELECT w.ID, w.DefinitionID, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
+$sql.=	"SELECT w.ID, w.DefinitionID, r.Rank, r.GotEnoughExamples FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
 $sql.=	") As sq WHERE sq.ID IS NOT NULL AND GotEnoughExamples!=1 AND sq.Rank >=" . $user_position . " ORDER BY(sq.Rank) LIMIT 1;";
 
 $result = mysqli_query($con, $sql);
