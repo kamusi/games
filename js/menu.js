@@ -221,7 +221,7 @@ function animate_logo() {
 function animate_logo_firstTime(){
 	// get elements
 	var child = document.getElementById("enterLogin");
-	var parent = document.getElementById("enterLogin").parentNode().removeChild(child);
+	var parent = document.getElementById("enterLogin").parentNode.removeChild(child);
  
 
 	document.getElementById("enterLogin").remove
