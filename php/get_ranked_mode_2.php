@@ -39,7 +39,7 @@ $new_rank = $results_array['Rank'] + 1;
 
 // increment user position
 $sql =	"UPDATE users SET PositionMode2 = " . $new_rank . " WHERE UserID = " . $userID . ";";
-$result = mysqli_query($con, $sql);
+//$result = mysqli_query($con, $sql);
 
 $sql =  "SELECT sq.ID, sq.Word, sq.PartOfSpeech, sq.DefinitionID, d.Definition FROM ";
 $sql .= "(SELECT * FROM words WHERE ID=" . $word_id . ") AS sq ";

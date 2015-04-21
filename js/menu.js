@@ -159,7 +159,6 @@ function enter_game2() {
 }
 
 function enter_game3() {
-	console.log("inside what we jsut wrote")
 	document.getElementById("welcome").style.display = "none";
 	document.getElementById("game").style.display = "inline-block";
 	document.getElementById("gamezone1").style.display = "none";

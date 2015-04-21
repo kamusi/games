@@ -42,7 +42,7 @@ if($votes == 3 && $user_id != 'wordnet') {
 	send_notification($user_id, $wordID);
 }
 //this is sooo buggy!!!
-//update_user_rating($user_id, $wordID);
+update_user_rating($user_id, $wordID);
 
 echo 'Success' . $wordID;
 
