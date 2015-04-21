@@ -14,6 +14,8 @@ $user = 'root';
 $pass = '';
 $db = 'kamusi';
 
+function makeRequests(){
+
 $con = mysqli_connect('localhost', $user, $pass, $db);
 
 if (!$con) {
@@ -41,7 +43,7 @@ $new_rank = $results_array['Rank'] + 1;
 
 // increment user position
 $sql =	"UPDATE users SET PositionMode2 = " . $new_rank . " WHERE UserID = " . $userID . ";";
-//$result = mysqli_query($con, $sql);
+$result = mysqli_query($con, $sql);
 
 $sql =  "SELECT sq.ID, sq.Word, sq.PartOfSpeech, sq.DefinitionID, d.Definition FROM ";
 $sql .= "(SELECT * FROM words WHERE ID=" . $word_id . ") AS sq ";
@@ -53,10 +55,13 @@ $results_array = mysqli_query($con, $sql)->fetch_assoc();
 var_dump($results_array['d.Definition']);
 
 if($results_array['d.Definition'] == '' ){
-	echo "kaka";
+	makeRequests();
 }
+
 
 $jsonData = json_encode($results_array);
 echo $jsonData;
+}
+makeRequests();
 
 ?>
