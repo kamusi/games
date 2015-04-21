@@ -114,7 +114,7 @@ function get_tweets(alreadyDisplayed) {
                 newInput.id = "checkbox" + realIndex;
                 newInput.name = "checkbox" ;
                 newInput.type = "checkbox";
-                newInput.onchange=changeColorOnClick(elem);
+                newInput.onclick=changeColorOnClick(elem);
 
                 var t = document.createTextNode(elem.Text);
                 tweetDisplay.appendChild(newInput);
