@@ -114,6 +114,8 @@ function get_tweets(alreadyDisplayed) {
                 newInput.id = "checkbox" + realIndex;
                 newInput.name = "checkbox" ;
                 newInput.type = "checkbox";
+                newInput.onclick=changeColorOnClick(elem);
+
                 var t = document.createTextNode(elem.Text);
                 tweetDisplay.appendChild(newInput);
                 tweetDisplay.appendChild(t);
@@ -128,6 +130,10 @@ function get_tweets(alreadyDisplayed) {
     xmlhttp.open("GET","php/get_tweets.php?keyword=" + word + "&amount=" + (amountOfTweets - alreadyDisplayed));
 
     xmlhttp.send();
+}
+
+function changeColorOnClick(elem){
+    console.log("OWOEOROEFOFOGORHOZHO" + elem.Text)
 }
 
 function fetchTweetsFromDB(amount) {

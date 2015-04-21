@@ -18,7 +18,7 @@ function update_user_rating($userID, $wordID, $groupID) {
 	var_dump($wordID);
 	$results_array = $result->fetch_assoc();
 
-	if($results_array["Consensus"]) {
+	if(!$results_array["Consensus"]) {
 		$sql = 	"SELECT * FROM definitions WHERE GroupID= " . $groupID . " ORDER BY Votes DESC LIMIT 1;";
 
 		$result = mysqli_query($con, $sql);
@@ -29,7 +29,7 @@ function update_user_rating($userID, $wordID, $groupID) {
 		$results_array = $result->fetch_assoc();
 
 		$rand_exp = 1/min(5, $results_array["Count"]);
-
+//how did user selec correctlyy?
 		if($definition = $results_array['DefinitionID']) { //User selected correctly
 			$sql = 	"UPDATE users SET Rating = Rating + " . (1 - $rand_exp) . "WHERE UserID='" . $userID . "';";
 		}
