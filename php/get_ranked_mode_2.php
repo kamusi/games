@@ -10,12 +10,13 @@
 
 $userID = $_GET['userID'];
 
+
+
+function makeRequests($userID){
+
 $user = 'root';
 $pass = '';
 $db = 'kamusi';
-
-function makeRequests(){
-
 $con = mysqli_connect('localhost', $user, $pass, $db);
 
 if (!$con) {
@@ -62,6 +63,6 @@ if($results_array['d.Definition'] == '' ){
 $jsonData = json_encode($results_array);
 echo $jsonData;
 }
-makeRequests();
+makeRequests($userID);
 
 ?>
