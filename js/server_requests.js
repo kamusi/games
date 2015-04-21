@@ -115,7 +115,7 @@ function get_tweets(alreadyDisplayed) {
                 newInput.name = "checkbox" ;
                 newInput.type = "checkbox";
                 newInput.onchange=function(){
-                    changeColorOnClick(elem);
+                    changeColorOnClick(elem,newInput);
                 }
 
                 var t = document.createTextNode(elem.Text);
@@ -134,8 +134,9 @@ function get_tweets(alreadyDisplayed) {
     xmlhttp.send();
 }
 
-function changeColorOnClick(elem){
-    console.log("OWOEOROEFOFOGORHOZHO" + elem.Text)
+function changeColorOnClick(elem,newInput){
+    if(elem)
+    console.log("OWOEOROEFOFOGORHOZHO" + elem.Text + newInput)
 }
 
 function fetchTweetsFromDB(amount) {
