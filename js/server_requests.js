@@ -382,7 +382,7 @@ function check_user() {
             document.getElementById('profile_name').innerHTML = userName;
             
 
-            initialise(userID);
+//            initialise(userID);
             console.log("USERID IS SET: " + userID);
             console.log("INDEX is before : " + document.getElementById('notifications').selectedIndex)
             //get_randomForTweets();
