@@ -105,6 +105,7 @@ function get_tweets(alreadyDisplayed) {
             listOfAll.forEach(function(elem, index){
                 realIndex = alreadyDisplayed + index;
                 last20Tweets[realIndex] = elem;
+                elem.style = "red";
                 var tweetDisplay = document.createElement("P");
                 tweetDisplay.id = "tweetDisplay" + realIndex;
                 tweetDisplay.name = "elem" ;
