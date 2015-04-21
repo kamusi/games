@@ -15,7 +15,7 @@ function update_user_rating($userID, $wordID) {
 	//Check for consensus
 	$sql = 	"SELECT Consensus FROM rankedwords WHERE WordID=" . $wordID . ";";
 	$result = mysqli_query($con, $sql);
-	var_dump($result);
+	var_dump($wordID);
 	$results_array = $result->fetch_assoc();
 
 	if($results_array["Consensus"]) {
