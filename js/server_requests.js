@@ -105,7 +105,7 @@ function get_tweets(alreadyDisplayed) {
             listOfAll.forEach(function(elem, index){
                 realIndex = alreadyDisplayed + index;
                 last20Tweets[realIndex] = elem;
-                elem.style = "yellow";
+
                 var tweetDisplay = document.createElement("P");
                 tweetDisplay.id = "tweetDisplay" + realIndex;
                 tweetDisplay.name = "elem" ;
@@ -120,6 +120,7 @@ function get_tweets(alreadyDisplayed) {
                 }
 
                 var t = document.createTextNode(elem.Text);
+                t.style = "yellow"
                 tweetDisplay.appendChild(newInput);
                 tweetDisplay.appendChild(t);
                 document.getElementById("twitterWords").appendChild(tweetDisplay);
