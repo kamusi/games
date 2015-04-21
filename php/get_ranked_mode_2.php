@@ -28,13 +28,15 @@ $user_position = $results_array["PositionMode2"];
 
 $sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
 $sql.=	"SELECT w.ID, w.DefinitionID, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
-$sql.=	") As sq WHERE sq.ID IS NOT NULL AND w.DefinitionID IS NOT NULL AND sq.Rank >=" . $user_position . " ORDER BY(sq.Rank) LIMIT 1;";
+$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.Rank >=" . $user_position . " ORDER BY(sq.Rank) LIMIT 1;";
 
 $result = mysqli_query($con, $sql);
 $results_array = $result->fetch_assoc();
 
 $word_id = $results_array['ID'];
 $definitionID = $results_array['DefinitionID'];
+var_dump($definitionID);
+
 $new_rank = $results_array['Rank'] + 1;
 
 // increment user position
