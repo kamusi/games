@@ -135,8 +135,14 @@ function get_tweets(alreadyDisplayed) {
 }
 
 function changeColorOnClick(elem,newInput){
-    if(elem)
+    if(newInput.ischecked){
     console.log("OWOEOROEFOFOGORHOZHO" + elem.Text + newInput)
+    elem.style.color = "blue";
+    }
+    else {
+    elem.style.color = "red";
+
+    }
 }
 
 function fetchTweetsFromDB(amount) {
