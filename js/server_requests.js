@@ -506,7 +506,7 @@ function submit_vote(definition_id, vote) {
     }
     console.log("WordID when submitting Vote : " + wordID)
 
-    xmlhttp.open("GET","php/submit_vote.php?wordID=" + wordID + "&definitionID=" + definition_id + "&vote=" + vote + "&groupID" = groupID, true);
+    xmlhttp.open("GET","php/submit_vote.php?wordID=" + wordID + "&definitionID=" + definition_id + "&vote=" + vote + "&groupID=" + groupID, true);
     xmlhttp.send();
 }
 
