@@ -56,7 +56,7 @@ $results_array = mysqli_query($con, $sql)->fetch_assoc();
 var_dump($results_array['d.Definition']);
 
 if($results_array['d.Definition'] == '' ){
-	makeRequests();
+	makeRequests($userID);
 }
 
 
