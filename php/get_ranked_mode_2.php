@@ -35,7 +35,7 @@ $results_array = $result->fetch_assoc();
 
 $word_id = $results_array['ID'];
 $definitionID = $results_array['DefinitionID'];
-var_dump($definitionID);
+
 
 $new_rank = $results_array['Rank'] + 1;
 
@@ -49,6 +49,12 @@ $sql .= "LEFT JOIN definitions As d ON sq.DefinitionID = d.GroupID ";
 $sql .= "ORDER BY Votes desc LIMIT 1;";
 
 $results_array = mysqli_query($con, $sql)->fetch_assoc();
+
+var_dump($results_array['d.Definition']);
+
+if($results_array['d.Definition'] == '' ){
+	echo "kaka";
+}
 
 $jsonData = json_encode($results_array);
 echo $jsonData;
