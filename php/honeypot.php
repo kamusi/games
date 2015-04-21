@@ -5,6 +5,13 @@ function update_user_rating($userID, $wordID) {
 	$pass = '';
 	$db = 'kamusi';
 
+	$con = mysqli_connect('localhost', $user, $pass, $db);
+
+	if (!$con) {
+		die('Could not connect: ' . mysqli_error($con));
+	}
+
+
 	//Check for consensus
 	$sql = 	"SELECT Consensus FROM rankedwords " .
 			"WHERE WordID=" . $wordID . ";";
