@@ -135,7 +135,7 @@ function get_tweets(alreadyDisplayed) {
 }
 
 function changeColorOnClick(elem,newInput){
-    if(newInput.ischecked){
+    if(newInput.checked){
     console.log("OWOEOROEFOFOGORHOZHO" + elem.Text + newInput)
     elem.style.color = "blue";
     }
