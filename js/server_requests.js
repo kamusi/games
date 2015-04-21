@@ -554,6 +554,7 @@ function get_ranked_mode_2() {
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            console.lol("GEt ranked2 : " + xmlhttp.responseText)
             obj = JSON.parse(xmlhttp.responseText);
             document.getElementById("translation_word").innerHTML = obj.Word;
             document.getElementById("translation_pos").innerHTML = obj.PartOfSpeech;
