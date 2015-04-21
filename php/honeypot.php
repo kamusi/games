@@ -1,6 +1,6 @@
 <?php
 
-function update_user_rating($userID, $wordID) {
+function update_user_rating($userID, $wordID, $groupID) {
 	$user = 'root';
 	$pass = '';
 	$db = 'kamusi';
@@ -13,18 +13,18 @@ function update_user_rating($userID, $wordID) {
 
 
 	//Check for consensus
-	$sql = 	"SELECT Consensus FROM rankedwords WHERE WordID=" . $wordID . ";";
+	$sql = 	"SELECT Consensus FROM rankedwords WHERE ID=" . $wordID . ";";
 	$result = mysqli_query($con, $sql);
 	var_dump($wordID);
 	$results_array = $result->fetch_assoc();
 
 	if($results_array["Consensus"]) {
-		$sql = 	"SELECT * FROM definitions WHERE WordID= " . $wordID . " ORDER BY Votes DESC LIMIT 1;";
+		$sql = 	"SELECT * FROM definitions WHERE GroupID= " . $groupID . " ORDER BY Votes DESC LIMIT 1;";
 
 		$result = mysqli_query($con, $sql);
 		$results_array = $result->fetch_assoc();
 
-		$sql = 	"SELECT COUNT(*) As Count FROM definitions WHERE WordID= " . $wordID . ";";
+		$sql = 	"SELECT COUNT(*) As Count FROM definitions WHERE GroupID= " . $groupID . ";";
 		$result = mysqli_query($con, $sql);
 		$results_array = $result->fetch_assoc();
 

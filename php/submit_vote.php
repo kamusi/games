@@ -6,6 +6,7 @@ include 'honeypot.php';
 $wordID = $_GET['wordID'];
 $definitionID = $_GET['definitionID'];
 $vote = $_GET['vote'];
+$groupID = $_GET['groupID'];
 
 $user = 'root';
 $pass = '';
@@ -41,8 +42,8 @@ if($votes == 3 && $user_id != 'wordnet') {
 	echo "THis is the WORDID : " .$wordID;
 	send_notification($user_id, $wordID);
 }
-//this is sooo buggy!!!
-update_user_rating($user_id, $wordID);
+
+update_user_rating($user_id, $wordID, $groupID);
 
 echo 'Success' . $wordID;
 
