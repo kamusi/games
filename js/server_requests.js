@@ -120,7 +120,7 @@ function get_tweets(alreadyDisplayed) {
                 }
 
                 var t = document.createTextNode(elem.Text);
-                t.style = "yellow"
+                console.log("STYLEEEEE " + elem.style)
                 tweetDisplay.appendChild(newInput);
                 tweetDisplay.appendChild(t);
                 document.getElementById("twitterWords").appendChild(tweetDisplay);
