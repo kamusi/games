@@ -13,22 +13,17 @@ function update_user_rating($userID, $wordID) {
 
 
 	//Check for consensus
-	$sql = 	"SELECT Consensus FROM rankedwords " .
-			"WHERE WordID=" . $wordID . ";";
+	$sql = 	"SELECT Consensus FROM rankedwords WHERE WordID=" . $wordID . ";";
 	$result = mysqli_query($con, $sql);
 	$results_array = $result->fetch_assoc();
 
 	if($results_array["Consensus"]) {
-		$sql = 	"SELECT * FROM definitions " .
-				"WHERE WordID= " . $wordID . " " .
-				"ORDER BY Votes DESC " .
-				"LIMIT 1;";
+		$sql = 	"SELECT * FROM definitions WHERE WordID= " . $wordID . " ORDER BY Votes DESC LIMIT 1;";
 
 		$result = mysqli_query($con, $sql);
 		$results_array = $result->fetch_assoc();
 
-		$sql = 	"SELECT COUNT(*) As Count FROM definitions " .
-				"WHERE WordID= " . $wordID . ";";
+		$sql = 	"SELECT COUNT(*) As Count FROM definitions WHERE WordID= " . $wordID . ";";
 		$result = mysqli_query($con, $sql);
 		$results_array = $result->fetch_assoc();
 
