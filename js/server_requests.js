@@ -116,7 +116,7 @@ function get_tweets(alreadyDisplayed) {
                 newInput.name = "checkbox" ;
                 newInput.type = "checkbox";
                 newInput.onchange=function(){
-                    changeColorOnClick(elem,newInput);
+                    changeColorOnClick(tweetDisplay,newInput);
                 }
 
                 var t = document.createTextNode(elem.Text);
@@ -136,13 +136,12 @@ function get_tweets(alreadyDisplayed) {
     xmlhttp.send();
 }
 
-function changeColorOnClick(elem,newInput){
+function changeColorOnClick(tweetDisplay,newInput){
     if(newInput.checked){
-    console.log("OWOEOROEFOFOGORHOZHO" + elem.Text + newInput)
-    elem.style.color = "blue";
+     tweetDisplay.style.color = "blue";
     }
     else {
-    elem.style.color = "red";
+    tweetDisplay.style.color = "red";
 
     }
 }
