@@ -141,7 +141,7 @@ function changeColorOnClick(tweetDisplay,newInput){
      tweetDisplay.style.color = "blue";
     }
     else {
-    tweetDisplay.style.color = "red";
+    tweetDisplay.style.color = "#af0800";
 
     }
 }
