@@ -18,6 +18,10 @@ function InlineEditorController($scope){
 	$scope.toggleTooltip = function(e){
 		e.stopPropagation();
 		console.log("TOGGLE TOOLTIP")
+		        	document.getElementById("input_tool_box").focus();
+			document.getElementById("input_tool_box").select();
+			        	document.getElementById("input_tool_box").focus();
+			document.getElementById("input_tool_box").select();
 
 		$scope.showtooltip = !$scope.showtooltip;
 		
@@ -30,8 +34,6 @@ function InlineEditorController($scope){
 			console.log("INSIDE : Toogle tooltip")
 
         	document.getElementById("input_tool_box").focus();
-			document.getElementById("input_tool_box").select();        	document.getElementById("input_tool_box").focus();
-			document.getElementById("input_tool_box").select();        	document.getElementById("input_tool_box").focus();
 			document.getElementById("input_tool_box").select();
 		}
 		else {
