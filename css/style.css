@@ -578,7 +578,7 @@ a a:hover, a:visited, a:link, a:active {
 	position: absolute;
 	left:50%;
 	margin-left:-205px;
-	top: 135px;
+	top: 35px;
 }
 
 .input_tool:after{
