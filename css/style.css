@@ -179,9 +179,8 @@ a a:hover, a:visited, a:link, a:active {
 }
 #SubmitDef, #SubmitTrans {
 	position:relative;
-	transform: scale(0.60);
+/*	transform: scale(0.60);*/
 	 float:right;
-	 top:-15px;
 	 
 }
 
@@ -425,8 +424,8 @@ a a:hover, a:visited, a:link, a:active {
 
 .controlSmall {
 	cursor:pointer;
-	height:50px;
-	width:50px;
+	height:25px;
+	width:25px;
 	opacity:0.5;
 }
 
