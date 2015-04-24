@@ -236,14 +236,19 @@ a a:hover, a:visited, a:link, a:active {
 	width:200px;
 }
 
-#definitions_wrapper, #translations_wrapper {	
+#definitions_wrapper {	
+	margin-top:20px;
+	width: 750px;
+	height: 310px;
+	overflow: scroll;
+}
+
+ #translations_wrapper {	
 	margin-top:20px;
 	width: 750px;
 	height: 110px;
 	overflow: scroll;
 }
-
-
 #hunt_wrapper {
 	margin-top:20px;
 	width: 750px;
