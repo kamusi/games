@@ -423,6 +423,13 @@ a a:hover, a:visited, a:link, a:active {
 	opacity:0.5;
 }
 
+.controlSmall {
+	cursor:pointer;
+	height:10px;
+	width:10px;
+	opacity:0.5;
+}
+
 .settings_button {
 	float:right;
 }

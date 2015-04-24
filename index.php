@@ -66,7 +66,7 @@ $newToken = generateToken();
 									
 							</div>							
 							<table id="definitions">
-							<img title="Submit" id="SubmitDef" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick="playClick();vote();get_ranked();">
+							<img title="Submit" id="SubmitDef" ng-click="clear($event)" class="controlSmall" src="media/rightarrow.png" onclick="playClick();vote();get_ranked();">
 			
 								<tr><td>
 
