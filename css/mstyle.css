@@ -83,8 +83,8 @@
 
 #enterLogin{
 	position: absolute;
-	top: 235px;
-	left: 400px;
+	top:550px;
+	left:425px;
 }
 
 #about-main, #profile-main, #settings-main {
@@ -126,19 +126,20 @@
 	display:inline-block;
 }
 
-.control {
+.control, .controlSmall {
 	cursor:pointer;
 	height:160px;
 	width:160px;
 	opacity:0.5;
 }
+/*
 .controlSmall {
 	cursor:pointer;
 	height:45px;
 	width:45px;
 	opacity:0.5;
 }
-
+*/
 
 #SubmitDef, #SubmitTrans {
 	position:relative;
