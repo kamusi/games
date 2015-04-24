@@ -28,7 +28,8 @@ function InlineEditorController($scope){
 				$scope.value = '';
 			}
 			console.log("INSIDE : Toogle tooltip")
-        	document.getElementById("input_tool_box").focus();
+
+        	setTimeout (document.getElementById("input_tool_box").focus(), 100);
 			//document.getElementById("input_tool_box").select();
 		}
 		else {
