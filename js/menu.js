@@ -45,6 +45,7 @@ function InlineEditorController($scope){
 	$scope.searchEnter = function(e) {
         if (e.keyCode == 13) {
             $scope.hideTooltip();
+            get_ranked();
         }
 	}
 }
@@ -100,6 +101,7 @@ function InlineEditorController2($scope){
 	$scope.searchEnter2 = function(e) {
         if (e.keyCode == 13) {
             $scope.hideTooltip2();
+            get_ranked_mode_2();
         }
 	}
 }
