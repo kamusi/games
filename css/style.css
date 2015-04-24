@@ -462,13 +462,13 @@ a a:hover, a:visited, a:link, a:active {
 
 #user_definition, #user_translation {
 	min-height:15px;
-	padding-bottom:20px;
+/*	padding-bottom:20px; */
 }
 
 #definitions, #translations {
 	list-style:none;
 	width: 710px;
-	padding:20px;
+	/*padding:20px; */
 	background:white;
 	text-align:left;
 	font-size: 20px;
@@ -482,7 +482,7 @@ a a:hover, a:visited, a:link, a:active {
 .inactive_definition {
 	color: #000000;
 	width: 670px;
-	padding:20px;
+	/*padding:20px; */
 	/*padding-top: 20px;
 	padding-left: 20px;
 	padding-right: 20px;*/
