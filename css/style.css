@@ -103,8 +103,8 @@ a a:hover, a:visited, a:link, a:active {
 
 #entry, #translation_entry {
 	min-height:40px;
-	width:150px;
-	/*padding:20px;*/
+	width:710px;
+	padding:20px;
 	color: #af0800;
 	background:white;
 	text-align:left;
@@ -467,7 +467,7 @@ a a:hover, a:visited, a:link, a:active {
 
 #definitions, #translations {
 	list-style:none;
-	width: 710px;
+	width: 150px;
 	/*padding:20px; */
 	background:white;
 	text-align:left;
