@@ -17,6 +17,7 @@ function InlineEditorController($scope){
 
 	$scope.toggleTooltip = function(e){
 		e.stopPropagation();
+		console.log("TOGGLE TOOLTIP")
 
 		$scope.showtooltip = !$scope.showtooltip;
 		
@@ -26,6 +27,7 @@ function InlineEditorController($scope){
 			if($scope.value == default_value) {
 				$scope.value = '';
 			}
+			console.log("INSIDE : Toogle tooltip")
         	document.getElementById("input_tool_box").focus();
 			document.getElementById("input_tool_box").select();
 		}
