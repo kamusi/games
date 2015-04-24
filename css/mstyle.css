@@ -18,7 +18,7 @@
 	text-transform:capitalize;
 }
 
-#pos, #translation_pos {
+#pos, #pos3,  #translation_pos {
 	display: inline-block;
 	font:55px/1.3 'Gill Sans', sans-serif;
 	color:gray;
@@ -75,6 +75,18 @@
     height:auto;
 }
 
+
+#enter3 {
+	top: 225px;
+	left: 610px;
+}
+
+#enterLogin{
+	position: absolute;
+	top: 235px;
+	left: 400px;
+}
+
 #about-main, #profile-main, #settings-main {
 	height:1100px;
 	width:810px;
@@ -120,8 +132,22 @@
 	width:160px;
 	opacity:0.5;
 }
+.controlSmall {
+	cursor:pointer;
+	height:45px;
+	width:45px;
+	opacity:0.5;
+}
 
-#game {
+
+#SubmitDef, #SubmitTrans {
+	position:relative;
+/*	transform: scale(0.60);*/
+	 float:right;
+	 
+}
+
+#game, #game2, #game3   {
 	width:100%;
 	height:100%;
 	display:none;
