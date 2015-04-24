@@ -424,13 +424,18 @@ a a:hover, a:visited, a:link, a:active {
 
 .controlSmall {
 	cursor:pointer;
-	height:25px;
-	width:25px;
+	height:45px;
+	width:45px;
 	opacity:0.5;
 }
 
 .settings_button {
 	float:right;
+}
+
+.controlSmall:hover {
+	opacity:1;
+	transform: scale(1.05);
 }
 
 .control:hover {
