@@ -30,6 +30,8 @@ function InlineEditorController($scope){
 			console.log("INSIDE : Toogle tooltip")
 
         	document.getElementById("input_tool_box").focus();
+			document.getElementById("input_tool_box").select();        	document.getElementById("input_tool_box").focus();
+			document.getElementById("input_tool_box").select();        	document.getElementById("input_tool_box").focus();
 			document.getElementById("input_tool_box").select();
 		}
 		else {
@@ -143,7 +145,6 @@ function enter_game1() {
 	document.getElementById("gamezone1").style.display = "inline-block";
 	document.getElementById("gamezone2").style.display = "none";
 	document.getElementById("gamezone3").style.display = "none";
-	document.getElementById("input_tool_box").focus();
 	// document.getElementById("gamezone-main1").style.display = "inline-block";
 	// document.getElementById("gamezone-main2").style.display = "none";
 	// document.getElementById("footer-next1").style.display = "inline-block";
