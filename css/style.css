@@ -461,8 +461,8 @@ a a:hover, a:visited, a:link, a:active {
 }
 
 #user_definition, #user_translation {
-	min-height:10px;
-	padding-bottom:10px;
+	min-height:15px;
+	padding-bottom:20px;
 }
 
 #definitions, #translations {
