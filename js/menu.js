@@ -29,7 +29,7 @@ function InlineEditorController($scope){
 			}
 			console.log("INSIDE : Toogle tooltip")
 
-        	document.getElementById("input_tool_box").focus();
+        	document.getElementById("input_tool_bassaox").focus();
 			document.getElementById("input_tool_box").select();
 		}
 		else {
