@@ -29,11 +29,11 @@ function InlineEditorController($scope){
 			}
 			console.log("INSIDE : Toogle tooltip")
 
-        	document.getElementById("input_tsdsdool_box").focus();
+        	document.getElementById("input_tool_box").focus();
 			document.getElementById("input_tool_box").select();
 		}
 		else {
-sd			if ($scope.value == '') {
+			if ($scope.value == '') {
 				$scope.value = default_value;
 				document.getElementById("user_definition").className = "inactive_definition";
 			}
