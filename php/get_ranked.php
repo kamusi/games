@@ -60,7 +60,6 @@ $stmt = $mysqli->prepare($sql);
 if ($stmt === FALSE) {
     die ("Mysql Error: " . $mysqli->error);
 }
-var_dump($stmt);
 
 $stmt->bind_param("is",  $word_id, $userID);
 $stmt->execute();
