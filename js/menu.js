@@ -52,7 +52,7 @@ function InlineEditorController($scope){
 	$scope.searchEnter = function(e) {
         if (e.keyCode == 13) {
             $scope.hideTooltip();
-            get_ranked();
+            playClick();vote();get_ranked();
         }
 	}
 }
