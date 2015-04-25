@@ -40,6 +40,7 @@ if ($stmt === FALSE) {
 $stmt->bind_param("i",  $word_id);
 $stmt->execute();
 $result = $stmt->get_result();
+echo "WORDID: " . $word_id;
 var_dump($result);
 
 while ($row = $result->fetch_assoc()) {
