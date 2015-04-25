@@ -86,6 +86,8 @@ function lookForWord($userID, $mysqli) {
 			$row = $result->fetch_assoc();
 			$word_id = $row["ID"];
 
+			echo "This is the num of rows : " . $result-> num_rows;
+			echo "This is wordid " . $word_id; 
 			$stmt->close();
 		if($result-> num_rows === 0 || $word_id == null){
 			$stmt->close();
