@@ -104,7 +104,7 @@ function lookForWord($userID, $mysqli) {
 
 
 				$stmt = $mysqli->prepare("INSERT INTO wordsAlreadySeenMode1 (UserID ,WordID) VALUES (?,?);");
-				$stmt->bind_param("si", $userID, );
+				$stmt->bind_param("si", $userID, $word_id);
 				$stmt->execute();
 				$stmt->close();	
 			if($user_offset > global $offsetModulo){
