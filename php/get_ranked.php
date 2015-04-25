@@ -27,8 +27,6 @@ $mysqli = new mysqli('localhost', $user, $pass, $db);
 
 $word_id =lookForWord($userID, $mysqli); 
 
-$stmt->close();
-
 $sql =  "SELECT sq.ID As WordID, sq.Word, sq.PartOfSpeech, d.ID As DefinitionID, d.Definition, d.GroupID, d.UserID As Author ";
 $sql .= "FROM (SELECT * FROM words WHERE ID=?) AS sq ";
 $sql .= "LEFT JOIN definitions As d ON sq.DefinitionID = d.GroupID";
