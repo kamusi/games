@@ -57,6 +57,7 @@ $sql .= "LEFT JOIN definitions As d ON sq.DefinitionID = d.GroupID";
 $sql .= "WHERE d.GroupID NOT IN (SELECT GroupID FROM usersDefinitionsMode1 WHERE userID= ?) ORDER BY Votes desc;";
 
 $stmt = $mysqli->prepare($sql);
+var_dump($stmt);
 $stmt->bind_param("is",  $word_id, $userID);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -69,7 +70,8 @@ while ($row = $result->fetch_assoc()) {
 $stmt->close();
 
 
-$jsonData = json_encode($results_array);
+$jsonData = json_encode($results_array
+	var_dump($stmt););
 echo $jsonData;
 
 ?>
