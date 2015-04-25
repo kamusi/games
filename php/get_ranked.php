@@ -37,7 +37,7 @@ $user_offset = $row["OffsetMode1"];
 //fetch the word that has as rank user s position+offset
 $sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
 $sql.=	"SELECT w.ID, w.DefinitionID, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
-$sql.=	") As sq WHERE sq.ID IS NOT NULL  AND sq.Rank = ? ;";
+$sql.=	") As sq WHERE sq.ID IS NOT NULL  AND sq.Rank = ? LIMIT 1;";
 
 $sum = intval($user_position) + intval($user_offset);
 
@@ -46,18 +46,30 @@ $stmt->bind_param("i",  $sum);
 $stmt->execute();
 $result = $stmt->get_result();
 
+$row = $result->fetch_assoc();
+$word_id = $row["ID"];
 
 $stmt->close();
 
 $sql =  "SELECT sq.ID As WordID, sq.Word, sq.PartOfSpeech, d.ID As DefinitionID, d.Definition, d.GroupID, d.UserID As Author ";
-$sql .= "FROM (SELECT * FROM words WHERE ID=" . $word_id . ") AS sq ";
+$sql .= "FROM (SELECT * FROM words WHERE ID=?) AS sq ";
 $sql .= "LEFT JOIN definitions As d ON sq.DefinitionID = d.GroupID";
 $sql .= "WHERE d.GroupID NOT IN (SELECT GroupID FROM usersDefinitionsMode1 WHERE userID= ?) ORDER BY Votes desc;";
 
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("is",  $word_id, $userID);
+$stmt->execute();
+$result = $stmt->get_result();
+
+while ($row = $result->fetch_assoc()) {
+	$results_array[] = $row;
+}
 
 
+$stmt->close();
 
-$jsonData = json_encode($user_position);
+
+$jsonData = json_encode($results_array);
 echo $jsonData;
 
 ?>
