@@ -39,9 +39,10 @@ $sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
 $sql.=	"SELECT w.ID, w.DefinitionID, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
 $sql.=	") As sq WHERE sq.ID IS NOT NULL  AND sq.Rank = ? ;";
 
+$sum = intval($user_position) + intval($user_offset);
 
 $stmt = $mysqli->prepare($sql);
-$stmt->bind_param("i", intval($user_position) + intval($user_offset) );
+$stmt->bind_param("i",  $sum);
 $stmt->execute();
 $result = $stmt->get_result();
 
