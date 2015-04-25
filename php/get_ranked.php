@@ -101,6 +101,7 @@ function lookForWord($userID, $mysqli) {
 		else {
 			$row = $result->fetch_assoc();
 			$word_id = $row["ID"];
+			echo "WORD ID IS : " . $word_id;
 
 			$stmt->close();
 
