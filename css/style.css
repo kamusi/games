@@ -601,7 +601,7 @@ a a:hover, a:visited, a:link, a:active {
 	border-color:#eba634 transparent transparent;
 	width:0;
 	height:0;
-	bottom:-12px;
+	top:12px;
 	left:50%;
 	margin-left:-6px;
 }
