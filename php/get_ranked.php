@@ -1,7 +1,7 @@
 <?php
 
 include 'validate_token.php';
-global $offsetModulo = 2;
+$offsetModulo = 2;
 
 $userID = $_GET['userID'];
 // $token = $_GET['token'];
@@ -107,7 +107,7 @@ function lookForWord($userID, $mysqli) {
 				$stmt->bind_param("si", $userID, );
 				$stmt->execute();
 				$stmt->close();	
-			if($user_offset > $offsetModulo){
+			if($user_offset > global $offsetModulo){
 				$stmt = $mysqli->prepare("UPDATE users SET OffsetMode1 = 0 WHERE UserID=?;");
 				$stmt->bind_param("s", $userID);
 				$stmt->execute();
