@@ -55,7 +55,7 @@ $jsonData = json_encode($results_array);
 echo $jsonData;
 
 function lookForWord($userID, $mysqli) {
-global $offsetModulo;
+	global $offsetModulo;
 //fetch the user in order to see which word is for him
 	$stmt = $mysqli->prepare("SELECT * FROM users WHERE UserID = ? ");
 	$stmt->bind_param("s", $userID );
@@ -76,6 +76,10 @@ global $offsetModulo;
 		$sum = intval($user_position) + intval($user_offset);
 
 		$stmt = $mysqli->prepare($sql);
+		if ($stmt === FALSE) {
+			die ("Mysql Error: " . $mysqli->error);
+		}
+
 		$stmt->bind_param("si", $userID, $sum);
 		$stmt->execute();
 		$result = $stmt->get_result();
@@ -103,10 +107,10 @@ global $offsetModulo;
 			$stmt->close();
 
 
-				$stmt = $mysqli->prepare("INSERT INTO wordsAlreadySeenMode1 (UserID ,WordID) VALUES (?,?);");
-				$stmt->bind_param("si", $userID, $word_id);
-				$stmt->execute();
-				$stmt->close();	
+			$stmt = $mysqli->prepare("INSERT INTO wordsAlreadySeenMode1 (UserID ,WordID) VALUES (?,?);");
+			$stmt->bind_param("si", $userID, $word_id);
+			$stmt->execute();
+			$stmt->close();	
 			if($user_offset > $offsetModulo){
 				$stmt = $mysqli->prepare("UPDATE users SET OffsetMode1 = 0 WHERE UserID=?;");
 				$stmt->bind_param("s", $userID);
@@ -119,7 +123,7 @@ global $offsetModulo;
 				$stmt->bind_param("s", $userID);
 				$stmt->execute();
 				$stmt->close();	
-				}	
+			}	
 			return $word_id;
 		}
 	}
