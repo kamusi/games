@@ -103,7 +103,7 @@ function lookForWord($userID, $mysqli) {
 				$stmt->execute();
 				$stmt->close();		
 			}
-			lookForWord($userID, $mysqli);
+			return lookForWord($userID, $mysqli);
 		}
 		else {
 
