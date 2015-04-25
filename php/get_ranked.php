@@ -30,7 +30,7 @@ $word_id =lookForWord($userID, $mysqli);
 $sql =  "SELECT sq.ID As WordID, sq.Word, sq.PartOfSpeech, d.ID As DefinitionID, d.Definition, d.GroupID, d.UserID As Author ";
 $sql .= "FROM (SELECT * FROM words WHERE ID=?) AS sq ";
 $sql .= "LEFT JOIN definitions As d ON sq.DefinitionID = d.GroupID";
-$sql .= " WHERE d.GroupID NOT IN (SELECT GroupID FROM usersDefinitionsMode1 WHERE userID= ?) ORDER BY Votes desc;";
+$sql .= " ORDER BY Votes desc;";
 
 $stmt = $mysqli->prepare($sql);
 if ($stmt === FALSE) {
