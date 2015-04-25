@@ -83,8 +83,11 @@ function lookForWord($userID, $mysqli) {
 		$stmt->bind_param("si", $userID, $sum);
 		$stmt->execute();
 		$result = $stmt->get_result();
+			$row = $result->fetch_assoc();
+			$word_id = $row["ID"];
 
-		if($result-> num_rows === 0){
+			$stmt->close();
+		if($result-> num_rows === 0 || $word_id == null){
 			$stmt->close();
 			if($user_offset == 0) {
 				$stmt = $mysqli->prepare("UPDATE users SET PositionMode1 = PositionMode1 + 1 WHERE UserID=?;");
@@ -101,10 +104,7 @@ function lookForWord($userID, $mysqli) {
 			lookForWord($userID, $mysqli);
 		}
 		else {
-			$row = $result->fetch_assoc();
-			$word_id = $row["ID"];
 
-			$stmt->close();
 
 
 			$stmt = $mysqli->prepare("INSERT INTO wordsAlreadySeenMode1 (UserID ,WordID) VALUES (?,?);");
