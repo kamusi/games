@@ -29,8 +29,8 @@ $result = $stmt->get_result();
 
 $stmt->close();
 
-$user_position = $result["PositionMode1"];
-
+$row = $result->fetch_assoc();
+$user_position = $row["PositionMode1"];
 
 
 $jsonData = json_encode($user_position);
