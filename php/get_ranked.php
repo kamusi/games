@@ -124,25 +124,4 @@ global $offsetModulo;
 		}
 	}
 
-	function fetchGeneralSense($word_id, $userID, $mysqli, $user_position, $user_offset){
-
-		$sql =  "SELECT DefinitionID FROM "
-		$stmt = $mysqli->prepare($sql);
-		if ($stmt === FALSE) {
-			die ("Mysql Error: " . $mysqli->error);
-		}
-
-		$stmt->bind_param("is",  $word_id, $userID);
-		$stmt->execute();
-		$result = $stmt->get_result();
-
-
-
-		while ($row = $result->fetch_assoc()) {
-			$results_array[] = $row;
-		}
-
-		$stmt->close();
-	}
-
 	?>
