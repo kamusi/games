@@ -134,7 +134,7 @@ function getDefinitions($word_id, $mysqli){
 
 
 		$stmt->close();
-		return $results_array
+		return $results_array;
 	}
 }
 
