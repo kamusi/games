@@ -81,7 +81,7 @@ function lookForWord($userID, $mysqli) {
 		$stmt->bind_param("si", $userID, $sum);
 		$stmt->execute();
 		$result = $stmt->get_result();
-
+		var_dump($result);
 		if($result-> num_rows === 0){
 			$stmt->close();
 			if($user_offset == 0) {
