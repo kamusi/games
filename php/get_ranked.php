@@ -40,8 +40,7 @@ if ($stmt === FALSE) {
 $stmt->bind_param("i",  $word_id);
 $stmt->execute();
 $result = $stmt->get_result();
-echo "WORDID: " . $word_id;
-var_dump($result);
+
 
 while ($row = $result->fetch_assoc()) {
 	$results_array[] = $row;
@@ -86,8 +85,6 @@ function lookForWord($userID, $mysqli) {
 			$row = $result->fetch_assoc();
 			$word_id = $row["ID"];
 
-			echo "This is the num of rows : " . $result-> num_rows;
-			echo "This is wordid " . $word_id; 
 			$stmt->close();
 		if($result-> num_rows === 0 || $word_id == null){
 			$stmt->close();
