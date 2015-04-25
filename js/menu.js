@@ -17,7 +17,6 @@ function InlineEditorController($scope){
 
 	$scope.toggleTooltip = function(e){
 		e.stopPropagation();
-		console.log("TOGGLE TOOLTIP")
 		        	document.getElementById("input_tool_box").focus();
 			document.getElementById("input_tool_box").select();
 			        	document.getElementById("input_tool_box").focus();
@@ -31,7 +30,6 @@ function InlineEditorController($scope){
 			if($scope.value == default_value) {
 				$scope.value = '';
 			}
-			console.log("INSIDE : Toogle tooltip")
 
         	document.getElementById("input_tool_box").focus();
 			document.getElementById("input_tool_box").select();
@@ -53,6 +51,7 @@ function InlineEditorController($scope){
         if (e.keyCode == 13) {
             $scope.hideTooltip();
             playClick();vote();get_ranked();
+            $scope.value = default_value;
         }
 	}
 }
