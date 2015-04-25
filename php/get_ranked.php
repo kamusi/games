@@ -55,7 +55,7 @@ $jsonData = json_encode($results_array);
 echo $jsonData;
 
 function lookForWord($userID, $mysqli) {
-
+global $offsetModulo;
 //fetch the user in order to see which word is for him
 	$stmt = $mysqli->prepare("SELECT * FROM users WHERE UserID = ? ");
 	$stmt->bind_param("s", $userID );
@@ -107,7 +107,7 @@ function lookForWord($userID, $mysqli) {
 				$stmt->bind_param("si", $userID, $word_id);
 				$stmt->execute();
 				$stmt->close();	
-			if($user_offset > global $offsetModulo){
+			if($user_offset > $offsetModulo){
 				$stmt = $mysqli->prepare("UPDATE users SET OffsetMode1 = 0 WHERE UserID=?;");
 				$stmt->bind_param("s", $userID);
 				$stmt->execute();
