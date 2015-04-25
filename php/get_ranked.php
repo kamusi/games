@@ -37,7 +37,7 @@ if ($stmt === FALSE) {
 	die ("Mysql Error: " . $mysqli->error);
 }
 
-$stmt->bind_param("is",  $word_id, $userID);
+$stmt->bind_param("i",  $word_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
