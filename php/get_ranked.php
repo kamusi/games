@@ -27,8 +27,8 @@ $mysqli = new mysqli('localhost', $user, $pass, $db);
 $results_array = FALSE;
 
 while($results_array === FALSE) {
-$word_id =lookForWord($userID, $mysqli); 
-$results_array = getDefinitions($word_id, $mysqli);
+	$word_id =lookForWord($userID, $mysqli); 
+	$results_array = getDefinitions($word_id, $mysqli);
 }
 
 $jsonData = json_encode($results_array);
@@ -74,6 +74,14 @@ if($result-> num_rows === 0){
 		$stmt->bind_param("s", $userID);
 		$stmt->execute();
 		$stmt->close();
+
+		//Clean up the DB that stores the encountered words, else it become too big
+
+		$stmt = $mysqli->prepare("DELETE FROM wordsAlreadySeenMode1 WHERE UserID=? AND Rank < ? ;");
+		$stmt->bind_param("si", $userID, $sum);
+		$stmt->execute();
+		$stmt->close();
+
 	}
 	else {
 		$stmt = $mysqli->prepare("UPDATE users SET OffsetMode1 = OffsetMode1 + 1 WHERE UserID=?;");
@@ -87,8 +95,8 @@ else {
 
 
 
-	$stmt = $mysqli->prepare("INSERT INTO wordsAlreadySeenMode1 (UserID ,WordID) VALUES (?,?);");
-	$stmt->bind_param("si", $userID, $word_id);
+	$stmt = $mysqli->prepare("INSERT INTO wordsAlreadySeenMode1 (UserID ,WordID, Rank) VALUES (?,?,?);");
+	$stmt->bind_param("sii", $userID, $word_id, $sum);
 	$stmt->execute();
 	$stmt->close();	
 	if($user_offset > $offsetModulo){
