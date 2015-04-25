@@ -71,7 +71,7 @@ function lookForWord($userID, $mysqli) {
 //fetch the word that has as rank user s position+offset
 	$sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
 		$sql.=	"SELECT w.ID, w.DefinitionID, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
-		$sql.=	") As sq WHERE sq.ID IS NOT NULL AND WHERE w.ID NOT IN (SELECT WordID FROM wordsAlreadySeenMode1 WHERE UserID=? AND sq.Rank = ? LIMIT 1;";
+		$sql.=	") As sq WHERE sq.ID IS NOT NULL AND w.ID NOT IN (SELECT WordID FROM wordsAlreadySeenMode1 WHERE UserID=? AND sq.Rank = ? LIMIT 1;";
 
 		$sum = intval($user_position) + intval($user_offset);
 
