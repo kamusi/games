@@ -591,10 +591,10 @@ a a:hover, a:visited, a:link, a:active {
 	position: absolute;
 	left:50%;
 	margin-left:-205px;
-	top: 235px;
+	top: 255px;
 }
 
-.input_tool:after{
+.input_tool:before{
 	content:'';
 	position:absolute;
 	border:6px solid #eba634;
