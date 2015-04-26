@@ -17,10 +17,10 @@ function InlineEditorController($scope){
 
 	$scope.toggleTooltip = function(e){
 		e.stopPropagation();
-		        	document.getElementById("input_tool_box").focus();
-			document.getElementById("input_tool_box").select();
-			        	document.getElementById("input_tool_box").focus();
-			document.getElementById("input_tool_box").select();
+		document.getElementById("input_tool_box").focus();
+		document.getElementById("input_tool_box").select();
+		document.getElementById("input_tool_box").focus();
+		document.getElementById("input_tool_box").select();
 
 		$scope.showtooltip = !$scope.showtooltip;
 		
@@ -31,7 +31,7 @@ function InlineEditorController($scope){
 				$scope.value = '';
 			}
 
-        	document.getElementById("input_tool_box").focus();
+			document.getElementById("input_tool_box").focus();
 			document.getElementById("input_tool_box").select();
 		}
 		else {
@@ -48,11 +48,11 @@ function InlineEditorController($scope){
 	}
 
 	$scope.searchEnter = function(e) {
-        if (e.keyCode == 13) {
-            $scope.hideTooltip();
-            playClick();vote();get_ranked();
-            $scope.value = default_value;
-        }
+		if (e.keyCode == 13) {
+			$scope.hideTooltip();
+			playClick();vote();get_ranked();
+			$scope.value = default_value;
+		}
 	}
 }
 
@@ -105,10 +105,10 @@ function InlineEditorController2($scope){
 	}
 
 	$scope.searchEnter2 = function(e) {
-        if (e.keyCode == 13) {
-            $scope.hideTooltip2();
-            get_ranked_mode_2();
-        }
+		if (e.keyCode == 13) {
+			$scope.hideTooltip2();
+			get_ranked_mode_2();
+		}
 	}
 }
 
@@ -120,7 +120,7 @@ function InlineEditorController2($scope){
 // 		var translation = document.getElementById("user_translation").className;
 
 // 		if(gamezone1.style.display == "inline-block" && definition == "active_definition") {
-			
+	
 // 		}
 // 		else if(gamezone1.style.display == "inline-block" && translation == "active_definition") {
 
@@ -194,7 +194,7 @@ function display_about() {
 function display_profile() {
 	get_user_stats();
 	FB.api('/me', function(response) {
-  		check_user(response);
+		check_user(response);
 	});
 	document.getElementById("settings").style.display = "none";
 	document.getElementById("welcome").style.display = "none";
@@ -258,8 +258,8 @@ function set_word(word, pos) {
 }
 
 function set_avatar(userID) {
-    document.getElementById("avatar").src = "https://graph.facebook.com/" + userID + "/picture";
-    document.getElementById("profile_avatar").src = "https://graph.facebook.com/" + userID + "/picture??width=200&height=200";
+	document.getElementById("avatar").src = "https://graph.facebook.com/" + userID + "/picture";
+	document.getElementById("profile_avatar").src = "https://graph.facebook.com/" + userID + "/picture??width=200&height=200";
 }
 
 function set_greeting(userName) {
@@ -332,14 +332,14 @@ function add_definition(id, definition, spam) {
 	var ul = document.getElementById('definitions');
 	var li = document.createElement("li");
 	li.classList.add("inactive_definition");
-	 var div_footer = document.createElement("div");
-	 div_footer.classList.add("button_div_footer");
+	var div_footer = document.createElement("div");
+	div_footer.classList.add("button_div_footer");
 	li.innerHTML = definition;
-	 var img1 = document.createElement("img");
-	 img1.src = 'media/exclamation.png';
-	 img1.classList.add('vote_button');
-	 img1.title = "Report spam";
-	 div_footer.appendChild(img1);
+	var img1 = document.createElement("img");
+	img1.src = 'media/exclamation.png';
+	img1.classList.add('vote_button');
+	img1.title = "Report spam";
+	div_footer.appendChild(img1);
 
 	li.onmousedown = (function(id_num) {
 		return function () {
@@ -354,28 +354,28 @@ function add_definition(id, definition, spam) {
 		};
 	})(id);
 
-	 img1.onmousedown = (function(id_num) {
-	 	return function () {
-	 		definitionID = id_num;
-	 		report_spam(definitionID);
-	 	};
-	 })(id);
+	img1.onmousedown = (function(id_num) {
+		return function () {
+			definitionID = id_num;
+			report_spam(definitionID);
+		};
+	})(id);
 
 	 //li.appendChild(div_main);
 	 //li.appendChild(div_footer);
 	 if(spam){
-	li.appendChild(img1);
-}
-	
-	ul.appendChild(li);
-}
+	 	li.appendChild(img1);
+	 }
+	 
+	 ul.appendChild(li);
+	}
 
-function add_trophy(word, definition) {
-	var table = document.getElementById("profile_trophies");
-	var row = table.insertRow(0);
-	var cell1 = row.insertCell(0);
-	var cell2 = row.insertCell(1);
-	var cell3 = row.insertCell(2);
+	function add_trophy(word, definition) {
+		var table = document.getElementById("profile_trophies");
+		var row = table.insertRow(0);
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
 	// cell1.classList.add("left_cell");
 	// cell2.classList.add("right_cell");
 	var img = document.createElement("img");

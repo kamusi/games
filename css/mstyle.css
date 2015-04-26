@@ -87,6 +87,13 @@
 	left:425px;
 }
 
+.vote_button {
+	transform: scale(1.5);
+	cursor:pointer;
+	opacity:0.5;
+	z-index: 10;
+}
+
 #about-main, #profile-main, #settings-main {
 	height:1100px;
 	width:810px;
