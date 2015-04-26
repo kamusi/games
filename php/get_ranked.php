@@ -64,6 +64,9 @@ if ($stmt === FALSE) {
 	die ("Mysql Error: " . $mysqli->error);
 }
 
+echo "This is the statement : " . $stmt;
+
+return 12;
 $stmt->bind_param("si", $userID, $sum);
 $stmt->execute();
 $result = $stmt->get_result();
