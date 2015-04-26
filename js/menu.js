@@ -278,7 +278,7 @@ function set_greeting(userName) {
 function set_profile_data(userID, points, pendingPoints, ratio, notify) {
 	document.getElementById("profile_points").innerHTML = points;
 	document.getElementById("pending_points").innerHTML = pendingPoints;
-	document.getElementById("profile_attempts").innerHTML = ratio;
+	document.getElementById("profile_attempts").innerHTML = ratio.toPrecision(10);
 	if(notify == 1) {
 		document.getElementById("gamezone2").style.display = "none";
 		display_profile();
