@@ -432,13 +432,15 @@ a a:hover, a:visited, a:link, a:active {
 .controlMiddle {
 	cursor:pointer;
 	height:100px;
-	width:400px;
+	width:100px;
+	left:450px;
 	opacity:0.5;
 }
 .controlRight {
 	cursor:pointer;
 	height:100px;
-	width:700px;
+	width:100px;
+	left:800px;
 	opacity:0.5;
 }
 
