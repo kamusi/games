@@ -88,7 +88,7 @@
 }
 
 #vote_button {
-	transform: scale(5);
+	transform: scale(3);
 	cursor:pointer;
 	opacity:0.5;
 	z-index: 10;
