@@ -72,7 +72,6 @@ $word_id = $row["ID"];
 
 $stmt->close();
 if($result-> num_rows === 0){
-	$stmt->close();
 	if($user_offset == 0) {
 		$stmt = $mysqli->prepare("UPDATE game".$mode." SET Position = Position + 1 WHERE UserID=?;");
 		$stmt->bind_param("s", $userID);
