@@ -446,7 +446,7 @@ a a:hover, a:visited, a:link, a:active {
 	cursor:pointer;
 	height:100px;
 	width:100px;
-	left:450px;
+	left:300px;
 	opacity:0.5;
 }
 .controlRight {
@@ -456,7 +456,7 @@ a a:hover, a:visited, a:link, a:active {
 	cursor:pointer;
 	height:100px;
 	width:100px;
-	left:800px;
+	left:550px;
 	opacity:0.5;
 }
 
