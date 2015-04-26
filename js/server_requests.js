@@ -571,18 +571,17 @@ function get_ranked_mode_2() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             console.log("GEt ranked2 : " + xmlhttp.responseText)
             obj = JSON.parse(xmlhttp.responseText);
-            document.getElementById("translation_word").innerHTML = obj.Word;
-            document.getElementById("translation_pos").innerHTML = obj.PartOfSpeech;
-            document.getElementById("translation_definition").innerHTML = "General Sense: " + obj.Definition;
+            document.getElementById("translation_word").innerHTML = obj[0].Word;
+            document.getElementById("translation_pos").innerHTML = obj[0].PartOfSpeech;
+            document.getElementById("translation_definition").innerHTML = "General Sense: " + obj[0].Definition;
 
             var underscored_word = obj.Word.replace(" /g", "_");
 
             document.getElementById("wiktionary").href = "https://en.wiktionary.org/wiki/" + underscored_word;
             document.getElementById("dictionary").href = "http://dictionary.reference.com/browse/" + underscored_word;
             document.getElementById("wordnik").href = "https://www.wordnik.com/words/" + underscored_word;
-            translationID = obj.ID;
-            console.log("What was sent get_ranked_mode_2 : " + xmlhttp.responseText)
-
+            translationID = obj[0].ID;
+ 
             // var newBottom = document.getElementById("translation_entry").getBoundingClientRect().bottom;
             // var intString = (newBottom + 100).toString() + "px";
             // document.getElementById("translation_input_tool_box").style.top="100px";
