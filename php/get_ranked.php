@@ -64,7 +64,7 @@ if ($stmt === FALSE) {
 	die ("Mysql Error: " . $mysqli->error);
 }
 
-echo "This is the statement : " . $stmt;
+echo "This is the statement : " . $sql . " with user : " . $userID;
 
 return 12;
 $stmt->bind_param("si", $userID, $sum);
