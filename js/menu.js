@@ -188,8 +188,10 @@ function display_settings() {
 	document.getElementById("settings").style.display = "inline-block";
 }
 
-function display_leaderboad() {
+function display_leaderboard() {
 	document.getElementById("profile").style.display = "none";
+	document.getElementById("leaderboard").style.display = "inline-block";
+
 	
 }
 
@@ -204,8 +206,10 @@ function display_profile() {
 		check_user(response);
 	});
 	document.getElementById("settings").style.display = "none";
+	document.getElementById("leaderboard").style.display = "none";
 	document.getElementById("welcome").style.display = "none";
 	document.getElementById("game").style.display = "none";
+
 	document.getElementById("profile").style.display = "inline-block";
 }
 
@@ -422,3 +426,19 @@ function soumettre_traduction() {
 		submit_translation(user_translation);
 	}
 }
+
+//stuff for the tabs
+
+jQuery(document).ready(function() {
+    jQuery('.tabs .tab-links a').on('click', function(e)  {
+        var currentAttrValue = jQuery(this).attr('href');
+ 
+        // Show/Hide Tabs
+        jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+ 
+        // Change/remove current tab to active
+        jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+ 
+        e.preventDefault();
+    });
+});

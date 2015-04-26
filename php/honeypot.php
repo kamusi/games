@@ -27,7 +27,7 @@ function update_user_rating($userID, $wordID, $groupID) {
 		$sql = 	"SELECT COUNT(*) As Count FROM definitions WHERE GroupID= " . $groupID . ";";
 		$result = mysqli_query($con, $sql);
 		$results_array = $result->fetch_assoc();
-
+//DEBUG HONEYPOT ON OCCASION!!
 		$rand_exp = 1/min(5, $results_array["Count"]);
 //how did user selec correctlyy?
 		if($definition = $results_array['DefinitionID']) { //User selected correctly

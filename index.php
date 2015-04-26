@@ -54,7 +54,7 @@ $newToken = generateToken();
 				<div id="gamezone1" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 					<div id="gamezone-main1" >
 						<div id="entry">
-						<p id="instructions1">Write or vote for a definition!  </p>
+							<p id="instructions1">Write or vote for a definition!  </p>
 
 							<p id="word"></p>
 							<p id="pos"></p>
@@ -63,14 +63,14 @@ $newToken = generateToken();
 						<div id="definitions_wrapper">
 							<div class="input_tool" ng-click="$event.stopPropagation()" ng-show="showtooltip">
 								<input id="input_tool_box" type="text" ng-model="value" ng-keypress="searchEnter($event);" onFocus="this.select()"/>
-					<img title="Submit" id="SubmitDef" ng-click="clear($event)" class="controlSmall" src="media/rightarrowSmall.png" onclick="playClick();vote();get_ranked();">
-									
+								<img title="Submit" id="SubmitDef" ng-click="clear($event)" class="controlSmall" src="media/rightarrowSmall.png" onclick="playClick();vote();get_ranked();">
+
 							</div>							
 							<table id="definitions">
-					
+
 								<tr><td>
 
-						
+
 									<li ng-click="toggleTooltip($event)" id="user_definition" class="inactive_definition">{{value}}</li>
 								</td></tr>
 							</table>
@@ -97,51 +97,51 @@ $newToken = generateToken();
 						</div>
 						<div id="translations_wrapper">
 							<div class="input_tool" ng-click="$event.stopPropagation()" ng-show="showtooltip2">
-						
+
 								<input id="translation_input_tool_box" type="text" ng-model="translation" ng-keypress="searchEnter2($event);" onFocus="this.select()"/>
-							<img title="Submit" id="SubmitTrans" ng-click="clear($event)" class="controlSmall" src="media/rightarrowSmall.png" onclick="playClick();;soumettre_traduction();get_ranked_mode_2();">
-					
+								<img title="Submit" id="SubmitTrans" ng-click="clear($event)" class="controlSmall" src="media/rightarrowSmall.png" onclick="playClick();;soumettre_traduction();get_ranked_mode_2();">
+
 							</div>
 							<table id="translations">
 								<tr><td>
-						</div>	
-									<li ng-click="toggleTooltip2($event)" id="user_translation" class="inactive_definition">{{translation}}</li>
-								</td></tr>
-							</table>
-						</div>
-						<div id="hunt_wrapper">
-							<div id="hunt">
-								<a id="wiktionary" target="_blank">Wiktionary</a>
-								<a>•</a>
-								<a id="dictionary" target="_blank">Dictionary.com</a>
-								<a>•</a>
-								<a id="wordnik" target="_blank">Wordnik</a>
-							</div>
+								</div>	
+								<li ng-click="toggleTooltip2($event)" id="user_translation" class="inactive_definition">{{translation}}</li>
+							</td></tr>
+						</table>
+					</div>
+					<div id="hunt_wrapper">
+						<div id="hunt">
+							<a id="wiktionary" target="_blank">Wiktionary</a>
+							<a>•</a>
+							<a id="dictionary" target="_blank">Dictionary.com</a>
+							<a>•</a>
+							<a id="wordnik" target="_blank">Wordnik</a>
 						</div>
 					</div>
 				</div>
-				
-				<div id="gamezone3" ng-controller="InlineEditorController" ng-click="hideTooltip();">
-					<div id="gamezone-main3" >
-						<div id="entry">
-							<p id="instructions">Check ONLY the tweets that are excellent examples of this meaning:  </p>
-							<p id="word3"></p>		
-							<p id="pos3"></p>					
-							<p id="def3"></p>
-							<div id="definitions_wrapper">
-								<p id="twitterWords"></p>
-							</div>
+			</div>
+
+			<div id="gamezone3" ng-controller="InlineEditorController" ng-click="hideTooltip();">
+				<div id="gamezone-main3" >
+					<div id="entry">
+						<p id="instructions">Check ONLY the tweets that are excellent examples of this meaning:  </p>
+						<p id="word3"></p>		
+						<p id="pos3"></p>					
+						<p id="def3"></p>
+						<div id="definitions_wrapper">
+							<p id="twitterWords"></p>
 						</div>
 					</div>
-					<div id="gamezone-footer3">
-						<div id="footer-greeting">
-							<a class="tooltip">
-								<p id="greeting"></p>
-								<span><img id="avatar" src="" width="50"></span>
-							</a>
-							<span id="login_button">
-								<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
-							</span>
+				</div>
+				<div id="gamezone-footer3">
+					<div id="footer-greeting">
+						<a class="tooltip">
+							<p id="greeting"></p>
+							<span><img id="avatar" src="" width="50"></span>
+						</a>
+						<span id="login_button">
+							<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+						</span>
 
 					</div>
 					<div id="footer-next3">
@@ -210,9 +210,9 @@ $newToken = generateToken();
 		</div>
 	</div>
 	<div id="profile-footer">
-			<img title="Return" class="controlLeft" src="media/leftarrow.png" onclick="playClick();return_to_game();">
-			<img id="settings_button" title="Leaders" class="controlMiddle" src="media/medal.png" onclick="playClick();display_leaderboad();">
-			<img title="Settings" class="controlRight" src="media/settings.png" onclick="playClick();display_settings();">
+		<img title="Return" class="controlLeft" src="media/leftarrow.png" onclick="playClick();return_to_game();">
+		<img id="settings_button" title="Leaders" class="controlMiddle" src="media/medal.png" onclick="playClick();display_leaderboard();">
+		<img title="Settings" class="controlRight" src="media/settings.png" onclick="playClick();display_settings();">
 
 	</div>
 </div>
@@ -244,11 +244,41 @@ $newToken = generateToken();
 	<option>Occasionally (Max once monthly)</option>
 	<option>When pigs fly... (Never)</option>
 </select>
-					<!-- <div id="settings-data">
-				</div> -->
+</div>
+<div id="settings-footer">
+	<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick(); saveSettings(); display_profile();">
+</div>
+</div>
+</div>
+</div>
+<div id="leaderboard">
+	<div class="tabs">
+		<ul class="tab-links">
+			<li class="active"><a href="#tab1">Tab #1</a></li>
+			<li><a href="#tab2">Tab #2</a></li>
+			<li><a href="#tab3">Tab #3</a></li>
+			<li><a href="#tab4">Tab #4</a></li>
+		</ul>
+		
+		<div class="tab-content">
+			<div id="tab1" class="tab active">
+				<p>Tab #1 content goes here!</p>
+				<p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis.</p>
 			</div>
-			<div id="settings-footer">
-				<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick(); saveSettings(); display_profile();">
+			
+			<div id="tab2" class="tab">
+				<p>Tab #2 content goes here!</p>
+				<p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis. In hac habitasse platea dictumst. Ut euismod tempus hendrerit. Morbi ut adipiscing nisi. Etiam rutrum sodales gravida! Aliquam tellus orci, iaculis vel.</p>
+			</div>
+			
+			<div id="tab3" class="tab">
+				<p>Tab #3 content goes here!</p>
+				<p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum ri.</p>
+			</div>
+			
+			<div id="tab4" class="tab">
+				<p>Tab #4 content goes here!</p>
+				<p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis. In hac habitasse platea dictumst. Ut euismod tempus hendrerit. Morbi ut adipiscing nisi. Etiam rutrum sodales gravida! Aliquam tellus orci, iaculis vel.</p>
 			</div>
 		</div>
 	</div>
