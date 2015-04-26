@@ -94,19 +94,10 @@ function request() {
 function publishStory(text) {
 //text will be the number of achievements, for now the number of validated tweets.
 //We will send out a link containing userID and # of validated tweets
-
-console.log("Publishing to timeline!!!")
-FB.api(
-    "/me/games.achieves",
-    "POST",
-    {
-"achievement": "http:\/\/samples.ogp.me\/161147604019932"    },
-    function (response) {
-      if (response && !response.error) {
-        console.log("Publishing to timeline, response was : " + response);
-
-      }
-    }
-);
+FB.ui({
+  method: 'share',
+  href: 'http://ec2-52-11-133-223.us-west-2.compute.amazonaws.com/shareTest.html',
+}, function(response){});
 
 }
+   

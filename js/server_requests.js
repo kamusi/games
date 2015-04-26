@@ -575,7 +575,7 @@ function get_ranked_mode_2() {
             document.getElementById("translation_pos").innerHTML = obj[0].PartOfSpeech;
             document.getElementById("translation_definition").innerHTML = "General Sense: " + obj[0].Definition;
 
-            var underscored_word = obj.Word.replace(" /g", "_");
+            var underscored_word = obj[0].Word.replace(" /g", "_");
 
             document.getElementById("wiktionary").href = "https://en.wiktionary.org/wiki/" + underscored_word;
             document.getElementById("dictionary").href = "http://dictionary.reference.com/browse/" + underscored_word;
