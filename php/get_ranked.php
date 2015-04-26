@@ -93,6 +93,9 @@ else {
 
 
 	$stmt = $mysqli->prepare("INSERT INTO wordsAlreadySeenMode? (UserID ,WordID, Rank) VALUES (?,?,?);");
+		if ($stmt === FALSE) {
+		die ("Mysql Error: " . $mysqli->error);
+	}
 	$stmt->bind_param("ssii", $mode, $userID, $word_id, $sum);
 	$stmt->execute();
 	$stmt->close();	
