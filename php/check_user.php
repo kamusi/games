@@ -1,4 +1,5 @@
 <?php
+include 'global.php';
 
 $userID = $_GET['userID'];
 
@@ -6,20 +7,33 @@ $user = 'root';
 $pass = '';
 $db = 'kamusi';
 
-$con = mysqli_connect('localhost', $user, $pass, $db);
+$mysqli = new mysqli('localhost', $user, $pass, $db);
 
-if (!$con) {
-	die('Could not connect: ' . mysqli_error($con));
-}
 
-$sql = "SELECT EXISTS (SELECT * FROM users WHERE userID='" . $userID . "') As CheckResult;";
-$query = mysqli_query($con, $sql);
-$checkResult = mysqli_fetch_array($query);
+	$stmt = $mysqli->prepare("SELECT * FROM users WHERE UserID = ? ");
+	$stmt->bind_param("s", $userID );
+	$stmt->execute();
+	$result = $stmt->get_result();
 
-if(!$checkResult[0]) {
+	$stmt->close();
+
+
+if($result-> num_rows === 0){
 	//Add user to database
-	$sql = "INSERT INTO users (UserID) VALUES(" . $userID . ");";
-	$query = mysqli_query($con, $sql);
+	$stmt = $mysqli->prepare("INSERT INTO users (UserID) VALUES(?);");
+	$stmt->bind_param("s", $userID );
+	$stmt->execute();
+	$stmt->close();
+
+	//Create an entry for user for each game
+
+	foreach ($acceptedModes as $mode) {
+	$stmt = $mysqli->prepare("INSERT INTO game".$mode$." (UserID) VALUES(?);");
+	$stmt->bind_param("s", $userID );
+	$stmt->execute();
+	$stmt->close();
+
+	}	
 }
 
 $jsonData = json_encode($checkResult);

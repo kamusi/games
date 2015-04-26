@@ -1,5 +1,6 @@
 <?php
 
+include 'global.php';
 include 'validate_token.php';
 $offsetModulo = 2;
 
@@ -12,7 +13,7 @@ $user = 'root';
 $pass = '';
 $db = 'kamusi';
 
-$acceptedModes = array("1","2","3");
+//$acceptedModes = array("1","2","3");
 
 $con = mysqli_connect('localhost', $user, $pass, $db);
 
