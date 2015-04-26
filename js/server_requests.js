@@ -435,7 +435,7 @@ function isNewUser() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             obj = JSON.parse(xmlhttp.responseText);
             console.log("REPONSE NEW USER : " + xmlhttp.responseText);
-            if(xmlhttp.responseText == "0") {
+            if(xmlhttp.responseText == "1") {
                 animate_logo();
             }
             else {
