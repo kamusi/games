@@ -192,6 +192,7 @@ function display_about() {
 }
 
 function display_profile() {
+	get_user_stats();
 	FB.api('/me', function(response) {
   		check_user(response);
 	});
