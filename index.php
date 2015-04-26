@@ -97,9 +97,10 @@ $newToken = generateToken();
 						</div>
 						<div id="translations_wrapper">
 							<div class="input_tool" ng-click="$event.stopPropagation()" ng-show="showtooltip2">
-							<img title="Submit" id="SubmitTrans" ng-click="clear($event)" class="controlSmall" src="media/rightarrowSmall.png" onclick="playClick();;soumettre_traduction();get_ranked_mode_2();">
 						
 								<input id="translation_input_tool_box" type="text" ng-model="translation" ng-keypress="searchEnter2($event);" onFocus="this.select()"/>
+							<img title="Submit" id="SubmitTrans" ng-click="clear($event)" class="controlSmall" src="media/rightarrowSmall.png" onclick="playClick();;soumettre_traduction();get_ranked_mode_2();">
+					
 							</div>
 							<table id="translations">
 								<tr><td>
