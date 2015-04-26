@@ -15,10 +15,11 @@ $mysqli = new mysqli('localhost', $user, $pass, $db);
 	$stmt->execute();
 	$result = $stmt->get_result();
 
+$checkResult = $result-> num_rows;
 	$stmt->close();
 
 
-if($result-> num_rows === 0){
+if( $checkResult=== 0){
 	//Add user to database
 	$stmt = $mysqli->prepare("INSERT INTO users (UserID) VALUES(?);");
 	$stmt->bind_param("s", $userID );
