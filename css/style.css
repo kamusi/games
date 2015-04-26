@@ -175,7 +175,7 @@ a a:hover, a:visited, a:link, a:active {
 #profile-footer-middle {
 	height:100px;
 	width:430px;
-	/*float:middle;*/
+	float:middle;
 }
 
 #profile-footer-right {
@@ -460,7 +460,7 @@ a a:hover, a:visited, a:link, a:active {
 	transform: scale(1.05);
 }
 
-.control:hover {
+.control, .controlMiddle, .controlRight:hover {
 	opacity:1;
 	transform: scale(1.05);
 }
