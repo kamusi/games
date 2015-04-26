@@ -12,10 +12,16 @@ $user = 'root';
 $pass = '';
 $db = 'kamusi';
 
+$acceptedModes = array("1","2","3");
+
 $con = mysqli_connect('localhost', $user, $pass, $db);
 
 if (!$con) {
 	die('Could not connect: ' . mysqli_error($con));
+}
+
+if(!in_array($mode, $acceptedModes)) {
+	die("Got a strange mode as input!". $mode);
 }
 
 $mysqli = new mysqli('localhost', $user, $pass, $db);
@@ -67,22 +73,22 @@ $stmt->close();
 if($result-> num_rows === 0){
 	$stmt->close();
 	if($user_offset == 0) {
-		$stmt = $mysqli->prepare("UPDATE users SET PositionMode? = PositionMode? + 1 WHERE UserID=?;");
-		$stmt->bind_param("sss", $mode, $mode, $userID);
+		$stmt = $mysqli->prepare("UPDATE users SET PositionMode".$mode." = PositionMode".$mode." + 1 WHERE UserID=?;");
+		$stmt->bind_param("s", $userID);
 		$stmt->execute();
 		$stmt->close();
 
 		//Clean up the DB that stores the encountered words, else it become too big
 
-		$stmt = $mysqli->prepare("DELETE FROM wordsAlreadySeenMode? WHERE UserID=? AND Rank < ? ;");
-		$stmt->bind_param("ssi", $mode, $userID, $sum);
+		$stmt = $mysqli->prepare("DELETE FROM wordsAlreadySeenMode".$mode." WHERE UserID=? AND Rank < ? ;");
+		$stmt->bind_param("si", $userID, $sum);
 		$stmt->execute();
 		$stmt->close();
 
 	}
 	else {
-		$stmt = $mysqli->prepare("UPDATE users SET OffsetMode? = OffsetMode? + 1 WHERE UserID=?;");
-		$stmt->bind_param("sss", $mode, $mode, $userID);
+		$stmt = $mysqli->prepare("UPDATE users SET OffsetMode".$mode." = OffsetMode".$mode." + 1 WHERE UserID=?;");
+		$stmt->bind_param("s", $userID);
 		$stmt->execute();
 		$stmt->close();		
 	}
@@ -92,23 +98,20 @@ else {
 
 
 
-	$stmt = $mysqli->prepare("INSERT INTO wordsAlreadySeenMode? (UserID ,WordID, Rank) VALUES (?,?,?);");
-		if ($stmt === FALSE) {
-		die ("Mysql Error: " . $mysqli->error);
-	}
-	$stmt->bind_param("ssii", $mode, $userID, $word_id, $sum);
+	$stmt = $mysqli->prepare("INSERT INTO wordsAlreadySeenMode".$mode." (UserID ,WordID, Rank) VALUES (?,?,?);");
+	$stmt->bind_param("sii", $userID, $word_id, $sum);
 	$stmt->execute();
 	$stmt->close();	
 	if($user_offset > $offsetModulo){
-		$stmt = $mysqli->prepare("UPDATE users SET OffsetMode? = 0 WHERE UserID=?;");
-		$stmt->bind_param("ss", $mode, $userID);
+		$stmt = $mysqli->prepare("UPDATE users SET OffsetMode".$mode." = 0 WHERE UserID=?;");
+		$stmt->bind_param("s", $userID);
 		$stmt->execute();
 		$stmt->close();
 	}
 	else {
 
-		$stmt = $mysqli->prepare("UPDATE users SET OffsetMode? = OffsetMode? + 1 WHERE UserID=?;");
-		$stmt->bind_param("ss", $mode, $userID);
+		$stmt = $mysqli->prepare("UPDATE users SET OffsetMode".$mode." = OffsetMode".$mode." + 1 WHERE UserID=?;");
+		$stmt->bind_param("s", $userID);
 		$stmt->execute();
 		$stmt->close();	
 	}	
