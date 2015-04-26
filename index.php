@@ -259,23 +259,23 @@ $newToken = generateToken();
 			<li><a href="#tab3">Tab #3</a></li>
 			<li><a href="#tab4">Tab #4</a></li>
 		</ul>
-		
+
 		<div class="tab-content">
 			<div id="tab1" class="tab active">
 				<p>Tab #1 content goes here!</p>
 				<p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis.</p>
 			</div>
-			
+
 			<div id="tab2" class="tab">
 				<p>Tab #2 content goes here!</p>
 				<p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis. In hac habitasse platea dictumst. Ut euismod tempus hendrerit. Morbi ut adipiscing nisi. Etiam rutrum sodales gravida! Aliquam tellus orci, iaculis vel.</p>
 			</div>
-			
+
 			<div id="tab3" class="tab">
 				<p>Tab #3 content goes here!</p>
 				<p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum ri.</p>
 			</div>
-			
+
 			<div id="tab4" class="tab">
 				<p>Tab #4 content goes here!</p>
 				<p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis. In hac habitasse platea dictumst. Ut euismod tempus hendrerit. Morbi ut adipiscing nisi. Etiam rutrum sodales gravida! Aliquam tellus orci, iaculis vel.</p>
@@ -284,12 +284,12 @@ $newToken = generateToken();
 	</div>
 </div>
 <script type="text/javascript"> var token = "<?php echo $newToken; ?>"; </script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="js/server_requests.js"></script>
 <script src="js/login.js"></script>
 <script src="js/sound.js"></script>
 <script src="js/menu.js"></script>	
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="js/animation.js"></script>
 </body>
 </html>
