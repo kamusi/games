@@ -52,72 +52,69 @@ function lookForWord($userID, $mysqli) {
 
 //fetch the word that has as rank user s position+offset
 	$sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
-		$sql.=	"SELECT w.ID, w.DefinitionID, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
-		$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.ID NOT IN (SELECT WordID FROM seenGame".$mode." WHERE UserID=?) AND sq.Rank = ? LIMIT 1;";
+	$sql.=	"SELECT w.ID, w.DefinitionID, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
+	$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.ID NOT IN (SELECT WordID FROM seenGame".$mode." WHERE UserID=?) AND sq.Rank = ? LIMIT 1;";
 
-$sum = intval($user_position) + intval($user_offset);
+	$sum = intval($user_position) + intval($user_offset);
 
-$stmt = $mysqli->prepare($sql);
-if ($stmt === FALSE) {
-	die ("Mysql Error: " . $mysqli->error);
-}
-
-//echo "This is the statement : " . $sql . " with user : " . $userID;
-
-//return 12;
-$stmt->bind_param("si", $userID, $sum);
-$stmt->execute();
-$result = $stmt->get_result();
-$row = $result->fetch_assoc();
-$word_id = $row["ID"];
-
-$stmt->close();
-if($result-> num_rows === 0){
-	if($user_offset == 0) {
-		$stmt = $mysqli->prepare("UPDATE game".$mode." SET Position = Position + 1 WHERE UserID=?;");
-		$stmt->bind_param("s", $userID);
-		$stmt->execute();
-		$stmt->close();
-
-		//Clean up the DB that stores the encountered words, else it become too big
-
-		$stmt = $mysqli->prepare("DELETE FROM seenGame".$mode." WHERE UserID=? AND Rank < ? ;");
-		$stmt->bind_param("si", $userID, $sum);
-		$stmt->execute();
-		$stmt->close();
-
+	$stmt = $mysqli->prepare($sql);
+	if ($stmt === FALSE) {
+		die ("Mysql Error: " . $mysqli->error);
 	}
-	else {
-		$stmt = $mysqli->prepare("UPDATE game".$mode." SET Offset = Offset + 1 WHERE UserID=?;");
-		$stmt->bind_param("s", $userID);
-		$stmt->execute();
-		$stmt->close();		
-	}
-	return lookForWord($userID, $mysqli);
-}
-else {
 
+	//echo "This is the statement : " . $sql . " with user : " . $userID;
 
-
-	$stmt = $mysqli->prepare("INSERT INTO seenGame".$mode." (UserID ,WordID, Rank) VALUES (?,?,?);");
-	$stmt->bind_param("sii", $userID, $word_id, $sum);
+	//return 12;
+	$stmt->bind_param("si", $userID, $sum);
 	$stmt->execute();
-	$stmt->close();	
-	if($user_offset > $offsetModulo){
-		$stmt = $mysqli->prepare("UPDATE game".$mode." SET Offset = 0 WHERE UserID=?;");
-		$stmt->bind_param("s", $userID);
-		$stmt->execute();
-		$stmt->close();
+	$result = $stmt->get_result();
+	$row = $result->fetch_assoc();
+	$word_id = $row["ID"];
+
+	$stmt->close();
+	if($result-> num_rows === 0){
+		if($user_offset == 0) {
+			$stmt = $mysqli->prepare("UPDATE game".$mode." SET Position = Position + 1 WHERE UserID=?;");
+			$stmt->bind_param("s", $userID);
+			$stmt->execute();
+			$stmt->close();
+
+			//Clean up the DB that stores the encountered words, else it become too big
+
+			$stmt = $mysqli->prepare("DELETE FROM seenGame".$mode." WHERE UserID=? AND Rank < ? ;");
+			$stmt->bind_param("si", $userID, $sum);
+			$stmt->execute();
+			$stmt->close();
+
+		}
+		else {
+			$stmt = $mysqli->prepare("UPDATE game".$mode." SET Offset = Offset + 1 WHERE UserID=?;");
+			$stmt->bind_param("s", $userID);
+			$stmt->execute();
+			$stmt->close();		
+		}
+		return lookForWord($userID, $mysqli);
 	}
 	else {
-
-		$stmt = $mysqli->prepare("UPDATE game".$mode." SET Offset = Offset + 1 WHERE UserID=?;");
-		$stmt->bind_param("s", $userID);
+		$stmt = $mysqli->prepare("INSERT INTO seenGame".$mode." (UserID ,WordID, Rank) VALUES (?,?,?);");
+		$stmt->bind_param("sii", $userID, $word_id, $sum);
 		$stmt->execute();
 		$stmt->close();	
-	}	
-	return $word_id;
-}
+		if($user_offset > $offsetModulo){
+			$stmt = $mysqli->prepare("UPDATE game".$mode." SET Offset = 0 WHERE UserID=?;");
+			$stmt->bind_param("s", $userID);
+			$stmt->execute();
+			$stmt->close();
+		}
+		else {
+
+			$stmt = $mysqli->prepare("UPDATE game".$mode." SET Offset = Offset + 1 WHERE UserID=?;");
+			$stmt->bind_param("s", $userID);
+			$stmt->execute();
+			$stmt->close();	
+		}	
+		return $word_id;
+	}
 }
 
 function getDefinitions($word_id, $mysqli){
