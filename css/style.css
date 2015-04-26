@@ -431,7 +431,7 @@ a a:hover, a:visited, a:link, a:active {
 }
 
 .controlLeft {
-		position: absolute;
+		position: relative;
     left: 100px;
     top: 0px;	
 	cursor:pointer;
@@ -440,23 +440,23 @@ a a:hover, a:visited, a:link, a:active {
 	opacity:0.5;
 }
 .controlMiddle {
-		position: absolute;
+		position: relative;
     left: 500px;
     top: 0px;
 	cursor:pointer;
 	height:100px;
 	width:100px;
-	left:1050px;
+	left:450px;
 	opacity:0.5;
 }
 .controlRight {
-		position: absolute;
+		position: relative;
     left: 800px;
     top: 0px;
 	cursor:pointer;
 	height:100px;
 	width:100px;
-	left:1500px;
+	left:800px;
 	opacity:0.5;
 }
 
@@ -476,7 +476,7 @@ a a:hover, a:visited, a:link, a:active {
 	transform: scale(1.05);
 }
 
-.control:hover, .controlMiddle:hover, .controlRight:hover {
+.control:hover, .controlLeft:hover .controlMiddle:hover, .controlRight:hover {
 	opacity:1;
 	transform: scale(1.05);
 }
