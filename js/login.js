@@ -95,6 +95,7 @@ function publishStory(text) {
 //text will be the number of achievements, for now the number of validated tweets.
 //We will send out a link containing userID and # of validated tweets
 
+console.log("Publishing to timeline!!!")
 FB.api(
     "/me/games.achieves",
     "POST",
@@ -103,7 +104,8 @@ FB.api(
     },
     function (response) {
       if (response && !response.error) {
-        /* handle the result */
+        console.log("Publishing to timeline, response was : " + response);
+
       }
     }
 );

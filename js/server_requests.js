@@ -645,6 +645,7 @@ function post_timeline() {
                 console.log("No activity to post")
             }
             else {
+                
                 publishStory(obj)
             }
         }
