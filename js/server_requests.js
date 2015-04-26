@@ -79,7 +79,7 @@ function get_randomForTweets() {
         }
     }
 
-    xmlhttp.open("GET","php/get_ranked_timo.php?userID=" + userID, true);
+    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&mode=" +'3', true);
     xmlhttp.send();
 }
 
@@ -589,8 +589,8 @@ function get_ranked_mode_2() {
             // document.getElementById("translation_input_tool_box").style.top="100px";
         }
     }
-    xmlhttp.open("GET","php/get_ranked_mode_2.php?userID=" + userID, true);
-    xmlhttp.send();
+   xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&mode=" +'2', true);
+     xmlhttp.send();
 }
 
 function submit_translation(translation) {
