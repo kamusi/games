@@ -470,7 +470,7 @@ function get_user_stats() {
             document.getElementById('posts').selectedIndex= whenToPost
             document.getElementById('language').selectedIndex= language
 
-            numSubmissions = obj.PositionMode1 + obj.PositionMode2 + obj.PositionModeTweet
+            numSubmissions = obj.PositionMode1 + obj.PositionMode2 + obj.PositionMode3;
 
 
             
