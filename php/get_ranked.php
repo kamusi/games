@@ -87,7 +87,7 @@ if($result-> num_rows === 0){
 
 	}
 	else {
-		$stmt = $mysqli->prepare("UPDATE game".$mode."SET Offset = Offset + 1 WHERE UserID=?;");
+		$stmt = $mysqli->prepare("UPDATE game".$mode." SET Offset = Offset + 1 WHERE UserID=?;");
 		$stmt->bind_param("s", $userID);
 		$stmt->execute();
 		$stmt->close();		
