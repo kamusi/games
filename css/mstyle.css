@@ -87,7 +87,7 @@
 	left:425px;
 }
 
-.vote_button {
+#vote_button {
 	transform: scale(1.5);
 	cursor:pointer;
 	opacity:0.5;

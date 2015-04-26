@@ -120,7 +120,7 @@ function InlineEditorController2($scope){
 // 		var translation = document.getElementById("user_translation").className;
 
 // 		if(gamezone1.style.display == "inline-block" && definition == "active_definition") {
-	
+
 // 		}
 // 		else if(gamezone1.style.display == "inline-block" && translation == "active_definition") {
 
@@ -338,6 +338,8 @@ function add_definition(id, definition, spam) {
 	var img1 = document.createElement("img");
 	img1.src = 'media/exclamation.png';
 	img1.classList.add('vote_button');
+	img1.id = 'vote_button';
+
 	img1.title = "Report spam";
 	div_footer.appendChild(img1);
 
@@ -366,7 +368,7 @@ function add_definition(id, definition, spam) {
 	 if(spam){
 	 	li.appendChild(img1);
 	 }
-	 
+
 	 ul.appendChild(li);
 	}
 
