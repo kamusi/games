@@ -169,7 +169,7 @@ a a:hover, a:visited, a:link, a:active {
 #profile-footer-left {
 	height:100px;
 	width:830px;
-	float:left;
+	/*float:left;*/
 }
 
 #profile-footer-middle {
@@ -181,7 +181,7 @@ a a:hover, a:visited, a:link, a:active {
 #profile-footer-right {
 	height:100px;
 	width:100px;
-	float:left;
+	/*float:left;*/
 }
 #SubmitDef, #SubmitTrans {
 	position:relative;
