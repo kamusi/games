@@ -19,13 +19,13 @@ $checkResult = $result-> num_rows;
 	$stmt->close();
 
 
-if( $checkResult=== 0){
+if( $checkResult=== 1){
 	//Add user to database
-	$stmt = $mysqli->prepare("INSERT INTO users (UserID) VALUES(?);");
+/*	$stmt = $mysqli->prepare("INSERT INTO users (UserID) VALUES(?);");
 	$stmt->bind_param("s", $userID );
 	$stmt->execute();
 	$stmt->close();
-
+*/
 	//Create an entry for user for each game
 
 	foreach ($acceptedModes as $mode) {
