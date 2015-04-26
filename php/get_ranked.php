@@ -14,7 +14,7 @@ $pass = '';
 $db = 'kamusi';
 
 //$acceptedModes = array("1","2","3");
-
+die("Valor Mongulis");
 $con = mysqli_connect('localhost', $user, $pass, $db);
 
 if (!$con) {
