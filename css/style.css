@@ -424,9 +424,16 @@ a a:hover, a:visited, a:link, a:active {
 }
 
 .control {
-	position: absolute;
+	cursor:pointer;
+	height:100px;
+	width:100px;
+	opacity:0.5;
+}
+
+.controlLeft {
+		position: absolute;
     left: 100px;
-    top: 0px;
+    top: 0px;	
 	cursor:pointer;
 	height:100px;
 	width:100px;
