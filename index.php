@@ -248,9 +248,6 @@ $newToken = generateToken();
 <div id="settings-footer">
 	<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick(); saveSettings(); display_profile();">
 </div>
-</div>
-</div>
-</div>
 <div id="leaderboard">
 	<div class="tabs">
 		<ul class="tab-links">
@@ -283,6 +280,10 @@ $newToken = generateToken();
 		</div>
 	</div>
 </div>
+</div>
+</div>
+</div>
+
 <script type="text/javascript"> var token = "<?php echo $newToken; ?>"; </script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
