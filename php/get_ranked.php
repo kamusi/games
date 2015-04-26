@@ -4,11 +4,8 @@ include 'validate_token.php';
 $offsetModulo = 2;
 
 $userID = $_GET['userID'];
-// $token = $_GET['token'];
+$mode = $_GET['mode'];
 
-// if(!validate_token($token)) {
-// 	die();
-// }
 
 // USING ROOT IS A SECURITY CONCERN
 $user = 'root';
@@ -35,7 +32,7 @@ $jsonData = json_encode($results_array);
 echo $jsonData;
 
 function lookForWord($userID, $mysqli) {
-	global $offsetModulo;
+	global $offsetModulo, $mode;
 //fetch the user in order to see which word is for him
 	$stmt = $mysqli->prepare("SELECT * FROM users WHERE UserID = ? ");
 	$stmt->bind_param("s", $userID );
@@ -45,13 +42,13 @@ function lookForWord($userID, $mysqli) {
 	$stmt->close();
 
 	$row = $result->fetch_assoc();
-	$user_position = $row["PositionMode1"];
-	$user_offset = $row["OffsetMode1"];
+	$user_position = $row["PositionMode".$mode];
+	$user_offset = $row["OffsetMode".$mode];
 
 //fetch the word that has as rank user s position+offset
 	$sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
 		$sql.=	"SELECT w.ID, w.DefinitionID, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
-		$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.ID NOT IN (SELECT WordID FROM wordsAlreadySeenMode1 WHERE UserID=?) AND sq.Rank = ? LIMIT 1;";
+		$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.ID NOT IN (SELECT WordID FROM wordsAlreadySeenMode".$mode." WHERE UserID=?) AND sq.Rank = ? LIMIT 1;";
 
 $sum = intval($user_position) + intval($user_offset);
 
@@ -70,22 +67,22 @@ $stmt->close();
 if($result-> num_rows === 0){
 	$stmt->close();
 	if($user_offset == 0) {
-		$stmt = $mysqli->prepare("UPDATE users SET PositionMode1 = PositionMode1 + 1 WHERE UserID=?;");
-		$stmt->bind_param("s", $userID);
+		$stmt = $mysqli->prepare("UPDATE users SET PositionMode? = PositionMode? + 1 WHERE UserID=?;");
+		$stmt->bind_param("sss", $mode, $mode, $userID);
 		$stmt->execute();
 		$stmt->close();
 
 		//Clean up the DB that stores the encountered words, else it become too big
 
-		$stmt = $mysqli->prepare("DELETE FROM wordsAlreadySeenMode1 WHERE UserID=? AND Rank < ? ;");
-		$stmt->bind_param("si", $userID, $sum);
+		$stmt = $mysqli->prepare("DELETE FROM wordsAlreadySeenMode? WHERE UserID=? AND Rank < ? ;");
+		$stmt->bind_param("ssi", $mode, $userID, $sum);
 		$stmt->execute();
 		$stmt->close();
 
 	}
 	else {
-		$stmt = $mysqli->prepare("UPDATE users SET OffsetMode1 = OffsetMode1 + 1 WHERE UserID=?;");
-		$stmt->bind_param("s", $userID);
+		$stmt = $mysqli->prepare("UPDATE users SET OffsetMode? = OffsetMode? + 1 WHERE UserID=?;");
+		$stmt->bind_param("sss", $mode, $mode, $userID);
 		$stmt->execute();
 		$stmt->close();		
 	}
@@ -95,20 +92,20 @@ else {
 
 
 
-	$stmt = $mysqli->prepare("INSERT INTO wordsAlreadySeenMode1 (UserID ,WordID, Rank) VALUES (?,?,?);");
-	$stmt->bind_param("sii", $userID, $word_id, $sum);
+	$stmt = $mysqli->prepare("INSERT INTO wordsAlreadySeenMode? (UserID ,WordID, Rank) VALUES (?,?,?);");
+	$stmt->bind_param("ssii", $mode, $userID, $word_id, $sum);
 	$stmt->execute();
 	$stmt->close();	
 	if($user_offset > $offsetModulo){
-		$stmt = $mysqli->prepare("UPDATE users SET OffsetMode1 = 0 WHERE UserID=?;");
-		$stmt->bind_param("s", $userID);
+		$stmt = $mysqli->prepare("UPDATE users SET OffsetMode? = 0 WHERE UserID=?;");
+		$stmt->bind_param("ss", $mode, $userID);
 		$stmt->execute();
 		$stmt->close();
 	}
 	else {
 
-		$stmt = $mysqli->prepare("UPDATE users SET OffsetMode1 = OffsetMode1 + 1 WHERE UserID=?;");
-		$stmt->bind_param("s", $userID);
+		$stmt = $mysqli->prepare("UPDATE users SET OffsetMode? = OffsetMode? + 1 WHERE UserID=?;");
+		$stmt->bind_param("ss", $mode, $userID);
 		$stmt->execute();
 		$stmt->close();	
 	}	
