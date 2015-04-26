@@ -433,14 +433,14 @@ a a:hover, a:visited, a:link, a:active {
 	cursor:pointer;
 	height:100px;
 	width:100px;
-	left:450px;
+	left:1050px;
 	opacity:0.5;
 }
 .controlRight {
 	cursor:pointer;
 	height:100px;
 	width:100px;
-	left:800px;
+	left:1500px;
 	opacity:0.5;
 }
 
