@@ -66,7 +66,7 @@ if ($stmt === FALSE) {
 
 //echo "This is the statement : " . $sql . " with user : " . $userID;
 
-return 12;
+//return 12;
 $stmt->bind_param("si", $userID, $sum);
 $stmt->execute();
 $result = $stmt->get_result();
