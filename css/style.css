@@ -424,12 +424,18 @@ a a:hover, a:visited, a:link, a:active {
 }
 
 .control {
+	position: absolute;
+    left: 100px;
+    top: 0px;
 	cursor:pointer;
 	height:100px;
 	width:100px;
 	opacity:0.5;
 }
 .controlMiddle {
+		position: absolute;
+    left: 500px;
+    top: 0px;
 	cursor:pointer;
 	height:100px;
 	width:100px;
@@ -437,6 +443,9 @@ a a:hover, a:visited, a:link, a:active {
 	opacity:0.5;
 }
 .controlRight {
+		position: absolute;
+    left: 800px;
+    top: 0px;
 	cursor:pointer;
 	height:100px;
 	width:100px;
@@ -460,7 +469,7 @@ a a:hover, a:visited, a:link, a:active {
 	transform: scale(1.05);
 }
 
-.control, .controlMiddle, .controlRight:hover {
+.control:hover, .controlMiddle:hover, .controlRight:hover {
 	opacity:1;
 	transform: scale(1.05);
 }
