@@ -55,7 +55,7 @@ function lookForWord($userID, $mysqli) {
 //fetch the word that has as rank user s position+offset
 	$sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
 		$sql.=	"SELECT w.ID, w.DefinitionID, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
-		$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.ID NOT IN (SELECT WordID FROM wordsAlreadySeenMode".$mode." WHERE UserID=?) AND sq.Rank = ? LIMIT 1;";
+		$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.ID NOT IN (SELECT WordID FROM seenGame".$mode." WHERE UserID=?) AND sq.Rank = ? LIMIT 1;";
 
 $sum = intval($user_position) + intval($user_offset);
 
@@ -74,21 +74,21 @@ $stmt->close();
 if($result-> num_rows === 0){
 	$stmt->close();
 	if($user_offset == 0) {
-		$stmt = $mysqli->prepare("UPDATE users SET PositionMode".$mode." = PositionMode".$mode." + 1 WHERE UserID=?;");
+		$stmt = $mysqli->prepare("UPDATE game".$mode." SET Position = Position + 1 WHERE UserID=?;");
 		$stmt->bind_param("s", $userID);
 		$stmt->execute();
 		$stmt->close();
 
 		//Clean up the DB that stores the encountered words, else it become too big
 
-		$stmt = $mysqli->prepare("DELETE FROM wordsAlreadySeenMode".$mode." WHERE UserID=? AND Rank < ? ;");
+		$stmt = $mysqli->prepare("DELETE FROM seenGame".$mode." WHERE UserID=? AND Rank < ? ;");
 		$stmt->bind_param("si", $userID, $sum);
 		$stmt->execute();
 		$stmt->close();
 
 	}
 	else {
-		$stmt = $mysqli->prepare("UPDATE users SET OffsetMode".$mode." = OffsetMode".$mode." + 1 WHERE UserID=?;");
+		$stmt = $mysqli->prepare("UPDATE game".$mode."SET Offset = Offset + 1 WHERE UserID=?;");
 		$stmt->bind_param("s", $userID);
 		$stmt->execute();
 		$stmt->close();		
@@ -99,19 +99,19 @@ else {
 
 
 
-	$stmt = $mysqli->prepare("INSERT INTO wordsAlreadySeenMode".$mode." (UserID ,WordID, Rank) VALUES (?,?,?);");
+	$stmt = $mysqli->prepare("INSERT INTO seenGame".$mode." (UserID ,WordID, Rank) VALUES (?,?,?);");
 	$stmt->bind_param("sii", $userID, $word_id, $sum);
 	$stmt->execute();
 	$stmt->close();	
 	if($user_offset > $offsetModulo){
-		$stmt = $mysqli->prepare("UPDATE users SET OffsetMode".$mode." = 0 WHERE UserID=?;");
+		$stmt = $mysqli->prepare("UPDATE game".$mode." SET Offset = 0 WHERE UserID=?;");
 		$stmt->bind_param("s", $userID);
 		$stmt->execute();
 		$stmt->close();
 	}
 	else {
 
-		$stmt = $mysqli->prepare("UPDATE users SET OffsetMode".$mode." = OffsetMode".$mode." + 1 WHERE UserID=?;");
+		$stmt = $mysqli->prepare("UPDATE game".$mode." SET Offset = Offset + 1 WHERE UserID=?;");
 		$stmt->bind_param("s", $userID);
 		$stmt->execute();
 		$stmt->close();	
