@@ -172,6 +172,12 @@ a a:hover, a:visited, a:link, a:active {
 	float:left;
 }
 
+#profile-footer-middle {
+	height:100px;
+	width:430px;
+	float:left;
+}
+
 #profile-footer-right {
 	height:100px;
 	width:100px;

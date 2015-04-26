@@ -213,6 +213,10 @@ $newToken = generateToken();
 		<div id="profile-footer-left">
 			<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick();return_to_game();">
 		</div>
+
+		<div id="profile-footer-middle">
+			<img id="settings_button" title="Settings" class="control" src="media/settings.png" onclick="playClick();display_leaderboad();">
+		</div>		
 		<div id="profile-footer-right">
 			<img id="settings_button" title="Settings" class="control" src="media/settings.png" onclick="playClick();display_settings();">
 		</div>

@@ -107,7 +107,9 @@ function InlineEditorController2($scope){
 	$scope.searchEnter2 = function(e) {
 		if (e.keyCode == 13) {
 			$scope.hideTooltip2();
+
 			get_ranked_mode_2();
+			$scope.value = translation_default_value;
 		}
 	}
 }
@@ -184,6 +186,11 @@ function enter_game3() {
 function display_settings() {
 	document.getElementById("profile").style.display = "none";
 	document.getElementById("settings").style.display = "inline-block";
+}
+
+function display_leaderboad() {
+	document.getElementById("profile").style.display = "none";
+	
 }
 
 function display_about() {
@@ -351,7 +358,6 @@ function add_definition(id, definition, spam) {
 			definitionID = id_num;
 			playClick();
 			vote();
-			console.log("ADDING DEFINITION")
 			get_ranked();
 		};
 	})(id);
