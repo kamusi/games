@@ -245,7 +245,7 @@ function sendBadExampleToDB(tweet){
         dataType: 'json'
     })
     .done( function( data ) {
-        console.log('done');
+
         console.log(data);
     })
     .fail( function( data ) {
@@ -645,7 +645,7 @@ function post_timeline() {
                 console.log("No activity to post")
             }
             else {
-                
+
                 publishStory(obj)
             }
         }

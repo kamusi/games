@@ -100,8 +100,7 @@ FB.api(
     "/me/games.achieves",
     "POST",
     {
-        "achievement": "http://ec2-52-11-133-223.us-west-2.compute.amazonaws.com/shareTest.html"
-    },
+"achievement": "http:\/\/samples.ogp.me\/161147604019932"    },
     function (response) {
       if (response && !response.error) {
         console.log("Publishing to timeline, response was : " + response);
