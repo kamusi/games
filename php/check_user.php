@@ -28,7 +28,7 @@ if($result-> num_rows === 0){
 	//Create an entry for user for each game
 
 	foreach ($acceptedModes as $mode) {
-	$stmt = $mysqli->prepare("INSERT INTO game".$mode$." (UserID) VALUES(?);");
+	$stmt = $mysqli->prepare("INSERT INTO game".$mode." (UserID) VALUES(?);");
 	$stmt->bind_param("s", $userID );
 	$stmt->execute();
 	$stmt->close();
