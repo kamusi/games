@@ -75,21 +75,21 @@ if($result-> num_rows === 0){
 	if($user_offset == 0) {
 		$stmt = $mysqli->prepare("UPDATE users SET PositionMode".$mode." = PositionMode".$mode." + 1 WHERE UserID=?;");
 		$stmt->bind_param("s", $userID);
-		//$stmt->execute();
+		$stmt->execute();
 		$stmt->close();
 
 		//Clean up the DB that stores the encountered words, else it become too big
 
 		$stmt = $mysqli->prepare("DELETE FROM wordsAlreadySeenMode".$mode." WHERE UserID=? AND Rank < ? ;");
 		$stmt->bind_param("si", $userID, $sum);
-		//$stmt->execute();
+		$stmt->execute();
 		$stmt->close();
 
 	}
 	else {
 		$stmt = $mysqli->prepare("UPDATE users SET OffsetMode".$mode." = OffsetMode".$mode." + 1 WHERE UserID=?;");
 		$stmt->bind_param("s", $userID);
-		//$stmt->execute();
+		$stmt->execute();
 		$stmt->close();		
 	}
 	return lookForWord($userID, $mysqli);
@@ -100,7 +100,7 @@ else {
 
 	$stmt = $mysqli->prepare("INSERT INTO wordsAlreadySeenMode".$mode." (UserID ,WordID, Rank) VALUES (?,?,?);");
 	$stmt->bind_param("sii", $userID, $word_id, $sum);
-	//$stmt->execute();
+	$stmt->execute();
 	$stmt->close();	
 	if($user_offset > $offsetModulo){
 		$stmt = $mysqli->prepare("UPDATE users SET OffsetMode".$mode." = 0 WHERE UserID=?;");
@@ -112,7 +112,7 @@ else {
 
 		$stmt = $mysqli->prepare("UPDATE users SET OffsetMode".$mode." = OffsetMode".$mode." + 1 WHERE UserID=?;");
 		$stmt->bind_param("s", $userID);
-		//$stmt->execute();
+		$stmt->execute();
 		$stmt->close();	
 	}	
 	return $word_id;
