@@ -429,6 +429,18 @@ a a:hover, a:visited, a:link, a:active {
 	width:100px;
 	opacity:0.5;
 }
+.controlMiddle {
+	cursor:pointer;
+	height:100px;
+	width:400px;
+	opacity:0.5;
+}
+.controlRight {
+	cursor:pointer;
+	height:100px;
+	width:700px;
+	opacity:0.5;
+}
 
 .controlSmall {
 	cursor:pointer;
