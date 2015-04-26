@@ -39,7 +39,7 @@ echo $jsonData;
 function lookForWord($userID, $mysqli) {
 	global $offsetModulo, $mode;
 //fetch the user in order to see which word is for him
-	$stmt = $mysqli->prepare("SELECT * FROM users WHERE UserID = ? ");
+	$stmt = $mysqli->prepare("SELECT * FROM game". $mode . " WHERE UserID = ? ");
 	$stmt->bind_param("s", $userID );
 	$stmt->execute();
 	$result = $stmt->get_result();
@@ -47,8 +47,8 @@ function lookForWord($userID, $mysqli) {
 	$stmt->close();
 
 	$row = $result->fetch_assoc();
-	$user_position = $row["Position".$mode];
-	$user_offset = $row["Offset".$mode];
+	$user_position = $row["Position"];
+	$user_offset = $row["Offset"];
 
 //fetch the word that has as rank user s position+offset
 	$sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
