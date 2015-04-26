@@ -365,7 +365,7 @@ function get_ranked() {
     // alert(token);
     // document.getElementById("token").innerHTML = token;
     
-    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&mode=" .'1', true);
+    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&mode=" +'1', true);
     xmlhttp.send();
 }
 
