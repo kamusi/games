@@ -175,7 +175,7 @@ a a:hover, a:visited, a:link, a:active {
 #profile-footer-middle {
 	height:100px;
 	width:430px;
-	float:left;
+	float:middle;
 }
 
 #profile-footer-right {
