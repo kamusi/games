@@ -47,8 +47,8 @@ function lookForWord($userID, $mysqli) {
 	$stmt->close();
 
 	$row = $result->fetch_assoc();
-	$user_position = $row["PositionMode".$mode];
-	$user_offset = $row["OffsetMode".$mode];
+	$user_position = $row["Position".$mode];
+	$user_offset = $row["Offset".$mode];
 
 //fetch the word that has as rank user s position+offset
 	$sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
@@ -136,7 +136,7 @@ function getDefinitions($word_id, $mysqli){
 	$result = $stmt->get_result();
 
 	if($result-> num_rows === 0){
-		return TRUE;
+		return FALSE;
 	}
 	else {
 
