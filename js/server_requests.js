@@ -12,6 +12,8 @@ var whenToPost;
 var whenToNotify;
 var language;
 
+var gameLanguage;
+
 var translationID;
 
 var last20Tweets = {}
@@ -369,7 +371,7 @@ function get_ranked() {
     // alert(token);
     // document.getElementById("token").innerHTML = token;
     
-    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + language + "&mode=" +'1', true);
+    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + gameLanguage + "&mode=" +'1', true);
     xmlhttp.send();
 }
 
@@ -469,6 +471,7 @@ function get_user_stats() {
             whenToNotify = obj.NotificationTimeUnit
             whenToPost = obj.PostTimeUnit
             language= obj.Language -1;
+            gameLanguage = obj.Language;
 
             document.getElementById('notifications').selectedIndex = whenToNotify 
             document.getElementById('posts').selectedIndex= whenToPost
@@ -591,7 +594,7 @@ function get_ranked_mode_2() {
             // document.getElementById("translation_input_tool_box").style.top="100px";
         }
     }
-   xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + language + "&mode=" +'2', true);
+   xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + gameLanguage + "&mode=" +'2', true);
      xmlhttp.send();
 }
 
@@ -613,7 +616,7 @@ function saveSettings() {
     whenToNotify = document.getElementById("notifications").selectedIndex;
     whenToPost = document.getElementById("posts").selectedIndex;
     language = document.getElementById("language").selectedIndex
-
+    gameLanguage = language +1;
     var xmlhttp;
     
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
