@@ -175,6 +175,9 @@ function fetchTweetsFromDB(amount) {
                 newInput.id = "checkbox" + i;
                 newInput.name = "checkbox" ;
                 newInput.type = "checkbox";
+                newInput.onchange=function(){
+                    changeColorOnClick(tweetDisplay,newInput);
+                }
                 var t = document.createTextNode(results_array[i].Text);
                 tweetDisplay.appendChild(newInput);
                 tweetDisplay.appendChild(t);
