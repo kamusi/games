@@ -267,6 +267,15 @@ $newToken = generateToken();
 </select>
 </br></br>
 
+<p>TimePeriod</p>
+<select id= "scoretimePeriod" size="1">
+	<option>All time</option>
+	<option>Last Month</option>
+	<option>Last Week</option>
+	<option>Last 24 Hours</option>
+</select>
+</br></br>
+
 <p>What to compare</p>
 <select id= "scoreMetric" size="1">
 	<option>Points Earned</option>
@@ -286,11 +295,11 @@ $newToken = generateToken();
 		</tr>
 		<tr>
 			<td>
-							<img id="leaderPic1" src="http://graph.facebook.com/1629333623960388/picture" onmousedown="isNewUser();">
+				<img id="leaderPic1">
 			</td>
-			<td>UserName</td>
-			<td>UserScore</td>
-			<td>UserRank</td
+			<td id= "leaderName"></td>
+			<td id= "leaderScore"> </td>
+			<td id = "leaderRank"></td
 			<td id="profile_attempts"></td>
 		</tr>
 	</table>

@@ -429,7 +429,12 @@ function soumettre_traduction() {
 }
 
 function updateLeaderboard(){
-	lang = document.getElementById("scoreLanguage").value;
+
+
+	scoreLanguage = document.getElementById("scoreLanguage").selectedIndex;
+	scoreGame = document.getElementById("scoreGame").selectedIndex;
+	
+
 	console.log("Language: " + lang)
 }
 
