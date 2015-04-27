@@ -33,6 +33,7 @@ echo "in the beginning";
 while($results_array === FALSE) {
 	$word_id =lookForWord($userID, $mysqli); 
 	echo $word_id;
+	return 22222;
 	$results_array = getDefinitions($word_id, $mysqli);
 }
 
