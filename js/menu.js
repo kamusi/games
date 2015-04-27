@@ -428,3 +428,8 @@ function soumettre_traduction() {
 	}
 }
 
+function updateLeaderboard(){
+	lang = document.getElementById("scoreLanguage").value;
+	console.log("Language: " + lang)
+}
+
