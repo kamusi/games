@@ -77,7 +77,7 @@ function lookForWord($userID, $mysqli) {
 
 	$stmt->close();
 	if($result-> num_rows === 0){
-		echo "Num rows is zero"
+		echo "Num rows is zero";
 		if($user_offset == 0) {
 			$stmt = $mysqli->prepare("UPDATE game".$mode." SET position = position + 1 WHERE userid=? AND language = ?;");
 			$stmt->bind_param("si", $userID, $language);
