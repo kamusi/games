@@ -472,9 +472,11 @@ function get_user_stats() {
 
             document.getElementById('notifications').selectedIndex = whenToNotify 
             document.getElementById('posts').selectedIndex= whenToPost
+            console.log(language + "FUCK THIS IS THE FUCKING INDEX BEFORE "+ document.getElementById('language').selectedIndex)
+         
             document.getElementById('language').selectedIndex= (language-1)
 
-            console.log("FUCK THIS IS THE FUCKING INDEX FCK "+ document.getElementById('language').selectedIndex)
+            console.log(language + "FUCK THIS IS THE FUCKING INDEX AFTER "+ document.getElementById('language').selectedIndex)
             numSubmissions = obj.PositionMode1 + obj.PositionMode2 + obj.PositionMode3;
 
 
