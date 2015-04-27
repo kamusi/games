@@ -390,7 +390,7 @@ function submit_definition(definition) {
 
 
 function check_user() {
-
+/*
     console.log("CHECK USER")
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -415,9 +415,8 @@ function check_user() {
 
         }
     }
-    var noCache = new Date().getTime();
     xmlhttp.open("GET","php/check_user.php?userID=" + userID);
-    xmlhttp.send();
+    xmlhttp.send(); */
 }
 
 function isNewUser() {
@@ -439,6 +438,7 @@ function isNewUser() {
     }
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            console.log("RETURNED : " + xmlhttp.responseText)
             obj = JSON.parse(xmlhttp.responseText);
             console.log("REPONSE NEW USER : " + xmlhttp.responseText);
             if(xmlhttp.responseText == "1") {
