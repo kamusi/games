@@ -39,7 +39,7 @@ echo $jsonData;
 function lookForWord($userID, $mysqli) {
 	global $offsetModulo, $mode;
 //fetch the user in order to see which word is for him
-	$stmt = $mysqli->prepare("SELECT * FROM game". $mode . " WHERE UserID = ? AND Language = ? ");
+	$stmt = $mysqli->prepare("SELECT * FROM game". $mode . " WHERE userid = ? AND language = ? ");
 	$stmt->bind_param("si", $userID, $language );
 	$stmt->execute();
 	$result = $stmt->get_result();
@@ -53,7 +53,7 @@ function lookForWord($userID, $mysqli) {
 //fetch the word that has as rank user s position+offset
 	$sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
 	$sql.=	"SELECT w.ID, w.DefinitionID, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
-	$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.ID NOT IN (SELECT WordID FROM seenGame".$mode." WHERE UserID=? AND Language = ?) AND sq.Rank = ? LIMIT 1;";
+	$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.ID NOT IN (SELECT WordID FROM seengame".$mode." WHERE userid=? AND language = ?) AND sq.Rank = ? LIMIT 1;";
 
 	$sum = intval($user_position) + intval($user_offset);
 
@@ -74,21 +74,21 @@ function lookForWord($userID, $mysqli) {
 	$stmt->close();
 	if($result-> num_rows === 0){
 		if($user_offset == 0) {
-			$stmt = $mysqli->prepare("UPDATE game".$mode." SET Position = Position + 1 WHERE UserID=? AND Language = ?;");
+			$stmt = $mysqli->prepare("UPDATE game".$mode." SET position = position + 1 WHERE userid=? AND language = ?;");
 			$stmt->bind_param("si", $userID, $language);
 			$stmt->execute();
 			$stmt->close();
 
 			//Clean up the DB that stores the encountered words, else it become too big
 
-			$stmt = $mysqli->prepare("DELETE FROM seenGame".$mode." WHERE UserID=? AND Language = ? AND Rank < ? ;");
+			$stmt = $mysqli->prepare("DELETE FROM seengame".$mode." WHERE userid=? AND language = ? AND rank < ? ;");
 			$stmt->bind_param("sii", $userID, $language, $sum);
 			$stmt->execute();
 			$stmt->close();
 
 		}
 		else {
-			$stmt = $mysqli->prepare("UPDATE game".$mode." SET Offset = Offset + 1 WHERE UserID=? AND Language = ?;");
+			$stmt = $mysqli->prepare("UPDATE game".$mode." SET offset = offset + 1 WHERE userid=? AND language = ?;");
 			$stmt->bind_param("si", $userID, $language);
 			$stmt->execute();
 			$stmt->close();		
@@ -96,19 +96,19 @@ function lookForWord($userID, $mysqli) {
 		return lookForWord($userID, $mysqli);
 	}
 	else {
-		$stmt = $mysqli->prepare("INSERT INTO seenGame".$mode." (UserID ,WordID, Language, Rank) VALUES (?,?,?,?);");
+		$stmt = $mysqli->prepare("INSERT INTO seengame".$mode." (userid ,wordid, language, rank) VALUES (?,?,?,?);");
 		$stmt->bind_param("siii", $userID, $word_id, $language, $sum);
 		$stmt->execute();
 		$stmt->close();	
 		if($user_offset > $offsetModulo){
-			$stmt = $mysqli->prepare("UPDATE game".$mode." SET Offset = 0 WHERE UserID=? AND Language = ?;");
+			$stmt = $mysqli->prepare("UPDATE game".$mode." SET offset = 0 WHERE userid=? AND language = ?;");
 			$stmt->bind_param("si", $userID, $language);
 			$stmt->execute();
 			$stmt->close();
 		}
 		else {
 
-			$stmt = $mysqli->prepare("UPDATE game".$mode." SET Offset = Offset + 1 WHERE UserID=? AND Language = ?;");
+			$stmt = $mysqli->prepare("UPDATE game".$mode." SET offset = offset + 1 WHERE userid=? AND language = ?;");
 			$stmt->bind_param("si", $userID, $language);
 			$stmt->execute();
 			$stmt->close();	

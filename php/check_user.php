@@ -44,7 +44,6 @@ if( $checkResult=== 1){
 			$stmt->execute();
 			$stmt->close();
 		}
-
 	}	
 }
 
