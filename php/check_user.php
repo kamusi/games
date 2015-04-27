@@ -33,7 +33,7 @@ if( $checkResult=== 1){
 	$stmt->close();
 	$languageArray = array();
 	while ($row = $result->fetch_assoc()) {
-		$languageArray[] = $row;
+		$languageArray[] = $row['ID'];
 	}
 
 
