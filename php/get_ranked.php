@@ -28,6 +28,8 @@ $mysqli = new mysqli('localhost', $user, $pass, $db);
 
 $results_array = FALSE;
 
+echo "in the beginning";
+
 while($results_array === FALSE) {
 	$word_id =lookForWord($userID, $mysqli); 
 	echo $word_id;
@@ -63,9 +65,9 @@ function lookForWord($userID, $mysqli) {
 		die ("Mysql Error: " . $mysqli->error);
 	}
 
-	//echo "This is the statement : " . $sql . " with user : " . $userID;
+	echo "This is the statement : " . $sql . " with user : " . $userID;
 
-	//return 12;
+	return 12;
 	$stmt->bind_param("sii", $userID, $language, $sum);
 	$stmt->execute();
 	$result = $stmt->get_result();
