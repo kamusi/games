@@ -62,12 +62,13 @@ function lookForWord($userID, $mysqli) {
 	$stmt = $mysqli->prepare($sql);
 
 	echo "Tu m affiches Sa quand meme e espece de merde a ";
-	return 2323;
 	if ($stmt === FALSE) {
 		die ("Mysql Error: " . $mysqli->error);
 	}
 
 	$stmt->bind_param("sii", $userID, $language, $sum);
+		return 2323;
+
 	$stmt->execute();
 	$result = $stmt->get_result();
 	$row = $result->fetch_assoc();
