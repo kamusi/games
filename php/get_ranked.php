@@ -6,6 +6,7 @@ $offsetModulo = 2;
 
 $userID = $_GET['userID'];
 $mode = $_GET['mode'];
+$language = $_GET['language'];
 
 
 // USING ROOT IS A SECURITY CONCERN
@@ -53,7 +54,7 @@ function lookForWord($userID, $mysqli) {
 //fetch the word that has as rank user s position+offset
 	$sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
 	$sql.=	"SELECT w.ID, w.DefinitionID, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
-	$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.ID NOT IN (SELECT WordID FROM seenGame".$mode." WHERE UserID=?) AND sq.Rank = ? LIMIT 1;";
+	$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.ID NOT IN (SELECT WordID FROM seenGame".$mode." WHERE UserID=? AND Language = ?) AND sq.Rank = ? LIMIT 1;";
 
 	$sum = intval($user_position) + intval($user_offset);
 
@@ -65,7 +66,7 @@ function lookForWord($userID, $mysqli) {
 	//echo "This is the statement : " . $sql . " with user : " . $userID;
 
 	//return 12;
-	$stmt->bind_param("si", $userID, $sum);
+	$stmt->bind_param("sii", $userID, $language, $sum);
 	$stmt->execute();
 	$result = $stmt->get_result();
 	$row = $result->fetch_assoc();
@@ -81,8 +82,8 @@ function lookForWord($userID, $mysqli) {
 
 			//Clean up the DB that stores the encountered words, else it become too big
 
-			$stmt = $mysqli->prepare("DELETE FROM seenGame".$mode." WHERE UserID=? AND Rank < ? ;");
-			$stmt->bind_param("si", $userID, $sum);
+			$stmt = $mysqli->prepare("DELETE FROM seenGame".$mode." WHERE UserID=? AND Language = ? AND Rank < ? ;");
+			$stmt->bind_param("sii", $userID, $language, $sum);
 			$stmt->execute();
 			$stmt->close();
 
@@ -96,8 +97,8 @@ function lookForWord($userID, $mysqli) {
 		return lookForWord($userID, $mysqli);
 	}
 	else {
-		$stmt = $mysqli->prepare("INSERT INTO seenGame".$mode." (UserID ,WordID, Rank) VALUES (?,?,?);");
-		$stmt->bind_param("sii", $userID, $word_id, $sum);
+		$stmt = $mysqli->prepare("INSERT INTO seenGame".$mode." (UserID ,WordID, Language, Rank) VALUES (?,?,?,?);");
+		$stmt->bind_param("siii", $userID, $word_id, $language $sum);
 		$stmt->execute();
 		$stmt->close();	
 		if($user_offset > $offsetModulo){

@@ -79,7 +79,7 @@ function get_randomForTweets() {
         }
     }
 
-    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&mode=" +'3', true);
+    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + language + "&mode=" +'3', true);
     xmlhttp.send();
 }
 
@@ -365,7 +365,7 @@ function get_ranked() {
     // alert(token);
     // document.getElementById("token").innerHTML = token;
     
-    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&mode=" +'1', true);
+    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + language + "&mode=" +'1', true);
     xmlhttp.send();
 }
 
@@ -587,7 +587,7 @@ function get_ranked_mode_2() {
             // document.getElementById("translation_input_tool_box").style.top="100px";
         }
     }
-   xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&mode=" +'2', true);
+   xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + language + "&mode=" +'2', true);
      xmlhttp.send();
 }
 
@@ -674,4 +674,19 @@ function trigger_notification() {
 
     xmlhttp.open("GET","php/notification_tweet.php?userID=" + userID); 
     xmlhttp.send();   
+}
+
+function updateLeaderboard(){
+
+
+    scoreLanguage = document.getElementById("scoreLanguage").selectedIndex;
+    scoreGame = document.getElementById("scoreGame").selectedIndex;
+    scoretimePeriod = document.getElementById("scoretimePeriod").selectedIndex;
+    scoreMetric = document.getElementById("scoreMetric").selectedIndex;
+
+    //All languages, All Games
+
+
+    console.log("Language: " + lang)
+
 }

@@ -428,13 +428,5 @@ function soumettre_traduction() {
 	}
 }
 
-function updateLeaderboard(){
 
-
-	scoreLanguage = document.getElementById("scoreLanguage").selectedIndex;
-	scoreGame = document.getElementById("scoreGame").selectedIndex;
-	
-
-	console.log("Language: " + lang)
-}
 
