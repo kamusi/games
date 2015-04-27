@@ -27,20 +27,20 @@ if( $checkResult=== 1){
 	$stmt->close();
 
 	//Create an entry for user for each game
+	$stmt = $mysqli->prepare("SELECT ID FROM languages; ");
+	$stmt->execute();
+	$result = $stmt->get_result();
+	$stmt->close();
+	$languageArray = array();
+	while ($row = $result->fetch_assoc()) {
+		$languageArray[] = $row;
+	}
+
 
 	foreach ($acceptedModes as $mode) {
-
-		$stmt = $mysqli->prepare("SELECT ID FROM languages; ");
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$stmt->close();
-
-		while ($row = $result->fetch_assoc()) {
-			$languageArray[] = $row;
-		}
-
+		echo "LanguageArray : " . $languageArray;
 		foreach ($languageArray as $language) {
-			
+
 			$stmt = $mysqli->prepare("INSERT INTO game".$mode." (userID, language) VALUES(?,?);");
 			$stmt->bind_param("si", $userID, $language );
 			$stmt->execute();
