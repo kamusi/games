@@ -70,8 +70,9 @@ function lookForWord($userID, $mysqli) {
 
 	$stmt->execute();
 
-			return 2323;
+
 	$result = $stmt->get_result();
+				return 2323;
 	$row = $result->fetch_assoc();
 
 
