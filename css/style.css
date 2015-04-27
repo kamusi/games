@@ -148,7 +148,7 @@ body {
 		background-height:100%;
 	}
 
-	#about, #profile, #settings {
+	#about, #profile, #settings #leaderboard {
 		width: 100%;
 		height: 100%;
 		text-align:center;
