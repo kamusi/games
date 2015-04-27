@@ -98,7 +98,7 @@ function lookForWord($userID, $mysqli) {
 	}
 	else {
 		$stmt = $mysqli->prepare("INSERT INTO seenGame".$mode." (UserID ,WordID, Language, Rank) VALUES (?,?,?,?);");
-		$stmt->bind_param("siii", $userID, $word_id, $language $sum);
+		$stmt->bind_param("siii", $userID, $word_id, $language, $sum);
 		$stmt->execute();
 		$stmt->close();	
 		if($user_offset > $offsetModulo){
