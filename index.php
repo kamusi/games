@@ -271,7 +271,10 @@ $newToken = generateToken();
 <div id="leader">
 
 </div>
-
+<div id="leaderboard-footer">
+	<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick(); display_profile();">
+</div>
+</div>
 </div>
 </div>
 </div>
