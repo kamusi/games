@@ -60,6 +60,7 @@ body {
 	}
 
 	#score_table {
+		text-align:center;
 		width:50%;
 		height:10%;
 		font-size:20px;
