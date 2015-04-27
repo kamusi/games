@@ -40,7 +40,7 @@ if( $checkResult=== 1){
 		}
 
 		foreach ($languageArray as $language) {
-
+			
 			$stmt = $mysqli->prepare("INSERT INTO game".$mode." (userID, language) VALUES(?,?);");
 			$stmt->bind_param("si", $userID, $language );
 			$stmt->execute();
