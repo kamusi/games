@@ -28,19 +28,15 @@ $mysqli = new mysqli('localhost', $user, $pass, $db);
 
 $results_array = FALSE;
 
-echo "in the beginning";
-
 while($results_array === FALSE) {
-	$word_id =lookForWord($userID, $mysqli); 
-	echo $word_id;
-	return 22222;
+	$word_id =lookForWord($userID, $mysqli, $language); 
 	$results_array = getDefinitions($word_id, $mysqli);
 }
 
 $jsonData = json_encode($results_array);
 echo $jsonData;
 
-function lookForWord($userID, $mysqli) {
+function lookForWord($userID, $mysqli, $language) {
 	global $offsetModulo, $mode;
 //fetch the user in order to see which word is for him
 	$stmt = $mysqli->prepare("SELECT * FROM game". $mode . " WHERE userid = ? AND language = ? ");
@@ -48,8 +44,6 @@ function lookForWord($userID, $mysqli) {
 	$stmt->execute();
 	$result = $stmt->get_result();
 	$row = $result->fetch_assoc();
-	echo "LANGUAGE : " .$language; 
-	echo "this was this first result : " . var_dump($row);
 
 	$user_position = $row["position"];
 	$user_offset = $row["offset"];
