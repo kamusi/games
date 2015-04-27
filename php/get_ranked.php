@@ -40,7 +40,7 @@ function lookForWord($userID, $mysqli) {
 	global $offsetModulo, $mode, $language;
 
 echo "This is langugae : " . $language;
-
+return 12;
 //fetch the user in order to see which word is for him
 	$stmt = $mysqli->prepare("SELECT * FROM game". $mode . " WHERE userid = ? AND language = ? ");
 	$stmt->bind_param("si", $userID, $language );
