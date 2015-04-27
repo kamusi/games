@@ -222,6 +222,7 @@ function return_to_game() {
 function display_welcome() {
 	document.getElementById("game").style.display = "none";
 	document.getElementById("welcome").style.display = "inline-block";
+	document.getElementById("leaderboard").style.display = "none";
 	continue_animation();
 }
 
