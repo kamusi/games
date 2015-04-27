@@ -407,7 +407,7 @@ function check_user() {
             console.log("INDEX is before : " + document.getElementById('notifications').selectedIndex)
             //get_randomForTweets();
             document.getElementById('notifications').selectedIndex = whenToNotify 
-                        document.getElementById('language').selectedIndex= language -1
+                        document.getElementById('language').selectedIndex= language
             document.getElementById('posts').selectedIndex= whenToPost
             console.log("Index is after: " + document.getElementById('notifications').selectedIndex)
 
@@ -468,15 +468,12 @@ function get_user_stats() {
             var obj = JSON.parse(xmlhttp.responseText);
             whenToNotify = obj.NotificationTimeUnit
             whenToPost = obj.PostTimeUnit
-            language= obj.Language;
+            language= obj.Language -1;
 
             document.getElementById('notifications').selectedIndex = whenToNotify 
             document.getElementById('posts').selectedIndex= whenToPost
-            console.log(language + "FUCK THIS IS THE FUCKING INDEX BEFORE "+ document.getElementById('language').selectedIndex)
-         
-            document.getElementById('language').selectedIndex= (language-1)
+            document.getElementById('language').selectedIndex= language
 
-            console.log(language + "FUCK THIS IS THE FUCKING INDEX AFTER "+ document.getElementById('language').selectedIndex)
             numSubmissions = obj.PositionMode1 + obj.PositionMode2 + obj.PositionMode3;
 
 
@@ -615,7 +612,7 @@ function saveSettings() {
     console.log("Begin save settings")
     whenToNotify = document.getElementById("notifications").selectedIndex;
     whenToPost = document.getElementById("posts").selectedIndex;
-    language = document.getElementById("language").selectedIndex + 1
+    language = document.getElementById("language").selectedIndex
 
     var xmlhttp;
     
