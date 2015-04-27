@@ -69,9 +69,11 @@ function lookForWord($userID, $mysqli) {
 	$stmt->bind_param("sii", $userID, $language, $sum);
 
 	$stmt->execute();
+
+			return 2323;
 	$result = $stmt->get_result();
 	$row = $result->fetch_assoc();
-			return 2323;
+
 
 	$word_id = $row["ID"];
 
