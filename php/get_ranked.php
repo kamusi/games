@@ -76,7 +76,7 @@ function lookForWord($userID, $mysqli) {
 
 	var_dump($result);
 	var_dump($user_offset);
-	return 12e23d;
+	return 231;
 	$stmt->close();
 	if($result-> num_rows === 0){
 		if($user_offset == 0) {
