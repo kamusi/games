@@ -53,6 +53,7 @@ function lookForWord($userID, $mysqli) {
 	echo "User offset : " . $user_offset;
 	echo "pos" . $user_position;
 	$stmt->close();
+	return 2323;
 
 //fetch the word that has as rank user s position+offset
 	$sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
