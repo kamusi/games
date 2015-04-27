@@ -248,7 +248,6 @@ $newToken = generateToken();
 <div id="settings-footer">
 	<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick(); saveSettings(); display_profile();">
 </div>
-</div>
 <div id="leaderboard">
 <p>Language</p>
 <select id= "scoreLanguage" size="1">
@@ -273,6 +272,8 @@ $newToken = generateToken();
 </div>
 
 </div>
+</div>
+
 </div>
 </div>
 
