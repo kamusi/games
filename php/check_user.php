@@ -38,7 +38,7 @@ if( $checkResult=== 1){
 
 
 	foreach ($acceptedModes as $mode) {
-		echo "LanguageArray : " . $languageArray;
+		echo "LanguageArray : " . var_dump($languageArray);
 		foreach ($languageArray as $language) {
 
 			$stmt = $mysqli->prepare("INSERT INTO game".$mode." (userID, language) VALUES(?,?);");
