@@ -266,8 +266,37 @@ $newToken = generateToken();
 	<option>Game3</option>
 </select>
 </br></br>
+
+<p>What to compare</p>
+<select id= "scoreMetric" size="1">
+	<option>Points Earned</option>
+	<option>Number of Submissions</option>
+</select>
+</br></br>
 <p>Leader</p>
-<div>Points Earned</div>
+
+<div id="leader">
+	<table id="score_table">
+		<tr>
+			<td>
+			</td>
+			<td>UserName</td>
+			<td>UserScore</td>
+			<td>UserRank</td>
+		</tr>
+		<tr>
+			<td>
+							<img id="leaderPic1" src="http://graph.facebook.com/1629333623960388/picture" onmousedown="isNewUser();">
+			</td>
+			<td>UserName</td>
+			<td>UserScore</td>
+			<td>UserRank</td
+			<td id="profile_attempts"></td>
+		</tr>
+	</table>
+
+<p>Me</p>
+
 <div id="leader">
 	<table id="score_table">
 		<tr>
