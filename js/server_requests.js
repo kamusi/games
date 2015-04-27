@@ -472,6 +472,7 @@ function get_user_stats() {
             whenToPost = obj.PostTimeUnit
             language= obj.Language -1;
             gameLanguage = obj.Language;
+            console.log("The game language is now : " + gameLanguage);
 
             document.getElementById('notifications').selectedIndex = whenToNotify 
             document.getElementById('posts').selectedIndex= whenToPost
