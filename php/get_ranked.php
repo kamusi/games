@@ -39,8 +39,8 @@ echo $jsonData;
 function lookForWord($userID, $mysqli) {
 	global $offsetModulo, $mode;
 //fetch the user in order to see which word is for him
-	$stmt = $mysqli->prepare("SELECT * FROM game". $mode . " WHERE UserID = ? ");
-	$stmt->bind_param("s", $userID );
+	$stmt = $mysqli->prepare("SELECT * FROM game". $mode . " WHERE UserID = ? AND Language = ? ");
+	$stmt->bind_param("si", $userID, $language );
 	$stmt->execute();
 	$result = $stmt->get_result();
 
@@ -74,8 +74,8 @@ function lookForWord($userID, $mysqli) {
 	$stmt->close();
 	if($result-> num_rows === 0){
 		if($user_offset == 0) {
-			$stmt = $mysqli->prepare("UPDATE game".$mode." SET Position = Position + 1 WHERE UserID=?;");
-			$stmt->bind_param("s", $userID);
+			$stmt = $mysqli->prepare("UPDATE game".$mode." SET Position = Position + 1 WHERE UserID=? AND Language = ?;");
+			$stmt->bind_param("si", $userID, $language);
 			$stmt->execute();
 			$stmt->close();
 
@@ -88,8 +88,8 @@ function lookForWord($userID, $mysqli) {
 
 		}
 		else {
-			$stmt = $mysqli->prepare("UPDATE game".$mode." SET Offset = Offset + 1 WHERE UserID=?;");
-			$stmt->bind_param("s", $userID);
+			$stmt = $mysqli->prepare("UPDATE game".$mode." SET Offset = Offset + 1 WHERE UserID=? AND Language = ?;");
+			$stmt->bind_param("si", $userID, $language);
 			$stmt->execute();
 			$stmt->close();		
 		}
@@ -101,15 +101,15 @@ function lookForWord($userID, $mysqli) {
 		$stmt->execute();
 		$stmt->close();	
 		if($user_offset > $offsetModulo){
-			$stmt = $mysqli->prepare("UPDATE game".$mode." SET Offset = 0 WHERE UserID=?;");
-			$stmt->bind_param("s", $userID);
+			$stmt = $mysqli->prepare("UPDATE game".$mode." SET Offset = 0 WHERE UserID=? AND Language = ?;");
+			$stmt->bind_param("si", $userID, $language);
 			$stmt->execute();
 			$stmt->close();
 		}
 		else {
 
-			$stmt = $mysqli->prepare("UPDATE game".$mode." SET Offset = Offset + 1 WHERE UserID=?;");
-			$stmt->bind_param("s", $userID);
+			$stmt = $mysqli->prepare("UPDATE game".$mode." SET Offset = Offset + 1 WHERE UserID=? AND Language = ?;");
+			$stmt->bind_param("si", $userID, $language);
 			$stmt->execute();
 			$stmt->close();	
 		}	
