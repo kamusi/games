@@ -68,10 +68,6 @@ window.fbAsyncInit = function() {
 initialise(userID);
 
 
-  		get_randomForTweets();
-        get_ranked();
-  get_ranked_mode_2();
-
 	});
 }
 

@@ -143,6 +143,8 @@ function initialise(userID) {
 }
 
 function enter_game1() {
+	game = 1;
+	get_ranked();
 	document.getElementById("welcome").style.display = "none";
 	document.getElementById("game").style.display = "inline-block";
 	document.getElementById("gamezone1").style.display = "inline-block";
@@ -156,6 +158,8 @@ function enter_game1() {
 }
 
 function enter_game2() {
+	game = 2;
+	get_ranked_mode_2();
 	document.getElementById("welcome").style.display = "none";
 	document.getElementById("game").style.display = "inline-block";
 	document.getElementById("gamezone1").style.display = "none";
@@ -169,6 +173,8 @@ function enter_game2() {
 }
 
 function enter_game3() {
+	game = 3;
+	get_randomForTweets();
 	document.getElementById("welcome").style.display = "none";
 	document.getElementById("game").style.display = "inline-block";
 	document.getElementById("gamezone1").style.display = "none";

@@ -1,5 +1,6 @@
 
-var userID = "???"; // = "858265020879794";
+var userID = "???";
+var game = 0;
 var wordID;
 var word;
 var definitionID;
