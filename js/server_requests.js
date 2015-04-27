@@ -474,6 +474,7 @@ function get_user_stats() {
             document.getElementById('posts').selectedIndex= whenToPost
             document.getElementById('language').selectedIndex= language-1
 
+            console.log("FUCK THIS IS THE FUCKING INDEX FCK "+ document.getElementById('language').selectedIndex)
             numSubmissions = obj.PositionMode1 + obj.PositionMode2 + obj.PositionMode3;
 
 
