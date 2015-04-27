@@ -30,6 +30,7 @@ $results_array = FALSE;
 
 while($results_array === FALSE) {
 	$word_id =lookForWord($userID, $mysqli); 
+	echo $word_id;
 	$results_array = getDefinitions($word_id, $mysqli);
 }
 
