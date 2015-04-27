@@ -72,8 +72,8 @@ function lookForWord($userID, $mysqli) {
 
 
 	$result = $stmt->get_result();
-				return 2323;
 	$row = $result->fetch_assoc();
+				return 2323;
 
 
 	$word_id = $row["ID"];
