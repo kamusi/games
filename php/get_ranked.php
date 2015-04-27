@@ -8,8 +8,6 @@ $userID = $_GET['userID'];
 $mode = $_GET['mode'];
 $language = $_GET['language'];
 
-echo "language is : " . $language;
-
 // USING ROOT IS A SECURITY CONCERN
 $user = 'root';
 $pass = '';
