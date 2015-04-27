@@ -47,11 +47,10 @@ function lookForWord($userID, $mysqli) {
 	$stmt->execute();
 	$result = $stmt->get_result();
 
-	$stmt->close();
-
 	$row = $result->fetch_assoc();
 	$user_position = $row["position"];
 	$user_offset = $row["offset"];
+	$stmt->close();
 
 //fetch the word that has as rank user s position+offset
 	$sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
