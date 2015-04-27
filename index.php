@@ -269,10 +269,10 @@ $newToken = generateToken();
 <p>Leader</p>
 
 <div id="leader">
-	<table id="profile_info">
+	<table id="score_table">
 		<tr>
 			<td>
-				<img id="leaderPic1" src="http://graph.facebook.com/clement.moutet/picture" onmousedown="isNewUser();">
+				<img id="leaderPic1" src="http://graph.facebook.com/1629333623960388/picture" onmousedown="isNewUser();">
 			</td>
 			<td>lalalla</td>
 		</tr>
