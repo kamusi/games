@@ -60,6 +60,8 @@ function lookForWord($userID, $mysqli) {
 	$sum = intval($user_position) + intval($user_offset);
 
 	$stmt = $mysqli->prepare($sql);
+
+	echo "Tu m affiches Sa quand meme e espece de merde a ";
 	if ($stmt === FALSE) {
 		die ("Mysql Error: " . $mysqli->error);
 	}
