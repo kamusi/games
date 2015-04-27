@@ -82,7 +82,7 @@ function get_randomForTweets() {
         }
     }
 
-    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + language + "&mode=" +'3', true);
+    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + gameLanguage + "&mode=" +'3', true);
     xmlhttp.send();
 }
 
