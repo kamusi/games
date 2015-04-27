@@ -250,12 +250,12 @@ $newToken = generateToken();
 </div>
 </div>
 <div id="leaderboard">
-<p>Language</p>
-<select id= "scoreLanguage" size="1">
-	<option>All languages</option>
-	<option>English</option>
-	<option>Vietnamese</option>
-</select>
+	<p>Language</p>
+	<select id= "scoreLanguage" size="1">
+		<option>All languages</option>
+		<option>English</option>
+		<option>Vietnamese</option>
+	</select>
 </br></br>
 
 <p>Game</p>
@@ -269,6 +269,19 @@ $newToken = generateToken();
 <p>Leader</p>
 
 <div id="leader">
+	<table id="profile_info">
+		<tr>
+			<td>
+				<img id="leaderPic1" src="http://graph.facebook.com/clement.moutet/picture" onmousedown="isNewUser();">
+			</td>
+			<td>lalalla</td>
+		</tr>
+		<tr>
+			<td>Ratio</td>
+			<td id="profile_attempts"></td>
+		</tr>
+	</table>
+
 
 </div>
 <div id="leaderboard-footer">
