@@ -46,8 +46,9 @@ function lookForWord($userID, $mysqli) {
 	$stmt->bind_param("si", $userID, $language );
 	$stmt->execute();
 	$result = $stmt->get_result();
-
 	$row = $result->fetch_assoc();
+	echo $language. "this was this first result : " . var_dump($row);
+
 	$user_position = $row["position"];
 	$user_offset = $row["offset"];
 	$stmt->close();
@@ -64,7 +65,6 @@ function lookForWord($userID, $mysqli) {
 		die ("Mysql Error: " . $mysqli->error);
 	}
 
-	echo "This is the statement : " . $sql . " with user : " . $userID;
 
 	//return 12;
 	$stmt->bind_param("sii", $userID, $language, $sum);
@@ -73,8 +73,7 @@ function lookForWord($userID, $mysqli) {
 	$row = $result->fetch_assoc();
 	$word_id = $row["ID"];
 
-	var_dump($result);
-	var_dump($user_offset);
+
 	return 231;
 	$stmt->close();
 	if($result-> num_rows === 0){
