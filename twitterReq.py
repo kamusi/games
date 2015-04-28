@@ -19,7 +19,8 @@ ACCESS_TOKEN_SECRET = 'GDJgTSWBjtxKtj8TKgIlouN0cOjnpIFizq07e4WgTcuUa'
 
 #logging.captureWarnings(True)
 
-urllib.disable_warnings()
+import requests
+requests.packages.urllib3.disable_warnings()
 
 def search(keyword, amount):
 
