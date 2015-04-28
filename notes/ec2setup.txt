@@ -54,7 +54,7 @@ Run php script:
 sudo php load_wordnet_data.php
 
 Modify Apache configuration file (to allow apache to use mysql):
-
+111
 vi /etc/httpd/conf/httpd.conf
 
 [Uncomment out the following, and set document root to /var/www/html]

@@ -1,0 +1,12 @@
+Configuation of the serve for the kamusi app
+
+copy all files from local to server :
+
+scp -i /home/timo/Documents/TimoAwsServerKeyPair.pem . ec2-user@ec2-54-187-146-101.us-west-2.compute.amazonaws.com:/copiedFolder
+
+
+Install LAMP:
+
+sudo yum -y install httpd php mysql mysql-server
+
+

@@ -1,3 +1,75 @@
-install packages httpd24 php54 with yum
+Configuation of the serve for the kamusi app
+
+
+Install LAMP:
+
+sudo yum -y install httpd php mysql mysql-server
+
+Start HTTP server:
+
+sudo /etc/init.d/httpd start
+
+Start MySql:
+
+sudo /etc/init.d/mysqld start
+
+Set autostart (on boot) for HTTP server:
+
+sudo chkconfig httpd on
+
+Set autostart (on boot) for MySql server:
+
+sudo chkconfig mysqld on
+
+Apache server folder:
+
+cd /var/www/html
+
+copy all files from local to server :
+
+scp -i /home/timo/Documents/TimoAwsServerKeyPair.pem . ec2-user@ec2-54-187-146-101.us-west-2.compute.amazonaws.com:/home/ec2-user
+
+sudo su
+SHOW DATABASES;
+CREATE DATABASE kamusi;
+mysql> USE kamusi;
+mysql> CREATE TABLE wordnet (ID INT, Word VARCHAR(64), Definition VARCHAR(256));
+
+Install mysql driver for php
+
+yum install php-mysqlnd
+
+THE NATIVE DRIVER IS NEEDED FOR LATER!!! mysqli prapre
+
+save old db to sql file :  mysqldump -u [uname] -p[pass] db_name > db_backup.sql
+
+import sql from file : mysql -u username -p -h localhost kamusi < kamusi.sql
+
+Do not forget to make http requests accessile from the outside world on your amazon machine!
+
+Click on your instance
+Scroll down to the information section at the bottom fo the page
+in the tab "Description", find "Security groups"
+click on each one of them, or the only one
+At the "Inbound" tab click "Edit"
+click "Add Rule"
+Type -> select HTTP, Source -> Anywhere
+
+Enable the php error log.
+find the right php.ini file
+php -i | grep 'Configuration File'
+Then in the php ini file, set display_error=On and set the variable error_log to a file. Don t forget to make it writable for php!
+
+Set up the git synchronization
+http://toroid.org/ams/git-website-howto
+insert into the post_receive file :
+cat > hooks/post-receive
+#!/bin/sh
+GIT_WORK_TREE=/var/www/html git checkout -f
+
+
+
+
+
 
 
