@@ -48,8 +48,7 @@ def search(keyword, amount):
     return returnText
 
 def main(keyword, amount):
-    print (search(keyword, amount))
-   #print json.dumps(search(keyword, amount))
+    print json.dumps(search(keyword, amount))
 
 def remove_non_ascii(text):
     return text.join(i for i in text if ord(i)<128)
