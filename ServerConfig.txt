@@ -68,6 +68,11 @@ cat > hooks/post-receive
 GIT_WORK_TREE=/var/www/html git checkout -f
 
 
+install pyhton in order to get tweets
+
+
+
+
 
 
 
