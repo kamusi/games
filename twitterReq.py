@@ -18,8 +18,8 @@ ACCESS_TOKEN = '2399957756-FdFxU8AAykuhA7ieWSyIbX4WCHNG9ZENNvDjRQY'
 ACCESS_TOKEN_SECRET = 'GDJgTSWBjtxKtj8TKgIlouN0cOjnpIFizq07e4WgTcuUa'
 
 #logging.captureWarnings(True)
-import urllib3
-urllib3.disable_warnings()
+
+urllib.disable_warnings()
 
 def search(keyword, amount):
 
