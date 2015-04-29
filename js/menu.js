@@ -209,6 +209,7 @@ function display_about() {
 function display_profile() {
 	get_user_stats();
 	FB.api('/me', function(response) {
+		
 
 	});
 	document.getElementById("settings").style.display = "none";
@@ -242,6 +243,16 @@ function animate_logo() {
 	document.getElementById("enter3").classList.remove("shaded_enter");
 	document.getElementById("enter3").classList.add("animateenter");
 
+}
+
+function changeColorOnClick(tweetDisplay,newInput){
+    if(newInput.checked){
+     tweetDisplay.style.color = "blue";
+    }
+    else {
+    tweetDisplay.style.color = "#af0800";
+
+    }
 }
 
 function animate_logo_firstTime(){
