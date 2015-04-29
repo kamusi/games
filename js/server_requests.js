@@ -12,6 +12,7 @@ var whenToPost;
 var whenToNotify;
 var language;
 
+//var to remember the current language
 var gameLanguage;
 
 var translationID;
@@ -389,36 +390,6 @@ function submit_definition(definition) {
 }
 
 
-function check_user() {
-/*
-    console.log("CHECK USER")
-    var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            document.getElementById('profile_name').innerHTML = userName;
-            
-
-//            initialise(userID);
-            console.log("USERID IS SET: " + userID);
-            console.log("INDEX is before : " + document.getElementById('notifications').selectedIndex)
-            //get_randomForTweets();
-            document.getElementById('notifications').selectedIndex = whenToNotify 
-                        document.getElementById('language').selectedIndex= language
-            document.getElementById('posts').selectedIndex= whenToPost
-            console.log("Index is after: " + document.getElementById('notifications').selectedIndex)
-
-        }
-    }
-    xmlhttp.open("GET","php/check_user.php?userID=" + userID);
-    xmlhttp.send(); */
-}
-
 function isNewUser() {
 
     console.log("Checking if New USER")
@@ -480,9 +451,8 @@ function get_user_stats() {
 
             numSubmissions = obj.PositionMode1 + obj.PositionMode2 + obj.PositionMode3;
 
-
-            
-            set_profile_data(obj.UserID, obj.Points, obj.PendingPoints, obj.Points /numSubmissions, obj.Notify);
+           
+            set_profile_data(obj.UserID, obj. obj.Points, obj.PendingPoints, obj.Points /numSubmissions, obj.Notify);
         }
     }
     // document.getElementById("token").innerHTML = token;
