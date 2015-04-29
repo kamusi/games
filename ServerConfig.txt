@@ -70,6 +70,12 @@ GIT_WORK_TREE=/var/www/html git checkout -f
 
 install pyhton in order to get tweets
 
+additional constraints on the DB :
+ALTER TABLE game1,2,3 ADD UNIQUE (
+userID ,
+language
+);
+
 
 
 

@@ -207,8 +207,7 @@ function display_about() {
 }
 
 function display_profile() {
-	get_user_stats();
-getGameScore()
+	getGameScore();
 	document.getElementById("settings").style.display = "none";
 	document.getElementById("leaderboard").style.display = "none";
 	document.getElementById("welcome").style.display = "none";
@@ -294,7 +293,7 @@ function set_greeting(userName) {
 	document.getElementById("profile_name").innerHTML = userName;
 }
 
-function set_profile_data(userID, points, pendingPoints, ratio, notify) {
+function set_profile_data(points, pendingPoints, ratio, notify) {
 	document.getElementById("profile_name").innerHTML = userName;
 	document.getElementById("profile_points").innerHTML = points;
 	document.getElementById("pending_points").innerHTML = pendingPoints;

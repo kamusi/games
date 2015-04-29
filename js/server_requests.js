@@ -407,11 +407,7 @@ function get_user_stats() {
             document.getElementById('posts').selectedIndex= whenToPost
             document.getElementById('language').selectedIndex= language
 
-            numSubmissions = obj.PositionMode1 + obj.PositionMode2 + obj.PositionMode3;
-
-
-            set_profile_data(obj.UserID, obj.Points, obj.PendingPoints, obj.Points /numSubmissions, obj.Notify);
-        }
+         }
     }
     xmlhttp.open("GET","php/get_profile.php?userID=" + userID + "&token=" + token, true);
     xmlhttp.send();
@@ -428,6 +424,10 @@ function getGameScore(){
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             console.log("getGameScore returned this : " + xmlhttp.responseText)
+           var obj = JSON.parse(xmlhttp.responseText);
+ 
+            set_profile_data(obj.UserID, obj.Points, obj.PendingPoints, obj.Points /numSubmissions, obj.Notify);
+
        }
     }
     console.log("language is : " + language)
