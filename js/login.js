@@ -62,7 +62,6 @@ window.fbAsyncInit = function() {
 function welcome() {
   document.getElementById("login_button").style.display = "none";
   FB.api('/me', function(response) {
-    check_user();
     userID = response.id;
     userName = response.name;
     initialise(userID);
