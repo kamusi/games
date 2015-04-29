@@ -24,7 +24,7 @@ if (!$mysqli->set_charset('utf8')) {
 if(!in_array($mode, $acceptedModes)) {
 	die("Got a strange mode as input!". $mode);
 }
-$sql = "SELECT * FROM game" . $mode . " WHERE userid=? AND language = ?;"
+$sql = "SELECT * FROM game" . $mode . " WHERE userid=? AND language = ?;";
 
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("si", $userID, $language );
