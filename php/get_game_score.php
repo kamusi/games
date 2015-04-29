@@ -10,8 +10,8 @@ $db = 'kamusi';
 
 
 $userID = $_GET['userID'];
-$language = $GET['language'];
-$mode = $GET['mode'];
+$language = $_GET['language'];
+$mode = $_GET['mode'];
 
 $returnText = "nothing";
 
