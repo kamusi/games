@@ -452,7 +452,7 @@ function get_user_stats() {
             numSubmissions = obj.PositionMode1 + obj.PositionMode2 + obj.PositionMode3;
 
            
-            set_profile_data(obj.UserID, obj. obj.Points, obj.PendingPoints, obj.Points /numSubmissions, obj.Notify);
+            set_profile_data(obj.UserID, obj.Points, obj.PendingPoints, obj.Points /numSubmissions, obj.Notify);
         }
     }
     // document.getElementById("token").innerHTML = token;
