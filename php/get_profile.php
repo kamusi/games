@@ -4,11 +4,7 @@ ini_set('display_errors', 'On');
 include 'validate_token.php';
 
 $userID = $_GET['userID'];
-$token = $_GET['token'];
 
-if(!validate_token($token)) {
-#	die();
-}
 
 // session_start();
 

@@ -430,7 +430,7 @@ function getGameScore(){
             console.log("getGameScore returned this : " + xmlhttp.responseText)
        }
     }
-    xmlhttp.open("GET","php/get_profile.php?userID=" + userID + "&mode=" + game + "&language=" + language, true);
+    xmlhttp.open("GET","php/get_game_score.php?userID=" + userID + "&mode=" + game + "&language=" + language, true);
     xmlhttp.send();    
 }
 
