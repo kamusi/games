@@ -124,7 +124,7 @@ $newToken = generateToken();
 			<div id="gamezone3" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 				<div id="gamezone-main3" >
 					<div id="entry">
-						<p id="instructions">Check ONLY the tweets that are excellent examples of this meaning:  </p>
+						<p id="instructions">Check ONLY the tweets that are excellent examples of THIS meaning:  </p>
 						<p id="word3"></p>		
 						<p id="pos3"></p>					
 						<p id="def3"></p>
@@ -200,7 +200,7 @@ $newToken = generateToken();
 					<td id="pending_points"></td>
 				</tr>
 				<tr>
-					<td>Ratio</td>
+					<td>Success Rate</td>
 					<td id="profile_attempts"></td>
 				</tr>
 			</table>
@@ -280,6 +280,8 @@ $newToken = generateToken();
 <select id= "scoreMetric" size="1">
 	<option>Points Earned</option>
 	<option>Number of Submissions</option>
+	<option>Success Rate</option>
+
 </select>
 </br></br>
 <p>Leader</p>
