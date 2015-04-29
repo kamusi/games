@@ -426,7 +426,7 @@ function getGameScore(){
             console.log("getGameScore returned this : " + xmlhttp.responseText)
            var obj = JSON.parse(xmlhttp.responseText);
  
-            set_profile_data(obj.UserID, obj.Points, obj.PendingPoints, obj.Points /numSubmissions, obj.Notify);
+            set_profile_data(obj.points, obj.pendingpoints, obj.Points /submissions);
 
        }
     }

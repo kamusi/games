@@ -293,7 +293,7 @@ function set_greeting(userName) {
 	document.getElementById("profile_name").innerHTML = userName;
 }
 
-function set_profile_data(points, pendingPoints, ratio, notify) {
+function set_profile_data(points, pendingPoints, ratio) {
 	document.getElementById("profile_name").innerHTML = userName;
 	document.getElementById("profile_points").innerHTML = points;
 	document.getElementById("pending_points").innerHTML = pendingPoints;
