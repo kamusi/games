@@ -346,7 +346,7 @@ function submit_definition(definition) {
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     console.log("When submitting definition, wordID is : " + wordID)
-    xmlhttp.open("GET","php/submit_definition.php?wordID=" + wordID + "&groupID=" + groupID  + "&definition=" + definition + "&userID=" + userID, true);
+    xmlhttp.open("GET","php/submit_definition.php?wordID=" + wordID + "&groupID=" + groupID  + "&definition=" + definition + "&userID=" + userID + "&mode=" + game + "&language=" + gameLanguage, true);
     xmlhttp.send();
 }
 
