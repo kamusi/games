@@ -65,7 +65,7 @@ $stmt = $mysqli->prepare($sql);
 	$stmt->close();
 
 
-update_user_rating($user_id, $wordID, $groupID);
+//update_user_rating($user_id, $wordID, $groupID);
 
 echo 'Success' . $wordID;
 
