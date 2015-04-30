@@ -55,6 +55,7 @@ $sql = 	"UPDATE game" . $mode .
 " WHERE userid = ? AND language = ?;";
 echo "sql is : " . $sql;
 echo "ûserID " . $user_id;
+echo "votes was " . $votes;
 
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("si", $user_id, $definitionID);
