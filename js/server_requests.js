@@ -477,7 +477,7 @@ function submit_vote(definition_id, vote) {
     }
     console.log("WordID when submitting Vote : " + wordID)
 
-    xmlhttp.open("GET","php/submit_vote.php?wordID=" + wordID + "&definitionID=" + definition_id + "&vote=" + vote + "&groupID=" + groupID + "&mode=" + game + "&language=" + language, true);
+    xmlhttp.open("GET","php/submit_vote.php?wordID=" + wordID + "&definitionID=" + definition_id + "&vote=" + vote + "&groupID=" + groupID + "&mode=" + game + "&language=" + gameLanguage, true);
     xmlhttp.send();
 }
 
