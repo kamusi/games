@@ -58,7 +58,7 @@ echo "ûserID " . $user_id;
 echo "votes was " . $votes;
 
 $stmt = $mysqli->prepare($sql);
-$stmt->bind_param("si", $user_id, $definitionID);
+$stmt->bind_param("si", $user_id, $language);
 $stmt->execute();
 $stmt->close();
 
