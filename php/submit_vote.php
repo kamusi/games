@@ -54,7 +54,7 @@ $sql = 	"UPDATE game" . $mode .
 " SET Points = Points + " . $earnedPoints . 
 " WHERE userid = ? AND language = ?;";
 echo "sql is : " . $sql;
-echo "lanug and game " . $language . " game " . $mode;
+echo "ûserID " . $user_id;
 
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("si", $user_id, $definitionID);
