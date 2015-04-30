@@ -1,7 +1,7 @@
 <?php
 
-include 'notification.php';
-include 'honeypot.php';
+//include 'notification.php';
+//include 'honeypot.php';
 
 $wordID = $_GET['wordID'];
 $definitionID = $_GET['definitionID'];
@@ -16,30 +16,25 @@ $db = 'kamusi';
 
 $mysqli = new mysqli('localhost', $user, $pass, $db);
 
-if (!$con) {
-	die('Could not connect: ' . mysqli_error($con));
-}
-
 //Increment number of votes for this definition
 $sql = 	"UPDATE definitions " .
-		"SET Votes = Votes + ? " . 
-		"WHERE ID = ?;";
+"SET Votes = Votes + ? " . 
+"WHERE ID = ?;";
 
 $stmt = $mysqli->prepare($sql);
-	$stmt->bind_param("ii", $vote, $definitionID);
-	$stmt->execute();
-	$stmt->close();
+$stmt->bind_param("ii", $vote, $definitionID);
+$stmt->execute();
+$stmt->close();
 
 
 
-$sql = 	"SELECT UserID, Votes FROM definitions " .
-		"WHERE ID = ?;";
+$sql = 	"SELECT UserID, Votes FROM definitions WHERE ID = ?;";
 
-		$stmt = $mysqli->prepare($sql);
-	$stmt->bind_param("i", $definitionID);
-	$stmt->execute();
-	$result = $stmt->get_result();
-	$stmt->close();
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("i", $definitionID);
+$stmt->execute();
+$result = $stmt->get_result();
+$stmt->close();
 
 $results_array = $result->fetch_assoc();
 
@@ -56,13 +51,13 @@ if($votes == 3 && $user_id != 'wordnet') {
 
 //Give the points to the user
 $sql = 	"UPDATE game " . $mode .
-		"SET Points = Points + " . $earnedPoints . 
-		"WHERE userid = ? AND language = ?;";
+"SET Points = Points + " . $earnedPoints . 
+"WHERE userid = ? AND language = ?;";
 
 $stmt = $mysqli->prepare($sql);
-	$stmt->bind_param("si", $user_id, $definitionID);
-	$stmt->execute();
-	$stmt->close();
+$stmt->bind_param("si", $user_id, $definitionID);
+$stmt->execute();
+$stmt->close();
 
 
 //update_user_rating($user_id, $wordID, $groupID);
