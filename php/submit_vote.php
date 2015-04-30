@@ -53,6 +53,8 @@ if($votes == 3 && $user_id != 'wordnet') {
 $sql = 	"UPDATE game " . $mode .
 "SET Points = Points + " . $earnedPoints . 
 "WHERE userid = ? AND language = ?;";
+echo "sql is : " . $sql;
+echo "lanug and game " . $language . " game " . $mode;
 
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("si", $user_id, $definitionID);
