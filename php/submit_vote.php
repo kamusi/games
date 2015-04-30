@@ -1,5 +1,6 @@
 <?php
 
+include 'global.php';
 //include 'notification.php';
 //include 'honeypot.php';
 
@@ -13,6 +14,10 @@ $language = $_GET['language'];
 $user = 'root';
 $pass = '';
 $db = 'kamusi';
+
+if(!in_array($mode, $acceptedModes)) {
+	die("Got a strange mode as input!". $mode);
+}
 
 $mysqli = new mysqli('localhost', $user, $pass, $db);
 

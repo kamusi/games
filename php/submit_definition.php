@@ -12,6 +12,10 @@ $user = 'root';
 $pass = '';
 $db = 'kamusi';
 
+if(!in_array($mode, $acceptedModes)) {
+	die("Got a strange mode as input!". $mode);
+}
+
 $mysqli = new mysqli('localhost', $user, $pass, $db);
 
 
@@ -34,6 +38,13 @@ if ($groupID == 'null') {
 $sql = 	"INSERT INTO definitions (Definition, GroupID, UserID) VALUES (?,?,?); "; 
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("sis", $definition, $groupID, $userID);
+$stmt->execute();
+$stmt->close();
+
+//give the user 10 pending points : the one he gets if his definition reaches consensus
+$sql = 	"UPDATE game" . $mode . " SET pendingpoints = pendingpoints + 10 WHERE userid = ? AND language = ?; "; 
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("si", $userID, $language);
 $stmt->execute();
 
 $stmt->close();
