@@ -43,7 +43,7 @@ function get_random() {
 }
 
 function get_randomForTweets() {
- console.log("In random for tweets function with userId: " + userID)
+   console.log("In random for tweets function with userId: " + userID)
     //remove previous tweet entries
     document.getElementById("twitterWords").innerHTML = '';
 
@@ -183,16 +183,16 @@ function fetchTweetsFromDB(amount) {
             }
             console.log("this was i " + i + ", this is amount : " + amount);
             if(i < amountOfTweets) {
-             get_tweets( i);
-         }
+               get_tweets( i);
+           }
 
-     }
- }
- console.log("WORD ID IS : "+ wordID)
+       }
+   }
+   console.log("WORD ID IS : "+ wordID)
 
- xmlhttp.open("GET","php/fetch_tweet_db.php?wordID=" + wordID + "&amount=" + amount);
+   xmlhttp.open("GET","php/fetch_tweet_db.php?wordID=" + wordID + "&amount=" + amount);
 
- xmlhttp.send();
+   xmlhttp.send();
 
 
 }
@@ -249,7 +249,7 @@ function sendBadExampleToDB(tweet){
 }
 
 function sendGoodExampleToDB(tweet){
-      var xmlhttp;
+  var xmlhttp;
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp=new XMLHttpRequest();
         }
@@ -257,7 +257,7 @@ function sendGoodExampleToDB(tweet){
             xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
         }
         xmlhttp.onreadystatechange=function() {
-           if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             console.log("DB esponse was:  : " + xmlhttp.responseText)
         }
     }
@@ -332,9 +332,9 @@ function get_ranked() {
         }
     }
 //    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + gameLanguage + "&mode=" +'1', true);
-    xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
+xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
 
-    xmlhttp.send();
+xmlhttp.send();
 }
 
 function submit_definition(definition) {
@@ -344,15 +344,15 @@ function submit_definition(definition) {
     }
     else {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-            xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-          console.log("submit definition returns : " + xmlhttp.responseText)
+        xmlhttp.onreadystatechange=function() {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+              console.log("submit definition returns : " + xmlhttp.responseText)
+          }
       }
   }
-    }
-    console.log("When submitting definition, wordID is : " + wordID)
-    xmlhttp.open("GET","php/submit_definition.php?wordID=" + wordID + "&groupID=" + groupID  + "&definition=" + definition + "&userID=" + userID + "&mode=" + game + "&language=" + gameLanguage, true);
-    xmlhttp.send();
+  console.log("When submitting definition, wordID is : " + wordID)
+  xmlhttp.open("GET","php/submit_definition.php?wordID=" + wordID + "&groupID=" + groupID  + "&definition=" + definition + "&userID=" + userID + "&mode=" + game + "&language=" + gameLanguage, true);
+  xmlhttp.send();
 }
 
 function isNewUser() {
@@ -384,11 +384,11 @@ function isNewUser() {
                 animate_logo_firstTime(); 
             }
 
-         }
-     }
-     xmlhttp.open("GET","php/check_user.php?userID=" + userID);
-     xmlhttp.send();
+        }
     }
+    xmlhttp.open("GET","php/check_user.php?userID=" + userID);
+    xmlhttp.send();
+}
 }
 
 function get_user_stats() {
@@ -414,7 +414,7 @@ function get_user_stats() {
             document.getElementById('posts').selectedIndex= whenToPost
             document.getElementById('language').selectedIndex= menuLanguage
 
-         }
+        }
     }
     xmlhttp.open("GET","php/get_profile.php?userID=" + userID + "&token=" + token, true);
     xmlhttp.send();
@@ -431,11 +431,11 @@ function getGameScore(){
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             console.log("getGameScore returned this : " + xmlhttp.responseText)
-           var obj = JSON.parse(xmlhttp.responseText);
- 
+            var obj = JSON.parse(xmlhttp.responseText);
+            
             set_profile_data(obj.points, obj.pendingpoints, obj.Points / obj.submissions);
 
-       }
+        }
     }
     console.log("language is : " + menuLanguage)
     xmlhttp.open("GET","php/get_game_score.php?userID=" + userID + "&mode=" + game + "&language=" + gameLanguage, true);
