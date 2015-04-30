@@ -46,6 +46,16 @@ $earnedPoints = 1;
 //If the definition got 3 votes, we reached consensus and the user gets 10 extra points
 if($votes == 3 && $user_id != 'wordnet') {
 	$earnedPoints = 11;
+//Substract the pending points from the user
+	$sql = 	"UPDATE game" . $mode .
+	" SET pendingpoints = pendingpoints -10 ". 
+	" WHERE userid = ? AND language = ?;";
+
+	$stmt = $mysqli->prepare($sql);
+	$stmt->bind_param("si", $user_id, $language);
+	$stmt->execute();
+	$stmt->close();
+
 //	send_notification($user_id, $wordID);
 }
 
@@ -61,6 +71,10 @@ $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("si", $user_id, $language);
 $stmt->execute();
 $stmt->close();
+
+
+
+
 
 
 //update_user_rating($user_id, $wordID, $groupID);
