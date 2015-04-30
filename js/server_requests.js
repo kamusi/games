@@ -331,7 +331,9 @@ function get_ranked() {
             definitionID = -1;
         }
     }
-    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + gameLanguage + "&mode=" +'1', true);
+//    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + gameLanguage + "&mode=" +'1', true);
+    xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
+
     xmlhttp.send();
 }
 
@@ -475,7 +477,7 @@ function submit_vote(definition_id, vote) {
     }
     console.log("WordID when submitting Vote : " + wordID)
 
-    xmlhttp.open("GET","php/submit_vote.php?wordID=" + wordID + "&definitionID=" + definition_id + "&vote=" + vote + "&groupID=" + groupID, true);
+    xmlhttp.open("GET","php/submit_vote.php?wordID=" + wordID + "&definitionID=" + definition_id + "&vote=" + vote + "&groupID=" + groupID + "&mode=" + game + "&language=" + language, true);
     xmlhttp.send();
 }
 
