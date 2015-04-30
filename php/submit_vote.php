@@ -51,7 +51,7 @@ $earnedPoints = 1;
 //If the definition got 3 votes, we reached consensus and the user gets 10 extra points
 if($votes == 3 && $user_id != 'wordnet') {
 	$earnedPoints = 11;
-	send_notification($user_id, $wordID);
+//	send_notification($user_id, $wordID);
 }
 
 //Give the points to the user
