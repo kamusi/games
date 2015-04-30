@@ -50,9 +50,9 @@ if($votes == 3 && $user_id != 'wordnet') {
 }
 
 //Give the points to the user
-$sql = 	"UPDATE game " . $mode .
-"SET Points = Points + " . $earnedPoints . 
-"WHERE userid = ? AND language = ?;";
+$sql = 	"UPDATE game" . $mode .
+" SET Points = Points + " . $earnedPoints . 
+" WHERE userid = ? AND language = ?;";
 echo "sql is : " . $sql;
 echo "lanug and game " . $language . " game " . $mode;
 

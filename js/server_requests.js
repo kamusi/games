@@ -9,7 +9,7 @@ var amountOfTweets;
 //settings saved
 var whenToPost;
 var whenToNotify;
-var language;
+var menuLanguage;
 
 //var to remember the current language
 var gameLanguage;
@@ -401,13 +401,13 @@ function get_user_stats() {
             var obj = JSON.parse(xmlhttp.responseText);
             whenToNotify = obj.NotificationTimeUnit
             whenToPost = obj.PostTimeUnit
-            language= obj.Language -1;
+            menuLanguage= obj.Language -1;
             gameLanguage = obj.Language;
             console.log("The game language is now : " + gameLanguage);
 
             document.getElementById('notifications').selectedIndex = whenToNotify 
             document.getElementById('posts').selectedIndex= whenToPost
-            document.getElementById('language').selectedIndex= language
+            document.getElementById('language').selectedIndex= menuLanguage
 
          }
     }
@@ -432,7 +432,7 @@ function getGameScore(){
 
        }
     }
-    console.log("language is : " + language)
+    console.log("language is : " + menuLanguage)
     xmlhttp.open("GET","php/get_game_score.php?userID=" + userID + "&mode=" + game + "&language=" + gameLanguage, true);
     xmlhttp.send();    
 }
@@ -563,8 +563,8 @@ function saveSettings() {
     console.log("Begin save settings")
     whenToNotify = document.getElementById("notifications").selectedIndex;
     whenToPost = document.getElementById("posts").selectedIndex;
-    language = document.getElementById("language").selectedIndex
-    gameLanguage = language +1;
+    menuLanguage = document.getElementById("language").selectedIndex
+    gameLanguage = menuLanguage +1;
     var xmlhttp;
     
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -579,7 +579,7 @@ function saveSettings() {
         }
     }
     console.log("Sending LANG : " + language)
-    xmlhttp.open("GET","php/save_settings.php?userID=" + userID + "&notify=" + whenToNotify + "&post=" + whenToPost + "&language=" + (language +1));
+    xmlhttp.open("GET","php/save_settings.php?userID=" + userID + "&notify=" + whenToNotify + "&post=" + whenToPost + "&language=" + gameLanguage);
     xmlhttp.send();
 }
 
