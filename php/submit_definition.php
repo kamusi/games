@@ -33,7 +33,7 @@ if ($groupID == 'null') {
 
 $sql = 	"INSERT INTO definitions (Definition, GroupID, UserID) VALUES (?,?,?); "; 
 $stmt = $mysqli->prepare($sql);
-$stmt->bind_param("iis", $definition, $groupID, $userID);
+$stmt->bind_param("sis", $definition, $groupID, $userID);
 $stmt->execute();
 
 $stmt->close();
