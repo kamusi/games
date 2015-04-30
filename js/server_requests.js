@@ -43,7 +43,7 @@ function get_random() {
 }
 
 function get_randomForTweets() {
-   console.log("In random for tweets function with userId: " + userID)
+ console.log("In random for tweets function with userId: " + userID)
     //remove previous tweet entries
     document.getElementById("twitterWords").innerHTML = '';
 
@@ -183,16 +183,16 @@ function fetchTweetsFromDB(amount) {
             }
             console.log("this was i " + i + ", this is amount : " + amount);
             if(i < amountOfTweets) {
-               get_tweets( i);
-           }
+             get_tweets( i);
+         }
 
-       }
-   }
-   console.log("WORD ID IS : "+ wordID)
+     }
+ }
+ console.log("WORD ID IS : "+ wordID)
 
-   xmlhttp.open("GET","php/fetch_tweet_db.php?wordID=" + wordID + "&amount=" + amount);
+ xmlhttp.open("GET","php/fetch_tweet_db.php?wordID=" + wordID + "&amount=" + amount);
 
-   xmlhttp.send();
+ xmlhttp.send();
 
 
 }
@@ -257,7 +257,7 @@ function sendGoodExampleToDB(tweet){
             xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
         }
         xmlhttp.onreadystatechange=function() {
-         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+           if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             console.log("DB esponse was:  : " + xmlhttp.responseText)
         }
     }
@@ -344,11 +344,12 @@ function submit_definition(definition) {
     }
     else {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        xmlhttp.onreadystatechange=function() {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-              console.log("submit definition returns : " + xmlhttp.responseText)
-          }
+    }
+    xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+          console.log("submit definition returns : " + xmlhttp.responseText)
       }
+      
   }
   console.log("When submitting definition, wordID is : " + wordID)
   xmlhttp.open("GET","php/submit_definition.php?wordID=" + wordID + "&groupID=" + groupID  + "&definition=" + definition + "&userID=" + userID + "&mode=" + game + "&language=" + gameLanguage, true);
@@ -432,7 +433,7 @@ function getGameScore(){
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             console.log("getGameScore returned this : " + xmlhttp.responseText)
             var obj = JSON.parse(xmlhttp.responseText);
-            
+
             set_profile_data(obj.points, obj.pendingpoints, obj.Points / obj.submissions);
 
         }
