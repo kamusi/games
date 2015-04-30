@@ -344,6 +344,11 @@ function submit_definition(definition) {
     }
     else {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+          console.log("submit definition returns : " + xmlhttp.responseText)
+      }
+  }
     }
     console.log("When submitting definition, wordID is : " + wordID)
     xmlhttp.open("GET","php/submit_definition.php?wordID=" + wordID + "&groupID=" + groupID  + "&definition=" + definition + "&userID=" + userID + "&mode=" + game + "&language=" + gameLanguage, true);
