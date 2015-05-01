@@ -232,7 +232,7 @@ function sendTweetToDB(tweet, good){
         }
     }
 
-    var json_data= {"wordID": wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "tweetAuthor":tweet.Author, "good" : good    }
+    var json_data= {"wordID": wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "mode": game, "language": language, "tweetAuthor":tweet.Author, "good" : good    }
 
     $.ajax({
         type: 'POST',
