@@ -49,10 +49,14 @@ function InlineEditorController($scope){
 
 	$scope.searchEnter = function(e) {
 		if (e.keyCode == 13) {
+			$scope.submit();
+		}
+	}
+
+	$scope.submit = function() {
 			$scope.hideTooltip();
 			playClick();vote();get_ranked();
-			$scope.value = default_value;
-		}
+			$scope.value = default_value;	
 	}
 }
 
