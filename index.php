@@ -63,7 +63,7 @@ $newToken = generateToken();
 						<div id="definitions_wrapper">
 							<div class="input_tool" ng-click="$event.stopPropagation()" ng-show="showtooltip">
 								<input id="input_tool_box" type="text" ng-model="value" ng-keypress="searchEnter($event);" onFocus="this.select()"/>
-								<img title="Submit" id="SubmitDef" ng-click="submit($event);" class="controlSmall" src="media/rightarrowSmall.png" onclick="">
+								<img title="Submit" id="SubmitDef" ng-click="submitGame1($event);" class="controlSmall" src="media/rightarrowSmall.png" onclick="">
 
 							</div>							
 							<table id="definitions">
@@ -105,7 +105,7 @@ $newToken = generateToken();
 							<table id="translations">
 								<tr><td>
 								</div>	
-								<li ng-click="toggleTooltip2($event)" id="user_translation" class="inactive_definition">{{translation}}</li>
+								<li ng-click="submitGame2();" id="user_translation" class="inactive_definition">{{translation}}</li>
 							</td></tr>
 						</table>
 					</div>

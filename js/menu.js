@@ -49,11 +49,11 @@ function InlineEditorController($scope){
 
 	$scope.searchEnter = function(e) {
 		if (e.keyCode == 13) {
-			$scope.submit();
+			$scope.submitGame1();
 		}
 	}
 
-	$scope.submit = function() {
+	$scope.submitGame1 = function() {
 			$scope.hideTooltip();
 			playClick();vote();get_ranked();
 			$scope.value = default_value;	
@@ -110,11 +110,15 @@ function InlineEditorController2($scope){
 
 	$scope.searchEnter2 = function(e) {
 		if (e.keyCode == 13) {
+			$scope.submitGame2();
+		}
+	}
+
+	$scope.submitGame2 = function() {
 			$scope.hideTooltip2();
 
 			get_ranked_mode_2();
-			$scope.value = translation_default_value;
-		}
+			$scope.value = translation_default_value;	
 	}
 }
 
