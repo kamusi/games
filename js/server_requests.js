@@ -299,8 +299,8 @@ function get_ranked() {
             definitionID = -1;
         }
     }
-    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + gameLanguage + "&mode=" +'1', true);
-//xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
+//    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + gameLanguage + "&mode=" +'1', true);
+xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
 
 xmlhttp.send();
 }
