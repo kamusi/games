@@ -115,10 +115,10 @@ function InlineEditorController2($scope){
 	}
 
 	$scope.submitGame2 = function() {
-			$scope.hideTooltip2();
-
 			get_ranked_mode_2();
-			$scope.value = translation_default_value;	
+			$scope.hideTooltip2();
+			playClick();
+			$scope.translation = translation_default_value;	
 	}
 }
 
