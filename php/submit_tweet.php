@@ -136,7 +136,7 @@ foreach($concernedUsers as $user) {
 }
 
 function giveAllConcernedUsersAPoint($concernedUsers){
-	global $data;
+	global $data, $mysqli;
 	foreach($concernedUsers as $user) {
 		$stmt = $mysqli->prepare("UPDATE game". $data["mode"] . " SET points = points + 1 WHERE userid=? and language = ?;");
 		$stmt->bind_param("si", $user, $data["language"]);
