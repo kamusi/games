@@ -203,11 +203,11 @@ function submitTweets() {
     var listToSubmit = [];
     for(var i= 0; i < amountOfTweets; i++) {
         if(document.getElementById("checkbox"+i).checked) {
-            sendGoodExampleToDB(last20Tweets[i])
+            sendTweetToDB(last20Tweets[i],1)
             console.log("about to send this to php " + last20Tweets[i].TweetID )
         }
         else {
-            sendBadExampleToDB(last20Tweets[i]);
+            sendTweetToDB(last20Tweets[i],-1);
         }
     }
     if(whenToNotify == "0"){
@@ -218,39 +218,7 @@ function submitTweets() {
 
 }
 
-function sendBadExampleToDB(tweet){
-  var xmlhttp;
-    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-    }
-    else {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            console.log("DB esponse was:  : " + xmlhttp.responseText)
-        }
-    }
-    var json_data= {"wordID": wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "tweetAuthor":tweet.Author, "good" : -1    }
-
-    $.ajax({
-        type: 'POST',
-        url: 'php/submit_tweet.php',
-        data: {json: JSON.stringify(json_data)},
-        dataType: 'json'
-    })
-    .done( function( data ) {
-
-        console.log(data);
-    })
-    .fail( function( data ) {
-        console.log('fail');
-        console.log(data);
-    });
-
-}
-
-function sendGoodExampleToDB(tweet){
+function sendTweetToDB(tweet, good){
   var xmlhttp;
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp=new XMLHttpRequest();
@@ -264,7 +232,7 @@ function sendGoodExampleToDB(tweet){
         }
     }
 
-    var json_data= {"wordID": wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "tweetAuthor":tweet.Author, "good" : 1    }
+    var json_data= {"wordID": wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "tweetAuthor":tweet.Author, "good" : good    }
 
     $.ajax({
         type: 'POST',
@@ -274,9 +242,7 @@ function sendGoodExampleToDB(tweet){
     })
     .done( function( data ) {
         console.log('done');
-            //Posts only happen if a word was accepted. Thus, it was a wod flagged as good by the user
-            
-        })
+         })
     .fail( function( data ) {
         console.log('fail');
         console.log(data);

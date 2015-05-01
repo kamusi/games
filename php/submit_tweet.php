@@ -66,28 +66,14 @@ if ($totalScoreOfTweet < -1 ) {
 	$stmt->close();
 
 //User gets notified for each point : upvotes and downvotes, but no posts for downvotes
-	foreach($concernedUsers as $user) {
-		$stmt = $mysqli->prepare("UPDATE users SET Points = Points + 1, NewPointsSinceLastNotification = NewPointsSinceLastNotification +1 WHERE UserID=?;");
-		$stmt->bind_param("s", $user);
-		$stmt->execute();
-		$stmt->close();
+	giveAllConcernedUsersAPoint($concernedUsers);
 
-
-
-	}
 }
 //We count the number of new examples validated by user. That way we will be able to show the new ones we he arrives on the link.
 #after 5 upvotes, this tweet is a definite example for that word. Remove it from temp db and add it to the definitive db
 if ($totalScoreOfTweet > 4 ) {  
 // 
-	foreach($concernedUsers as $user) {
-		$stmt = $mysqli->prepare("UPDATE users SET Points = Points + 1, NewPointsSinceLastNotification = NewPointsSinceLastNotification +1, WordTweetsSinceLastPost= WordTweetsSinceLastPost+1 WHERE UserID=?;");
-		$stmt->bind_param("s", $user);
-		$stmt->execute();
-		$stmt->close();
-
-
-	}
+	giveAllConcernedUsersAPoint($concernedUsers);
 
 	$stmt = $mysqli->prepare("INSERT INTO WordTweet (WordID, TweetID, UserID, ts) VALUES (?,?,?, UTC_TIMESTAMP());");
 	$stmt->bind_param("iss", $data["wordID"], $data["tweetID"], $data["userID"]);
@@ -117,13 +103,14 @@ if ($totalScoreOfTweet > 4 ) {
 
 	$stmt->close();	
 
+	//We got enough tweets for this word : we don t need more.
 	if($numberOfRefsForThatWord > 2) {
+		$allUsers = "allusers";
+		$stmt = $mysqli->prepare("INSERT INTO seengame" .$data["mode"]. " (userid, language,wordid, rank) VALUES (?,?,?, 2147483647) ;");
+		$stmt->bind_param("sii",$allUsers, $data["language"], $data["wordID"] );
+		$stmt->execute();
 
-	$stmt = $mysqli->prepare("UPDATE rankedwords SET GotEnoughExamples=1 WHERE WordID= ?;");
-	$stmt->bind_param("i", $data["wordID"] );
-	$stmt->execute();
-
-	$stmt->close();	
+		$stmt->close();	
 
 	}
 
@@ -139,10 +126,27 @@ foreach($concernedUsers as $user) {
 	$stmt->close();
 
 
-	$stmt = $mysqli->prepare("UPDATE users SET PendingPoints= ? WHERE UserID = ?;");
-	$stmt->bind_param("is", $pendingScore, $user);
+	$stmt = $mysqli->prepare("UPDATE game". $data["mode"] . " SET pendingpoints = ? WHERE userid=? and language = ?;");
+	$stmt->bind_param("isi", $pendingScore, $user, $data["language"]);
 	$stmt->execute();
 	$stmt->close();
+
+}
+
+function giveAllConcernedUsersAPoint($concernedUsers){
+	global $data;
+	foreach($concernedUsers as $user) {
+		$stmt = $mysqli->prepare("UPDATE game". $data["mode"] . " SET points = points + 1 WHERE userid=? and language = ?;");
+		$stmt->bind_param("si", $user, $data["language"]);
+		$stmt->execute();
+		$stmt->close();
+
+		$stmt = $mysqli->prepare("UPDATE users SET NewPointsSinceLastNotification = NewPointsSinceLastNotification +1 WHERE UserID=?;");
+		$stmt->bind_param("s", $user);
+		$stmt->execute();
+		$stmt->close();		
+
+	}
 
 }
 
