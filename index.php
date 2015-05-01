@@ -99,13 +99,13 @@ $newToken = generateToken();
 							<div class="input_tool" ng-click="$event.stopPropagation()" ng-show="showtooltip2">
 
 								<input id="translation_input_tool_box" type="text" ng-model="translation" ng-keypress="searchEnter2($event);" onFocus="this.select()"/>
-								<img title="Submit" id="SubmitTrans" ng-click="clear($event)" class="controlSmall" src="media/rightarrowSmall.png" onclick="playClick();;soumettre_traduction();get_ranked_mode_2();">
+								<img title="Submit" id="SubmitTrans" ng-click="submitGame2();" class="controlSmall" src="media/rightarrowSmall.png" onclick="playClick();;soumettre_traduction();get_ranked_mode_2();">
 
 							</div>
 							<table id="translations">
 								<tr><td>
 								</div>	
-								<li ng-click="submitGame2();" id="user_translation" class="inactive_definition">{{translation}}</li>
+								<li ng-click="toggleTooltip2($event)" id="user_translation" class="inactive_definition">{{translation}}</li>
 							</td></tr>
 						</table>
 					</div>
