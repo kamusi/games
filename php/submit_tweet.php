@@ -2,6 +2,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
+include "global.php";
+
 $data = json_decode($_POST['json'], true);
 
 
@@ -105,7 +107,7 @@ if ($totalScoreOfTweet > 4 ) {
 
 	//We got enough tweets for this word : we don t need more.
 	if($numberOfRefsForThatWord > 2) {
-		$allUsers = "allusers";
+
 		$stmt = $mysqli->prepare("INSERT INTO seengame" .$data["mode"]. " (userid, language,wordid, rank) VALUES (?,?,?, 2147483647) ;");
 		$stmt->bind_param("sii",$allUsers, $data["language"], $data["wordID"] );
 		$stmt->execute();
