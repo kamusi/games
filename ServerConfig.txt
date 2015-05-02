@@ -8,6 +8,8 @@ sudo yum -y install mysql mysql-server
 sudo yum install httpd24 php54
 
 Need to have php5.4 for facebook plugins to work correctly
+and need another php plugin
+yum install php54-mbstring
 
 Start HTTP server:
 

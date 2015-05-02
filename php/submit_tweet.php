@@ -105,6 +105,14 @@ if ($totalScoreOfTweet > 4 ) {
 
 	$stmt->close();	
 
+	$stmt = $mysqli->prepare("UPDATE users SET WordTweetsSinceLastPost = WordTweetsSinceLastPost +1 WHERE UserID=?;");
+	$stmt->bind_param("i", $data["wordID"] );
+	$stmt->execute();
+	$stmt->bind_result($numberOfRefsForThatWord);
+	$stmt->fetch();
+
+	$stmt->close();	
+
 	//We got enough tweets for this word : we don t need more.
 	if($numberOfRefsForThatWord > 2) {
 
