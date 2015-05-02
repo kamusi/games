@@ -251,7 +251,7 @@ $newToken = generateToken();
 </div>
 <div id="leaderboard">
 	<div id="settings-outer">
-		<div class="settings-inner"> 
+		<div class="settings-inner">   
 			Language
 			<select id= "scoreLanguage" onchange="updateLeaderboard(); playClick();" size="1">
 				<option>All languages</option>
