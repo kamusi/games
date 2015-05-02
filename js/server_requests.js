@@ -529,7 +529,7 @@ function submit_translation(translation) {
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     var noCache = new Date().getTime();
-    xmlhttp.open("GET","php/submit_translation.php?translation=" + translation + "&wordID=" + translationID + "&userID=" + userID + "&noCache=" + noCache, true);
+    xmlhttp.open("GET","php/submit_translation.php?translation=" + translation + "&wordID=" + translationID + "&userID=" + userID + "&noCache=" + noCache + "&language=" + gameLanguage + "&mode=" +'2', true);
     xmlhttp.send();
 }
 

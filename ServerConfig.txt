@@ -11,6 +11,11 @@ Need to have php5.4 for facebook plugins to work correctly
 and need another php plugin
 yum install php54-mbstring
 
+install pip for getting the tweets with python:
+
+sudo yum install python-pip
+sudo pip install tweepy
+
 Start HTTP server:
 
 sudo /etc/init.d/httpd start

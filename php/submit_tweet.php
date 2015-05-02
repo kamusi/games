@@ -21,6 +21,13 @@ if (!$mysqli->set_charset('utf8')) {
 	printf("Error loading character set utf8: %s\n", $mysqli->error);
 }
 
+//increase the number of submissions for this user
+$stmt = $mysqli->prepare("UPDATE game". $data["mode"] . " SET submissions = submissions + 1 WHERE userid=? and language = ?;");
+$stmt->bind_param("si", $userID, $data["language"]);
+$stmt->execute();
+$stmt->close();
+
+
 $totalScoreOfTweet = 0;
 $pendingScore = 02;
 $concernedUsers = array();

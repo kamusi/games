@@ -19,6 +19,13 @@ if(!in_array($mode, $acceptedModes)) {
 
 $mysqli = new mysqli('localhost', $user, $pass, $db);
 
+//increase the number of submissions for this user
+$stmt = $mysqli->prepare("UPDATE game". $data["mode"] . " SET submissions = submissions + 1 WHERE userid=? and language = ?;");
+$stmt->bind_param("si", $userID, $language);
+$stmt->execute();
+$stmt->close();
+
+
 
 if ($groupID == 'null') {
 	$sql = 	"SELECT MAX(GroupID) FROM definitions;";
