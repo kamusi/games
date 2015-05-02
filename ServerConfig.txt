@@ -3,7 +3,11 @@ Configuation of the serve for the kamusi app
 
 Install LAMP:
 
-sudo yum -y install httpd php mysql mysql-server
+sudo yum -y install mysql mysql-server
+
+sudo yum install httpd24 php54
+
+Need to have php5.4 for facebook plugins to work correctly
 
 Start HTTP server:
 
@@ -37,7 +41,7 @@ mysql> CREATE TABLE wordnet (ID INT, Word VARCHAR(64), Definition VARCHAR(256));
 
 Install mysql driver for php
 
-yum install php-mysqlnd
+yum install php54-mysqlnd
 
 THE NATIVE DRIVER IS NEEDED FOR LATER!!! mysqli prapre
 
