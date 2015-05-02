@@ -252,7 +252,7 @@ $newToken = generateToken();
 <div id="leaderboard">
 	<div id="settings-outer">
 		<div class="settings-inner">
-			<p>Language</p>
+			Language
 			<select id= "scoreLanguage" onchange="updateLeaderboard(); playClick();" size="1">
 				<option>All languages</option>
 				<option>English</option>
@@ -260,7 +260,7 @@ $newToken = generateToken();
 			</select>
 		</div>
 		<div class="settings-inner">
-			<p>Game</p>
+			Game
 			<select id= "scoreGame" size="1">
 				<option>All games</option>
 				<option>Game1</option>
@@ -269,7 +269,7 @@ $newToken = generateToken();
 			</select>
 		</div>
 		<div class="settings-inner">
-			<p>TimePeriod</p>
+			TimePeriod
 			<select id= "scoretimePeriod" size="1">
 				<option>All time</option>
 				<option>Last Month</option>
@@ -278,7 +278,7 @@ $newToken = generateToken();
 			</select>
 		</div>
 		<div class="settings-inner">
-			<p>What to compare</p>
+			What to compare
 			<select id= "scoreMetric" size="1">
 				<option>Points Earned</option>
 				<option>Number of Submissions</option>
