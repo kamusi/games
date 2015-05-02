@@ -143,6 +143,8 @@ function giveAllConcernedUsersAPoint($concernedUsers){
 		$stmt->execute();
 		$stmt->close();
 
+		$returnText = $user;
+
 		$stmt = $mysqli->prepare("UPDATE users SET NewPointsSinceLastNotification = NewPointsSinceLastNotification +1 WHERE UserID=?;");
 		$stmt->bind_param("s", $user);
 		$stmt->execute();
