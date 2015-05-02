@@ -23,7 +23,7 @@ if (!$mysqli->set_charset('utf8')) {
 
 //increase the number of submissions for this user
 $stmt = $mysqli->prepare("UPDATE game". $data["mode"] . " SET submissions = submissions + 1 WHERE userid=? and language = ?;");
-$stmt->bind_param("si", $userID, $data["language"]);
+$stmt->bind_param("si", $data["userID"], $data["language"]);
 $stmt->execute();
 $stmt->close();
 
