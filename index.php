@@ -250,92 +250,95 @@ $newToken = generateToken();
 </div>
 </div>
 <div id="leaderboard">
-	<p>Language</p>
-	<select id= "scoreLanguage" onchange="updateLeaderboard(); playClick();" size="1">
-		<option>All languages</option>
-		<option>English</option>
-		<option>Vietnamese</option>
-	</select>
-</br></br>
+	<div id="settings-outer">
+		<div class="settings-inner">
+			<p>Language</p>
+			<select id= "scoreLanguage" onchange="updateLeaderboard(); playClick();" size="1">
+				<option>All languages</option>
+				<option>English</option>
+				<option>Vietnamese</option>
+			</select>
+		</div>
+		<div class="settings-inner">
+			<p>Game</p>
+			<select id= "scoreGame" size="1">
+				<option>All games</option>
+				<option>Game1</option>
+				<option>Game2</option>
+				<option>Game3</option>
+			</select>
+		</div>
+		<div class="settings-inner">
+			<p>TimePeriod</p>
+			<select id= "scoretimePeriod" size="1">
+				<option>All time</option>
+				<option>Last Month</option>
+				<option>Last Week</option>
+				<option>Last 24 Hours</option>
+			</select>
+		</div>
+		<div class="settings-inner">
+			<p>What to compare</p>
+			<select id= "scoreMetric" size="1">
+				<option>Points Earned</option>
+				<option>Number of Submissions</option>
+				<option>Success Rate</option>
 
-<p>Game</p>
-<select id= "scoreGame" size="1">
-	<option>All games</option>
-	<option>Game1</option>
-	<option>Game2</option>
-	<option>Game3</option>
-</select>
-</br></br>
+			</select>
+		</div>
+	</div>
+	<p>Leader</p>
 
-<p>TimePeriod</p>
-<select id= "scoretimePeriod" size="1">
-	<option>All time</option>
-	<option>Last Month</option>
-	<option>Last Week</option>
-	<option>Last 24 Hours</option>
-</select>
-</br></br>
+	<div id="leader">
+		<table id="score_table">
+			<tr>
+				<td>
+				</td>
+				<td>UserName</td>
+				<td>UserScore</td>
+				<td>UserRank</td>
+			</tr>
+			<tr>
+				<td>
+					<img id="leaderPic1">
+				</td>
+				<td id= "leaderName"></td>
+				<td id= "leaderScore"> </td>
+				<td id = "leaderRank"></td
+					<td id="profile_attempts"></td>
+				</tr>
+			</table>
 
-<p>What to compare</p>
-<select id= "scoreMetric" size="1">
-	<option>Points Earned</option>
-	<option>Number of Submissions</option>
-	<option>Success Rate</option>
+			<p>Me</p>
 
-</select>
-</br></br>
-<p>Leader</p>
-
-<div id="leader">
-	<table id="score_table">
-		<tr>
-			<td>
-			</td>
-			<td>UserName</td>
-			<td>UserScore</td>
-			<td>UserRank</td>
-		</tr>
-		<tr>
-			<td>
-				<img id="leaderPic1">
-			</td>
-			<td id= "leaderName"></td>
-			<td id= "leaderScore"> </td>
-			<td id = "leaderRank"></td
-			<td id="profile_attempts"></td>
-		</tr>
-	</table>
-
-<p>Me</p>
-
-<div id="leader">
-	<table id="score_table">
-		<tr>
-			<td>
-			</td>
-			<td>UserName</td>
-			<td>UserScore</td>
-			<td>UserRank</td>
-		</tr>
-		<tr>
-			<td>
+			<div id="leader">
+				<table id="score_table">
+					<tr>
+						<td>
+						</td>
+						<td>UserName</td>
+						<td>UserScore</td>
+						<td>UserRank</td>
+					</tr>
+					<tr>
+						<td>
 							<img id="leaderPic1" src="http://graph.facebook.com/1629333623960388/picture" onmousedown="isNewUser();">
-			</td>
-			<td>UserName</td>
-			<td>UserScore</td>
-			<td>UserRank</td
-			<td id="profile_attempts"></td>
-		</tr>
-	</table>
+						</td>
+						<td>UserName</td>
+						<td>UserScore</td>
+						<td>UserRank</td
+							<td id="profile_attempts"></td>
+						</tr>
+					</table>
 
 
-</div>
-<div id="leaderboard-footer">
-	<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick(); display_profile();">
-</div>
-</div>
-</div>
-</div>
+				</div>
+				<div id="leaderboard-footer">
+					<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick(); display_profile();">
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <script type="text/javascript"> var token = "<?php echo $newToken; ?>"; </script>
