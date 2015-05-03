@@ -75,7 +75,7 @@ function getTotalPointsForUserStatement($user){
 		$sql .= " SELECT points FROM game".$mode." WHERE userid=".$user." ";
 	}
 
-	$sql .= " ) t";
+	$sql .= " ) t;";
 
 echo "\nSTATEMENT : " . $sql;
 
