@@ -43,7 +43,7 @@ function get_random() {
 }
 
 function get_randomForTweets() {
- console.log("In random for tweets function with userId: " + userID)
+   console.log("In random for tweets function with userId: " + userID)
     //remove previous tweet entries
     document.getElementById("twitterWords").innerHTML = '';
 
@@ -85,9 +85,9 @@ function get_randomForTweets() {
     }
 
  //   xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + gameLanguage + "&mode=" +'3', true);
-  xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
+ xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
 
-    xmlhttp.send();
+ xmlhttp.send();
 }
 
 function get_tweets(alreadyDisplayed) {
@@ -185,16 +185,16 @@ function fetchTweetsFromDB(amount) {
             }
             console.log("this was i " + i + ", this is amount : " + amount);
             if(i < amountOfTweets) {
-             get_tweets( i);
-         }
+               get_tweets( i);
+           }
 
-     }
- }
- console.log("WORD ID IS : "+ wordID)
+       }
+   }
+   console.log("WORD ID IS : "+ wordID)
 
- xmlhttp.open("GET","php/fetch_tweet_db.php?wordID=" + wordID + "&amount=" + amount);
+   xmlhttp.open("GET","php/fetch_tweet_db.php?wordID=" + wordID + "&amount=" + amount);
 
- xmlhttp.send();
+   xmlhttp.send();
 
 
 }
@@ -227,7 +227,7 @@ function sendTweetToDB(tweet, good){
             xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
         }
         xmlhttp.onreadystatechange=function() {
-           if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             console.log("DB esponse was:  : " + xmlhttp.responseText)
         }
     }
@@ -242,7 +242,7 @@ function sendTweetToDB(tweet, good){
     })
     .done( function( data ) {
         console.log('done');
-         })
+    })
     .fail( function( data ) {
         console.log('fail');
         console.log(data);
@@ -615,9 +615,9 @@ function updateLeaderboard(){
 
     //All languages, All Games
 
-  var xmlhttp;
-  console.log("In update leaderboard")
-  
+    var xmlhttp;
+    console.log("In update leaderboard")
+
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
     }
@@ -628,14 +628,19 @@ function updateLeaderboard(){
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             console.log("Leaderboard response : " + xmlhttp.responseText)
 
+            table = document.getElementById("score_table").selectedIndex;
+            obj = JSON.parse(xmlhttp.responseText);
+            var rowCount = table.rows.length;
+            var row = table.insertRow(rowCount);
+
+            row.insertCell(0).innerHTML= obj[0].;
+            row.insertCell(1).innerHTML= myName.value;
+            row.insertCell(2).innerHTML= age.value;
+
         }
     }
 
     xmlhttp.open("GET","php/get_user_rank.php?userID=" + userID + "&language=" + scoreLanguage + "&mode=" +scoreGame + "&metric=" + scoreMetric + "&period=" + scoretimePeriod , true);
     xmlhttp.send();  
-
-
-
-
 
 }

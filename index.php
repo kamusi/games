@@ -289,26 +289,26 @@ $newToken = generateToken();
 	</div>
 	<p>Leader</p>
 
-			<div id="leader">
-				<table id="score_table">
-						<td>
-							<img id="leaderPic1" src="http://graph.facebook.com/1629333623960388/picture" onmousedown="isNewUser();">
-						</td>
-						<td>UserName</td>
-						<td>UserScore</td>
-						<td>UserRank</td
-							<td id="profile_attempts"></td>
-						</tr>
-					</table>
+	<div id="leader">
+		<table id="score_table">
+			<td>
+				<img id="leaderPic1" src="http://graph.facebook.com/1629333623960388/picture" onmousedown="isNewUser();">
+			</td>
+			<td>UserName</td>
+			<td>UserScore</td>
+			<td>UserRank</td
+				<td id="profile_attempts"></td>
+			</tr>
+		</table>
 
 
-				</div>
-				<div id="leaderboard-footer">
-					<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick(); display_profile();">
-				</div>
-			</div>
-		</div>
 	</div>
+	<div id="leaderboard-footer">
+		<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick(); display_profile();">
+	</div>
+</div>
+</div>
+</div>
 </div>
 
 <script type="text/javascript"> var token = "<?php echo $newToken; ?>"; </script>
