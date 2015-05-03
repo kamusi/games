@@ -630,12 +630,16 @@ function updateLeaderboard(){
 
             table = document.getElementById("score_table");
             obj = JSON.parse(xmlhttp.responseText);
-            var rowCount = table.rows.length;
+        
+        for(i in obj) {
+             var rowCount = table.rows.length;
+            
             var row = table.insertRow(rowCount);
 
-            row.insertCell(0).innerHTML= obj[0][0];
-            row.insertCell(1).innerHTML= obj[0][1];
-            row.insertCell(2).innerHTML= "TEST";
+            row.insertCell(0).innerHTML= obj[i][0];
+            row.insertCell(1).innerHTML= obj[i][1];
+            row.insertCell(2).innerHTML= "Rank: " + i ;
+        }
 
         }
     }
