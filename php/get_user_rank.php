@@ -33,8 +33,6 @@ while ($row = $result->fetch_assoc()) {
 	$users[] = $row["UserID"];
 }
 
-var_dump($users);
-
 $stmt->close();
 
 //Points
@@ -76,7 +74,7 @@ function getTotalPointsForUserStatement($user){
 
 	$sql .= " ) t;";
 
-echo "\n " . $sql;
+//echo "\n " . $sql;
 
 	return $sql;
 }
