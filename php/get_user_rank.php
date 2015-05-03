@@ -14,12 +14,26 @@ $user = 'root';
 $pass = '';
 $db = 'kamusi';
 
-$totalScore;
+$userAndScore= array();
+$users = array();
 
 
 //Get the 5 best players by rank according to the selected categories
 
 $mysqli = new mysqli('localhost', $user, $pass, $db);
+
+//Get all Users
+
+#get all concerned users;
+$stmt = $mysqli->prepare("SELECT UserID FROM users;");
+$stmt->execute();
+$result = $stmt->get_result();
+
+while ($row = $result->fetch_assoc()) {
+	$users[] = $row["UserID"];
+}
+
+$stmt->close();
 
 //Points
 if($metric == '0'){
@@ -27,19 +41,22 @@ if($metric == '0'){
 	//rank over everything
 	if($language == '0' && $mode == '0'){
 
-		$sql = "SELECT 1, p.totalpoints as totalpoints FROM " . getTotalPointsForUserStatement($userID)." AS p;";
-		$stmt = $mysqli->prepare(getTotalPointsForUserStatement($userID));
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$row = $result->fetch_assoc();
+		foreach ($users as $user) {
 
-		$totalScore = $row["totalpoints"];
-		$stmt->close();		
+			$stmt = $mysqli->prepare(getTotalPointsForUserStatement($$user));
+			$stmt->execute();
+			$result = $stmt->get_result();
+			$row = $result->fetch_assoc();
+
+			$userAndScore[$user] = $row["totalpoints"];
+			$stmt->close();		
+		}
 	}
 }
 
 
-echo "Total Score : " . $totalScore;
+$jsonData = json_encode($userAndScore);
+echo $jsonData;
 
 function getTotalPointsForUserStatement($user){
 	include 'global.php';
