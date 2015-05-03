@@ -27,11 +27,12 @@ if($metric == '0'){
 	//rank over everything
 	if($language == '0' && $mode == '0'){
 
-
+		$sql = "SELECT 1, p.totalpoints as totalpoints FROM " . getTotalPointsForUserStatement($userID)." AS p;";
 		$stmt = $mysqli->prepare(getTotalPointsForUserStatement($userID));
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
+
 		$totalScore = $row["totalpoints"];
 		$stmt->close();		
 	}
@@ -52,12 +53,10 @@ function getTotalPointsForUserStatement($user){
 		else {
 			$sql .=" UNION ALL ";
 		}
-		echo "php is killing me : " . $first;
 		$sql .= " SELECT points FROM game".$mode." WHERE userid=".$user." ";
 	}
 
 	$sql .= " ) t";
-	echo "HAHAHA : " .$sql;
 
 	return $sql;
 }
