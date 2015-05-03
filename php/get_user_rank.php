@@ -43,7 +43,7 @@ if($metric == '0'){
 
 		foreach ($users as $user) {
 
-			$stmt = $mysqli->prepare(getTotalPointsForUserStatement($$user));
+			$stmt = $mysqli->prepare(getTotalPointsForUserStatement($user));
 			$stmt->execute();
 			$result = $stmt->get_result();
 			$row = $result->fetch_assoc();
