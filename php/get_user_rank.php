@@ -71,7 +71,7 @@ function getTotalPointsForUserStatement($user){
 		else {
 			$sql .=" UNION ALL ";
 		}
-		$sql .= " SELECT points FROM game".$mode." WHERE userid=".$user." ";
+		$sql .= " SELECT points FROM game".$mode." WHERE userid='".$user."'' ";
 	}
 
 	$sql .= " ) t;";

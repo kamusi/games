@@ -67,6 +67,7 @@ click "Add Rule"
 Type -> select HTTP, Source -> Anywhere
 
 Enable the php error log.
+
 find the right php.ini file
 php -i | grep 'Configuration File'
 Then in the php ini file, set display_error=On and set the variable error_log to a file. Don t forget to make it writable for php!
