@@ -2,6 +2,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
+include 'global.php';
+
 $userID = $_GET['userID'];
 $metric = $_GET['metric'];
 $mode = $_GET['mode'];
@@ -24,10 +26,8 @@ if($metric == '0'){
 
 	//rank over everything
 	if($language == '0' && $mode == '0'){
-		$sql = "SELECT SUM(t.points) AS totalpoints FROM (SELECT points FROM game1 WHERE userid=? UNION ALL";
-		$sql .= " SELECT points FROM game2 WHERE userid=? UNION ALL SELECT points FROM game3 WHERE userid=?";
-		$sql .= " ) t";
-		$stmt = $mysqli->prepare($sql);
+
+		$stmt = $mysqli->prepare(getTotalPointsForUserStatement($userID));
 		$stmt->bind_param("sss",$userID,$userID,$userID);
 		$stmt->execute();
 		$result = $stmt->get_result();
@@ -39,5 +39,21 @@ if($metric == '0'){
 
 
 echo "Total Score : " . $totalScore;
+
+function getTotalPointsForUserStatement($user){
+	$sql = "SELECT SUM(t.points) AS totalpoints FROM ( ";
+	$first=true;
+	foreach ($acceptedModes as $mode) {
+		if(!$first){
+			$sql .=" UNION ALL ";
+			$first=false;
+		}
+		$sql .= " SELECT points FROM game".$mode." WHERE userid=".$user." ";
+	}
+
+	$sql .= " ) t";
+
+	return $sql;
+}
 
 ?>
