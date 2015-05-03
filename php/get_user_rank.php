@@ -62,9 +62,11 @@ if($metric == '0'){
 
 arsort($userAndScore);
 
+
+$firstScores = array_slice($userAndScore, 0, 5);
+
 $firstFiveUsers= array_flip($userAndScore);
 
-$firstFive = array_slice($input, 0, 5);
 
 $result = array();
 $result[] = $firstFiveUsers;
