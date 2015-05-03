@@ -50,6 +50,7 @@ function getTotalPointsForUserStatement($user){
 			$sql .=" UNION ALL ";
 			$first=FALSE;
 		}
+		echo "php is killing me : " . $first;
 		$sql .= " SELECT points FROM game".$mode." WHERE userid=".$user." ";
 	}
 
