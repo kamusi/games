@@ -633,8 +633,8 @@ function updateLeaderboard(){
             var rowCount = table.rows.length;
             var row = table.insertRow(rowCount);
 
-            row.insertCell(0).innerHTML= obj[0].;
-            row.insertCell(1).innerHTML= myName.value;
+            row.insertCell(0).innerHTML= obj[0][0];
+            row.insertCell(1).innerHTML= myName.[0][1];
             row.insertCell(2).innerHTML= age.value;
 
         }
