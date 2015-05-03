@@ -632,7 +632,7 @@ function updateLeaderboard(){
 
             obj = JSON.parse(xmlhttp.responseText);
 
-            int i;
+           
         for(i = 1; i < table.rows.length; i++){
 
             table.deleteRow(i);
@@ -642,10 +642,12 @@ function updateLeaderboard(){
              var rowCount = table.rows.length;
             
             var row = table.insertRow(rowCount);
+      
+           row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/1629333623960388/picture" onmousedown="isNewUser();">'        ;
 
-            row.insertCell(0).innerHTML= obj[0][i];
-            row.insertCell(1).innerHTML= obj[1][i];
-            row.insertCell(2).innerHTML= "Rank: " + (parseInt(i) + 1); //since index 0 is first rank
+            row.insertCell(1).innerHTML= obj[0][i];
+            row.insertCell(2).innerHTML= obj[1][i];
+            row.insertCell(3).innerHTML= "Rank: " + (parseInt(i) + 1); //since index 0 is first rank
         }
 
         }
