@@ -4,13 +4,15 @@ ini_set('display_errors', 'On');
 
 $userID = $_GET['userID'];
 $metric = $_GET['metric'];
-$gameMode = $_GET['mode'];
+$mode = $_GET['mode'];
 $language = $_GET['language'];
 $timePeriod =  $_GET['period'];
 
 $user = 'root';
 $pass = '';
 $db = 'kamusi';
+
+$totalScore;
 
 
 //Get the 5 best players by rank according to the selected categories
