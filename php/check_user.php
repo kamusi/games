@@ -19,7 +19,7 @@ $checkResult = $result-> num_rows;
 $stmt->close();
 
 
-if( $checkResult=== 1){
+if( $checkResult=== 'this is nonsense'){
 	//Add user to database
 	$stmt = $mysqli->prepare("INSERT INTO users (UserID) VALUES(?);");
 	$stmt->bind_param("s", $userID );
