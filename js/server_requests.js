@@ -43,7 +43,7 @@ function get_random() {
 }
 
 function get_randomForTweets() {
-   console.log("In random for tweets function with userId: " + userID)
+ console.log("In random for tweets function with userId: " + userID)
     //remove previous tweet entries
     document.getElementById("twitterWords").innerHTML = '';
 
@@ -185,16 +185,16 @@ function fetchTweetsFromDB(amount) {
             }
             console.log("this was i " + i + ", this is amount : " + amount);
             if(i < amountOfTweets) {
-               get_tweets( i);
-           }
+             get_tweets( i);
+         }
 
-       }
-   }
-   console.log("WORD ID IS : "+ wordID)
+     }
+ }
+ console.log("WORD ID IS : "+ wordID)
 
-   xmlhttp.open("GET","php/fetch_tweet_db.php?wordID=" + wordID + "&amount=" + amount);
+ xmlhttp.open("GET","php/fetch_tweet_db.php?wordID=" + wordID + "&amount=" + amount);
 
-   xmlhttp.send();
+ xmlhttp.send();
 
 
 }
@@ -227,7 +227,7 @@ function sendTweetToDB(tweet, good){
             xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
         }
         xmlhttp.onreadystatechange=function() {
-         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+           if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             console.log("DB esponse was:  : " + xmlhttp.responseText)
         }
     }
@@ -632,29 +632,29 @@ function updateLeaderboard(){
 
             obj = JSON.parse(xmlhttp.responseText);
 
-           max = table.rows.length;
-        for(var i = 0; i < max; i++){
-            console.log("DELETED : "+ i + "LENGHTH : " + table.rows.length)
-            table.deleteRow(i);
-        }
-        
-        for(var i = 0; i <  obj[0].length; i++) {
-             var rowCount = table.rows.length;
-                console.log("This is the rowCount: " + rowCount)
-            var row = table.insertRow(rowCount);
-            console.log("UID : " + obj[1][i])
-           row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[1][i] + '/picture" onmousedown="isNewUser();">'        ;
-           row.insertCell(1).innerHTML=  '<img id="leaderPic2" src="http://graph.facebook.com/' + obj[1][i] + '/picture" onmousedown="isNewUser();">'        ;
+            max = table.rows.length;
+            for(var i = 0; i < max -1; i++){
+                console.log("DELETED : "+ i + "LENGHTH : " + table.rows.length)
+                table.deleteRow(1);
+            }
+            
+            for(var i = 0; i <  obj[0].length; i++) {
+               var rowCount = table.rows.length;
+               console.log("This is the rowCount: " + rowCount)
+               var row = table.insertRow(rowCount);
+               console.log("UID : " + obj[1][i])
+               row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[1][i] + '/picture" onmousedown="isNewUser();">'        ;
+               row.insertCell(1).innerHTML=  '<img id="leaderPic2" src="http://graph.facebook.com/' + obj[1][i] + '/picture" onmousedown="isNewUser();">'        ;
 
-            row.insertCell(2).innerHTML= obj[0][i];
-            row.insertCell(3).innerHTML= obj[1][i];
+               row.insertCell(2).innerHTML= obj[0][i];
+               row.insertCell(3).innerHTML= obj[1][i];
             row.insertCell(4).innerHTML= "Rank: " + (parseInt(i) + 1); //since index 0 is first rank
         }
 
-        }
     }
+}
 
-    xmlhttp.open("GET","php/get_user_rank.php?userID=" + userID + "&language=" + scoreLanguage + "&mode=" +scoreGame + "&metric=" + scoreMetric + "&period=" + scoretimePeriod , true);
-    xmlhttp.send();  
+xmlhttp.open("GET","php/get_user_rank.php?userID=" + userID + "&language=" + scoreLanguage + "&mode=" +scoreGame + "&metric=" + scoreMetric + "&period=" + scoretimePeriod , true);
+xmlhttp.send();  
 
 }
