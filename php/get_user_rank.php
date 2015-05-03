@@ -46,7 +46,7 @@ function getTotalPointsForUserStatement($user){
 	$sql = "SELECT SUM(t.points) AS totalpoints FROM ( ";
 	$first=TRUE;
 	foreach ($acceptedModes as $mode) {
-		if(!$first){
+		if($first == TRUE){
 			$sql .=" UNION ALL ";
 			$first=FALSE;
 		}
