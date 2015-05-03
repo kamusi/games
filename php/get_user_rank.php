@@ -46,8 +46,14 @@ if($metric == '0'){
 			$stmt->execute();
 			$result = $stmt->get_result();
 			$row = $result->fetch_assoc();
+			$value = $row["totalpoints"];
 
-			$userAndScore[$user] = $row["totalpoints"];
+			if($value == null){
+				$userAndScore[$user] = 0;
+			}
+			else {
+				$userAndScore[$user] = $value;
+			}
 			$stmt->close();		
 		}
 	}
