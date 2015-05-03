@@ -33,6 +33,8 @@ while ($row = $result->fetch_assoc()) {
 	$users[] = $row["UserID"];
 }
 
+var_dump($users);
+
 $stmt->close();
 
 //Points
