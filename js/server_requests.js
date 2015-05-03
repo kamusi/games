@@ -631,13 +631,13 @@ function updateLeaderboard(){
             table = document.getElementById("score_table");
             obj = JSON.parse(xmlhttp.responseText);
         
-        for(i in obj) {
+        for(i in obj[0]) {
              var rowCount = table.rows.length;
             
             var row = table.insertRow(rowCount);
 
-            row.insertCell(0).innerHTML= obj[i][0];
-            row.insertCell(1).innerHTML= obj[i][1];
+            row.insertCell(0).innerHTML= obj[0][i];
+            row.insertCell(1).innerHTML= obj[1][i];
             row.insertCell(2).innerHTML= "Rank: " + i ;
         }
 
