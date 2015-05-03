@@ -54,9 +54,17 @@ if($metric == '0'){
 }
 
 
-str_replace(null,0,$userAndScore,$i);
 arsort($userAndScore);
-$jsonData = json_encode($userAndScore);
+
+$firstFiveUsers= array_flip($userAndScore);
+
+$firstFive = array_slice($input, 0, 5);
+
+$result = array();
+$result[] = $firstFiveUsers;
+$result[] = $firstFive;
+
+$jsonData = json_encode($result);
 echo $jsonData;
 
 function getTotalPointsForUserStatement($user){
