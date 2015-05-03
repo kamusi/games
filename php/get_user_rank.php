@@ -44,7 +44,7 @@ if($metric == '0'){
 	if($language == '0' && $mode == '0'){
 
 		foreach ($users as $user) {
-
+			echo "user : "
 			$stmt = $mysqli->prepare(getTotalPointsForUserStatement($user));
 			$stmt->execute();
 			$result = $stmt->get_result();
@@ -77,7 +77,7 @@ function getTotalPointsForUserStatement($user){
 
 	$sql .= " ) t;";
 
-echo "\nSTATEMENT : " . $sql;
+echo "\n" . $sql;
 
 	return $sql;
 }
