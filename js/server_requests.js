@@ -635,7 +635,7 @@ function updateLeaderboard(){
 
             row.insertCell(0).innerHTML= obj[0][0];
             row.insertCell(1).innerHTML= obj[0][1];
-            row.insertCell(2).innerHTML= "TEST;
+            row.insertCell(2).innerHTML= "TEST";
 
         }
     }
