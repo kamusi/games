@@ -632,8 +632,8 @@ function updateLeaderboard(){
 
             obj = JSON.parse(xmlhttp.responseText);
 
-           
-        for(var i = 0; i < table.rows.length; i++){
+           max = table.rows.length;
+        for(var i = 0; i < max; i++){
             console.log("DELETED : "+ i + "LENGHTH : " + table.rows.length)
             table.deleteRow(i);
         }
@@ -642,7 +642,7 @@ function updateLeaderboard(){
              var rowCount = table.rows.length;
                 console.log("This is the rowCount: " + rowCount)
             var row = table.insertRow(rowCount);
-      
+            console.log("UID : " + obj[1][i])
            row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[1][i] + '/picture" onmousedown="isNewUser();">'        ;
            row.insertCell(1).innerHTML=  '<img id="leaderPic2" src="http://graph.facebook.com/' + obj[1][i] + '/picture" onmousedown="isNewUser();">'        ;
 
