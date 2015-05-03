@@ -77,6 +77,8 @@ insert into the post_receive file :
 cat > hooks/post-receive
 #!/bin/sh
 GIT_WORK_TREE=/var/www/html git checkout -f
+if git post receive hook does not have permission to modify files
+sudo chown ec2-user html/
 
 
 install pyhton in order to get tweets
@@ -89,6 +91,7 @@ language
 
 Don t forget to make the folder containing the files for the crontabs readbale and writable by apache!
 sudo chmod -R a+rw /var/www/tempText
+
 
 
 
