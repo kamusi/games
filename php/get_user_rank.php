@@ -41,6 +41,8 @@ if($metric == '0'){
 echo "Total Score : " . $totalScore;
 
 function getTotalPointsForUserStatement($user){
+	include 'global.php';
+
 	$sql = "SELECT SUM(t.points) AS totalpoints FROM ( ";
 	$first=true;
 	foreach ($acceptedModes as $mode) {
