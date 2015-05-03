@@ -13,7 +13,7 @@ $mysqli = new mysqli('localhost', $user, $pass, $db);
 $stmt = $mysqli->prepare("SELECT * FROM users WHERE UserID = ? ");
 $stmt->bind_param("s", $userID );
 $stmt->execute();
-$result = $stmt->get_result();
+$result = $stmt->get_result(); 
 
 $checkResult = $result-> num_rows;
 $stmt->close();

@@ -54,6 +54,8 @@ if($metric == '0'){
 }
 
 
+str_replace("null",0,$userAndScore,$i);
+arsort($userAndScore);
 $jsonData = json_encode($userAndScore);
 echo $jsonData;
 
