@@ -62,15 +62,18 @@ if($metric == '0'){
 
 arsort($userAndScore);
 
+$orderedScores = array_values($userAndScore);
+$orderedUsers = array_keys($userAndScore);
 
-$firstScores = array_slice($userAndScore, 0, 5);
+
+//$firstScores = array_slice($userAndScore, 0, 5);
 
 $firstFiveUsers= array_flip($userAndScore);
 
 
 $result = array();
-$result[] = $firstFiveUsers;
-$result[] = $firstScores;
+$result[] = $orderedScores;
+$result[] = $orderedUsers;
 
 $jsonData = json_encode($result);
 echo $jsonData;
