@@ -633,7 +633,7 @@ function updateLeaderboard(){
             obj = JSON.parse(xmlhttp.responseText);
 
            
-        for(var i = 1; i < table.rows.length; i++){
+        for(var i = 0; i <= table.rows.length; i++){
             console.log("DELETED : "+ i + "LENGHTH : " + table.rows.length)
             table.deleteRow(i);
         }
@@ -644,7 +644,7 @@ function updateLeaderboard(){
             var row = table.insertRow(rowCount);
       
            row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[1][i] + '/picture" onmousedown="isNewUser();">'        ;
-           row.insertCell(1).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[1][i] + '/picture" onmousedown="isNewUser();">'        ;
+           row.insertCell(1).innerHTML=  '<img id="leaderPic2" src="http://graph.facebook.com/' + obj[1][i] + '/picture" onmousedown="isNewUser();">'        ;
 
             row.insertCell(2).innerHTML= obj[0][i];
             row.insertCell(3).innerHTML= obj[1][i];
