@@ -633,12 +633,12 @@ function updateLeaderboard(){
             obj = JSON.parse(xmlhttp.responseText);
 
            
-        for(var i = 0; i <= table.rows.length; i++){
+        for(var i = 0; i < table.rows.length; i++){
             console.log("DELETED : "+ i + "LENGHTH : " + table.rows.length)
             table.deleteRow(i);
         }
         
-        for(var i = 0; i< in obj[0].length; i++) {
+        for(var i = 0; i <  obj[0].length; i++) {
              var rowCount = table.rows.length;
                 console.log("This is the rowCount: " + rowCount)
             var row = table.insertRow(rowCount);
