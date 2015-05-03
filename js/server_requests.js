@@ -633,8 +633,8 @@ function updateLeaderboard(){
             obj = JSON.parse(xmlhttp.responseText);
 
            
-        for(i = 1; i < table.rows.length; i++){
-
+        for(var i = 1; i < table.rows.length; i++){
+            console.log("DELETED : "+ i)
             table.deleteRow(i);
         }
         
