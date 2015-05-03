@@ -634,7 +634,7 @@ function updateLeaderboard(){
 
            
         for(var i = 1; i < table.rows.length; i++){
-            console.log("DELETED : "+ i)
+            console.log("DELETED : "+ i + "LENGHTH : " + table.rows.length)
             table.deleteRow(i);
         }
         
@@ -643,11 +643,12 @@ function updateLeaderboard(){
             
             var row = table.insertRow(rowCount);
       
-           row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/1629333623960388/picture" onmousedown="isNewUser();">'        ;
+           row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[1][i] + '/picture" onmousedown="isNewUser();">'        ;
+           row.insertCell(1).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[1][i] + '/picture" onmousedown="isNewUser();">'        ;
 
-            row.insertCell(1).innerHTML= obj[0][i];
-            row.insertCell(2).innerHTML= obj[1][i];
-            row.insertCell(3).innerHTML= "Rank: " + (parseInt(i) + 1); //since index 0 is first rank
+            row.insertCell(2).innerHTML= obj[0][i];
+            row.insertCell(3).innerHTML= obj[1][i];
+            row.insertCell(4).innerHTML= "Rank: " + (parseInt(i) + 1); //since index 0 is first rank
         }
 
         }
