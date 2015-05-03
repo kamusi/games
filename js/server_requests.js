@@ -638,9 +638,9 @@ function updateLeaderboard(){
             table.deleteRow(i);
         }
         
-        for(i in obj[0]) {
+        for(var i = 0; i< in obj[0].length; i++) {
              var rowCount = table.rows.length;
-            
+                console.log("This is the rowCount: " + rowCount)
             var row = table.insertRow(rowCount);
       
            row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[1][i] + '/picture" onmousedown="isNewUser();">'        ;
