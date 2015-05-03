@@ -46,9 +46,11 @@ function getTotalPointsForUserStatement($user){
 	$sql = "SELECT SUM(t.points) AS totalpoints FROM ( ";
 	$first=TRUE;
 	foreach ($acceptedModes as $mode) {
-		if($first == FALSE){
-			$sql .=" UNION ALL ";
+		if($first == TRUE){
 			$first=FALSE;
+		}
+		else {
+			$sql .=" UNION ALL ";
 		}
 		echo "php is killing me : " . $first;
 		$sql .= " SELECT points FROM game".$mode." WHERE userid=".$user." ";
