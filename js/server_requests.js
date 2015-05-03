@@ -632,6 +632,7 @@ function updateLeaderboard(){
 
             obj = JSON.parse(xmlhttp.responseText);
 
+            int i;
         for(i = 1; i < table.rows.length; i++){
 
             table.deleteRow(i);
@@ -644,7 +645,7 @@ function updateLeaderboard(){
 
             row.insertCell(0).innerHTML= obj[0][i];
             row.insertCell(1).innerHTML= obj[1][i];
-            row.insertCell(2).innerHTML= "Rank: " + (i + 1); //since index 0 is first rank
+            row.insertCell(2).innerHTML= "Rank: " + (parseInt(i) + 1); //since index 0 is first rank
         }
 
         }
