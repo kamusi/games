@@ -628,7 +628,7 @@ function updateLeaderboard(){
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             console.log("Leaderboard response : " + xmlhttp.responseText)
 
-            table = document.getElementById("score_table").selectedIndex;
+            table = document.getElementById("score_table");
             obj = JSON.parse(xmlhttp.responseText);
             var rowCount = table.rows.length;
             var row = table.insertRow(rowCount);
