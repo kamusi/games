@@ -27,6 +27,7 @@ if($metric == '0'){
 	//rank over everything
 	if($language == '0' && $mode == '0'){
 
+
 		$stmt = $mysqli->prepare(getTotalPointsForUserStatement($userID));
 		$stmt->execute();
 		$result = $stmt->get_result();
@@ -53,6 +54,7 @@ function getTotalPointsForUserStatement($user){
 	}
 
 	$sql .= " ) t";
+	echo "HAHAHA : " .$sql;
 
 	return $sql;
 }
