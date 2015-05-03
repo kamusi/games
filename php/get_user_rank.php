@@ -77,6 +77,8 @@ function getTotalPointsForUserStatement($user){
 
 	$sql .= " ) t";
 
+echo "STAEMENT : " . $sql;
+
 	return $sql;
 }
 
