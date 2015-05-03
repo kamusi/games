@@ -28,7 +28,6 @@ if($metric == '0'){
 	if($language == '0' && $mode == '0'){
 
 		$stmt = $mysqli->prepare(getTotalPointsForUserStatement($userID));
-		$stmt->bind_param("sss",$userID,$userID,$userID);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
