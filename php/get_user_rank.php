@@ -70,7 +70,7 @@ $firstFiveUsers= array_flip($userAndScore);
 
 $result = array();
 $result[] = $firstFiveUsers;
-$result[] = $firstFive;
+$result[] = $firstScores;
 
 $jsonData = json_encode($result);
 echo $jsonData;
