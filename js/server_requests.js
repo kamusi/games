@@ -629,7 +629,13 @@ function updateLeaderboard(){
             console.log("Leaderboard response : " + xmlhttp.responseText)
 
             table = document.getElementById("score_table");
+
             obj = JSON.parse(xmlhttp.responseText);
+
+        for(i = 1; i< table.rows.length; i++){
+
+            table.deleteRow(i);
+        }
         
         for(i in obj[0]) {
              var rowCount = table.rows.length;
@@ -638,7 +644,7 @@ function updateLeaderboard(){
 
             row.insertCell(0).innerHTML= obj[0][i];
             row.insertCell(1).innerHTML= obj[1][i];
-            row.insertCell(2).innerHTML= "Rank: " + i ;
+            row.insertCell(2).innerHTML= "Rank: " + i + 1; //since index 0 is first rank
         }
 
         }

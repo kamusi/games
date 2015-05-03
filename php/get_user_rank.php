@@ -16,6 +16,7 @@ $db = 'kamusi';
 
 $userAndScore= array();
 $users = array();
+$thisUsersScore;
 
 
 //Get the 5 best players by rank according to the selected categories
@@ -48,6 +49,10 @@ if($metric == '0'){
 			$row = $result->fetch_assoc();
 			$value = $row["totalpoints"];
 
+			if($user == $userID){
+				$thisUsersScore = $value;
+			}
+
 			if($value == null){
 				$userAndScore[$user] = 0;
 			}
@@ -74,6 +79,8 @@ $firstFiveUsers= array_flip($userAndScore);
 $result = array();
 $result[] = $orderedScores;
 $result[] = $orderedUsers;
+
+$result[] = array("currentUser"=>$thisUsersScore);
 
 $jsonData = json_encode($result);
 echo $jsonData;
