@@ -81,7 +81,7 @@ if($language == '0' && $mode == '0'){
 			$value = $tempScore/ $row["total"];
 
 			default:
-			die("Unexpected metric")
+			die("Unexpected metric");
 			break;
 		}
 
