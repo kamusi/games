@@ -50,7 +50,7 @@ foreach ($users as $user) {
 	$value;
 	switch ($metric) {
 		case '0':
-		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points" . $month));
+		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points" . $extraToAdd));
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
@@ -59,7 +59,7 @@ foreach ($users as $user) {
 		break;
 
 		case '1':
-		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions". $month));
+		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions". $extraToAdd));
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
@@ -68,14 +68,14 @@ foreach ($users as $user) {
 		break;
 
 		case '2':
-		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points". $month));
+		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points". $extraToAdd));
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
 		$tempScore = $row["total"];
 		$stmt->close();
 
-		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions". $month));
+		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions". $extraToAdd));
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
