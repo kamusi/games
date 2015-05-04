@@ -19,7 +19,7 @@ if(!in_array($mode, $acceptedModes)) {
 	die("Got a strange mode as input!". $mode);
 }
 
-$mysqli = new mysqli('localhost', $user, $pass, $db);
+
 
 //Increment number of votes for this definition
 $sql = 	"UPDATE definitions " .
@@ -73,13 +73,15 @@ $sql = 	"UPDATE game" . $mode .
 echo "sql is : " . $sql;
 echo "ûserID " . $user_id;
 echo "votes was " . $votes;
-*/
-addXToPointsInGame($userID, $language, $mode, $earnedPoints);
 
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("si", $user_id, $language);
 $stmt->execute();
 $stmt->close();
+*/
+addXToPointsInGame($user_id, $language, $mode, $earnedPoints);
+
+
 
 
 

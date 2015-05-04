@@ -2,6 +2,8 @@
 $acceptedModes = array("1","2","3");
 $allUsers = "allusers";
 
+$mysqli = new mysqli('localhost', $user, $pass, $db);
+
 function addXToValueInGame($userID, $language, $mode, $value, $x){
 	$stmt = $mysqli->prepare("UPDATE game". $mode . " SET ". $value . " = " . $value . " + ? WHERE userid=? and language = ?;");
 	$stmt->bind_param("isi", $x, $user, $data["language"]);
