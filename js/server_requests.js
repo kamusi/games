@@ -663,8 +663,7 @@ function updateLeaderboard(){
 
                 row.insertCell(2).innerHTML= obj[3].myScore;
                 row.insertCell(3).innerHTML= obj[3].myRank;
-                row.insertCell(4).innerHTML= "Rank: " + (parseInt(i) + 1); //since index 0 is first rank
-               
+                
              }
 
          }
