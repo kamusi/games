@@ -9,6 +9,7 @@ $db = 'kamusi';
 $mysqli = new mysqli('localhost', $user, $pass, $db);
 
 function addXToValueInGame($userID, $language, $mode, $value, $x){
+	global $mysqli;
 	$stmt = $mysqli->prepare("UPDATE game". $mode . " SET ". $value . " = " . $value . " + ? WHERE userid=? and language = ?;");
 	$stmt->bind_param("isi", $x, $user, $data["language"]);
 	$stmt->execute();
@@ -16,6 +17,7 @@ function addXToValueInGame($userID, $language, $mode, $value, $x){
 }
 
 function addXToPointsInGame($userID, $language, $mode, $x) {
+	global $mysqli;
 
 	addXToValueInGame($userID, $language, $mode, "points", $x);
 	addXToValueInGame($userID, $language, $mode, "pointsmonth", $x);
