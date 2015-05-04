@@ -147,10 +147,10 @@ function getTotalXForUserStatement($user, $x){
 
 		if($timePeriod == '3'){
 			if($x == "points"){
-				$x= "pointtime"
+				$x= "pointtime";
 			}
 			else {
-				$x= "submissiontime"
+				$x= "submissiontime";
 			}
 
 			if($language == '0' && $selectedMode == '0'){
