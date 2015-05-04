@@ -2,6 +2,10 @@
 $acceptedModes = array("1","2","3");
 $allUsers = "allusers";
 
+$user = 'root';
+$pass = '';
+$db = 'kamusi';
+
 $mysqli = new mysqli('localhost', $user, $pass, $db);
 
 function addXToValueInGame($userID, $language, $mode, $value, $x){
