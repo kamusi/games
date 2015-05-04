@@ -636,9 +636,9 @@ function updateLeaderboard(){
 
 
             max = table.rows.length;
-            for(var i = 1; i < max; i++){
+            for(var i = 0; i < max; i++){
                 console.log("DELETED : "+ i + "LENGHTH : " + table.rows.length)
-                table.deleteRow(1);
+                table.deleteRow(0);
             }
 
             for(var i = 0; i <  obj[0].length; i++) {
