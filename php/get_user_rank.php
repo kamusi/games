@@ -77,18 +77,12 @@ $orderedUsers = array_keys($userAndScore);
 $firstFiveUsers = array_slice($orderedUsers, 0, 5);
 $firstFiveScores = array_slice($orderedScores, 0, 5);
 
-if(! in_array($userID, $firstFiveUsers) ){
-	$firstFiveUsers[]= $userID;
-	$firstFiveScores[] = $userAndScore[$userID];
-}
-
-
 $result = array();
 $result[] = $firstFiveScores;
 $result[] = $firstFiveUsers;
-$result[] = $userNameByUserID;
+$result[] = $userNameByUserID; //TODO only send the entries that are needed, we are sending them all!
 
-$result[] = array("currentUser"=>$thisUsersScore);
+$result[] = array("myScore"=>$thisUsersScore, "myRank"=> array_search($userID, $orderedUsers););
 
 $jsonData = json_encode($result);
 echo $jsonData;
