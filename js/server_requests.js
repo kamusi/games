@@ -631,13 +631,15 @@ function updateLeaderboard(){
             table = document.getElementById("score_table");
 
             obj = JSON.parse(xmlhttp.responseText);
+            console.log("uNBELiEVABLE: " obj[1][1])
+
 
             max = table.rows.length;
-            for(var i = 0; i < max -1; i++){
+            for(var i = 1; i < max; i++){
                 console.log("DELETED : "+ i + "LENGHTH : " + table.rows.length)
                 table.deleteRow(1);
             }
-            
+
             for(var i = 0; i <  obj[0].length; i++) {
                var rowCount = table.rows.length;
                console.log("This is the rowCount: " + rowCount)
