@@ -181,7 +181,7 @@ function addXToPointsInGame($userID, $language, $mode, $x) {
 	addXToValueInGame($userID, $language, $mode, "pointsweek", $x);
 	
 	$sql = "INSERT INTO pointtime (userID, language, game, amount, ts) VALUES ";
-	$sql .= "(?,?,?,?, UTC_TIMESTAMP());"
+	$sql .= "(?,?,?,?, UTC_TIMESTAMP());";
 
 	$stmt = $mysqli->prepare($sql);
 	$stmt->bind_param("siii", $user, $language, $mode, $x);
