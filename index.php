@@ -279,7 +279,7 @@ $newToken = generateToken();
 		</div>
 		<div class="settings-inner">
 			What to compare
-			<select id= "scoreMetric" size="1">
+			<select id= "scoreMetric" onchange="updateLeaderboard(); playClick();" size="1">
 				<option>Points Earned</option>
 				<option>Number of Submissions</option>
 				<option>Success Rate</option>

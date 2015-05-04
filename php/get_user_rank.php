@@ -49,7 +49,7 @@ if($language == '0' && $mode == '0'){
 		$value;
 		switch ($metric) {
 			case '0':
-			$stmt = $mysqli->prepare(getTotalPointsForUserStatement($user, "points"));
+			$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points"));
 			$stmt->execute();
 			$result = $stmt->get_result();
 			$row = $result->fetch_assoc();
@@ -58,7 +58,7 @@ if($language == '0' && $mode == '0'){
 			break;
 
 			case '1':
-			$stmt = $mysqli->prepare(getTotalPointsForUserStatement($user, "submissions"));
+			$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions"));
 			$stmt->execute();
 			$result = $stmt->get_result();
 			$row = $result->fetch_assoc();
@@ -67,13 +67,13 @@ if($language == '0' && $mode == '0'){
 			break;
 			
 			case '2':
-			$stmt = $mysqli->prepare(getTotalPointsForUserStatement($user, "points"));
+			$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points"));
 			$stmt->execute();
 			$result = $stmt->get_result();
 			$row = $result->fetch_assoc();
 			$tempScore = $row["total"];
 			$stmt->close();
-			$stmt = $mysqli->prepare(getTotalPointsForUserStatement($user, "points"));
+			$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points"));
 			$stmt->execute();
 			$result = $stmt->get_result();
 			$row = $result->fetch_assoc();
