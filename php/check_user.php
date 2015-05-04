@@ -1,5 +1,5 @@
 <?php
-include 'global.php';
+//include 'global.php';
 
 $userID = $_GET['userID'];
 $userName = $_GET['userName'];
