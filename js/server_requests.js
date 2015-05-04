@@ -651,7 +651,7 @@ function updateLeaderboard(){
     metricSelect = document.getElementById("scoreMetric")
     scoreMetric = metricSelect.selectedIndex;
 
-    whichSliderToChange = 0;
+    var whichSliderToChange = 0;
 
     setInterval(function () {
         var whatTochange = languageSelect;
@@ -674,6 +674,7 @@ function updateLeaderboard(){
         }
         whatTochange.selectedIndex += 1 % whatTochange.size;
         whichSliderToChange= whichSliderToChange+=1 % 4;
+        console.log("INTERBVAAAAAAAAAAL")
 
 
     }, 3000);
