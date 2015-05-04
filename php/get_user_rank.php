@@ -123,6 +123,7 @@ echo $jsonData;
 
 function getTotalXForUserStatement($user, $x, $language, $selectedMode){
 	include 'global.php';
+	global $mode, $language;
 
 
 
