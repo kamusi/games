@@ -2,6 +2,7 @@
 include 'global.php';
 
 $userID = $_GET['userID'];
+$userName = $_GET['userName'];
 
 $user = 'root';
 $pass = '';
@@ -19,10 +20,10 @@ $checkResult = $result-> num_rows;
 $stmt->close();
 
 
-if( $checkResult=== 'this is nonsense'){
+if( $checkResult== 0){
 	//Add user to database
-	$stmt = $mysqli->prepare("INSERT INTO users (UserID) VALUES(?);");
-	$stmt->bind_param("s", $userID );
+	$stmt = $mysqli->prepare("INSERT INTO users (UserID, Username) VALUES(?,?);");
+	$stmt->bind_param("ss", $userID, $userName );
 	$stmt->execute();
 	$stmt->close();
 

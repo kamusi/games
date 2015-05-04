@@ -346,16 +346,17 @@ function isNewUser() {
             console.log("RETURNED : " + xmlhttp.responseText)
             obj = JSON.parse(xmlhttp.responseText);
             console.log("REPONSE NEW USER : " + xmlhttp.responseText);
+                initialise(userID);
             if(xmlhttp.responseText == "1") {
                 animate_logo();
+
             }
             else {
                 animate_logo_firstTime(); 
             }
-
         }
     }
-    xmlhttp.open("GET","php/check_user.php?userID=" + userID);
+    xmlhttp.open("GET","php/check_user.php?userID=" + userID + "&userName=" + userName);
     xmlhttp.send();
 }
 }
