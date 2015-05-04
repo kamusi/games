@@ -151,6 +151,7 @@ function initialise(userID) {
 }
 
 function enter_game1() {
+		pause_animation();
 	game = 1;
 	get_ranked();
 	document.getElementById("welcome").style.display = "none";
@@ -158,14 +159,17 @@ function enter_game1() {
 	document.getElementById("gamezone1").style.display = "inline-block";
 	document.getElementById("gamezone2").style.display = "none";
 	document.getElementById("gamezone3").style.display = "none";
+	document.getElementById("gamezone4").style.display = "none";
+
 	// document.getElementById("gamezone-main1").style.display = "inline-block";
 	// document.getElementById("gamezone-main2").style.display = "none";
 	// document.getElementById("footer-next1").style.display = "inline-block";
 	// document.getElementById("footer-next2").style.display = "none";
-	pause_animation();
+
 }
 
 function enter_game2() {
+		pause_animation()
 	game = 2;
 	get_ranked_mode_2();
 	document.getElementById("welcome").style.display = "none";
@@ -173,14 +177,18 @@ function enter_game2() {
 	document.getElementById("gamezone1").style.display = "none";
 	document.getElementById("gamezone2").style.display = "inline-block";
 	document.getElementById("gamezone3").style.display = "none";
+	document.getElementById("gamezone4").style.display = "none";
+
 	// document.getElementById("gamezone-main1").style.display = "none";
 	// document.getElementById("gamezone-main2").style.display = "inline-block";
 	// document.getElementById("footer-next1").style.display = "none";
 	// document.getElementById("footer-next2").style.display = "inline-block";
-	pause_animation();
+;
 }
 
 function enter_game3() {
+		pause_animation();
+
 	game = 3;
 	get_randomForTweets();
 	document.getElementById("welcome").style.display = "none";
@@ -188,11 +196,25 @@ function enter_game3() {
 	document.getElementById("gamezone1").style.display = "none";
 	document.getElementById("gamezone2").style.display = "none";
 	document.getElementById("gamezone3").style.display = "inline-block";
-	// document.getElementById("gamezone-main1").style.display = "none";
-	// document.getElementById("gamezone-main2").style.display = "inline-block";
-	// document.getElementById("footer-next1").style.display = "none";
-	// document.getElementById("footer-next2").style.display = "inline-block";
+	document.getElementById("gamezone4").style.display = "none";
+
+
+
+}
+
+function enter_game4() {
+	game = 4;
+	
+	document.getElementById("welcome").style.display = "none";
+	document.getElementById("game").style.display = "inline-block";
+	document.getElementById("gamezone1").style.display = "none";
+	document.getElementById("gamezone2").style.display = "none";
+	document.getElementById("gamezone3").style.display = "none";
+	document.getElementById("gamezone4").style.display = "inline-block";
+
+
 	pause_animation();
+	getRankedForSwahili();
 
 
 }
@@ -246,6 +268,8 @@ function animate_logo() {
 	document.getElementById("enter2").classList.add("animateenter");
 	document.getElementById("enter3").classList.remove("shaded_enter");
 	document.getElementById("enter3").classList.add("animateenter");
+	document.getElementById("enter4").classList.remove("shaded_enter");
+	document.getElementById("enter4").classList.add("animateenter");
 
 }
 

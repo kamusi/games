@@ -12,7 +12,7 @@ body {
 	width:930px;height="550"
 	}*/
 
-	#consensus, #translation_definition, #def3 {
+	#consensus, #translation_definition, #def3, #transEnglish4, #defSwahili4 {
 		/*display:none;*/
 		font-size: 15px;
 		margin-right:0.5em;
@@ -122,14 +122,14 @@ body {
 		height: auto;
 	}
 
-	#word, #translation_word, #word3 {
+	#word, #translation_word, #word3, #word4 {
 		display: inline-block;
 		font-size:30px;
 		margin-right:0.5em;
 		/*text-transform:capitalize;*/
 	}
 
-	#pos, #pos3,  #translation_pos {
+	#pos, #pos3, #pos4,  #translation_pos {
 		display: inline-block;
 		font-size:30px;
 		color:gray;
@@ -361,25 +361,13 @@ body {
 		left: 480px;
 	}
 
-	#enter1:hover {
+	#enter1:hover, #enter2:hover, #enter3:hover, #enter4:hover, #enter0:hover   {
 		transition: opacity 0s;
 		transform: scale(1.05);
 		opacity:1;
 	}
 
-	#enter2:hover {
-		transition: opacity 0s;
-		transform: scale(1.05);
-		opacity:1;
-	}
-
-	#enter1:hover:after {
-		transition: opacity 0s;
-		transform: scale(1);
-		opacity:0.5;
-	}
-
-	#enter2:hover:after {
+	#enter1:hover:after, #enter2:hover:after, #enter3:hover:after,  #enter4:hover:after, #enter0:hover:after {
 		transition: opacity 0s;
 		transform: scale(1);
 		opacity:0.5;
@@ -390,16 +378,9 @@ body {
 		left: 610px;
 	}
 
-	#enter3:hover {
-		transition: opacity 0s;
-		transform: scale(1.05);
-		opacity:1;
-	}
-
-	#enter3:hover:after {
-		transition: opacity 0s;
-		transform: scale(1);
-		opacity:0.5;
+	#enter4 {
+		top: 225px;
+		left: 220px;
 	}
 
 	#enterLogin{

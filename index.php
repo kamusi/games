@@ -36,6 +36,7 @@ $newToken = generateToken();
 				<img title="Better English" id="enter1" class="shaded_enter" src="media/uk.png" onmousedown="playClick();enter_game1();">
 				<img title="Từ này là" id="enter2" class="shaded_enter" src="media/vn.png" onmousedown="playClick();enter_game2();">
 				<img title="TweetGame" id="enter3" class="shaded_enter" src="media/xbox.png" onmousedown="playClick();enter_game3();">
+				<img title="SwahiliGame" id="enter4" class="shaded_enter" src="media/xbox.png" onmousedown="playClick();enter_game4();">
 				<img title="ChooseLanguage" id="enter0" class="shaded_enter" src="media/language_selector.png" onmousedown="playClick();enter_game1();display_profile();display_settings();">
 				<fb:login-button scope="public_profile,email" id="enterLogin" class="shaded_enterLogin" onlogin="checkLoginStateAfterFirstLogin();"></fb:login-button>
 
@@ -149,6 +150,25 @@ $newToken = generateToken();
 					</div>
 				</div>
 			</div>
+			<div id="gamezone4" ng-controller="InlineEditorController" ng-click="hideTooltip();">
+				<div id="gamezone-main4" >
+					<div id="entry">
+						<p id="instructions">Check the sentences that correspond well to this word: </p>
+						<p id="word4"></p>		
+						<p id="pos4"></p>					
+						<p id="transEnglish4"></p>
+						<p id="defSwahili4"></p>
+						<div id="definitions_wrapper">
+							<p id="swahiliSentences"></p>
+						</div>
+					</div>
+				</div>
+
+					<div id="footer-next3">
+						<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick="submitTweets(); setTimeout(get_randomForTweets, 500);">
+					</div>
+			</div>
+
 		</div>
 		<div id="about">
 			<div id="about-main">

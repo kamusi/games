@@ -90,6 +90,40 @@ function get_randomForTweets() {
  xmlhttp.send();
 }
 
+function getRankedForSwahili() {
+
+    document.getElementById("twitterWords").innerHTML = '';
+
+    var xmlhttp;
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            console.log("JSON DATA LOOKS LIKE : " +xmlhttp.responseText)
+            obj = JSON.parse(xmlhttp.responseText);
+            console.log("response was : " + xmlhttp.responseText);
+
+
+            console.log("All the details : " + groupID + word + wordID + obj[0].Definition + obj[0].PartOfSpeech )
+
+                console.log("word id BeCaAAAME : " + wordID)
+                document.getElementById("word4").innerHTML = "simama";
+                document.getElementById("pos4").innerHTML = "POS Tag";
+               document.getElementById("transEnglish4").innerHTML = "Some English translation";
+               document.getElementById("defSwahili4").innerHTML = "Some Swahili definition";
+
+            }
+    }
+
+xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
+
+ xmlhttp.send();
+}
+
 function get_tweets(alreadyDisplayed) {
     console.log("inside the tweets function: ")
 

@@ -24,8 +24,6 @@ $thisUsersScore;
 
 $mysqli = new mysqli('localhost', $user, $pass, $db);
 
-//Get all Users
-
 #get all concerned users;
 $stmt = $mysqli->prepare("SELECT UserID, Username FROM users;");
 $stmt->execute();
