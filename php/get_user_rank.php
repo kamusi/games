@@ -134,16 +134,15 @@ function getTotalXForUserStatement($user, $x){
 		if($timePeriod == '3'){
 			if($language == '0' && $selectedMode == '0'){
 				$sql .= " SELECT ". $x ." FROM pointtime WHERE userid='".$user."' ";
-
 			}
 			else if( $language == '0') {
-				$sql .= " SELECT ". $x ." FROM pointtime WHERE userid='".$user."' AND game= " . $mode ." ";
+				$sql .= " SELECT ". $x ." FROM pointtime WHERE userid='".$user."' AND game= " . $selectedMode ." ";
 			}
 			else if ($selectedMode == '0') {
 				$sql .= " SELECT ". $x ." FROM pointtime WHERE userid='".$user."' AND language= " . $language ." ";
 			}	
 			else {
-				$sql .= " SELECT ". $x ." FROM pointtime WHERE userid='".$user."' AND language= " . $language . " AND game= " . $mode ." ";
+				$sql .= " SELECT ". $x ." FROM pointtime WHERE userid='".$user."' AND language= " . $language . " AND game= " . $selectedMode ." ";
 			}	
 		}
 		else {
