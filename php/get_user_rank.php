@@ -15,6 +15,7 @@ $pass = '';
 $db = 'kamusi';
 
 $userAndScore= array();
+$userNameByUserID = array();
 $users = array();
 $thisUsersScore;
 
@@ -26,12 +27,14 @@ $mysqli = new mysqli('localhost', $user, $pass, $db);
 //Get all Users
 
 #get all concerned users;
-$stmt = $mysqli->prepare("SELECT UserID FROM users;");
+$stmt = $mysqli->prepare("SELECT UserID, Username FROM users;");
 $stmt->execute();
 $result = $stmt->get_result();
 
 while ($row = $result->fetch_assoc()) {
 	$users[] = $row["UserID"];
+	$userNameByUserID[$row["UserID"]] = $row["Username"];
+
 }
 
 $stmt->close();
@@ -79,6 +82,7 @@ $firstFiveUsers= array_flip($userAndScore);
 $result = array();
 $result[] = $orderedScores;
 $result[] = $orderedUsers;
+$result[] = $userNameByUserID;
 
 $result[] = array("currentUser"=>$thisUsersScore);
 
