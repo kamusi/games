@@ -22,7 +22,7 @@ if (!$mysqli->set_charset('utf8')) {
 }
 
 //increase the number of submissions for this user
-$stmt = $mysqli->prepare("UPDATE game". $data["mode"] . " SET submissions = submissions + 1 WHERE userid=? and language = ?;");
+$stmt = $mysqli->prepare("UPDATE game". $data["mode"] . " SET submissions = submissions + 1, submissionsmonth = submissionsmonth + 1, submissionsweek = submissionsweek + 1 WHERE userid=? and language = ?;");
 $stmt->bind_param("si", $data["userID"], $data["language"]);
 $stmt->execute();
 $stmt->close();
@@ -152,7 +152,7 @@ foreach($concernedUsers as $user) {
 function giveAllConcernedUsersAPoint($concernedUsers){
 	global $data, $mysqli;
 	foreach($concernedUsers as $user) {
-		$stmt = $mysqli->prepare("UPDATE game". $data["mode"] . " SET points = points + 1 WHERE userid=? and language = ?;");
+		$stmt = $mysqli->prepare("UPDATE game". $data["mode"] . " SET points = points + 1, pointsmonth = pointsmonth + 1, pointsweek = pointsweek + 1 WHERE userid=? and language = ?;");
 		$stmt->bind_param("si", $user, $data["language"]);
 		$stmt->execute();
 		$stmt->close();

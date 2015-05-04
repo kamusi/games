@@ -46,6 +46,9 @@ $extraToAdd = "";
 if($timePeriod == '1') {
 	$extraToAdd = "month";	
 }
+if($timePeriod == '2') {
+	$extraToAdd = "week";	
+}
 foreach ($users as $user) {
 	$value;
 	switch ($metric) {
@@ -117,7 +120,8 @@ $firstFiveScores = array_slice($orderedScores, 0, 5);
 $result = array();
 $result[] = $firstFiveScores;
 $result[] = $firstFiveUsers;
-$result[] = $userNameByUserID; //TODO only send the entries that are needed, we are sending them all!
+$result[] = $userNameByUserID; 
+//TODO only send the entries that are needed, we are sending them all!
 
 $result[] = array("myScore"=>$thisUsersScore, "myRank"=> array_search($userID, $orderedUsers)+1 );
 

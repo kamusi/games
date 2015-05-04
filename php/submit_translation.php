@@ -18,7 +18,7 @@ if (!$con) {
 }
 
 //increase the number of submissions for this user
-$stmt = $mysqli->prepare("UPDATE game". $mode . " SET submissions = submissions + 1 WHERE userid=? and language = ?;");
+$stmt = $mysqli->prepare("UPDATE game". $mode . " SET submissions = submissions + 1, submissionsmonth = submissionsmonth + 1, submissionsweek = submissionsweek + 1 WHERE userid=? and language = ?;");
 $stmt->bind_param("si", $userID, $data["language"]);
 $stmt->execute();
 $stmt->close();
