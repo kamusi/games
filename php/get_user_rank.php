@@ -78,7 +78,7 @@ if($language == '0' && $mode == '0'){
 			$result = $stmt->get_result();
 			$row = $result->fetch_assoc();
 			$stmt->close();			
-			$value = $tempScore/ $row["total"] + 1;
+			$value = $tempScore/ ($row["total"] + 1);
 			break;
 
 			default:
