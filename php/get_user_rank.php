@@ -82,7 +82,7 @@ $result[] = $firstFiveScores;
 $result[] = $firstFiveUsers;
 $result[] = $userNameByUserID; //TODO only send the entries that are needed, we are sending them all!
 
-$result[] = array("myScore"=>$thisUsersScore, "myRank"=> array_search($userID, $orderedUsers););
+$result[] = array("myScore"=>$thisUsersScore, "myRank"=> array_search($userID, $orderedUsers) );
 
 $jsonData = json_encode($result);
 echo $jsonData;
