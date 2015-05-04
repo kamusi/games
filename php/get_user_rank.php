@@ -42,64 +42,63 @@ $stmt->close();
 //Points
 
 
-	//rank over everything
-if($language == '0' && $mode == '0'){
 
-	foreach ($users as $user) {
-		$value;
-		switch ($metric) {
-			case '0':
-			$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points"));
-			$stmt->execute();
-			$result = $stmt->get_result();
-			$row = $result->fetch_assoc();
-			$value = $row["total"];
-			$stmt->close();
-			break;
 
-			case '1':
-			$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions"));
-			$stmt->execute();
-			$result = $stmt->get_result();
-			$row = $result->fetch_assoc();
-			$value = $row["total"];
-			$stmt->close();
-			break;
-			
-			case '2':
-			$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points"));
-			$stmt->execute();
-			$result = $stmt->get_result();
-			$row = $result->fetch_assoc();
-			$tempScore = $row["total"];
-			$stmt->close();
-			$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions"));
-			$stmt->execute();
-			$result = $stmt->get_result();
-			$row = $result->fetch_assoc();
-			$stmt->close();			
-			$value = $tempScore/ ($row["total"] + 1);
-			break;
+foreach ($users as $user) {
+	$value;
+	switch ($metric) {
+		case '0':
+		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points"));
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$row = $result->fetch_assoc();
+		$value = $row["total"];
+		$stmt->close();
+		break;
 
-			default:
-			die("Unexpected metric");
-			break;
-		}
+		case '1':
+		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions"));
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$row = $result->fetch_assoc();
+		$value = $row["total"];
+		$stmt->close();
+		break;
 
-		if($user == $userID){
-			$thisUsersScore = $value;
-		}
+		case '2':
+		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points"));
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$row = $result->fetch_assoc();
+		$tempScore = $row["total"];
+		$stmt->close();
 
-		if($value == null){
-			$userAndScore[$user] = 0;
-		}
-		else {
-			$userAndScore[$user] = $value;
-		}
-			
+		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions"));
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$row = $result->fetch_assoc();
+		$stmt->close();			
+		$value = $tempScore/ ($row["total"] + 1);
+		break;
 
+		default:
+		die("Unexpected metric");
+		break;
 	}
+
+	if($user == $userID){
+		$thisUsersScore = $value;
+	}
+
+	if($value == null){
+		$userAndScore[$user] = 0;
+	}
+	else {
+		$userAndScore[$user] = $value;
+	}		
+
 }
+
 
 
 
@@ -122,23 +121,45 @@ $result[] = array("myScore"=>$thisUsersScore, "myRank"=> array_search($userID, $
 $jsonData = json_encode($result);
 echo $jsonData;
 
-function getTotalXForUserStatement($user, $x){
+function getTotalXForUserStatement($user, $x, $language, $selectedMode){
 	include 'global.php';
 
+
+
 	$sql = "SELECT SUM(t.". $x .") AS total FROM ( ";
-		$first=TRUE;
-		foreach ($acceptedModes as $mode) {
-			if($first == TRUE){
-				$first=FALSE;
+			//rank over everything
+		if($language == '0' && $selectedMode == '0'){
+			$first=TRUE;
+			foreach ($acceptedModes as $mode) {
+				if($first == TRUE){
+					$first=FALSE;
+				}
+				else {
+					$sql .=" UNION ALL ";
+				}
+				$sql .= " SELECT ". $x ." FROM game".$mode." WHERE userid='".$user."' ";
 			}
-			else {
-				$sql .=" UNION ALL ";
-			}
-			$sql .= " SELECT ". $x ." FROM game".$mode." WHERE userid='".$user."' ";
 		}
+		else if($selectedMode == '0'){
+			$first=TRUE;
+			foreach ($acceptedModes as $mode) {
+				if($first == TRUE){
+					$first=FALSE;
+				}
+				else {
+					$sql .=" UNION ALL ";
+				}
+				$sql .= " SELECT ". $x ." FROM game".$mode." WHERE userid='".$user."' AND language=" . $language . " ";
+			}			
+		}
+		else if( $language == '0') {
+				$sql .= " SELECT ". $x ." FROM game".$selectedMode." WHERE userid='".$user."' ";
+		}
+		else {
+				$sql .= " SELECT ". $x ." FROM game".$selectedMode." WHERE userid='".$user."' AND language=" . $language . " ";
 
+		}
 		$sql .= " ) t;";
-
 
 return $sql;
 }
