@@ -291,14 +291,7 @@ $newToken = generateToken();
 
 	<div id="leader">
 		<table id="score_table">
-			<td>
-				<img id="leaderPic1" src="http://graph.facebook.com/1629333623960388/picture" onmousedown="isNewUser();">
-			</td>
-			<td>UserName</td>
-			<td>UserScore</td>
-			<td>UserRank</td
-				<td id="profile_attempts"></td>
-			</tr>
+
 		</table>
 
 
