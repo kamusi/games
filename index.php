@@ -261,7 +261,7 @@ $newToken = generateToken();
 		</div>
 		<div class="settings-inner">
 			Game
-			<select id= "scoreGame" size="1">
+			<select id= "scoreGame" onchange="updateLeaderboard(); playClick();" size="1">
 				<option>All games</option>
 				<option>Game1</option>
 				<option>Game2</option>
@@ -270,7 +270,7 @@ $newToken = generateToken();
 		</div>
 		<div class="settings-inner">
 			TimePeriod
-			<select id= "scoretimePeriod" size="1">
+			<select id= "scoretimePeriod" onchange="updateLeaderboard(); playClick();" size="1">
 				<option>All time</option>
 				<option>Last Month</option>
 				<option>Last Week</option>

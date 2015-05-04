@@ -646,7 +646,7 @@ function updateLeaderboard(){
                 console.log("This is the rowCount: " + rowCount)
                 var row = table.insertRow(rowCount);
                 rowUserID=  obj[1][i]
-                row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + rowUserID + '/picture" onmousedown="isNewUser();">'        ;
+                row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + rowUserID + '/picture" >'        ;
                 row.insertCell(1).innerHTML= obj[2][rowUserID];
 
                 row.insertCell(2).innerHTML= obj[0][i];
@@ -658,7 +658,7 @@ function updateLeaderboard(){
                 var rowCount = table.rows.length;
                 console.log("This is the rowCount: " + rowCount)
                 var row = table.insertRow(rowCount);
-                row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + userID + '/picture" onmousedown="isNewUser();">'        ;
+                row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + userID + '/picture" >'        ;
                 row.insertCell(1).innerHTML= userName;
 
                 row.insertCell(2).innerHTML= obj[3].myScore;
