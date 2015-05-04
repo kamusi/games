@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
-include 'global.php';
+//include 'global.php';
 
 $userID = $_GET['userID'];
 $metric = $_GET['metric'];
@@ -127,7 +127,7 @@ $jsonData = json_encode($result);
 echo $jsonData;
 
 function getTotalXForUserStatement($user, $x){
-	include 'global.php';
+//	include 'global.php';
 	global $selectedMode, $language; 
 
 	$sql = "SELECT SUM(t.". $x .") AS total FROM ( ";
