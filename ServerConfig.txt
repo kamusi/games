@@ -91,6 +91,8 @@ language
 );
 
 Don t forget to make the folder containing the files for the crontabs readbale and writable by apache!
+include the global.php file in the autoprepend part of php.ini
+
 sudo chmod -R a+rw /var/www/tempText
 
 

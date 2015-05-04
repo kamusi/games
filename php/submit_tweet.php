@@ -2,7 +2,6 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
-include "global.php";
 
 $data = json_decode($_POST['json'], true);
 
