@@ -189,8 +189,9 @@ function getTotalXForUserStatement($user, $x){
 
 			}
 		}
-		echo $sql;
 	$sql .= " ) t;";
+		echo $sql;
+
 	return $sql;
 }
 
