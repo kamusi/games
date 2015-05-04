@@ -39,19 +39,12 @@ $stmt->close();
 
 //Points
 
-$extraToAdd = "";
 
-if($timePeriod == '1') {
-	$extraToAdd = "month";	
-}
-if($timePeriod == '2') {
-	$extraToAdd = "week";	
-}
 foreach ($users as $user) {
 	$value;
 	switch ($metric) {
 		case '0':
-		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points" . $extraToAdd));
+		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points", $timePeriod));
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
@@ -60,7 +53,7 @@ foreach ($users as $user) {
 		break;
 
 		case '1':
-		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions". $extraToAdd));
+		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions", $timePeriod));
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
@@ -69,14 +62,14 @@ foreach ($users as $user) {
 		break;
 
 		case '2':
-		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points". $extraToAdd));
+		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points", $timePeriod));
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
 		$tempScore = $row["total"];
 		$stmt->close();
 
-		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions". $extraToAdd));
+		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions", $timePeriod));
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
@@ -127,11 +120,17 @@ $jsonData = json_encode($result);
 echo $jsonData;
 
 function getTotalXForUserStatement($user, $x){
-//	include 'global.php';
 	global $selectedMode, $language; 
 
+	if($timePeriod == '1') {
+		$x.= "month";	
+	}
+	if($timePeriod == '2') {
+		$x.= "week";	
+	}
+
 	$sql = "SELECT SUM(t.". $x .") AS total FROM ( ";
-			//rank over everything
+			//rank of everything
 		if($language == '0' && $selectedMode == '0'){
 			$first=TRUE;
 			foreach ($acceptedModes as $mode) {
@@ -157,14 +156,13 @@ function getTotalXForUserStatement($user, $x){
 			}			
 		}
 		else if( $language == '0') {
-				$sql .= " SELECT ". $x ." FROM game".$selectedMode." WHERE userid='".$user."' ";
+			$sql .= " SELECT ". $x ." FROM game".$selectedMode." WHERE userid='".$user."' ";
 		}
 		else {
-				$sql .= " SELECT ". $x ." FROM game".$selectedMode." WHERE userid='".$user."' AND language=" . $language . " ";
+			$sql .= " SELECT ". $x ." FROM game".$selectedMode." WHERE userid='".$user."' AND language=" . $language . " ";
 
 		}
 		$sql .= " ) t;";
-
 return $sql;
 }
 

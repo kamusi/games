@@ -28,7 +28,7 @@ function addXToPointsInGame($userID, $language, $mode, $x) {
 	$sql .= "(?,?,?,?, UTC_TIMESTAMP());";
 
 	$stmt = $mysqli->prepare($sql);
-	$stmt->bind_param("siii", $user, $language, $mode, $x);
+	$stmt->bind_param("siii", $userID, $language, $mode, $x);
 	$stmt->execute();
 	$stmt->close();	
 }
