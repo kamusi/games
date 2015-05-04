@@ -1,7 +1,7 @@
 <?php
 
 include_once 'global.php';
-//include 'notification.php';
+include 'notification.php';
 //include 'honeypot.php';
 
 $wordID = $_GET['wordID'];
@@ -61,7 +61,7 @@ if($votes == 3 && $user_id != 'wordnet') {
 	$stmt->execute();
 	$stmt->close();
 
-//	send_notification($user_id, $wordID);
+	send_notification($user_id, $wordID);
 }
 
 //Give the points to the user
