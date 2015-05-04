@@ -152,7 +152,7 @@ function getTotalXForUserStatement($user, $x){
 			else {
 				$x= "submissiontime";
 			}
-		$sql = "SELECT SUM(t.". $x .") AS total FROM ( ";
+		$sql = "SELECT SUM(t.amount) AS total FROM ( ";
 
 
 			if($language == '0' && $selectedMode == '0'){
