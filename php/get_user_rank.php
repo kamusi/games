@@ -108,6 +108,7 @@ arsort($userAndScore);
 
 $orderedScores = array_values($userAndScore);
 $orderedUsers = array_keys($userAndScore);
+$orderedUsers = array_map('strval',$orderedUsers);
 
 
 $firstFiveUsers = array_slice($orderedUsers, 0, 5);
