@@ -41,14 +41,16 @@ $stmt->close();
 
 //Points
 
+$extraToAdd = "";
 
-
-if($timePeriod == '0') {
+if($timePeriod == '1') {
+	$extraToAdd = "month";	
+}
 foreach ($users as $user) {
 	$value;
 	switch ($metric) {
 		case '0':
-		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points"));
+		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points" . $month));
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
@@ -57,7 +59,7 @@ foreach ($users as $user) {
 		break;
 
 		case '1':
-		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions"));
+		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions". $month));
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
@@ -66,14 +68,14 @@ foreach ($users as $user) {
 		break;
 
 		case '2':
-		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points"));
+		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points". $month));
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
 		$tempScore = $row["total"];
 		$stmt->close();
 
-		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions"));
+		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions". $month));
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
@@ -98,63 +100,8 @@ foreach ($users as $user) {
 	}		
 
 }
-}
-else if($timePeriod = '1'){
-foreach ($users as $user) {
-	$value;
-	switch ($metric) {
-		case '0':
-		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "pointsmonth"));
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$row = $result->fetch_assoc();
-		$value = $row["total"];
-		$stmt->close();
-		break;
 
-		case '1':
-		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissionsmonth"));
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$row = $result->fetch_assoc();
-		$value = $row["total"];
-		$stmt->close();
-		break;
 
-		case '2':
-		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "pointsmonth"));
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$row = $result->fetch_assoc();
-		$tempScore = $row["total"];
-		$stmt->close();
-
-		$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissionsmonth"));
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$row = $result->fetch_assoc();
-		$stmt->close();			
-		$value = $tempScore/ ($row["total"] + 1);
-		break;
-
-		default:
-		die("Unexpected metric");
-		break;
-	}
-
-	if($user == $userID){
-		$thisUsersScore = $value;
-	}
-
-	if($value == null){
-		$userAndScore[$user] = 0;
-	}
-	else {
-		$userAndScore[$user] = $value;
-	}		
-
-}
-}
 
 
 arsort($userAndScore);

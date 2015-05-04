@@ -632,6 +632,8 @@ function updateLeaderboard(){
             table = document.getElementById("score_table");
 
             obj = JSON.parse(xmlhttp.responseText);
+            console.log("This will be the obj")
+            console.log(obj);
 
 
             max = table.rows.length;
