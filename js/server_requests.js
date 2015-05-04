@@ -642,11 +642,41 @@ function trigger_notification() {
 
 function updateLeaderboard(){
 
+    languageSelect = document.getElementById("scoreLanguage");
+    scoreLanguage = languageSelect.selectedIndex;
+    gameSelect = document.getElementById("scoreGame");
+    scoreGame= gameSelect.selectedIndex;
+    timePeriodSelect = document.getElementById("scoretimePeriod");
+    scoretimePeriod = timePeriodSelect.selectedIndex;
+    metricSelect = document.getElementById("scoreMetric")
+    scoreMetric = metricSelect.selectedIndex;
 
-    scoreLanguage = document.getElementById("scoreLanguage").selectedIndex;
-    scoreGame = document.getElementById("scoreGame").selectedIndex;
-    scoretimePeriod = document.getElementById("scoretimePeriod").selectedIndex;
-    scoreMetric = document.getElementById("scoreMetric").selectedIndex;
+    whichSliderToChange = 0;
+
+    setInterval(function () {
+        var whatTochange = languageSelect;
+
+        switch(whichSliderToChange) {
+        case '0':
+            whatTochange = languageSelect;
+        break;
+        case '1':
+            whatTochange = gameSelect;
+        break;
+        case '2':
+            whatTochange = timePeriodSelect;
+        break;
+        case '3':
+            whatTochange = metricSelect;
+        break;
+        default:
+        break;        
+        }
+        whatTochange.selectedIndex += 1 % whatTochange.size;
+        whichSliderToChange= whichSliderToChange+=1 % 4;
+
+
+    }, 3000);
 
     //All languages, All Games
 
