@@ -6,7 +6,7 @@ include 'global.php';
 
 $userID = $_GET['userID'];
 $metric = $_GET['metric'];
-$mode = $_GET['mode'];
+$selectedMode = $_GET['mode'];
 $language = $_GET['language'];
 $timePeriod =  $_GET['period'];
 
@@ -121,9 +121,9 @@ $result[] = array("myScore"=>$thisUsersScore, "myRank"=> array_search($userID, $
 $jsonData = json_encode($result);
 echo $jsonData;
 
-function getTotalXForUserStatement($user, $x, $language, $selectedMode){
+function getTotalXForUserStatement($user, $x){
 	include 'global.php';
-	global $mode, $language;
+	global $selectedMode, $language; 
 
 
 
