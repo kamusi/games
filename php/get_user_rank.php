@@ -73,12 +73,13 @@ if($language == '0' && $mode == '0'){
 			$row = $result->fetch_assoc();
 			$tempScore = $row["total"];
 			$stmt->close();
-			$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "points"));
+			$stmt = $mysqli->prepare(getTotalXForUserStatement($user, "submissions"));
 			$stmt->execute();
 			$result = $stmt->get_result();
 			$row = $result->fetch_assoc();
 			$stmt->close();			
-			$value = $tempScore/ $row["total"];
+			$value = $tempScore/ $row["total"] + 1;
+			break;
 
 			default:
 			die("Unexpected metric");
