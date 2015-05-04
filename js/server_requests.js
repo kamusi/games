@@ -651,7 +651,7 @@ function updateLeaderboard(){
 
                 row.insertCell(2).innerHTML= obj[0][i];
              //   row.insertCell(3).innerHTML= obj[1][i];
-                row.insertCell(4).innerHTML= "Rank: " + (parseInt(i) + 1); //since index 0 is first rank
+                row.insertCell(3).innerHTML= "Rank: " + (parseInt(i) + 1); //since index 0 is first rank
              }
 
              if(obj[3].myRank > 5) {
