@@ -37,7 +37,14 @@ while ($row = $result->fetch_assoc()) {
 
 $stmt->close();
 
-//Points
+//delete outdated rows from the pointtime db
+$stmt = $mysqli->prepare("DELETE from pointtime WHERE ts < UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 1 DAY));");
+$stmt->execute();
+$stmt->close();
+
+			
+
+
 
 
 foreach ($users as $user) {
@@ -120,7 +127,8 @@ $jsonData = json_encode($result);
 echo $jsonData;
 
 function getTotalXForUserStatement($user, $x){
-	global $selectedMode, $language, $timePeriod, $acceptedModes; 
+	global $selectedMode, $language, $timePeriod, $acceptedModes;
+	//$accetpedModes impoted from global.php 
 
 	if($timePeriod == '1') {
 		$x.= "month";	
@@ -132,6 +140,7 @@ function getTotalXForUserStatement($user, $x){
 	$sql = "SELECT SUM(t.". $x .") AS total FROM ( ";
 
 		if($timePeriod == '3'){
+
 			if($language == '0' && $selectedMode == '0'){
 				$sql .= " SELECT ". $x ." FROM pointtime WHERE userid='".$user."' ";
 			}
