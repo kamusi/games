@@ -645,9 +645,9 @@ function updateLeaderboard(){
                var rowCount = table.rows.length;
                console.log("This is the rowCount: " + rowCount)
                var row = table.insertRow(rowCount);
-               console.log("UID : " + obj[1][i])
+               rowUserID=  obj[1][i]
                row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[1][i] + '/picture" onmousedown="isNewUser();">'        ;
-               row.insertCell(1).innerHTML= obj[2].obj[1][i];
+               row.insertCell(1).innerHTML= obj[2].rowUserID;
 
                row.insertCell(2).innerHTML= obj[0][i];
                row.insertCell(3).innerHTML= obj[1][i];
