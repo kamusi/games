@@ -631,7 +631,7 @@ function updateLeaderboard(){
             table = document.getElementById("score_table");
 
             obj = JSON.parse(xmlhttp.responseText);
-            console.log("uNBELiEVABLE: " obj[1][1])
+            console.log("uNBELiEVABLE: " + obj[1][1])
 
 
             max = table.rows.length;
