@@ -654,6 +654,19 @@ function updateLeaderboard(){
                 row.insertCell(4).innerHTML= "Rank: " + (parseInt(i) + 1); //since index 0 is first rank
              }
 
+             if(obj[3].myRank > 5) {
+                var rowCount = table.rows.length;
+                console.log("This is the rowCount: " + rowCount)
+                var row = table.insertRow(rowCount);
+                row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + userID + '/picture" onmousedown="isNewUser();">'        ;
+                row.insertCell(1).innerHTML= userName;
+
+                row.insertCell(2).innerHTML= obj[3].myScore;
+                row.insertCell(3).innerHTML= obj[3].myRank;
+                row.insertCell(4).innerHTML= "Rank: " + (parseInt(i) + 1); //since index 0 is first rank
+               
+             }
+
          }
      }
 
