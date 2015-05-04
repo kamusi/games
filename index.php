@@ -287,7 +287,7 @@ $newToken = generateToken();
 			</select>
 		</div>
 	</div>
-	<h1>Leader</h1>
+	<h1>Leaderboard</h1>
 
 	<div id="leader">
 		<table id="score_table">

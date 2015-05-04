@@ -1,5 +1,5 @@
 <!--Load and initialise the Facebook API. xfbml checks for active login-->
-userName = "???"
+userName = 10203265649994971
 function statusChangeCallback(response) {
   if (response.status === 'connected') {
    welcome();

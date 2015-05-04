@@ -125,8 +125,6 @@ function getTotalXForUserStatement($user, $x){
 	include 'global.php';
 	global $selectedMode, $language; 
 
-
-
 	$sql = "SELECT SUM(t.". $x .") AS total FROM ( ";
 			//rank over everything
 		if($language == '0' && $selectedMode == '0'){
