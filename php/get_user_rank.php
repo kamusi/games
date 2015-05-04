@@ -74,9 +74,12 @@ $orderedScores = array_values($userAndScore);
 $orderedUsers = array_keys($userAndScore);
 
 
-//$firstScores = array_slice($userAndScore, 0, 5);
+$firstFiveUsers = array_slice($orderedUsers, 0, 5);
 
-$firstFiveUsers= array_flip($userAndScore);
+if(! in_array($userID, $firstFiveUsers){
+	$orderedUsers[]= $userID;
+	$orderedScores[] = $userAndScore[$userID]
+}
 
 
 $result = array();
