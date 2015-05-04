@@ -632,7 +632,6 @@ function updateLeaderboard(){
             table = document.getElementById("score_table");
 
             obj = JSON.parse(xmlhttp.responseText);
-            console.log("uNBELiEVABLE: " + obj[1][1])
 
 
             max = table.rows.length;
@@ -645,7 +644,7 @@ function updateLeaderboard(){
                 var rowCount = table.rows.length;
                 console.log("This is the rowCount: " + rowCount)
                 var row = table.insertRow(rowCount);
-                rowUserID=  obj[1][i]
+                rowUserID=  obj[1][i] + "";
                 row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + rowUserID + '/picture" >'        ;
                 row.insertCell(1).innerHTML= obj[2][rowUserID];
 
