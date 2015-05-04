@@ -42,6 +42,12 @@ $stmt = $mysqli->prepare("DELETE from pointtime WHERE ts < UNIX_TIMESTAMP(DATE_S
 $stmt->execute();
 $stmt->close();
 
+//delete outdated rows from the submissionstime db
+$stmt = $mysqli->prepare("DELETE from submissiontime WHERE ts < UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 1 DAY));");
+$stmt->execute();
+$stmt->close();
+
+
 			
 
 
@@ -140,18 +146,24 @@ function getTotalXForUserStatement($user, $x){
 	$sql = "SELECT SUM(t.". $x .") AS total FROM ( ";
 
 		if($timePeriod == '3'){
+			if($x == "points"){
+				$x= "pointtime"
+			}
+			else {
+				$x= "submissiontime"
+			}
 
 			if($language == '0' && $selectedMode == '0'){
-				$sql .= " SELECT ". $x ." FROM pointtime WHERE userid='".$user."' ";
+				$sql .= " SELECT amount FROM ".$x." WHERE userid='".$user."' ";
 			}
 			else if( $language == '0') {
-				$sql .= " SELECT ". $x ." FROM pointtime WHERE userid='".$user."' AND game= " . $selectedMode ." ";
+				$sql .= " SELECT amount FROM ".$x." WHERE userid='".$user."' AND game= " . $selectedMode ." ";
 			}
 			else if ($selectedMode == '0') {
-				$sql .= " SELECT ". $x ." FROM pointtime WHERE userid='".$user."' AND language= " . $language ." ";
+				$sql .= " SELECT amount FROM ".$x." WHERE userid='".$user."' AND language= " . $language ." ";
 			}	
 			else {
-				$sql .= " SELECT ". $x ." FROM pointtime WHERE userid='".$user."' AND language= " . $language . " AND game= " . $selectedMode ." ";
+				$sql .= " SELECT amount FROM ".$x." WHERE userid='".$user."' AND language= " . $language . " AND game= " . $selectedMode ." ";
 			}	
 		}
 		else {
