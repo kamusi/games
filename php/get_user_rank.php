@@ -77,7 +77,7 @@ $orderedUsers = array_keys($userAndScore);
 $firstFiveUsers = array_slice($orderedUsers, 0, 5);
 $firstFiveScores = array_slice($orderedScores, 0, 5);
 
-if(! in_array($userID, $firstFiveUsers){
+if(! in_array($userID, $firstFiveUsers) ){
 	$firstFiveUsers[]= $userID;
 	$firstFiveScores[] = $userAndScore[$userID];
 }
