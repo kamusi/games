@@ -1,6 +1,6 @@
 <?php
 
-include_once 'global.php';
+include 'global.php';
 include 'notification.php';
 //include 'honeypot.php';
 
