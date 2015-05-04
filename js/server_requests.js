@@ -653,6 +653,9 @@ function updateLeaderboard(){
 
     var whichSliderToChange = 0;
 
+    var first = true;
+
+    if(first) {
     setInterval(function () {
         var whatTochange = languageSelect;
 
@@ -678,7 +681,9 @@ function updateLeaderboard(){
         console.log("INTERBVAAAAAAAAAAL" + whichSliderToChange)
 
 
-    }, 3000);
+    }, 5000);
+    first= false;
+}
 
     //All languages, All Games
 
