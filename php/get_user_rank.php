@@ -130,39 +130,59 @@ function getTotalXForUserStatement($user, $x){
 	}
 
 	$sql = "SELECT SUM(t.". $x .") AS total FROM ( ";
-			//rank of everything
-		if($language == '0' && $selectedMode == '0'){
-			$first=TRUE;
-			foreach ($acceptedModes as $mode) {
-				if($first == TRUE){
-					$first=FALSE;
-				}
-				else {
-					$sql .=" UNION ALL ";
-				}
-				$sql .= " SELECT ". $x ." FROM game".$mode." WHERE userid='".$user."' ";
+
+		if($timePeriod == '3'){
+			if($language == '0' && $selectedMode == '0'){
+				$sql .= " SELECT ". $x ." FROM pointtime WHERE userid='".$user."' ";
+
 			}
-		}
-		else if($selectedMode == '0'){
-			$first=TRUE;
-			foreach ($acceptedModes as $mode) {
-				if($first == TRUE){
-					$first=FALSE;
-				}
-				else {
-					$sql .=" UNION ALL ";
-				}
-				$sql .= " SELECT ". $x ." FROM game".$mode." WHERE userid='".$user."' AND language=" . $language . " ";
-			}			
-		}
-		else if( $language == '0') {
-			$sql .= " SELECT ". $x ." FROM game".$selectedMode." WHERE userid='".$user."' ";
+			else if( $language == '0') {
+				$sql .= " SELECT ". $x ." FROM pointtime WHERE userid='".$user."' AND game= " . $mode ." ";
+			}
+			else if ($selectedMode == '0') {
+				$sql .= " SELECT ". $x ." FROM pointtime WHERE userid='".$user."' AND language= " . $language ." ";
+			}	
+			else {
+				$sql .= " SELECT ". $x ." FROM pointtime WHERE userid='".$user."' AND language= " . $language . " AND game= " . $mode ." ";
+			}	
 		}
 		else {
-			$sql .= " SELECT ". $x ." FROM game".$selectedMode." WHERE userid='".$user."' AND language=" . $language . " ";
 
+			//rank of everything
+			if($language == '0' && $selectedMode == '0'){
+				$first=TRUE;
+				foreach ($acceptedModes as $mode) {
+					if($first == TRUE){
+						$first=FALSE;
+					}
+					else {
+						$sql .=" UNION ALL ";
+					}
+					$sql .= " SELECT ". $x ." FROM game".$mode." WHERE userid='".$user."' ";
+				}
+			}
+			else if($selectedMode == '0'){
+				$first=TRUE;
+				foreach ($acceptedModes as $mode) {
+					if($first == TRUE){
+						$first=FALSE;
+					}
+					else {
+						$sql .=" UNION ALL ";
+					}
+					$sql .= " SELECT ". $x ." FROM game".$mode." WHERE userid='".$user."' AND language=" . $language . " ";
+				}			
+			}
+			else if( $language == '0') {
+				$sql .= " SELECT ". $x ." FROM game".$selectedMode." WHERE userid='".$user."' ";
+			}
+			else {
+				$sql .= " SELECT ". $x ." FROM game".$selectedMode." WHERE userid='".$user."' AND language=" . $language . " ";
+
+			}
 		}
-		$sql .= " ) t;";
+		
+	$sql .= " ) t;";
 return $sql;
 }
 
