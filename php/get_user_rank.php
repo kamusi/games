@@ -40,32 +40,66 @@ while ($row = $result->fetch_assoc()) {
 $stmt->close();
 
 //Points
-if($metric == '0'){
+
 
 	//rank over everything
-	if($language == '0' && $mode == '0'){
+if($language == '0' && $mode == '0'){
 
-		foreach ($users as $user) {
-			$stmt = $mysqli->prepare(getTotalPointsForUserStatement($user));
+	foreach ($users as $user) {
+		$value;
+		switch ($metric) {
+			case '0':
+			$stmt = $mysqli->prepare(getTotalPointsForUserStatement($user, "points"));
 			$stmt->execute();
 			$result = $stmt->get_result();
 			$row = $result->fetch_assoc();
-			$value = $row["totalpoints"];
+			$value = $row["total"];
+			$stmt->close();
+			break;
 
-			if($user == $userID){
-				$thisUsersScore = $value;
-			}
+			case '1':
+			$stmt = $mysqli->prepare(getTotalPointsForUserStatement($user, "submissions"));
+			$stmt->execute();
+			$result = $stmt->get_result();
+			$row = $result->fetch_assoc();
+			$value = $row["total"];
+			$stmt->close();
+			break;
+			
+			case '2':
+			$stmt = $mysqli->prepare(getTotalPointsForUserStatement($user, "points"));
+			$stmt->execute();
+			$result = $stmt->get_result();
+			$row = $result->fetch_assoc();
+			$tempScore = $row["total"];
+			$stmt->close();
+			$stmt = $mysqli->prepare(getTotalPointsForUserStatement($user, "points"));
+			$stmt->execute();
+			$result = $stmt->get_result();
+			$row = $result->fetch_assoc();
+			$stmt->close();			
+			$value = $tempScore/ $row["total"];
 
-			if($value == null){
-				$userAndScore[$user] = 0;
-			}
-			else {
-				$userAndScore[$user] = $value;
-			}
-			$stmt->close();		
+			default:
+			die("Unexpected metric")
+			break;
 		}
+
+		if($user == $userID){
+			$thisUsersScore = $value;
+		}
+
+		if($value == null){
+			$userAndScore[$user] = 0;
+		}
+		else {
+			$userAndScore[$user] = $value;
+		}
+			
+
 	}
 }
+
 
 
 arsort($userAndScore);
@@ -87,26 +121,25 @@ $result[] = array("myScore"=>$thisUsersScore, "myRank"=> array_search($userID, $
 $jsonData = json_encode($result);
 echo $jsonData;
 
-function getTotalPointsForUserStatement($user){
+function getTotalXForUserStatement($user, $x){
 	include 'global.php';
 
-	$sql = "SELECT SUM(t.points) AS totalpoints FROM ( ";
-	$first=TRUE;
-	foreach ($acceptedModes as $mode) {
-		if($first == TRUE){
-			$first=FALSE;
+	$sql = "SELECT SUM(t.". $x .") AS total FROM ( ";
+		$first=TRUE;
+		foreach ($acceptedModes as $mode) {
+			if($first == TRUE){
+				$first=FALSE;
+			}
+			else {
+				$sql .=" UNION ALL ";
+			}
+			$sql .= " SELECT ". $x ." FROM game".$mode." WHERE userid='".$user."' ";
 		}
-		else {
-			$sql .=" UNION ALL ";
-		}
-		$sql .= " SELECT points FROM game".$mode." WHERE userid='".$user."' ";
-	}
 
-	$sql .= " ) t;";
+		$sql .= " ) t;";
 
-//echo "\n " . $sql;
 
-	return $sql;
+return $sql;
 }
 
 ?>

@@ -662,7 +662,7 @@ function updateLeaderboard(){
                 row.insertCell(1).innerHTML= userName;
 
                 row.insertCell(2).innerHTML= obj[3].myScore;
-                row.insertCell(3).innerHTML= obj[3].myRank;
+                row.insertCell(3).innerHTML= "Rank: " + obj[3].myRank;
                 
              }
 
