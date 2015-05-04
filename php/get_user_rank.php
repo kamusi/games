@@ -120,7 +120,7 @@ $jsonData = json_encode($result);
 echo $jsonData;
 
 function getTotalXForUserStatement($user, $x){
-	global $selectedMode, $language, $timePeriod; 
+	global $selectedMode, $language, $timePeriod, $acceptedModes; 
 
 	if($timePeriod == '1') {
 		$x.= "month";	
