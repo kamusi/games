@@ -653,7 +653,7 @@ function updateLeaderboard(){
 
     var whichSliderToChange = 0;
 
-    var first = true;
+    var first = false;
 
     if(first) {
     setInterval(function () {
@@ -677,7 +677,7 @@ function updateLeaderboard(){
         }
         whatTochange.selectedIndex += 1// % whatTochange.size;
         whichSliderToChange= whichSliderToChange+=1 //% 4;
-        whatTochange.onchange();
+        //whatTochange.onchange();
         console.log("INTERBVAAAAAAAAAAL" + whichSliderToChange)
 
 
