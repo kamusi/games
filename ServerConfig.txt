@@ -95,6 +95,10 @@ include the global.php file in the autoprepend part of php.ini
 
 sudo chmod -R a+rw /var/www/tempText
 
+Settings for the taito server in order to get access to the swahili databse for the game
+Passwordless connection : 
+http://www.rebol.com/docs/ssh-auto-login.html
+
 
 
 
