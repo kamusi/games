@@ -41,8 +41,8 @@ getNextFile () {
 			#Do stuff
 			#Find the line where lemma occurs
 
-			currentFile=$(getNextFile no.txt)
-			relevantLines=$(findOccurances $currentFile "lemma=\"$word\"" 5)
+			
+			relevantLines=$(findOccurances $file "lemma=\"$word\"" 5)
 
 			#Get all occurences of words related to this lema in this document
 			allwords=$(echo "$relevantLines" | getWords)
@@ -61,7 +61,8 @@ getNextFile () {
 			echo "Whole Text: "$documentText 	
 
 			echo "$file"
-			#TODO if not found enough sentences go to next one
+			#if length of sentences > 5 break else continue in loop
+			#tomorrow morning : play with bash arays
 			break;
 
  		fi
