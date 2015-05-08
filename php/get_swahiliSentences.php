@@ -5,7 +5,8 @@ $keyword = $_GET['keyword'];
 $amount = $_GET['amount'];
 
 
-$output = shell_exec("ssh taito 'bash -s' < getDataForWord.sh" . $keyword . " " . $amount);
+#$output = shell_exec("ssh taito 'bash -s' < ../getDataForWord.sh" . $keyword . " " . $amount);
+$output = shell_exec("../getDataForWord.sh" . $keyword . " " . $amount);
 
 echo($output);
 
