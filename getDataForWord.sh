@@ -24,7 +24,7 @@ verbose2 () {
 #getting it from stdin
 getWords() {	
 	#remove strange artifacts and then extract words, finally display it all in one line
-	sed  's:&amp;quot;::g' | sed -n 's:.*<w.*>\(.*\)</w>.*:\1:p'
+	sed  's:&amp;quot;::g' | sed -n 's:.*<w.*>\(.*\)</w>.*:\1:p' 
 }
 
 #Returns the sentence in which the given word occurs
@@ -32,8 +32,9 @@ getWords() {
 #A Sentence is defined by everything between two points, ? or !.
 #Failures will occur with things like "This is Dr.Who"
 getSentence() {
-#	sed "s/.*\.\([^.]*$1[^.]*\.\).*/\1/"
-sed "s/.*[.?!]\([^.]*$1[^.?!]*[.?!]\).*/\1/"
+	sed -n "s/\(.*\.\|^\)\([^.]*$1[^.]*\.\).*/\2/p"
+#sed -n "s/.*[.?!]\([^.]*$1[^.?!]*[.?!]\).*/\1/p"
+#sed  "s/.*[.?!]\([^.]*$1[^.?!]*[.?!]\).*/\1/"
 }
 
 findOccurances() {
@@ -59,21 +60,20 @@ documentText=$(cat "$file" | getWords)
 for word in $allwords; do
 	((numberOfSentencesFound++))
 	verbose2 "$word:"
-	newSentence=$(echo $documentText | getSentence "$word")
-	sentences+=("$newSentence") #FIRST SENTENCE EMPTY; WHY?
-	verbose2 "NEWSENTENCE$newSentence"
-	#$documentText=`echo "$documentText" | sed -r "s/$newSentence//"`
+	newSentence=$(printDocument | getSentence "$word")
+	sentences+=("$newSentence")
+	documentText=`printDocument | sed "s/$newSentence//"`
 	sentences+=("<DELIMITER>")
 
 done
 
 #echo $sentences
- 
-#verbose2 "Whole Text: $documentText"	
+#echo "The document was: " 
+#printDocument
+}
 
-verbose "Found That many sentences: $numberOfSentencesFound"
-#if length of sentences > 5 break else continue in loop
-
+printDocument () {
+	echo $documentText | sed 's/\n/ /'
 }
 
 #http://stackoverflow.com/questions/1063347/passing-arrays-as-parameters-in-bash
@@ -95,7 +95,7 @@ getNextFile () {
 	blacklist=("${!1}")
 
 	for file in *; do
-		if [ $numberOfSentencesFound -gt 0 ]; then
+		if [ $numberOfSentencesFound -gt 4 ]; then
 				break
 		fi
 		if containsElement blacklist[@] $file ; then
@@ -107,7 +107,7 @@ getNextFile () {
 			#Adding a folder to blacklist if we exit it without having finished
 
 			getNextFile blacklist[@]
-			blacklist+=($file)
+			blacklist+=("$file")
 
 			cd ..
 
@@ -115,7 +115,7 @@ getNextFile () {
 			verbose "Doing stuff with file: $file"
 			findAllSentencesInFile "$file"
 
-			blacklist+=($file)
+			blacklist+=("$file")
  		fi
 	done
 	verbose "Everything on blacklist End:"
@@ -144,7 +144,12 @@ cd '/appl/kielipankki/hcs/articles/'
 getNextFile blacklist[@]
 echo "<SENTENCES>"
 printArray2 sentences[@]
+echo "</SENTENCES>"
 echo
 echo "<BLACKLIST>"
 printArray blacklist[@]
+echo "</BLACKLIST>"
+verbose2 "Found That many sentences: $numberOfSentencesFound"
+
+
 
