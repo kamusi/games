@@ -1,7 +1,7 @@
 #!/bin/bash
-echo "BEGINNNING"
+echo
 word="$1"
-amount ="$2"
+amount="$2"
 sentences=()
 numberOfSentencesFound=0
 blacklist=()
@@ -96,7 +96,7 @@ getNextFile () {
 	blacklist=("${!1}")
 
 	for file in *; do
-		if [ $numberOfSentencesFound -ge $amount ]; then
+		if [[ $numberOfSentencesFound -ge $amount ]];  then
 				break
 		fi
 		if containsElement blacklist[@] $file ; then
