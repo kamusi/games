@@ -116,7 +116,7 @@ function getRankedForSwahili() {
                document.getElementById("transEnglish4").innerHTML = "Some English translation";
                document.getElementById("defSwahili4").innerHTML = "Some Swahili definition";
 
-               queryHelsinkiDBForSentences("kamusi")
+               queryHelsinkiDBForSentences("kamusi", 5)
 
             }
     }
@@ -126,7 +126,7 @@ xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
  xmlhttp.send();
 }
 
-function queryHelsinkiDBForSentences(keyword){
+function queryHelsinkiDBForSentences(keyword, amount){
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
