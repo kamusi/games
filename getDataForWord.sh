@@ -1,6 +1,7 @@
 #!/bin/bash
 
 word="$1"
+amount ="$2"
 sentences=()
 numberOfSentencesFound=0
 blacklist=()
@@ -95,7 +96,7 @@ getNextFile () {
 	blacklist=("${!1}")
 
 	for file in *; do
-		if [ $numberOfSentencesFound -gt 4 ]; then
+		if [ $numberOfSentencesFound -ge $amount ]; then
 				break
 		fi
 		if containsElement blacklist[@] $file ; then
@@ -104,10 +105,13 @@ getNextFile () {
 			verbose "$file is a directory"
 			cd "$file"
 
-			#Adding a folder to blacklist if we exit it without having finished
 
 			getNextFile blacklist[@]
-			blacklist+=("$file")
+	
+			#Adding a folder to blacklist if we exit it without having finished
+			if [ $numberOfSentencesFound -lt $amount ]; then
+				blacklist+=("$file")
+			fi
 
 			cd ..
 

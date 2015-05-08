@@ -1,5 +1,5 @@
 
-var userID = "10203265649994971";
+var userID = "10203265649994971"; //so that it works offline
 var wordID;
 var word;
 var definitionID;
@@ -116,12 +116,32 @@ function getRankedForSwahili() {
                document.getElementById("transEnglish4").innerHTML = "Some English translation";
                document.getElementById("defSwahili4").innerHTML = "Some Swahili definition";
 
+               queryHelsinkiDBForSentences("kamusi")
+
             }
     }
 
 xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
 
  xmlhttp.send();
+}
+
+function queryHelsinkiDBForSentences(keyword){
+    var xmlhttp;
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            //alert(xmlhttp.responseText);
+            console.log(xmlhttp.responseText)
+        }
+    }
+    xmlhttp.open("GET","php/get_swahiliSentences.php?keyword=" + keyword + "&amount=" + amount, true);
+    xmlhttp.send();  
 }
 
 function get_tweets(alreadyDisplayed) {
