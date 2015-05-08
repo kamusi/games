@@ -1,5 +1,5 @@
 #!/bin/bash
-
+echo "BEGINNNING"
 word="$1"
 amount ="$2"
 sentences=()
