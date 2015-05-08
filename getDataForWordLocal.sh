@@ -5,76 +5,27 @@
 #
 #
 
-word="$1"
-
 verbose=yes
-
-
+verbose2=yes
 verbose () {	
-if [ $verbose = yes ]; then
-	echo "$1"
-fi
+	if [ $verbose = yes ]; then
+		echo "$1"
+	fi
 }
-
-debug=yes
 
 debug () {	
-if [ $debug = yes ]; then
-	echo "$1"
-fi
+	if [ $verbose2 = yes ]; then
+		echo "$1"
+	fi
 }
 
-sentences=()
-alreadyencoutered=()
 
-getNextFile () {
-
-	for file in *; do
-
-		if [$file in $1]; then
-			verbose "Ignoring $file"
-		elif [ -d $file ]; then
-			cd "$file"
-			getNextFile $1
-			$1+=$file
-		else
-			#Do stuff
-			#Find the line where lemma occurs
-
-			
-			relevantLines=$(findOccurances $file "lemma=\"$word\"" 5)
-
-			#Get all occurences of words related to this lema in this document
-			allwords=$(echo "$relevantLines" | getWords)
-
-			#echo "$currentFile"
-
-			documentText=$(cat $currentFile | getWords)
-
-			for word in $allwords; do
-				echo "$word: "
-				sentences+=$(echo $documentText | getSentence $word)
-			done
-
-			echo $sentences
-			echo 
-			echo "Whole Text: "$documentText 	
-
-			echo "$file"
-			#if length of sentences > 5 break else continue in loop
-			#tomorrow morning : play with bash arays
-			break;
-
- 		fi
-	done	
-
-}
 
 findOccurances() {
 #Usage : findOccurances file word numberOfOccurances
 
-#	debug "Input: sss$1 $2 $3"
-#	verbose "Entering f2"
+	debug "Input: sss$1 $2 $3"
+	verbose "Entering f2"
 occurances=`grep -n -m $3 "$2" "$1"`
 echo "$occurances"
 }
@@ -92,16 +43,47 @@ getWords() {
 #Failures will occur with things like "This is Dr.Who"
 getSentence() {
 #	sed "s/.*\.\([^.]*$1[^.]*\.\).*/\1/"
-sed "s/.*[.?!]\([^.]*$1[^.?!]*[.?!]\).*/\1/"
+sed -n "s/.*[.?!]\([^.]*$1[^.?!]*[.?!]\).*/\1/p"
+}
+
+numberOfSentencesFound=0
+word="$1"
+sentences=()
+
+
+
+
+findAllSentencesInFile() {
+file="$1"
+
+relevantLines=$(findOccurances $file "lemma=\"$word\"" 5)
+
+#Get all occurences of words related to this lema in this document
+allwords=$(echo "$relevantLines" | getWords)
+
+#echo "$currentFile"
+
+documentText=$(cat $file | getWords)
+
+for word in $allwords; do
+	((numberOfSentencesFound++))
+	echo "$word: "
+	sentences+=$(echo $documentText | getSentence $word)
+done
+
+echo $sentences
+ 
+verbose "Whole Text: $documentText"	
+
+verbose "Found That many sentences: $numberOfSentencesFound"
+#if length of sentences > 5 break else continue in loop
+
 }
 
 
-cd shellParser/
-
-#getWord la.xml 
-
-
-
+cd shellParser
+echo start
+findAllSentencesInFile la.xml
 
 
 
