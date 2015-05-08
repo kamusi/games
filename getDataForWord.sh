@@ -33,7 +33,7 @@ getWords() {
 #Failures will occur with things like "This is Dr.Who"
 getSentence() {
 #	sed "s/.*\.\([^.]*$1[^.]*\.\).*/\1/"
-sed -n "s/.*[.?!]\([^.]*$1[^.?!]*[.?!]\).*/BEGINSENTENCE\1ENDSENTENCE/p"
+sed "s/.*[.?!]\([^.]*$1[^.?!]*[.?!]\).*/\1/"
 }
 
 findOccurances() {
@@ -51,17 +51,18 @@ relevantLines=$(findOccurances $file "lemma=\"$word\"" 5)
 #Get all occurences of words related to this lema in this document
 allwords=$(echo "$relevantLines" | getWords)
 
+
 #1) Allwyas getting same sentence 2)Coutnign 4 words getting 3 sentences
-documentText=$(cat $file | getWords)
-documentText= $(echo "$documentText" | sed 's/\n/ /g')
+documentText=$(cat "$file" | getWords)
+#echo "$documentText" | sed 's/\n/ /g'
 
 for word in $allwords; do
 	((numberOfSentencesFound++))
 	verbose2 "$word:"
-	newSentence=$(echo "$documentText" | getSentence "$word")
+	newSentence=$(echo $documentText | getSentence "$word")
 	sentences+=("$newSentence") #FIRST SENTENCE EMPTY; WHY?
 	verbose2 "NEWSENTENCE$newSentence"
-	$documentText=`echo "$documentText" | sed -r "s/$newSentence//"`
+	#$documentText=`echo "$documentText" | sed -r "s/$newSentence//"`
 	sentences+=("<DELIMITER>")
 
 done
@@ -94,7 +95,7 @@ getNextFile () {
 	blacklist=("${!1}")
 
 	for file in *; do
-		if [ $numberOfSentencesFound -gt 2 ]; then
+		if [ $numberOfSentencesFound -gt 0 ]; then
 				break
 		fi
 		if containsElement blacklist[@] $file ; then
@@ -138,12 +139,12 @@ printArray2() {
 }
 
 cd '/appl/kielipankki/hcs/articles/'
+#cd 'shellParser'
 
-getNextFile array[@]
+getNextFile blacklist[@]
 echo "<SENTENCES>"
 printArray2 sentences[@]
 echo
-echo $"<BLACKLIST>"
+echo "<BLACKLIST>"
 printArray blacklist[@]
 
-verbose2 "$documentText"

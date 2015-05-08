@@ -5,8 +5,8 @@
 #
 #
 
-verbose=yes
-verbose2=yes
+verbose=no
+verbose2=no
 verbose () {	
 	if [ $verbose = yes ]; then
 		echo "$1"
@@ -57,6 +57,10 @@ findAllSentencesInFile() {
 file="$1"
 
 relevantLines=$(findOccurances $file "lemma=\"$word\"" 5)
+
+for line in "$relevantLines" ;do
+ echo "LNIES: $line"
+done
 
 #Get all occurences of words related to this lema in this document
 allwords=$(echo "$relevantLines" | getWords)
