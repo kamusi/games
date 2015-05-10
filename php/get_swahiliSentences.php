@@ -13,9 +13,7 @@ if (!$ssh->login('babst', 'Jsts8472')) {
     exit('Login Failed');
 }
 
-echo $ssh->exec('pwd');
-echo $ssh->exec('ls -la');
-
+echo $ssh->exec('getDataForWord.sh ' . $keyword . " " . $amount . " 2>&1");
 
 
 /*
@@ -25,6 +23,5 @@ $output = shell_exec('cd .. ; echo $USER ; ssh -i /var/www/.ssh/taitoApache.rsa 
 #$output = shell_exec("cd .. ; pwd;  bash getDataForWord.sh kamusi 5 2>&1");# . $keyword . " " . $amount);
 #$output = shell_exec('echo blabla; groups $USER; echo $USER');
 */
-echo($output);
 
 ?>

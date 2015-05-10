@@ -100,8 +100,8 @@ Passwordless connection :
 http://www.rebol.com/docs/ssh-auto-login.html
 
 
-
-
+copy local taito script to taitoserver
+scp -i -i /home/timo/.ssh/taito.rsa getDataForWord.sh babst@taito.csc.fi
 
 
 
