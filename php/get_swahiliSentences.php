@@ -6,7 +6,7 @@ $amount = $_GET['amount'];
 
 echo "PATH : ". get_include_path();
 set_include_path(get_include_path() . get_include_path().'/phpseclib');
-include('Net/SSH2.php');
+include('/usr/share/pear/Net/SSH2.php');
 
 $ssh = new Net_SSH2('taito.csc.fi');
 if (!$ssh->login('babst', 'Jsts8472')) {
