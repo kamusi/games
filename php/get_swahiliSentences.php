@@ -4,7 +4,7 @@ ini_set('display_errors', 'On');
 $keyword = $_GET['keyword'];
 $amount = $_GET['amount'];
 
-
+echo "PATH : ". get_include_path()
 set_include_path(get_include_path() . get_include_path().'/phpseclib');
 include('Net/SSH2.php');
 
