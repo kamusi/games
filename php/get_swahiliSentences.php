@@ -13,7 +13,7 @@ if (!$ssh->login('babst', 'Jsts8472')) {
     exit('Login Failed');
 }
 
-echo $ssh->exec('getDataForWord.sh ' . $keyword . " " . $amount . " 2>&1");
+echo $ssh->exec('./getDataForWord.sh ' . $keyword . " " . $amount . " 2>&1");
 
 
 /*
