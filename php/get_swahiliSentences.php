@@ -25,6 +25,6 @@ $output = shell_exec('cd .. ; echo $USER ; ssh -i /home/ec2-user/.ssh/taitoApach
 #$output = shell_exec("cd .. ; pwd;  bash getDataForWord.sh kamusi 5 2>&1");# . $keyword . " " . $amount);
 #$output = shell_exec('echo blabla; groups $USER; echo $USER');
 
-#echo($output);
+echo($output);
 
 ?>
