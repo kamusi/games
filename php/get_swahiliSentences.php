@@ -4,11 +4,24 @@ ini_set('display_errors', 'On');
 $keyword = $_GET['keyword'];
 $amount = $_GET['amount'];
 
+set_include_path(get_include_path() . get_include_path().'/phpseclib');
+include('Net/SSH2.php');
 
-#$output = shell_exec("ssh taito 'bash -s' < ../getDataForWord.sh" . $keyword . " " . $amount);
-$output = shell_exec("cd..; ./getDataForWord.sh kamusi 5 2>&1");# . $keyword . " " . $amount);
-#$output = shell_exec("cd ..; cat getDataForWord.sh");
+$ssh = new Net_SSH2('taito.csc.fi');
+if (!$ssh->login('babst', 'Jsts8472')) {
+    exit('Login Failed');
+}
 
-echo($output);
+echo $ssh->exec('pwd');
+echo $ssh->exec('ls -la');
+
+
+
+
+#$output = shell_exec('cd .. ; echo $USER ; ssh -i /home/timo/.ssh/taitoApache.rsa babst@taito.csc.fi  \'bash -s\' < getDataForWord.sh ' . $keyword . " " . $amount . " 2>&1");
+#$output = shell_exec("cd .. ; pwd;  bash getDataForWord.sh kamusi 5 2>&1");# . $keyword . " " . $amount);
+#$output = shell_exec('echo blabla; groups $USER; echo $USER');
+
+#echo($output);
 
 ?>
