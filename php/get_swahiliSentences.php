@@ -5,8 +5,8 @@ $keyword = $_GET['keyword'];
 $amount = $_GET['amount'];
 
 echo "PATH : ". get_include_path();
-#set_include_path(get_include_path() . get_include_path().'/phpseclib');
-include('/usr/share/pear/phpseclib/phpseclib/Net/SSH2.php');
+set_include_path('/usr/share/pear/phpseclib/phpseclib');
+include('Net/SSH2.php');
 
 $ssh = new Net_SSH2('taito.csc.fi');
 if (!$ssh->login('babst', 'Jsts8472')) {
