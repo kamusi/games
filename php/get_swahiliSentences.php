@@ -56,8 +56,16 @@ $positionOfBeginSentenceDelimiter=strpos($result, $beginSentenceDelimiter) + str
 
 $sentences = substr($result, $positionOfBeginSentenceDelimiter, strpos($result, $endSentenceDelimiter) - $positionOfBeginSentenceDelimiter);
 $sentencesArray= explode("\n", $sentences);
-var_dump($sentencesArray);
 
+
+$results_array= array();
+
+foreach ($sentencesArray as $sentence ) {
+	if(!ctype_space($sentence)){
+		$results_array.=$sentence;
+	}
+}
+var_dump($results_array);
 echo $result;
 /*
 #$output = shell_exec('cd .. ; echo $USER ; ssh -i /home/ec2-user/.ssh/taitoApache.rsa babst@taito.csc.fi  \'bash -s\' < getDataForWord.sh ' . $keyword . " " . $amount . " 2>&1");
