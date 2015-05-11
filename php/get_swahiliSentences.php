@@ -62,7 +62,7 @@ $results_array= array();
 
 foreach ($sentencesArray as $sentence ) {
 	if(!ctype_space($sentence)){
-		$results_array.=$sentence;
+		$results_array[]=$sentence;
 	}
 }
 var_dump($results_array);
