@@ -12,8 +12,10 @@ include('Net/SSH2.php');
 
 $sql= "SELECT pointer FROM game4pointer WHERE lemma = ?;";
 $stmt = $mysqli->prepare($sql);
+$stmt->bind_param("s", $keyword);
 $stmt->execute();
 $result = $stmt->get_result();
+$stmt->close();
 if($result){
 	$results_array = $result->fetch_assoc();
 
@@ -21,8 +23,13 @@ if($result){
 }
 else {
 	$pointer= "";
+	$sql= "INSERT INTO game4pointer (lemma, pointer ) VALUES (?,?));";
+	$stmt = $mysqli->prepare($sql);
+	$stmt->bind_param("ss", $keyword, $pointer);
+	$stmt->execute();
+	$stmt->close();
 }
-$stmt->close();
+
 
 var_dump($pointer);
 echo $pointer;
@@ -32,9 +39,18 @@ if (!$ssh->login('babst', 'Jsts8472')) {
 	exit('Login Failed');
 }
 
-echo $ssh->exec('./getDataForWord.sh ' . $keyword . " " . $amount . " " . $pointer . "  2>&1");
+$result=$ssh->exec('./getDataForWord.sh ' . $keyword . " " . $amount . " " . $pointer . "  2>&1");
 
+//Get the new pointer and store it in the DB
+$pointer= substr($result, strpos($result0, "NEXTPOINTER:"));
 
+$sql= "UPDATE game4pointer SET pointer= ? WHERE lemma = ?;";
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("ss", $pointer, $keyword);
+$stmt->execute();
+$stmt->close();
+
+echo $result;
 /*
 #$output = shell_exec('cd .. ; echo $USER ; ssh -i /home/ec2-user/.ssh/taitoApache.rsa babst@taito.csc.fi  \'bash -s\' < getDataForWord.sh ' . $keyword . " " . $amount . " 2>&1");
 $output = shell_exec('cd .. ; echo $USER ; ssh -i /var/www/.ssh/taitoApache.rsa babst@taito.csc.fi echo bouyeah ls 2>&1');

@@ -7,8 +7,8 @@ sentences=()
 numberOfSentencesFound=0
 
 
-verbose=yes
-verbose2=yes
+verbose=no
+verbose2=no
 verbose () {	
 	if [ $verbose = yes ]; then
 		echo "$1"
@@ -186,7 +186,6 @@ echo "</SENTENCES>"
 echo
 
 verbose2 "Found That many sentences: $numberOfSentencesFound"
-echo "NEXTPOINTER: "
-echo "$pointer"
+echo "NEXTPOINTER:$pointer"
 
 
