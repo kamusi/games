@@ -16,7 +16,7 @@ $stmt->bind_param("s", $keyword);
 $stmt->execute();
 $result = $stmt->get_result();
 
-if($result!=NULL){
+if(!empty($result)){
 	$results_array = $result->fetch_assoc();
 
 	$pointer = $results_array['pointer'];
