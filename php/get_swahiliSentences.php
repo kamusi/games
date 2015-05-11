@@ -31,7 +31,7 @@ if(empty($pointer)) {
 	echo "C EST DONC VIDE?";
 	$stmt->close();
 	$pointer= "";
-	$sql= "INSERT INTO game4pointer (lemma, pointer ) VALUES (?,?));";
+	$sql= "INSERT INTO game4pointer (lemma, pointer ) VALUES (?,?);";
 	$stmt = $mysqli->prepare($sql);
 	$stmt->bind_param("ss", $keyword, $pointer);
 	$stmt->execute();
