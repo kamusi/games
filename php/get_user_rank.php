@@ -126,7 +126,7 @@ $result[] = $userNameByUserID;
 //TODO only send the entries that are needed, we are sending them all!
 
 $userRank =  array_search($userID, $orderedUsers)+1;
- 
+
 $result[] = array("id"=> $userID, "score"=>$thisUsersScore, "rank"=> $userRank);
 
 if($userRank > 3) {
@@ -142,12 +142,12 @@ if($userRank > 3) {
 		$scoreFromGuyAfterMe= $orderedScores[$rankFromGuyAfterMe -1];
 		$result[] = array("id" => $idOfGuyAfterMe, "score"=>$scoreFromGuyAfterMe, "rank"=> $rankFromGuyAfterMe );
 	}
-	else {
-		$result[] = array("id" => "NOPE");
-		$result[] = array("id" => "NOPE");
-		$result[] = array("id" => "NOPE");
-	}
+
 }
+
+$result[] = array("id" => "NOPE");
+$result[] = array("id" => "NOPE");
+$result[] = array("id" => "NOPE");
 
 //$result[] = array("myScore"=>$thisUsersScore, "myRank"=> array_search($userID, $orderedUsers)+1 );
 

@@ -802,8 +802,8 @@ function updateLeaderboard(){
             if(obj[3].rank > 3) {
             	addScoreEntry(3,table)  
             }
+            	
 
-            
             if( obj[5].id != "NOPE" ) {
             	addScoreEntry(5,table) 
             }
