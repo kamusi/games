@@ -1,5 +1,5 @@
 #!/bin/bash
-echo
+
 word="$1"
 amount="$2"
 pointer="$3" 
@@ -29,17 +29,18 @@ readBlacklist() {
 
 compareToPointer(){
 	#Empty pointer : no constraints
-	if [[ $1 -eq "" ]]; then
+	if [[ "$1" == "" ]]; then
 		return 0
 	fi
 		
 		#first word of pointer must be lower or equal: so that we can enter directories
 	if [ -d "$1" ]; then
 		res=`echo "$pointer" | sed -n 's/\([^_]\)_.*/\1/p'`
-		echo $res
-		if [[ "$1" > "$res" ]] || [[ "$1" -eq "$res" ]]; then
+		if [[ "$1" > "$res" ]] || [[ "$1" == "$res" ]]; then
+			echo "PROBLEM"
 			return 0
 		else
+			echo "ERTIJERFJ"
 			return 1
 		fi
 	else
@@ -130,32 +131,24 @@ getNextFile () {
 		if [[ $numberOfSentencesFound -ge $amount ]];  then
 				break
 		fi
-		if ! compareToPointer $file ; then
+		if ! compareToPointer "$file" ; then
 			verbose "Ignoring $file"
 		elif [ -d "$file" ]; then
 			verbose "$file is a directory"
 			cd "$file"
 
-
 			getNextFile
 	
-			#Adding a folder to blacklist if we exit it without having finished
-			#if [ $numberOfSentencesFound -lt $amount ]; then
-			#	blacklist+=("$file")
-			#fi
-
 			cd ..
 
 		else
 			verbose "Doing stuff with file: $file"
 			findAllSentencesInFile "$file"
 
-			#blacklist+=("$file")
 			pointer="$file"
  		fi
 	done
-	verbose "Everything on blacklist End:"
-	verbose "${blacklist[*]}"
+
 }
 
 printArray() {
@@ -182,34 +175,18 @@ printArray2() {
 		#echo "DELIMITER"
 	done
 }
-#implement better blackist : just rememebr the pointer and compare to previosu position
-
-
-
-#readBlacklist
-#echo "debut"
-#printArray blacklist[@]
-#echo "endDebut"
 
 cd '/appl/kielipankki/hcs/articles/'
 #cd 'shellParser'
 
-getNextFile #blacklist[@]
+getNextFile
 echo "<SENTENCES>"
 printArray sentences[@]
 echo "</SENTENCES>"
 echo
-echo "<BLACKLIST>"
-#printArray blacklist[@]
-echo "</BLACKLIST>"
+
 verbose2 "Found That many sentences: $numberOfSentencesFound"
-
-#pointer="alasiri_2000-02-07-a.xml"
-#compareToPointer "" && echo "yes" || echo "no"
-
-#saving blacklist
-cd '/homeappl/home/babst/blacklists'
-#printArrayToFile blacklist[@]
+echo "NEXTPOINTER: "
 echo "$pointer"
 
 
