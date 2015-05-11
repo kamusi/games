@@ -95,6 +95,7 @@ function get_randomForTweets() {
 function getRankedForSwahili() {
 
     document.getElementById("twitterWords").innerHTML = '';
+    wordID= 12345;
 
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -300,8 +301,8 @@ function sendGame4SentenceToDB(sentence, good){
             console.log("DB esponse was:  : " + xmlhttp.responseText)
         }
     }
-
-    var json_data= {"wordID":wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "mode":game, "language":gameLanguage, "tweetAuthor":tweet.Author, "good" : good    }
+    /* TODO: Continue
+    var json_data= {"wordID":wordID, "sentence":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "mode":game, "language":gameLanguage, "tweetAuthor":tweet.Author, "good" : good    }
 
     $.ajax({
         type: 'POST',
@@ -315,7 +316,7 @@ function sendGame4SentenceToDB(sentence, good){
     .fail( function( data ) {
         console.log('fail');
         console.log(data);
-    });
+    });*/
 
 }
 
@@ -792,7 +793,17 @@ function updateLeaderboard(){
                 row.insertCell(3).innerHTML= "Rank: " + (parseInt(i) + 1); //since index 0 is first rank
             }
 
-            if(obj[3].myRank > 5) {
+            if( obj[4].rankFromGuyBeforeMe > 3) {
+                 var rowCount = table.rows.length;
+                var row = table.insertRow(rowCount);
+                row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[4].id + '/picture" >'        ;
+                row.insertCell(1).innerHTML= obj[2][obj[4].id];
+
+                row.insertCell(2).innerHTML= obj[4].score;
+                row.insertCell(3).innerHTML= "Rank: " + obj[4].rank;               
+            }
+
+            if(obj[3].myRank > 3) {
                 var rowCount = table.rows.length;
                 console.log("This is the rowCount: " + rowCount)
                 var row = table.insertRow(rowCount);

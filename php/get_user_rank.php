@@ -109,8 +109,6 @@ foreach ($users as $user) {
 }
 
 
-
-
 arsort($userAndScore);
 
 $orderedScores = array_values($userAndScore);
@@ -118,8 +116,8 @@ $orderedUsers = array_keys($userAndScore);
 $orderedUsers = array_map('strval',$orderedUsers);
 
 
-$firstFiveUsers = array_slice($orderedUsers, 0, 5);
-$firstFiveScores = array_slice($orderedScores, 0, 5);
+$firstFiveUsers = array_slice($orderedUsers, 0, 3);
+$firstFiveScores = array_slice($orderedScores, 0, 3);
 
 $result = array();
 $result[] = $firstFiveScores;
@@ -127,7 +125,15 @@ $result[] = $firstFiveUsers;
 $result[] = $userNameByUserID; 
 //TODO only send the entries that are needed, we are sending them all!
 
-$result[] = array("myScore"=>$thisUsersScore, "myRank"=> array_search($userID, $orderedUsers)+1 );
+$userRank =  array_search($userID, $orderedUsers)+1;
+$result[] = array("myScore"=>$thisUsersScore, "myRank"=> $userRank);
+
+$rankFromGuyBeforeMe= $userRank -1;
+$idOfGuyBeforeMe= $orderedUsers[$rankFromGuyBeforeMe -1];
+$scoreFromGuyBeforeMe= $orderedScores[$rankFromGuyBeforeMe -1];
+$result[] = array("id" => $idOfGuyBeforeMe, "score"=>$scoreFromGuyBeforeMe, "rank"=> $rankFromGuyBeforeMe );
+//$result[] = array("myScore"=>$thisUsersScore, "myRank"=> array_search($userID, $orderedUsers)+1 );
+
 
 $jsonData = json_encode($result);
 echo $jsonData;
