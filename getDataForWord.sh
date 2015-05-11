@@ -7,8 +7,9 @@ sentences=()
 numberOfSentencesFound=0
 
 
-verbose=no
-verbose2=no
+
+verbose=yes
+verbose2=yes
 verbose () {	
 	if [ $verbose = yes ]; then
 		echo "$1"
@@ -28,8 +29,8 @@ readBlacklist() {
 }
 
 compareToPointer(){
-	#Empty pointer : no constraints
-	if [[ "$1" == "" ]]; then
+	#Empty pointer or illegal file : no constraints
+	if [[ "$1" == "" ]] || [[ "$1" == "xml.test"]]; then
 		return 0
 	fi
 		
@@ -129,7 +130,7 @@ getNextFile () {
 		if [[ $numberOfSentencesFound -ge $amount ]];  then
 				break
 		fi
-		if ! compareToPointer "$file" ; then
+		if ! compareToPointer "readlink -e $file" ; then
 			verbose "Ignoring $file"
 		elif [ -d "$file" ]; then
 			verbose "$file is a directory"
@@ -143,7 +144,7 @@ getNextFile () {
 			verbose "Doing stuff with file: $file"
 			findAllSentencesInFile "$file"
 
-			pointer="$file"
+			pointer="readlink -e $file"
  		fi
 	done
 
@@ -174,10 +175,15 @@ printArray2() {
 	done
 }
 
-cd '/appl/kielipankki/hcs/articles/'
+cd '/appl/kielipankki/hcs/'
 #cd 'shellParser'
+#next generalize shell script to also find data in books folder
 
 getNextFile
+#if [ $numberOfSentencesFound -lt $amount ]; then
+
+#fi
+
 echo "<SENTENCES>"
 printArray sentences[@]
 echo "</SENTENCES>"
