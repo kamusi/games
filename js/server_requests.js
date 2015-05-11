@@ -20,6 +20,7 @@ var game = 0;
 var translationID;
 
 var last20Tweets = {}
+var lastSwahiliWords = {}
 
 
 function get_random() {
@@ -140,9 +141,13 @@ function queryHelsinkiDBForSentences(keyword, amount){
             console.log("Returned from helsinki query: ")
             console.log(xmlhttp.responseText);
             var results_array = JSON.parse(xmlhttp.responseText);
-
-
-        }
+            for( i = 0; i<amount ;i++) {
+                last20Tweets[i] = results_array[i];
+                lastSwahiliWords[i] = results_array[i];
+                displayTextWithCheckboxes(lastSwahiliWords[i],i,"swahiliSentences")               
+                
+            }
+         }
     }
     xmlhttp.open("GET","php/get_swahiliSentences.php?keyword=" + keyword + "&amount=" + amount, true);
     xmlhttp.send();  
