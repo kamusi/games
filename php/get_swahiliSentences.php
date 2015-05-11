@@ -10,7 +10,7 @@ echo "PATH : ". get_include_path();
 set_include_path('/usr/share/pear/phpseclib/phpseclib');
 include('Net/SSH2.php');
 
-$sql= "SELECT pointer FROM game4pointer WHERE lemma = ?;"
+$sql= "SELECT pointer FROM game4pointer WHERE lemma = ?;";
 $stmt = $mysqli->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
