@@ -47,8 +47,9 @@ if (!$ssh->login('babst', 'Jsts8472')) {
 
 $result=$ssh->exec('./getDataForWord.sh ' . $keyword . " " . $amount . " " . $pointer . "  2>&1");
 
+$nextPointeDelimiter="NEXTPOINTER:"
 //Get the new pointer and store it in the DB
-$pointer= substr($result, strpos($result, "NEXTPOINTER:"));
+$pointer= substr($result, strpos($result, $nextPointeDelimiter) + strlen($nextPointeDelimiter));
 
 $sql= "UPDATE game4pointer SET pointer= ? WHERE lemma = ?;";
 $stmt = $mysqli->prepare($sql);
