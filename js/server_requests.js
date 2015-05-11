@@ -175,7 +175,7 @@ function get_tweets(alreadyDisplayed) {
             listOfAll.forEach( function(elem,pos) {
                 realIndex = alreadyDisplayed + pos;
                 last20Tweets[realIndex] = elem;
-                displayTextWithCheckboxes(elem,realIndex,"twitterWords")
+                displayTextWithCheckboxes(elem.Text,realIndex,"twitterWords")
                 }
                 );
 
@@ -192,7 +192,7 @@ function get_tweets(alreadyDisplayed) {
     xmlhttp.send();
 }
 
-function displayTextWithCheckboxes(elem, index, whereToInsert){
+function displayTextWithCheckboxes(elemText, index, whereToInsert){
 
 
     var tweetDisplay = document.createElement("P");
@@ -208,7 +208,7 @@ function displayTextWithCheckboxes(elem, index, whereToInsert){
         changeColorOnClick(tweetDisplay,newInput);
     }
 
-    var t = document.createTextNode(elem.Text);
+    var t = document.createTextNode(elemText);
     console.log("STYLEEEEE " + tweetDisplay.style.color)
     tweetDisplay.appendChild(newInput);
     tweetDisplay.appendChild(t);
@@ -234,7 +234,7 @@ function fetchTweetsFromDB(amount) {
             var i = 0
             for( i = 0; i<amount && typeof results_array[i] !== 'undefined'; i++) {
                 last20Tweets[i] = results_array[i];
-                displayTextWithCheckboxes(last20Tweets[i],i,"twitterWords")
+                displayTextWithCheckboxes(last20Tweets[i].Text,i,"twitterWords")
                 
                 
             }
