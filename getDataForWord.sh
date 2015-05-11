@@ -30,19 +30,19 @@ readBlacklist() {
 
 compareToPointer(){
 	#Empty pointer or illegal file : no constraints
-	if [[ "$1" == "" ]] || [[ "$1" == "xml.test"]]; then
+	if [[ "$1" == "" ]] || [[ "$1" == "xml.test" ]]; then
 		return 0
 	fi
-		
+	echo "compaing $1 and $pointer"
 		#first word of pointer must be lower or equal: so that we can enter directories
+#if pointer is substring of directory we let it pass
 	if [ -d "$1" ]; then
-		res=`echo "$pointer" | sed -n 's/\([^_]\)_.*/\1/p'`
-		if [[ "$1" > "$res" ]] || [[ "$1" == "$res" ]]; then
+		if [[ "$pointer" == *"$1"* ]] ; then
+			 #TODOO: work more on this for time saving
 			return 0
-		else
-			return 1
 		fi
-	else
+	else 		
+
 		if [[ "$1" > "$pointer" ]]; then
 			return 0
 		else
@@ -130,7 +130,7 @@ getNextFile () {
 		if [[ $numberOfSentencesFound -ge $amount ]];  then
 				break
 		fi
-		if ! compareToPointer "readlink -e $file" ; then
+		if ! compareToPointer `readlink -e "$file"` ; then
 			verbose "Ignoring $file"
 		elif [ -d "$file" ]; then
 			verbose "$file is a directory"
@@ -144,7 +144,7 @@ getNextFile () {
 			verbose "Doing stuff with file: $file"
 			findAllSentencesInFile "$file"
 
-			pointer="readlink -e $file"
+			pointer=`readlink -e "$file"`
  		fi
 	done
 
@@ -174,7 +174,7 @@ printArray2() {
 		#echo "DELIMITER"
 	done
 }
-
+echo "BEGINNN"
 cd '/appl/kielipankki/hcs/'
 #cd 'shellParser'
 #next generalize shell script to also find data in books folder
