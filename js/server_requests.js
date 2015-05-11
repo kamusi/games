@@ -86,8 +86,8 @@ function get_randomForTweets() {
     	}
     }
 
- //   xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + gameLanguage + "&mode=" +'3', true);
- xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
+    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + gameLanguage + "&mode=" +'3', true);
+ //xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
 
  xmlhttp.send();
 }
@@ -115,9 +115,9 @@ function getRankedForSwahili() {
 
     		console.log("word id BeCaAAAME : " + wordID)
     		document.getElementById("word4").innerHTML = "simama";
-    		document.getElementById("pos4").innerHTML = "POS Tag";
-    		document.getElementById("transEnglish4").innerHTML = "Some English translation";
-    		document.getElementById("defSwahili4").innerHTML = "Some Swahili definition";
+    		document.getElementById("pos4").innerHTML = "Verb";
+    		document.getElementById("transEnglish4").innerHTML = "Have or maintain an upright position, supported by one's feet.";
+    		document.getElementById("defSwahili4").innerHTML = "Kuwa wima juu ya miguu";
 
     		queryHelsinkiDBForSentences("kamusi", 2)
 
@@ -400,8 +400,8 @@ function sendTweetToDB(tweet, good){
             definitionID = -1;
         }
     }
-//    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + gameLanguage + "&mode=" +'1', true);
-xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
+    xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + gameLanguage + "&mode=" +'1', true);
+//xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
 
 xmlhttp.send();
 }
@@ -802,7 +802,7 @@ function updateLeaderboard(){
             if(obj[3].rank > 3) {
             	addScoreEntry(3,table)  
             }
-            	
+
 
             if( obj[5].id != "NOPE" ) {
             	addScoreEntry(5,table) 
