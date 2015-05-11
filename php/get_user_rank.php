@@ -132,13 +132,13 @@ $result[] = array("id"=> $userID, "score"=>$thisUsersScore, "rank"=> $userRank);
 if($userRank > 3) {
 
 	$rankFromGuyBeforeMe= $userRank -1;
-	$idOfGuyBeforeMe= $orderedUsers[$rankFromGuyBeforeMe];
+	$idOfGuyBeforeMe= $orderedUsers[$rankFromGuyBeforeMe -1];
 	$scoreFromGuyBeforeMe= $orderedScores[$rankFromGuyBeforeMe -1];
 	$result[] = array("id" => $idOfGuyBeforeMe, "score"=>$scoreFromGuyBeforeMe, "rank"=> $rankFromGuyBeforeMe );
 
 	$rankFromGuyAfterMe= $userRank +1;
 	if($rankFromGuyAfterMe < count($orderedScores)) {
-		$idOfGuyAfterMe= $orderedUsers[$rankFromGuyAfterMe];
+		$idOfGuyAfterMe= $orderedUsers[$rankFromGuyAfterMe -1];
 		$scoreFromGuyAfterMe= $orderedScores[$rankFromGuyAfterMe -1];
 		$result[] = array("id" => $idOfGuyAfterMe, "score"=>$scoreFromGuyAfterMe, "rank"=> $rankFromGuyAfterMe );
 	}
