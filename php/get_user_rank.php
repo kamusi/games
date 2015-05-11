@@ -145,6 +145,7 @@ if($userRank > 3) {
 	else {
 		$result[] = array("id" => "NOPE");
 		$result[] = array("id" => "NOPE");
+		$result[] = array("id" => "NOPE");
 	}
 }
 
