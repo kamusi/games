@@ -5,8 +5,6 @@ $keyword = $_GET['keyword'];
 $amount = $_GET['amount'];
 $pointer = "";
 
-
-echo "PATH : ". get_include_path();
 set_include_path('/usr/share/pear/phpseclib/phpseclib');
 include('Net/SSH2.php');
 
@@ -19,9 +17,7 @@ $result = $stmt->get_result();
 
 $results_array = $result->fetch_assoc();
 
-var_export($pointer);
 $pointer = $results_array['pointer'];
-var_export($pointer);
 $stmt->close();
 
 
@@ -35,11 +31,6 @@ if(empty($pointer)) {
 	$stmt->close();
 }
 
-echo "COUCOUC";
-var_dump($result);
-var_dump($pointer);
-echo $pointer;
-
 $ssh = new Net_SSH2('taito.csc.fi');
 if (!$ssh->login('babst', 'Jsts8472')) {
 	exit('Login Failed');
@@ -49,7 +40,7 @@ $result=$ssh->exec('./getDataForWord.sh ' . $keyword . " " . $amount . " " . $po
 
 $nextPointeDelimiter="NEXTPOINTER:";
 //Get the new pointer and store it in the DB
-$pointer= substr($result, strpos($result, $nextPointeDelimiter) + strlen($nextPointeDelimiter));
+#$pointer= substr($result, strpos($result, $nextPointeDelimiter) + strlen($nextPointeDelimiter));
 
 $sql= "UPDATE game4pointer SET pointer= ? WHERE lemma = ?;";
 $stmt = $mysqli->prepare($sql);
@@ -64,7 +55,7 @@ $endSentenceDelimiter="</SENTENCES>";
 $positionOfBeginSentenceDelimiter=strpos($result, $beginSentenceDelimiter) + strlen($beginSentenceDelimiter);
 
 $sentences = substr($result, $positionOfBeginSentenceDelimiter, strpos($result, $endSentenceDelimiter) - $positionOfBeginSentenceDelimiter);
-$sentencesArray= explode(PHP_EOL, $sentences);
+$sentencesArray= explode("\n", $sentences);
 var_dump($sentences);
 
 echo $result;
