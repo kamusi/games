@@ -37,10 +37,8 @@ compareToPointer(){
 	if [ -d "$1" ]; then
 		res=`echo "$pointer" | sed -n 's/\([^_]\)_.*/\1/p'`
 		if [[ "$1" > "$res" ]] || [[ "$1" == "$res" ]]; then
-			echo "PROBLEM"
 			return 0
 		else
-			echo "ERTIJERFJ"
 			return 1
 		fi
 	else

@@ -15,13 +15,17 @@ $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("s", $keyword);
 $stmt->execute();
 $result = $stmt->get_result();
-$stmt->close();
+
 if($result){
 	$results_array = $result->fetch_assoc();
 
 	$pointer = $results_array['pointer'];
+	$stmt->close();
+	
+
 }
 else {
+	$stmt->close();
 	$pointer= "";
 	$sql= "INSERT INTO game4pointer (lemma, pointer ) VALUES (?,?));";
 	$stmt = $mysqli->prepare($sql);
@@ -42,7 +46,7 @@ if (!$ssh->login('babst', 'Jsts8472')) {
 $result=$ssh->exec('./getDataForWord.sh ' . $keyword . " " . $amount . " " . $pointer . "  2>&1");
 
 //Get the new pointer and store it in the DB
-$pointer= substr($result, strpos($result0, "NEXTPOINTER:"));
+$pointer= substr($result, strpos($result, "NEXTPOINTER:"));
 
 $sql= "UPDATE game4pointer SET pointer= ? WHERE lemma = ?;";
 $stmt = $mysqli->prepare($sql);
