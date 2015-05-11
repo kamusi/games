@@ -57,6 +57,16 @@ $stmt->bind_param("ss", $pointer, $keyword);
 $stmt->execute();
 $stmt->close();
 
+//extract the sentences we want:
+$beginSentenceDelimiter="<SENTENCES>";
+$endSentenceDelimiter="</SENTENCES>";
+
+$positionOfBeginSentenceDelimiter=strpos($result, $beginSentenceDelimiter) + strlen($beginSentenceDelimiter);
+
+$sentences = substr($result, $positionOfBeginSentenceDelimiter, strpos($result, $endSentenceDelimiter) - $positionOfBeginSentenceDelimiter);
+
+echo $sentences;
+
 echo $result;
 /*
 #$output = shell_exec('cd .. ; echo $USER ; ssh -i /home/ec2-user/.ssh/taitoApache.rsa babst@taito.csc.fi  \'bash -s\' < getDataForWord.sh ' . $keyword . " " . $amount . " 2>&1");
