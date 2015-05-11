@@ -34,7 +34,8 @@ else {
 	$stmt->close();
 }
 
-
+echo "COUCOUC";
+var_dump($result);
 var_dump($pointer);
 echo $pointer;
 
