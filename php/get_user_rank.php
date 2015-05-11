@@ -128,12 +128,16 @@ $result[] = $userNameByUserID;
 $userRank =  array_search($userID, $orderedUsers)+1;
 $result[] = array("myScore"=>$thisUsersScore, "myRank"=> $userRank);
 
+if($userRank > 3) {
+
 $rankFromGuyBeforeMe= $userRank -1;
-$idOfGuyBeforeMe= $orderedUsers[$rankFromGuyBeforeMe -1];
+$idOfGuyBeforeMe= $orderedUsers[$rankFromGuyBeforeMe];
 $scoreFromGuyBeforeMe= $orderedScores[$rankFromGuyBeforeMe -1];
 $result[] = array("id" => $idOfGuyBeforeMe, "score"=>$scoreFromGuyBeforeMe, "rank"=> $rankFromGuyBeforeMe );
-//$result[] = array("myScore"=>$thisUsersScore, "myRank"=> array_search($userID, $orderedUsers)+1 );
+}
 
+//$result[] = array("myScore"=>$thisUsersScore, "myRank"=> array_search($userID, $orderedUsers)+1 );
+echo ""
 
 $jsonData = json_encode($result);
 echo $jsonData;

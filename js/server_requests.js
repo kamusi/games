@@ -793,7 +793,7 @@ function updateLeaderboard(){
                 row.insertCell(3).innerHTML= "Rank: " + (parseInt(i) + 1); //since index 0 is first rank
             }
 
-            if( obj[4].rankFromGuyBeforeMe > 3) {
+            if( obj[3].myRank > 4) {
                  var rowCount = table.rows.length;
                 var row = table.insertRow(rowCount);
                 row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[4].id + '/picture" >'        ;
