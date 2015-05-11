@@ -16,7 +16,6 @@ $stmt->bind_param("s", $keyword);
 $stmt->execute();
 $result = $stmt->get_result();
 
-if( !empty($result)) {
 	echo "TU DOIS ECRIRE QQCHOSE";
 
 	$results_array = $result->fetch_assoc();
@@ -27,8 +26,8 @@ if( !empty($result)) {
 	$stmt->close();
 	
 
-}
-else {
+
+if(empty($pointer))
 	echo "C EST DONC VIDE?";
 	$stmt->close();
 	$pointer= "";
