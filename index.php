@@ -146,7 +146,7 @@ $newToken = generateToken();
 
 					</div>
 					<div id="footer-next3">
-						<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick="submitTweets(); setTimeout(get_randomForTweets, 500);">
+						<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxData("tweet"); setTimeout(get_randomForTweets, 500);'>
 					</div>
 				</div>
 			</div>
@@ -165,7 +165,7 @@ $newToken = generateToken();
 				</div>
 
 					<div id="footer-next3">
-						<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick="submitTweets(); setTimeout(get_randomForTweets, 500);">
+						<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxData("game4"); setTimeout(get_randomForTweets, 500);'>
 					</div>
 			</div>
 

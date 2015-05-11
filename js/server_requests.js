@@ -1,10 +1,11 @@
 
-var userID = "10203265649994971"; //so that it works offline
+var userID = "???"; //so that it works offline:  10203265649994971
 var wordID;
 var word;
 var definitionID;
 var groupID;
 var amountOfTweets;
+var amountGame4;
 
 //settings saved
 var whenToPost;
@@ -20,7 +21,7 @@ var game = 0;
 var translationID;
 
 var last20Tweets = {}
-var lastSwahiliWords = {}
+var lastSwahiliSentences = {}
 
 
 function get_random() {
@@ -129,6 +130,7 @@ function getRankedForSwahili() {
 
 function queryHelsinkiDBForSentences(keyword, amount){
     console.log("Querying the helsinki DB...")
+    amountGame4=amount
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
@@ -143,8 +145,8 @@ function queryHelsinkiDBForSentences(keyword, amount){
             var results_array = JSON.parse(xmlhttp.responseText);
             for( i = 0; i<amount ;i++) {
                 last20Tweets[i] = results_array[i];
-                lastSwahiliWords[i] = results_array[i];
-                displayTextWithCheckboxes(lastSwahiliWords[i],i,"swahiliSentences")               
+                lastSwahiliSentences[i] = results_array[i];
+                displayTextWithCheckboxes(lastSwahiliSentences[i],i,"swahiliSentences")               
                 
             }
          }
@@ -254,22 +256,66 @@ function fetchTweetsFromDB(amount) {
 
 }
 
-function submitTweets() {
-    var listToSubmit = [];
+function submitCheckBoxData(whatToSubmit) {
+if(whatToSubmit == "tweet"){
+
     for(var i= 0; i < amountOfTweets; i++) {
         if(document.getElementById("checkbox"+i).checked) {
             sendTweetToDB(last20Tweets[i],1)
-            console.log("about to send this to php " + last20Tweets[i].TweetID )
         }
         else {
             sendTweetToDB(last20Tweets[i],-1);
         }
     }
+}
+else if (whatToSubmit == "game4")  {
+
+    for(var i= 0; i < amountGame4; i++) {
+        if(document.getElementById("checkbox"+i).checked) {
+            sendGame4SentenceToDB(lastSwahiliSentences[i],1)
+        }
+        else {
+            sendGame4SentenceToDB(lastSwahiliSentences[i],-1);
+        }
+    }
+}
     if(whenToNotify == "0"){
         trigger_notification()
     }
 
     post_timeline();
+}
+
+function sendGame4SentenceToDB(sentence, good){
+    console.log("Sending swahili results to DB:...")
+  var xmlhttp;
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function() {
+           if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            console.log("DB esponse was:  : " + xmlhttp.responseText)
+        }
+    }
+
+    var json_data= {"wordID":wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "mode":game, "language":gameLanguage, "tweetAuthor":tweet.Author, "good" : good    }
+
+    $.ajax({
+        type: 'POST',
+        url: 'php/submit_tweet.php',
+        data: {json: JSON.stringify(json_data)},
+        dataType: 'json'
+    })
+    .done( function( data ) {
+        console.log('done');
+    })
+    .fail( function( data ) {
+        console.log('fail');
+        console.log(data);
+    });
 
 }
 
@@ -303,7 +349,6 @@ function sendTweetToDB(tweet, good){
         console.log(data);
     });
 
-    console.log("Just sent request to the db" + tweet.Author )
 }
 
 function get_ranked() {
