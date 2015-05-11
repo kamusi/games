@@ -43,7 +43,7 @@ if (!$ssh->login('babst', 'Jsts8472')) {
 	exit('Login Failed');
 }
 
-$result=$ssh->exec('./getDataForWord.sh ' . $keyword . " " . $amount . " " . $pointer . "  2>&1");
+#$result=$ssh->exec('./getDataForWord.sh ' . $keyword . " " . $amount . " " . $pointer . "  2>&1");
 
 //Get the new pointer and store it in the DB
 $pointer= substr($result, strpos($result, "NEXTPOINTER:"));
