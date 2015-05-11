@@ -65,7 +65,6 @@ foreach ($sentencesArray as $sentence ) {
 		$results_array[]=$sentence;
 	}
 }
-var_dump($results_array);
 $jsonData = json_encode($results_array);
 echo $jsonData;
 
