@@ -21,8 +21,9 @@ if( !empty($result)) {
 
 	$results_array = $result->fetch_assoc();
 
+	var_export($pointer);
 	$pointer = $results_array['pointer'];
-	echo $pointer;
+	var_export($pointer);
 	$stmt->close();
 	
 
