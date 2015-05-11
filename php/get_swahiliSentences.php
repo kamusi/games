@@ -27,7 +27,7 @@ $result = $stmt->get_result();
 	
 
 
-if(empty($pointer))
+if(empty($pointer)) {
 	echo "C EST DONC VIDE?";
 	$stmt->close();
 	$pointer= "";
