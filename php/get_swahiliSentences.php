@@ -56,7 +56,7 @@ $positionOfBeginSentenceDelimiter=strpos($result, $beginSentenceDelimiter) + str
 
 $sentences = substr($result, $positionOfBeginSentenceDelimiter, strpos($result, $endSentenceDelimiter) - $positionOfBeginSentenceDelimiter);
 $sentencesArray= explode("\n", $sentences);
-var_dump($sentences);
+var_dump($sentencesArray);
 
 echo $result;
 /*
