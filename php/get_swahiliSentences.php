@@ -16,7 +16,8 @@ $stmt->bind_param("s", $keyword);
 $stmt->execute();
 $result = $stmt->get_result();
 
-if(!empty($result)){
+if( !empty($result)) {
+	echo "TU DOIS ECRIRE QQCHOSE";
 	$results_array = $result->fetch_assoc();
 
 	$pointer = $results_array['pointer'];
