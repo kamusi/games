@@ -792,17 +792,24 @@ function updateLeaderboard(){
              //   row.insertCell(3).innerHTML= obj[1][i];
                 row.insertCell(3).innerHTML= "Rank: " + (parseInt(i) + 1); //since index 0 is first rank
             }
+            //add the user from before s score if use ris not in top3
 
             if( obj[3].rank > 4) {
-            	addScoreEntry(4,table)           
-            	if( obj[5].id != "NOPE" ) {
-            		addScoreEntry(5,table) 
-            	}
+            	addScoreEntry(4,table) 
             }
 
+            //add this user s score if he is not in the top3
             if(obj[3].rank > 3) {
             	addScoreEntry(3,table)  
             }
+
+            
+            if( obj[5].id != "NOPE" ) {
+            	addScoreEntry(5,table) 
+            }
+            
+
+
         }
     }
 
