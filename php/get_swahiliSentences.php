@@ -20,7 +20,7 @@ if($result){
 	$pointer = $results_array['pointer'];
 }
 else {
-	$pointer= ""
+	$pointer= "";
 }
 $stmt->close();
 
