@@ -25,6 +25,7 @@ if($result){
 
 }
 else {
+	echo "C EST DONC VIDE?";
 	$stmt->close();
 	$pointer= "";
 	$sql= "INSERT INTO game4pointer (lemma, pointer ) VALUES (?,?));";
