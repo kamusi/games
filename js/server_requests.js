@@ -167,7 +167,7 @@ function get_tweets(alreadyDisplayed) {
                 return results_array.indexOf(elem) == pos;
             });
             realIndex = 0
-            listOfAll.forEach( 
+            listOfAll.forEach( function(elem,pos) {
                 realIndex = alreadyDisplayed + index;
                 last20Tweets[realIndex] = elem;
                 displayTextWithCheckboxes(elem,realIndex,"twitterWords")
