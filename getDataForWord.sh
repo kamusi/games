@@ -2,11 +2,12 @@
 echo
 word="$1"
 amount="$2"
+pointer="$3" 
 sentences=()
 numberOfSentencesFound=0
-blacklist=()
 
-verbose=no
+
+verbose=yes
 verbose2=yes
 verbose () {	
 	if [ $verbose = yes ]; then
@@ -20,6 +21,36 @@ verbose2 () {
 	fi
 }
 
+readBlacklist() {
+	if [ -e "blacklists/$word.ignore" ]; then
+		readarray blacklist < "blacklists/$word.ignore"
+	fi
+}
+
+compareToPointer(){
+	#Empty pointer : no constraints
+	if [[ $1 -eq "" ]]; then
+		return 0
+	fi
+		
+		#first word of pointer must be lower or equal: so that we can enter directories
+	if [ -d "$1" ]; then
+		res=`echo "$pointer" | sed -n 's/\([^_]\)_.*/\1/p'`
+		echo $res
+		if [[ "$1" > "$res" ]] || [[ "$1" -eq "$res" ]]; then
+			return 0
+		else
+			return 1
+		fi
+	else
+		if [[ "$1" > "$pointer" ]]; then
+			return 0
+		else
+			return 1
+		fi
+
+	fi
+}
 
 #prints the word to stdout, returns the line number
 #getting it from stdin
@@ -64,7 +95,7 @@ for word in $allwords; do
 	newSentence=$(printDocument | getSentence "$word")
 	sentences+=("$newSentence")
 	documentText=`printDocument | sed "s/$newSentence//"`
-	sentences+=("<DELIMITER>")
+#	sentences+=("<DELIMITER>")
 
 done
 
@@ -83,6 +114,7 @@ containsElement () {
     local seeking=$2
     local in=1
     for element in "${arrayIn[@]}"; do
+    	echo "Comparing : $element WITH $seeking"
         if [[ "$element" == "$seeking" ]]; then
             in=0
             break
@@ -93,25 +125,24 @@ containsElement () {
 
 getNextFile () {
 	verbose2 "Entering getNextFile in folder $PWD"
-	blacklist=("${!1}")
 
 	for file in *; do
 		if [[ $numberOfSentencesFound -ge $amount ]];  then
 				break
 		fi
-		if containsElement blacklist[@] $file ; then
+		if ! compareToPointer $file ; then
 			verbose "Ignoring $file"
 		elif [ -d "$file" ]; then
 			verbose "$file is a directory"
 			cd "$file"
 
 
-			getNextFile blacklist[@]
+			getNextFile
 	
 			#Adding a folder to blacklist if we exit it without having finished
-			if [ $numberOfSentencesFound -lt $amount ]; then
-				blacklist+=("$file")
-			fi
+			#if [ $numberOfSentencesFound -lt $amount ]; then
+			#	blacklist+=("$file")
+			#fi
 
 			cd ..
 
@@ -119,7 +150,8 @@ getNextFile () {
 			verbose "Doing stuff with file: $file"
 			findAllSentencesInFile "$file"
 
-			blacklist+=("$file")
+			#blacklist+=("$file")
+			pointer="$file"
  		fi
 	done
 	verbose "Everything on blacklist End:"
@@ -130,7 +162,16 @@ printArray() {
 	array=("${!1}")
 	for element in "${array[@]} "; do
 		echo "$element"  
-		echo "DELIMITER"
+		#echo "DELIMITER"
+	done
+}
+
+printArrayToFile() {
+	array=("${!1}")
+	rm -f "$word".ignore
+	for element in "${array[@]} "; do
+		echo "$element"  >"$word".ignore
+		#echo "DELIMITER"
 	done
 }
 
@@ -138,22 +179,37 @@ printArray2() {
 	array=("${!1}")
 	for element in "${array[*]} "; do
 		echo "$element"  
-		echo "DELIMITER"
+		#echo "DELIMITER"
 	done
 }
+#implement better blackist : just rememebr the pointer and compare to previosu position
+
+
+
+#readBlacklist
+#echo "debut"
+#printArray blacklist[@]
+#echo "endDebut"
 
 cd '/appl/kielipankki/hcs/articles/'
 #cd 'shellParser'
 
-getNextFile blacklist[@]
+getNextFile #blacklist[@]
 echo "<SENTENCES>"
-printArray2 sentences[@]
+printArray sentences[@]
 echo "</SENTENCES>"
 echo
 echo "<BLACKLIST>"
-printArray blacklist[@]
+#printArray blacklist[@]
 echo "</BLACKLIST>"
 verbose2 "Found That many sentences: $numberOfSentencesFound"
 
+#pointer="alasiri_2000-02-07-a.xml"
+#compareToPointer "" && echo "yes" || echo "no"
+
+#saving blacklist
+cd '/homeappl/home/babst/blacklists'
+#printArrayToFile blacklist[@]
+echo "$pointer"
 
 
