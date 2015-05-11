@@ -143,7 +143,7 @@ if($userRank > 3) {
 		$result[] = array("id" => $idOfGuyAfterMe, "score"=>$scoreFromGuyAfterMe, "rank"=> $rankFromGuyAfterMe );
 	}
 	else {
-		$result[] = array("id" => "NOPE")
+		$result[] = array("id" => "NOPE");
 	}
 }
 
