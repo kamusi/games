@@ -18,9 +18,11 @@ $result = $stmt->get_result();
 
 if( !empty($result)) {
 	echo "TU DOIS ECRIRE QQCHOSE";
+
 	$results_array = $result->fetch_assoc();
 
 	$pointer = $results_array['pointer'];
+	echo $pointer;
 	$stmt->close();
 	
 
