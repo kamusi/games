@@ -47,7 +47,7 @@ if (!$ssh->login('babst', 'Jsts8472')) {
 
 $result=$ssh->exec('./getDataForWord.sh ' . $keyword . " " . $amount . " " . $pointer . "  2>&1");
 
-$nextPointeDelimiter="NEXTPOINTER:"
+$nextPointeDelimiter="NEXTPOINTER:";
 //Get the new pointer and store it in the DB
 $pointer= substr($result, strpos($result, $nextPointeDelimiter) + strlen($nextPointeDelimiter));
 
