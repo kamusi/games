@@ -116,7 +116,7 @@ function getRankedForSwahili() {
             document.getElementById("transEnglish4").innerHTML = "Some English translation";
             document.getElementById("defSwahili4").innerHTML = "Some Swahili definition";
 
-            queryHelsinkiDBForSentences("simama", 2)
+            queryHelsinkiDBForSentences("kamusi", 2)
 
         }
     }
