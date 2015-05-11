@@ -16,20 +16,17 @@ $stmt->bind_param("s", $keyword);
 $stmt->execute();
 $result = $stmt->get_result();
 
-	echo "TU DOIS ECRIRE QQCHOSE";
 
-	$results_array = $result->fetch_assoc();
+$results_array = $result->fetch_assoc();
 
-	var_export($pointer);
-	$pointer = $results_array['pointer'];
-	var_export($pointer);
-	$stmt->close();
-	
+var_export($pointer);
+$pointer = $results_array['pointer'];
+var_export($pointer);
+$stmt->close();
+
 
 
 if(empty($pointer)) {
-	echo "C EST DONC VIDE?";
-	$stmt->close();
 	$pointer= "";
 	$sql= "INSERT INTO game4pointer (lemma, pointer ) VALUES (?,?);";
 	$stmt = $mysqli->prepare($sql);
@@ -48,7 +45,7 @@ if (!$ssh->login('babst', 'Jsts8472')) {
 	exit('Login Failed');
 }
 
-#$result=$ssh->exec('./getDataForWord.sh ' . $keyword . " " . $amount . " " . $pointer . "  2>&1");
+$result=$ssh->exec('./getDataForWord.sh ' . $keyword . " " . $amount . " " . $pointer . "  2>&1");
 
 //Get the new pointer and store it in the DB
 $pointer= substr($result, strpos($result, "NEXTPOINTER:"));
