@@ -14,9 +14,15 @@ $sql= "SELECT pointer FROM game4pointer WHERE lemma = ?;";
 $stmt = $mysqli->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
-$results_array = $result->fetch_assoc();
+if($result){
+	$results_array = $result->fetch_assoc();
+
+	$pointer = $results_array['pointer'];
+}
+else {
+	$pointer= ""
+}
 $stmt->close();
-$pointer = $results_array['pointer'];
 
 var_dump($pointer);
 echo $pointer;
@@ -26,7 +32,7 @@ if (!$ssh->login('babst', 'Jsts8472')) {
 	exit('Login Failed');
 }
 
-echo $ssh->exec('./getDataForWord.sh ' . $keyword . " " . $amount . "  2>&1");
+echo $ssh->exec('./getDataForWord.sh ' . $keyword . " " . $amount . " " . $pointer . "  2>&1");
 
 
 /*
