@@ -61,7 +61,7 @@ $sentencesArray= explode("\n", $sentences);
 $results_array= array();
 
 foreach ($sentencesArray as $sentence ) {
-	if(!ctype_space($sentence)){
+	if(!ctype_space($sentence) && !$sentence===""){
 		$results_array[]=$sentence;
 	}
 }
