@@ -229,7 +229,7 @@ function fetchTweetsFromDB(amount) {
             var i = 0
             for( i = 0; i<amount && typeof results_array[i] !== 'undefined'; i++) {
                 last20Tweets[i] = results_array[i];
-                displayTextWithCheckboxes(elem,pos,"twitterWords")
+                displayTextWithCheckboxes(last20Tweets[i],i,"twitterWords")
                 
                 
             }
