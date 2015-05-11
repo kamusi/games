@@ -137,7 +137,7 @@ $result[] = array("id" => $idOfGuyBeforeMe, "score"=>$scoreFromGuyBeforeMe, "ran
 }
 
 //$result[] = array("myScore"=>$thisUsersScore, "myRank"=> array_search($userID, $orderedUsers)+1 );
-echo ""
+
 
 $jsonData = json_encode($result);
 echo $jsonData;
