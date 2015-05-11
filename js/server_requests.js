@@ -196,7 +196,7 @@ function displayTextWithCheckboxes(elem, index, whereToInsert){
     tweetDisplay.type = "text";
 
     var newInput = document.createElement("INPUT");
-    newInput.id = "checkbox" + realIndex;
+    newInput.id = "checkbox" + index;
     newInput.name = "checkbox" ;
     newInput.type = "checkbox";
     newInput.onchange=function(){
