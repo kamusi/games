@@ -64,7 +64,7 @@ $endSentenceDelimiter="</SENTENCES>";
 $positionOfBeginSentenceDelimiter=strpos($result, $beginSentenceDelimiter) + strlen($beginSentenceDelimiter);
 
 $sentences = substr($result, $positionOfBeginSentenceDelimiter, strpos($result, $endSentenceDelimiter) - $positionOfBeginSentenceDelimiter);
-$sentencesArray= explode(\n, $sentences);
+$sentencesArray= explode(PHP_EOL, $sentences);
 var_dump($sentences);
 
 echo $result;
