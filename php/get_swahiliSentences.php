@@ -66,13 +66,8 @@ foreach ($sentencesArray as $sentence ) {
 	}
 }
 var_dump($results_array);
-echo $result;
-/*
-#$output = shell_exec('cd .. ; echo $USER ; ssh -i /home/ec2-user/.ssh/taitoApache.rsa babst@taito.csc.fi  \'bash -s\' < getDataForWord.sh ' . $keyword . " " . $amount . " 2>&1");
-$output = shell_exec('cd .. ; echo $USER ; ssh -i /var/www/.ssh/taitoApache.rsa babst@taito.csc.fi echo bouyeah ls 2>&1');
+$jsonData = json_encode($results_array);
+echo $jsonData;
 
-#$output = shell_exec("cd .. ; pwd;  bash getDataForWord.sh kamusi 5 2>&1");# . $keyword . " " . $amount);
-#$output = shell_exec('echo blabla; groups $USER; echo $USER');
-*/
 
 ?>

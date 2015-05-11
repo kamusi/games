@@ -138,7 +138,10 @@ function queryHelsinkiDBForSentences(keyword, amount){
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             console.log("Returned from helsinki query: ")
-            console.log(xmlhttp.responseText)
+            console.log(xmlhttp.responseText);
+            var results_array = JSON.parse(xmlhttp.responseText);
+
+
         }
     }
     xmlhttp.open("GET","php/get_swahiliSentences.php?keyword=" + keyword + "&amount=" + amount, true);
@@ -164,41 +167,47 @@ function get_tweets(alreadyDisplayed) {
                 return results_array.indexOf(elem) == pos;
             });
             realIndex = 0
-            listOfAll.forEach(function(elem, index){
+            listOfAll.forEach( 
                 realIndex = alreadyDisplayed + index;
                 last20Tweets[realIndex] = elem;
+                displayTextWithCheckboxes(elem,realIndex,"twitterWords")
+                );
 
-                var tweetDisplay = document.createElement("P");
-                tweetDisplay.id = "tweetDisplay" + realIndex;
-                tweetDisplay.name = "elem" ;
-                tweetDisplay.type = "text";
 
-                var newInput = document.createElement("INPUT");
-                newInput.id = "checkbox" + realIndex;
-                newInput.name = "checkbox" ;
-                newInput.type = "checkbox";
-                newInput.onchange=function(){
-                    changeColorOnClick(tweetDisplay,newInput);
-                }
-
-                var t = document.createTextNode(elem.Text);
-                console.log("STYLEEEEE " + tweetDisplay.style.color)
-                tweetDisplay.appendChild(newInput);
-                tweetDisplay.appendChild(t);
-                document.getElementById("twitterWords").appendChild(tweetDisplay);
-                            })
                 if(realIndex == 0){
                     get_randomForTweets();
                     console.log("Nothing found for this keyword")
                 }
+
             }
         }
-    xmlhttp.open("GET","php/get_tweets.php?keyword=" + word + "&amount=" + (amountOfTweets - alreadyDisplayed));
+    xmlhttp.open("GET","php/get_tweets.php?keyword=" + encodeURIComponent(word) + "&amount=" + (amountOfTweets - alreadyDisplayed));
 
     xmlhttp.send();
 }
 
+function displayTextWithCheckboxes(elem, index, whereToInsert){
 
+
+    var tweetDisplay = document.createElement("P");
+    tweetDisplay.id = "tweetDisplay" + realIndex;
+    tweetDisplay.name = "elem" ;
+    tweetDisplay.type = "text";
+
+    var newInput = document.createElement("INPUT");
+    newInput.id = "checkbox" + realIndex;
+    newInput.name = "checkbox" ;
+    newInput.type = "checkbox";
+    newInput.onchange=function(){
+        changeColorOnClick(tweetDisplay,newInput);
+    }
+
+    var t = document.createTextNode(elem.Text);
+    console.log("STYLEEEEE " + tweetDisplay.style.color)
+    tweetDisplay.appendChild(newInput);
+    tweetDisplay.appendChild(t);
+    document.getElementById(whereToInsert).appendChild(tweetDisplay);
+}
 
 function fetchTweetsFromDB(amount) {
     amountOfTweets = amount;
@@ -219,22 +228,7 @@ function fetchTweetsFromDB(amount) {
             var i = 0
             for( i = 0; i<amount && typeof results_array[i] !== 'undefined'; i++) {
                 last20Tweets[i] = results_array[i];
-                var tweetDisplay = document.createElement("P");
-                tweetDisplay.id = "tweetDisplay" + i;
-                tweetDisplay.name = "elem" ;
-                tweetDisplay.type = "text";
-
-                var newInput = document.createElement("INPUT");
-                newInput.id = "checkbox" + i;
-                newInput.name = "checkbox" ;
-                newInput.type = "checkbox";
-                newInput.onchange=function(){
-                    changeColorOnClick(tweetDisplay,newInput);
-                }
-                var t = document.createTextNode(results_array[i].Text);
-                tweetDisplay.appendChild(newInput);
-                tweetDisplay.appendChild(t);
-                document.getElementById("twitterWords").appendChild(tweetDisplay);
+                displayTextWithCheckboxes(elem,pos,"twitterWords")
                 
                 
             }
