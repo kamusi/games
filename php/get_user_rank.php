@@ -48,7 +48,7 @@ $stmt->execute();
 $stmt->close();
 
 
-			
+
 
 
 
@@ -126,14 +126,25 @@ $result[] = $userNameByUserID;
 //TODO only send the entries that are needed, we are sending them all!
 
 $userRank =  array_search($userID, $orderedUsers)+1;
-$result[] = array("myScore"=>$thisUsersScore, "myRank"=> $userRank);
+ 
+$result[] = array("id"=> $userID, "score"=>$thisUsersScore, "rank"=> $userRank);
 
 if($userRank > 3) {
 
-$rankFromGuyBeforeMe= $userRank -1;
-$idOfGuyBeforeMe= $orderedUsers[$rankFromGuyBeforeMe];
-$scoreFromGuyBeforeMe= $orderedScores[$rankFromGuyBeforeMe -1];
-$result[] = array("id" => $idOfGuyBeforeMe, "score"=>$scoreFromGuyBeforeMe, "rank"=> $rankFromGuyBeforeMe );
+	$rankFromGuyBeforeMe= $userRank -1;
+	$idOfGuyBeforeMe= $orderedUsers[$rankFromGuyBeforeMe];
+	$scoreFromGuyBeforeMe= $orderedScores[$rankFromGuyBeforeMe -1];
+	$result[] = array("id" => $idOfGuyBeforeMe, "score"=>$scoreFromGuyBeforeMe, "rank"=> $rankFromGuyBeforeMe );
+
+	$rankFromGuyAfterMe= $userRank +1;
+	if($rankFromGuyAfterMe < count($orderedScores)) {
+		$idOfGuyAfterMe= $orderedUsers[$rankFromGuyAfterMe];
+		$scoreFromGuyAfterMe= $orderedScores[$rankFromGuyAfterMe -1];
+		$result[] = array("id" => $idOfGuyAfterMe, "score"=>$scoreFromGuyAfterMe, "rank"=> $rankFromGuyAfterMe );
+	}
+	else {
+		$result[] = array("id" => "NOPE")
+	}
 }
 
 //$result[] = array("myScore"=>$thisUsersScore, "myRank"=> array_search($userID, $orderedUsers)+1 );
@@ -162,61 +173,61 @@ function getTotalXForUserStatement($user, $x){
 			else {
 				$x= "submissiontime";
 			}
-		$sql = "SELECT SUM(t.amount) AS total FROM ( ";
+			$sql = "SELECT SUM(t.amount) AS total FROM ( ";
 
 
-			if($language == '0' && $selectedMode == '0'){
-				$sql .= " SELECT amount FROM ".$x." WHERE userid='".$user."' ";
+				if($language == '0' && $selectedMode == '0'){
+					$sql .= " SELECT amount FROM ".$x." WHERE userid='".$user."' ";
+				}
+				else if( $language == '0') {
+					$sql .= " SELECT amount FROM ".$x." WHERE userid='".$user."' AND game= " . $selectedMode ." ";
+				}
+				else if ($selectedMode == '0') {
+					$sql .= " SELECT amount FROM ".$x." WHERE userid='".$user."' AND language= " . $language ." ";
+				}	
+				else {
+					$sql .= " SELECT amount FROM ".$x." WHERE userid='".$user."' AND language= " . $language . " AND game= " . $selectedMode ." ";
+				}	
 			}
-			else if( $language == '0') {
-				$sql .= " SELECT amount FROM ".$x." WHERE userid='".$user."' AND game= " . $selectedMode ." ";
-			}
-			else if ($selectedMode == '0') {
-				$sql .= " SELECT amount FROM ".$x." WHERE userid='".$user."' AND language= " . $language ." ";
-			}	
 			else {
-				$sql .= " SELECT amount FROM ".$x." WHERE userid='".$user."' AND language= " . $language . " AND game= " . $selectedMode ." ";
-			}	
-		}
-		else {
 
 			//rank of everything
-			if($language == '0' && $selectedMode == '0'){
-				$first=TRUE;
-				foreach ($acceptedModes as $mode) {
-					if($first == TRUE){
-						$first=FALSE;
+				if($language == '0' && $selectedMode == '0'){
+					$first=TRUE;
+					foreach ($acceptedModes as $mode) {
+						if($first == TRUE){
+							$first=FALSE;
+						}
+						else {
+							$sql .=" UNION ALL ";
+						}
+						$sql .= " SELECT ". $x ." FROM game".$mode." WHERE userid='".$user."' ";
 					}
-					else {
-						$sql .=" UNION ALL ";
-					}
-					$sql .= " SELECT ". $x ." FROM game".$mode." WHERE userid='".$user."' ";
+				}
+				else if($selectedMode == '0'){
+					$first=TRUE;
+					foreach ($acceptedModes as $mode) {
+						if($first == TRUE){
+							$first=FALSE;
+						}
+						else {
+							$sql .=" UNION ALL ";
+						}
+						$sql .= " SELECT ". $x ." FROM game".$mode." WHERE userid='".$user."' AND language=" . $language . " ";
+					}			
+				}
+				else if( $language == '0') {
+					$sql .= " SELECT ". $x ." FROM game".$selectedMode." WHERE userid='".$user."' ";
+				}
+				else {
+					$sql .= " SELECT ". $x ." FROM game".$selectedMode." WHERE userid='".$user."' AND language=" . $language . " ";
+
 				}
 			}
-			else if($selectedMode == '0'){
-				$first=TRUE;
-				foreach ($acceptedModes as $mode) {
-					if($first == TRUE){
-						$first=FALSE;
-					}
-					else {
-						$sql .=" UNION ALL ";
-					}
-					$sql .= " SELECT ". $x ." FROM game".$mode." WHERE userid='".$user."' AND language=" . $language . " ";
-				}			
-			}
-			else if( $language == '0') {
-				$sql .= " SELECT ". $x ." FROM game".$selectedMode." WHERE userid='".$user."' ";
-			}
-			else {
-				$sql .= " SELECT ". $x ." FROM game".$selectedMode." WHERE userid='".$user."' AND language=" . $language . " ";
-
-			}
-		}
-	$sql .= " ) t;";
+			$sql .= " ) t;";
 		//echo $sql;
 
-	return $sql;
+return $sql;
 }
 
 ?>
