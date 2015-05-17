@@ -41,8 +41,8 @@ function lookForWord($userID, $mysqli) {
 
 
 //fetch the user in order to see which word is for him
-	$stmt = $mysqli->prepare("SELECT * FROM game". $mode . " WHERE userid = ? AND language = ? ");
-	$stmt->bind_param("si", $userID, $language );
+	$stmt = $mysqli->prepare("SELECT * FROM games WHERE userid = ? AND language = ? AND game= ? ");
+	$stmt->bind_param("sii", $userID, $language, $mode );
 	$stmt->execute();
 	$result = $stmt->get_result();
 	$row = $result->fetch_assoc();
@@ -78,8 +78,8 @@ function lookForWord($userID, $mysqli) {
 	if($result-> num_rows === 0){
 
 		if($user_offset == 0) {
-			$stmt = $mysqli->prepare("UPDATE game".$mode." SET position = position + 1 WHERE userid=? AND language = ?;");
-			$stmt->bind_param("si", $userID, $language);
+			$stmt = $mysqli->prepare("UPDATE games SET position = position + 1 WHERE userid=? AND language = ? AND game= ?;");
+			$stmt->bind_param("sii", $userID, $language, $mode);
 			$stmt->execute();
 			$stmt->close();
 
@@ -92,8 +92,8 @@ function lookForWord($userID, $mysqli) {
 
 		}
 		else {
-			$stmt = $mysqli->prepare("UPDATE game".$mode." SET offset = offset + 1 WHERE userid=? AND language = ?;");
-			$stmt->bind_param("si", $userID, $language);
+			$stmt = $mysqli->prepare("UPDATE games SET offset = offset + 1 WHERE userid=? AND language = ? AND game = ?;");
+			$stmt->bind_param("sis", $userID, $language, $mode);
 			$stmt->execute();
 			$stmt->close();	
 
@@ -106,15 +106,15 @@ function lookForWord($userID, $mysqli) {
 		$stmt->execute();
 		$stmt->close();	
 		if($user_offset > $offsetModulo){
-			$stmt = $mysqli->prepare("UPDATE game".$mode." SET offset = 0 WHERE userid=? AND language = ?;");
-			$stmt->bind_param("si", $userID, $language);
+			$stmt = $mysqli->prepare("UPDATE games SET offset = 0 WHERE userid=? AND language = ? AND game= ?;");
+			$stmt->bind_param("sis", $userID, $language, $mode);
 			$stmt->execute();
 			$stmt->close();
 		}
 		else {
 
-			$stmt = $mysqli->prepare("UPDATE game".$mode." SET offset = offset + 1 WHERE userid=? AND language = ?;");
-			$stmt->bind_param("si", $userID, $language);
+			$stmt = $mysqli->prepare("UPDATE game SET offset = offset + 1 WHERE userid=? AND language = ? AND game= ?;");
+			$stmt->bind_param("sis", $userID, $language, $mode);
 			$stmt->execute();
 			$stmt->close();	
 		}	

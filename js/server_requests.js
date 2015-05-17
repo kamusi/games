@@ -1,5 +1,5 @@
 
-var userID = 10203265649994971 //"???"; //so that it works offline:  10203265649994971
+var userID = "10203265649994971" //"???"; //so that it works offline:  10203265649994971
 var wordID;
 var word;
 var definitionID;
@@ -238,14 +238,11 @@ function fetchTweetsFromDB(amount) {
     		for( i = 0; i<amount && typeof results_array[i] !== 'undefined'; i++) {
     			last20Tweets[i] = results_array[i];
     			displayTextWithCheckboxes(last20Tweets[i].Text,i,"twitterWords")
-
-
     		}
     		console.log("this was i " + i + ", this is amount : " + amount);
     		if(i < amountOfTweets) {
     			get_tweets( i);
     		}
-
     	}
     }
     console.log("WORD ID IS : "+ wordID)
@@ -287,20 +284,105 @@ function submitCheckBoxData(whatToSubmit) {
 	post_timeline();
 }
 
+function displayNextNCheckboxes(game, amount) {
+
+    //TODO try out the behavior of thw game with multiple users simultaneously
+    //First, fetch the necessary text from the DB
+
+    switch(game) {
+    	case '3':
+        //Do stuff for tweets
+        break;
+
+        case '4':
+        //For the swahili helsinki corpus game
+        
+        //fetch amount from DB
+
+
+
+        break;
+        default: 
+        break;
+    }
+}
+
+function fetchNFromDB(amount, game){
+     switch(game) {
+        case '3':
+        //Do stuff for tweets
+        displayCheckBoxType="twitterWords"
+        beginningOfUrl= "php/fetch_tweet_db.php?wordID=";
+
+
+        break;
+
+        case '4':
+        //For the swahili helsinki corpus game
+        displayCheckBoxType="swahiliSentences"
+        beginningOfUrl= "php/fetch_swahili_db.php?wordID=";
+ 
+        break;
+        default: 
+        break;
+    }
+
+
+    var xmlhttp;
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+
+
+            console.log("REsPONSE : " + xmlhttp.responseText + "End response");
+
+            var results_array = JSON.parse(xmlhttp.responseText);
+            var i = 0
+            for( i = 0; i<amount && typeof results_array[i] !== 'undefined'; i++) {
+                last20Tweets[i] = results_array[i];
+                displayTextWithCheckboxes(last20Tweets[i].Text,i,displayCheckBoxType)
+            }
+            console.log("this was i " + i + ", this is amount : " + amount);
+            if(i < amount) {
+                fetchMore(game, i);
+            }
+        }
+    }
+    console.log("WORD ID IS : "+ wordID)
+
+    xmlhttp.open("GET",beginningOfUrl + wordID + "&amount=" + amount);
+
+    xmlhttp.send();
+
+
+    }   
+}
+
+function fetchMore(game, amount){
+
+}
+
+
+
 function sendGame4SentenceToDB(sentence, good){
 	console.log("Sending swahili results to DB:...")
 	var xmlhttp;
-        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        	xmlhttp=new XMLHttpRequest();
-        }
-        else {// code for IE6, IE5
-        	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange=function() {
-        	if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-        		console.log("DB esponse was:  : " + xmlhttp.responseText)
-        	}
-        }
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+    	xmlhttp=new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+    	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function() {
+    	if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+    		console.log("DB esponse was:  : " + xmlhttp.responseText)
+    	}
+    }
     /* TODO: Continue
     var json_data= {"wordID":wordID, "sentence":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "mode":game, "language":gameLanguage, "tweetAuthor":tweet.Author, "good" : good    }
 

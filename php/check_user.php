@@ -4,12 +4,6 @@
 $userID = $_GET['userID'];
 $userName = $_GET['userName'];
 
-$user = 'root';
-$pass = '';
-$db = 'kamusi';
-
-$mysqli = new mysqli('localhost', $user, $pass, $db);
-
 
 $stmt = $mysqli->prepare("SELECT * FROM users WHERE UserID = ? ");
 $stmt->bind_param("s", $userID );

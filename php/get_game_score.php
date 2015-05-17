@@ -2,12 +2,6 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
-//sinclude 'global.php';
-
-$user = 'root';
-$pass = '';
-$db = 'kamusi';
-
 
 $userID = $_GET['userID'];
 $language = $_GET['language'];
@@ -24,10 +18,10 @@ if (!$mysqli->set_charset('utf8')) {
 if(!in_array($mode, $acceptedModes)) {
 	die("Got a strange mode as input!". $mode);
 }
-$sql = "SELECT * FROM game" . $mode . " WHERE userid=? AND language = ?;";
+$sql = "SELECT * FROM games WHERE userid=? AND language = ? AND game = ?;";
 
 $stmt = $mysqli->prepare($sql);
-$stmt->bind_param("si", $userID, $language );
+$stmt->bind_param("sii", $userID, $language, $mode );
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();

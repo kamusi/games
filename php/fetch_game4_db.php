@@ -6,9 +6,12 @@ $wordID = $_GET['wordID'];
 $amount = $_GET['amount'];
 
 
+    $sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
+    $sql.=  "SELECT w.ID, w.DefinitionID, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
+    $sql.=  ") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.ID NOT IN (SELECT WordID FROM seengame".$mode." WHERE (userid=? OR userid=?) AND language = ?) AND sq.Rank = ? LIMIT 1;";
 
-
-$sql = "SELECT DISTINCT TweetID,Text ,Author  FROM TweetContext WHERE WordID= ?;";
+77coNTineub Llqetgj4SKtrgjevS
+$sql = "SELECT DISTINCT sentenceid, sentence AS Text FROM TweetContext WHERE WordID= ?;";
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("s", $wordID );
 $stmt->execute();

@@ -203,7 +203,7 @@ function getTotalXForUserStatement($user, $x){
 						else {
 							$sql .=" UNION ALL ";
 						}
-						$sql .= " SELECT ". $x ." FROM game".$mode." WHERE userid='".$user."' ";
+						$sql .= " SELECT ". $x ." FROM game WHERE userid='".$user."' AND game= ? ";
 					}
 				}
 				else if($selectedMode == '0'){

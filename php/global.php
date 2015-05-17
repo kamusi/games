@@ -1,6 +1,6 @@
 <?php
 
-$acceptedModes = array("1","2","3");
+$acceptedModes = array("1","2","3","4");
 $allUsers = "allusers";
 
 $user = 'root';
@@ -44,5 +44,6 @@ function addXSubmissionsInGame($userID, $language, $mode, $x){
 	$stmt->close();	
 
 }
+echo "WTJFEKRGJBOISFJHMGSRJM0";
 
 ?>
