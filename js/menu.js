@@ -319,12 +319,6 @@ function set_avatar(userID) {
 	document.getElementById("profile_avatar").src = "https://graph.facebook.com/" + userID + "/picture??width=200&height=200";
 }
 
-function set_greeting(userName) {
-	document.getElementById("greeting").innerHTML = "Write or vote for a definition, " + userName.split(" ")[0] + "!";
-	document.getElementById("greeting2").innerHTML = "Chào " + userName.split(" ")[0] + "!";
-	document.getElementById("profile_name").innerHTML = userName;
-}
-
 function set_profile_data(points, pendingPoints, ratio) {
 	document.getElementById("profile_name").innerHTML = userName;
 	document.getElementById("profile_points").innerHTML = points;

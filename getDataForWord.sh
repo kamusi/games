@@ -4,28 +4,16 @@ word="$1"
 amount="$2"
 pointer="$3" 
 sentences=()
+sources=()
+sourceFiles=()
 numberOfSentencesFound=0
 
+verbose=no
 
-
-verbose=yes
-verbose2=yes
 verbose () {	
-	if [ $verbose = yes ]; then
-		echo "$1"
-	fi
-}
-
-verbose2 () {	
-	if [ $verbose2 = yes ]; then
-		echo "$1"
-	fi
-}
-
-readBlacklist() {
-	if [ -e "blacklists/$word.ignore" ]; then
-		readarray blacklist < "blacklists/$word.ignore"
-	fi
+if [ $verbose = yes ]; then
+	echo "$1"
+fi
 }
 
 compareToPointer(){
@@ -33,30 +21,32 @@ compareToPointer(){
 	if [[ "$1" == "" ]] || [[ "$1" == "xml.test" ]]; then
 		return 0
 	fi
-	echo "compaing $1 and $pointer"
-		#first word of pointer must be lower or equal: so that we can enter directories
+#first word of pointer must be lower or equal: so that we can enter directories
 #if pointer is substring of directory we let it pass
-	if [ -d "$1" ]; then
-		if [[ "$pointer" == *"$1"* ]] ; then
-			 #TODOO: work more on this for time saving
-			return 0
+if [ -d "$1" ]; then
+	if [[ "$pointer" == *"$1"* ]] ; then
+			 #TODOO: work more on this for time saving: here we read all files!!
+			 return 0
+			fi
+		else 		
+
+			if [[ "$1" > "$pointer" ]]; then
+				return 0
+			else
+				return 1
+			fi
+
 		fi
-	else 		
+	}
 
-		if [[ "$1" > "$pointer" ]]; then
-			return 0
-		else
-			return 1
-		fi
-
-	fi
-}
-
-#prints the word to stdout, returns the line number
 #getting it from stdin
 getWords() {	
 	#remove strange artifacts and then extract words, finally display it all in one line
-	sed  's:&amp;quot;::g' | sed -n 's:.*<w.*>\(.*\)</w>.*:\1:p' 
+	sed  's:&amp;quot;::g' | sed  's/_/ /g' | sed -n 's:.*<w.*>\(.*\)</w>.*:\1:p' 
+}
+
+getSourceInfo() {
+	xml_grep 'sourceDesc' --text_only
 }
 
 #Returns the sentence in which the given word occurs
@@ -77,30 +67,29 @@ echo "$occurances"
 }
 
 findAllSentencesInFile() {
-file="$1"
+	file="$1"
 
-relevantLines=$(findOccurances $file "lemma=\"$word\"" 5)
+	relevantLines=$(findOccurances $file "lemma=\"$word\"" 5)
 
 #Get all occurences of words related to this lema in this document
 allwords=$(echo "$relevantLines" | getWords)
-
-
-#1) Allwyas getting same sentence 2)Coutnign 4 words getting 3 sentences
 documentText=$(cat "$file" | getWords)
-#echo "$documentText" | sed 's/\n/ /g'
+
+test1=$( cat "$file" | getSourceInfo "$file")
+sources+=( "$test1" )
 
 for word in $allwords; do
 	((numberOfSentencesFound++))
-	verbose2 "$word:"
+	verbose "$word:"
 	newSentence=$(printDocument | getSentence "$word")
 	sentences+=("$newSentence")
+	#TODO detect if a word appears 2 times in the same sentence
+	sources+=( "$test1" )
+	sourceFiles+=( "$file")
 	documentText=`printDocument | sed "s/$newSentence//"`
-#	sentences+=("<DELIMITER>")
 
 done
 
-#echo $sentences
-#echo "The document was: " 
 #printDocument
 }
 
@@ -108,27 +97,12 @@ printDocument () {
 	echo $documentText | sed 's/\n/ /'
 }
 
-#http://stackoverflow.com/questions/1063347/passing-arrays-as-parameters-in-bash
-containsElement () { 
-    declare -a arrayIn=("${!1}")
-    local seeking=$2
-    local in=1
-    for element in "${arrayIn[@]}"; do
-    	echo "Comparing : $element WITH $seeking"
-        if [[ "$element" == "$seeking" ]]; then
-            in=0
-            break
-        fi
-    done
-    return $in
-}
-
 getNextFile () {
-	verbose2 "Entering getNextFile in folder $PWD"
+	verbose "Entering getNextFile in folder $PWD"
 
 	for file in *; do
 		if [[ $numberOfSentencesFound -ge $amount ]];  then
-				break
+			break
 		fi
 		if ! compareToPointer `readlink -e "$file"` ; then
 			verbose "Ignoring $file"
@@ -137,18 +111,24 @@ getNextFile () {
 			cd "$file"
 
 			getNextFile
-	
+
 			cd ..
 
 		else
-			verbose "Doing stuff with file: $file"
-			findAllSentencesInFile "$file"
+			if [ ${file: -4} == ".xml" ]; then
+				verbose "Doing stuff with file: $file"
+				findAllSentencesInFile "$file"
 
-			pointer=`readlink -e "$file"`
- 		fi
+				pointer=`readlink -e "$file"`
+			else
+				verbose "file: $file is not an xml file, i don t care."
+			fi
+		fi
 	done
 
 }
+
+
 
 printArray() {
 	array=("${!1}")
@@ -180,16 +160,19 @@ cd '/appl/kielipankki/hcs/'
 #next generalize shell script to also find data in books folder
 
 getNextFile
-#if [ $numberOfSentencesFound -lt $amount ]; then
 
-#fi
 
 echo "<SENTENCES>"
 printArray sentences[@]
 echo "</SENTENCES>"
-echo
+echo "<SOURCESTEXT>"
+printArray sources[@]
+echo "</SOURCESTEXT>"
+echo "<SOURCEFILE>"
+printArray sourceFiles[@]
+echo "</SOURCEFILE>"
 
-verbose2 "Found That many sentences: $numberOfSentencesFound"
+verbose "Found That many sentences: $numberOfSentencesFound"
 echo "NEXTPOINTER:$pointer"
 
 

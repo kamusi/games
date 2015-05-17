@@ -40,8 +40,8 @@ if( $checkResult== 0){
 
 	foreach ($acceptedModes as $mode) {
 		foreach ($languageArray as $language) {
-			$stmt = $mysqli->prepare("INSERT INTO game".$mode." (userID, language) VALUES(?,?);");
-			$stmt->bind_param("si", $userID, $language );
+			$stmt = $mysqli->prepare("INSERT INTO games (userID, game, language) VALUES(?,?,?);");
+			$stmt->bind_param("sii", $userID, $mode, $language );
 			$stmt->execute();
 			$stmt->close();
 		}

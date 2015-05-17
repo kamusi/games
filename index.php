@@ -238,7 +238,15 @@ $newToken = generateToken();
 </div>
 <div id="settings">
 	<div id="settings-main">
-		<p>My language is...</p>
+		<p>Talk to me in...</p>
+	</br>
+	<select id="menu-language" onchange= size="1">
+		<option>English</option>
+		<option>Français</option>
+		<option>tiếng Việt</option>
+	</select>
+
+		<p>Play for...</p>
 	</br>
 	<select id="language" onchange= size="1">
 		<option>English</option>

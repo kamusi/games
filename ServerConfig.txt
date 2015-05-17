@@ -38,7 +38,7 @@ cd /var/www/html
 
 copy all files from local to server :
 
-scp -i /home/timo/Documents/TimoAwsServerKeyPair.pem . ec2-user@ec2-54-187-146-101.us-west-2.compute.amazonaws.com:/home/ec2-user
+scp -i /home/timo/.ssh/TimoAwsServerKeyPair.pem . ec2-user@ec2-54-187-146-101.us-west-2.compute.amazonaws.com:/home/ec2-user
 
 sudo su
 SHOW DATABASES;
@@ -52,9 +52,9 @@ yum install php54-mysqlnd
 
 THE NATIVE DRIVER IS NEEDED FOR LATER!!! mysqli prapre
 
-save old db to sql file :  mysqldump -u [uname] -p[pass] db_name > db_backup.sql
+save old db to sql file :  mysqldump -u root -p kamusi > kamusi.sql
 
-import sql from file : mysql -u username -p -h localhost kamusi < kamusi.sql
+import sql from file : mysql -u root -p -h localhost kamusi < kamusi.sql
 
 Do not forget to make http requests accessile from the outside world on your amazon machine!
 

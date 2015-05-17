@@ -1,5 +1,5 @@
 
-var userID = "???"; //so that it works offline:  10203265649994971
+var userID = 10203265649994971 //"???"; //so that it works offline:  10203265649994971
 var wordID;
 var word;
 var definitionID;
