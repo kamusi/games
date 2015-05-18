@@ -806,21 +806,23 @@ function updateLeaderboard(){
 
 	if(Boolean(first)) {
 		setInterval(function () {
+			var whatTochange = languageSelect;
 
 			switch(whichSliderToChange) {
-				case '0':
+				case 0:
 				whatTochange = languageSelect;
 				break;
-				case '1':
+				case 1:
 				whatTochange = gameSelect;
 				break;
-				case '2':
+				case 2:
 				whatTochange = timePeriodSelect;
 				break;
-				case '3':
+				case 3:
 				whatTochange = metricSelect;
 				break;
 				default:
+                console.log("PEROGVJEöRKFJ")
 				break;        
 			}
         whatTochange.selectedIndex = (whatTochange.selectedIndex + 1)  % (whatTochange.length) ;
