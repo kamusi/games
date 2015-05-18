@@ -50,12 +50,12 @@ while ($row = $result->fetch_assoc()) {
 $stmt->close();
 
 //delete outdated rows from the pointtime db
-$stmt = $mysqli->prepare("DELETE from pointtime WHERE ts < UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 1 DAY));");
+$stmt = $mysqli->prepare("DELETE FROM pointtime WHERE ts < (now() - INTERVAL 1 DAY);");
 $stmt->execute();
 $stmt->close();
 
 //delete outdated rows from the submissionstime db
-$stmt = $mysqli->prepare("DELETE from submissiontime WHERE ts < UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 1 DAY));");
+$stmt = $mysqli->prepare("DELETE from submissiontime WHERE ts < (now() - INTERVAL 1 DAY);");
 $stmt->execute();
 $stmt->close();
 
