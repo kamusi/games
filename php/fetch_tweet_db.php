@@ -24,7 +24,7 @@ while ($row = $result->fetch_assoc()) {
 
 
 $jsonData = json_encode($results_array);
-
+/*
 switch (json_last_error()) {
     case JSON_ERROR_NONE:            
     break;
@@ -46,7 +46,7 @@ switch (json_last_error()) {
     default:
     echo ' - Unknown error';
     break;
-}
+}*/
 
 echo $jsonData;
 
