@@ -308,7 +308,7 @@ function displayNextNCheckboxes(game, amount) {
 }
 
 function fetchNFromDB(amount, game){
-   switch(game) {
+ switch(game) {
     case '3':
         //Do stuff for tweets
         displayCheckBoxType="twitterWords"
@@ -864,13 +864,21 @@ function updateLeaderboard(){
 
     		for(var i = 0; i <  obj[0].length; i++) {
     			var rowCount = table.rows.length;
+                rowUserID=  obj[1][i].toString();
     			console.log("This is the rowCount: " + rowCount)
-    			var row = table.insertRow(rowCount);
-    			rowUserID=  obj[1][i].toString();
-    			row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + rowUserID + '/picture" >'        ;
-    			row.insertCell(1).innerHTML= obj[2][rowUserID];
+                if(rowUserID == userID){
+                    row.className = "highlightCurrentUser"; 
+                }
+                else {
+                  row.className = "otherUsersInTable"; 
 
-    			row.insertCell(2).innerHTML= obj[0][i];
+              }
+              var row = table.insertRow(rowCount);
+
+              row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + rowUserID + '/picture" >'        ;
+              row.insertCell(1).innerHTML= obj[2][rowUserID];
+
+              row.insertCell(2).innerHTML= obj[0][i];
              //   row.insertCell(3).innerHTML= obj[1][i];
                 row.insertCell(3).innerHTML= "Rank: " + (parseInt(i) + 1); //since index 0 is first rank
             }
@@ -902,18 +910,18 @@ function updateLeaderboard(){
 
 function addScoreEntry(indexOfArray, table){
     var rowCount = table.rows.length;
-	var row = table.insertRow(rowCount);
+    var row = table.insertRow(rowCount);
     if(obj[indexOfArray].id == userID){
         row.className = "highlightCurrentUser"; 
     }
     else {
-          row.className = "otherUsersInTable"; 
+      row.className = "otherUsersInTable"; 
       
-    }
+  }
 
-	row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[indexOfArray].id + '/picture" >'        ;
-	row.insertCell(1).innerHTML= obj[2][obj[indexOfArray].id];
+  row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[indexOfArray].id + '/picture" >'        ;
+  row.insertCell(1).innerHTML= obj[2][obj[indexOfArray].id];
 
-	row.insertCell(2).innerHTML= obj[indexOfArray].score;
-	row.insertCell(3).innerHTML= "Rank: " + obj[indexOfArray].rank;
+  row.insertCell(2).innerHTML= obj[indexOfArray].score;
+  row.insertCell(3).innerHTML= "Rank: " + obj[indexOfArray].rank;
 }
