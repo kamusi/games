@@ -806,7 +806,6 @@ function updateLeaderboard(){
 
 	if(Boolean(first)) {
 		setInterval(function () {
-			var whatTochange = languageSelect;
 
 			switch(whichSliderToChange) {
 				case '0':
