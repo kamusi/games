@@ -475,6 +475,8 @@ function soumettre_traduction() {
 }
 
 function startAutoUpdateOfLeaderboard() {
+
+
 	languageSelect = document.getElementById("scoreLanguage");
 	scoreLanguage = languageSelect.selectedIndex;
 	gameSelect = document.getElementById("scoreGame");
@@ -488,6 +490,7 @@ function startAutoUpdateOfLeaderboard() {
 
 
 	autoUpdateIntervalJobID= setInterval(function () {
+			if(document.getElementById("autoloop".checked){
 		var whatTochange = languageSelect;
 
 		switch(whichSliderToChange) {
@@ -511,10 +514,11 @@ function startAutoUpdateOfLeaderboard() {
 		whichSliderToChange= (whichSliderToChange +1) % 4;
 		console.log("INTERBVAAAAAAAAAAL" + whichSliderToChange)
 		updateLeaderboard();
+	}
 
 
 	}, 3000);
-	
+
 }
 
 function stopAutoUpdateOfLeaderboard() {
