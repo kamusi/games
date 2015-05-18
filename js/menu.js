@@ -474,7 +474,7 @@ function soumettre_traduction() {
 	}
 }
 
-function startAutoUpdateOfLeaderboard () {
+function startAutoUpdateOfLeaderboard() {
     languageSelect = document.getElementById("scoreLanguage");
     scoreLanguage = languageSelect.selectedIndex;
     gameSelect = document.getElementById("scoreGame");
