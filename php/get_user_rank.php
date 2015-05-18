@@ -173,7 +173,7 @@ function getTotalXForUserStatement($user, $x){
 	if($timePeriod == '2') {
 		$x.= "week";	
 	}
-
+	//we use a different table for the last 24 hours so that the score is continuous
 	$sql = "SELECT SUM(t.". $x .") AS total FROM ( ";
 
 		if($timePeriod == '3'){
@@ -220,7 +220,7 @@ function getTotalXForUserStatement($user, $x){
 				}
 			}
 			$sql .= " ) t;";
-		//echo $sql;
+		echo $sql;
 
 return $sql;
 }
