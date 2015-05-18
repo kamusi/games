@@ -123,8 +123,8 @@ if ($totalScoreOfTweet > 4 ) {
 	//We got enough tweets for this word : we don t need more.
 	if($numberOfRefsForThatWord > 2) {
 
-		$stmt = $mysqli->prepare("INSERT INTO seengame" .$data["mode"]. " (userid, language,wordid, rank) VALUES (?,?,?, 2147483647) ;");
-		$stmt->bind_param("sii",$allUsers, $data["language"], $data["wordID"] );
+		$stmt = $mysqli->prepare("INSERT INTO seengame (userid, game, language,wordid, rank) VALUES (?,?,?,?, 2147483647) ;");
+		$stmt->bind_param("siii",$allUsers, $data["mode"], $data["language"], $data["wordID"] );
 		$stmt->execute();
 
 		$stmt->close();	

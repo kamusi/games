@@ -55,7 +55,7 @@ function lookForWord($userID, $mysqli) {
 //fetch the word that has as rank user s position+offset
 	$sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
 	$sql.=	"SELECT w.ID, w.DefinitionID, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
-	$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.ID NOT IN (SELECT WordID FROM seengame".$mode." WHERE (userid=? OR userid=?) AND language = ?) AND sq.Rank = ? LIMIT 1;";
+	$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.ID NOT IN (SELECT WordID FROM seengames WHERE (userid=? OR userid=?) AND language = ?) AND sq.Rank = ? AND game=? LIMIT 1;";
 
 	$sum = intval($user_position) + intval($user_offset);
 
@@ -65,7 +65,7 @@ function lookForWord($userID, $mysqli) {
 		die ("Mysql Error: " . $mysqli->error);
 	}
 
-	$stmt->bind_param("ssii", $userID, $allUsers, $language, $sum);
+	$stmt->bind_param("ssiii", $userID, $allUsers, $language, $sum, $mode);
 
 	$stmt->execute();
 
@@ -85,8 +85,8 @@ function lookForWord($userID, $mysqli) {
 
 			//Clean up the DB that stores the encountered words, else it become too big
 
-			$stmt = $mysqli->prepare("DELETE FROM seengame".$mode." WHERE userid=? AND language = ? AND rank < ? ;");
-			$stmt->bind_param("sii", $userID, $language, $sum);
+			$stmt = $mysqli->prepare("DELETE FROM seengames WHERE userid=? AND language = ? AND rank < ? AND game= ? ;");
+			$stmt->bind_param("siii", $userID, $language, $sum, $mode);
 			$stmt->execute();
 			$stmt->close();
 
@@ -101,8 +101,8 @@ function lookForWord($userID, $mysqli) {
 		return lookForWord($userID, $mysqli);
 	}
 	else {
-		$stmt = $mysqli->prepare("INSERT INTO seengame".$mode." (userid ,wordid, language, rank) VALUES (?,?,?,?);");
-		$stmt->bind_param("siii", $userID, $word_id, $language, $sum);
+		$stmt = $mysqli->prepare("INSERT INTO seengames (userid , game, wordid, language, rank) VALUES (?,?,?,?,?);");
+		$stmt->bind_param("siiii", $userID, $mode, $word_id, $language, $sum);
 		$stmt->execute();
 		$stmt->close();	
 		if($user_offset > $offsetModulo){

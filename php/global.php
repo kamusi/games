@@ -36,6 +36,8 @@ function addXToPointsInGame($userID, $language, $mode, $x) {
 function addXSubmissionsInGame($userID, $language, $mode, $x){
 	global $mysqli;
 	addXToValueInGame($userID, $language, $mode, "submissions", $x);
+	addXToValueInGame($userID, $language, $mode, "submissionsweek", $x);
+	addXToValueInGame($userID, $language, $mode, "submissionsmonth", $x);
 	$sql = "INSERT INTO submissiontime (userID, language, game, amount, ts) VALUES ";
 	$sql .= "(?,?,?,?, UTC_TIMESTAMP());";
 
