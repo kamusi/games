@@ -101,18 +101,17 @@ foreach ($users as $user) {
 		die("Unexpected metric");
 		break;
 	}
+	if($value == null){
+		$value = 0;
+	}
 
 	if($user == $userID){
 		$thisUsersScore = $value;
 
 	}
 
-	if($value == null){
-		$userAndScore[$user] = 0;
-	}
-	else {
-		$userAndScore[$user] = $value;
-	}		
+	$userAndScore[$user] = $value;
+		
 
 }
 
