@@ -108,6 +108,7 @@ foreach ($users as $user) {
 	}
 
 	if($user == $userID){
+		var_dump($value)
 		$thisUsersScore = $value;
 	}
 
