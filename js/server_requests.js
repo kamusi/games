@@ -308,8 +308,8 @@ function displayNextNCheckboxes(game, amount) {
 }
 
 function fetchNFromDB(amount, game){
-     switch(game) {
-        case '3':
+   switch(game) {
+    case '3':
         //Do stuff for tweets
         displayCheckBoxType="twitterWords"
         beginningOfUrl= "php/fetch_tweet_db.php?wordID=";
@@ -320,8 +320,8 @@ function fetchNFromDB(amount, game){
         case '4':
         //For the swahili helsinki corpus game
         displayCheckBoxType="swahiliSentences"
-        beginningOfUrl= "php/fetch_swahili_db.php?wordID=";
- 
+        beginningOfUrl= "php/fetch_game4_db.php?wordID=";
+        
         break;
         default: 
         break;
@@ -360,8 +360,8 @@ function fetchNFromDB(amount, game){
     xmlhttp.send();
 
 
-    }   
-}
+}   
+
 
 function fetchMore(game, amount){
 
