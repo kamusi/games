@@ -666,7 +666,7 @@ body {
 .highlightCurrentUser{background-color: yellow;} 
 .otherUsersInTable{background-color:transparent;}
 
-.spaceUnder
+tr.spaceUnder > td
 {
   padding-bottom: 100em;
 }
