@@ -889,6 +889,7 @@ function updateLeaderboard(){
                 var rowCount = table.rows.length;
                 var row = table.insertRow(rowCount);
                 row.className = "spaceUnder"; 
+                row.insertCell(0).innerHTML="  "
 
             	addScoreEntry(4,table) 
             }
