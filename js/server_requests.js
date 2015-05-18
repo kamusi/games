@@ -864,6 +864,7 @@ function updateLeaderboard(){
 
     		for(var i = 0; i <  obj[0].length; i++) {
     			var rowCount = table.rows.length;
+                var row = table.insertRow(rowCount);
                 rowUserID=  obj[1][i].toString();
     			console.log("This is the rowCount: " + rowCount)
                 if(rowUserID == userID){
@@ -873,7 +874,7 @@ function updateLeaderboard(){
                   row.className = "otherUsersInTable"; 
 
               }
-              var row = table.insertRow(rowCount);
+              
 
               row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + rowUserID + '/picture" >'        ;
               row.insertCell(1).innerHTML= obj[2][rowUserID];
