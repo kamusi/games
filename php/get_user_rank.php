@@ -220,7 +220,7 @@ function getTotalXForUserStatement($user, $x){
 				}
 			}
 			$sql .= " ) t;";
-		echo $sql;
+		//echo $sql;
 
 return $sql;
 }
