@@ -1,6 +1,5 @@
 <?php
 
-include 'global.php';
 
 $wordID = $_GET['wordID'];
 $groupID = $_GET['groupID'];
