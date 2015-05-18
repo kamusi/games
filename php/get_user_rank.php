@@ -98,7 +98,7 @@ foreach ($users as $user) {
 		break;
 
 		default:
-		die("Unexpected metric");
+		die("Unexpected metric " . $metric);
 		break;
 	}
 	if($value == null){
