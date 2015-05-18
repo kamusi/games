@@ -44,6 +44,5 @@ function addXSubmissionsInGame($userID, $language, $mode, $x){
 	$stmt->close();	
 
 }
-echo "WTJFEKRGJBOISFJHMGSRJM0";
 
 ?>
