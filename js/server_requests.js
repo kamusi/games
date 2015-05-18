@@ -792,10 +792,11 @@ function trigger_notification() {
 function updateLeaderboard(){
 
 	languageSelect = document.getElementById("scoreLanguage");
-    console.log("AIFJEIFSIZE: " + gameSelect.size)
 	scoreLanguage = languageSelect.selectedIndex;
 	gameSelect = document.getElementById("scoreGame");
-	scoreGame= gameSelect.selectedIndex;
+	    console.log("AIFJEIFSIZE: " + gameSelect.size)
+
+    scoreGame= gameSelect.selectedIndex;
 	timePeriodSelect = document.getElementById("scoretimePeriod");
 	scoretimePeriod = timePeriodSelect.selectedIndex;
 	metricSelect = document.getElementById("scoreMetric")
