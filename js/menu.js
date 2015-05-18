@@ -490,7 +490,7 @@ function startAutoUpdateOfLeaderboard() {
 
 
 	autoUpdateIntervalJobID= setInterval(function () {
-			if(document.getElementById("autoloop".checked)) {
+		if(document.getElementById("autoloop").checked) {
 		var whatTochange = languageSelect;
 
 		switch(whichSliderToChange) {
