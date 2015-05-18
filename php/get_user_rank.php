@@ -60,11 +60,6 @@ $stmt->execute();
 $stmt->close();
 
 
-
-
-
-
-
 foreach ($users as $user) {
 	$value;
 	switch ($metric) {
@@ -110,6 +105,8 @@ foreach ($users as $user) {
 	if($user == $userID){
 		var_dump($value);
 		$thisUsersScore = $value;
+		var_dump($thisUsersScore);
+
 	}
 
 	if($value == null){
