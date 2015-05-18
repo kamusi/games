@@ -888,7 +888,7 @@ function updateLeaderboard(){
             if( obj[3].rank > 4) {
                 var rowCount = table.rows.length;
                 var row = table.insertRow(rowCount);
-                row.insertCell(0).innerHTML='\n \n  '
+                row.className = "spaceUnder"; 
 
             	addScoreEntry(4,table) 
             }
