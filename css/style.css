@@ -662,3 +662,5 @@ body {
 {
     display: inline-block;
 }
+
+.highlightCurrentUser{background-color: yellow;} 

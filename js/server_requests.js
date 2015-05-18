@@ -901,8 +901,12 @@ function updateLeaderboard(){
 }
 
 function addScoreEntry(indexOfArray, table){
-	var rowCount = table.rows.length;
+    var rowCount = table.rows.length;
 	var row = table.insertRow(rowCount);
+    if(obj[indexOfArray].id == userID){
+        row.className = "highlightCurrentUser"; 
+    }
+
 	row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[indexOfArray].id + '/picture" >'        ;
 	row.insertCell(1).innerHTML= obj[2][obj[indexOfArray].id];
 
