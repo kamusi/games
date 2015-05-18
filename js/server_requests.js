@@ -81,7 +81,7 @@ function get_randomForTweets() {
 
 
     			console.log("getting the data in EXECUTEDSFWEC : " + obj[0].Word);
-    			fetchTweetsFromDB(20);
+    			fetchTweetsFromDB(10);
     		}
     	}
     }
