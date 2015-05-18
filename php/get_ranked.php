@@ -37,7 +37,7 @@ $jsonData = json_encode($results_array);
 echo $jsonData;
 
 function lookForWord($userID, $mysqli) {
-	global $offsetModulo, $mode, $language;
+	global $offsetModulo, $mode, $language, $allUsers;
 
 
 //fetch the user in order to see which word is for him
