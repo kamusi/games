@@ -29,15 +29,15 @@ $mysqli = new mysqli('localhost', $user, $pass, $db);
 $results_array = FALSE;
 
 while($results_array === FALSE) {
-	$word_id =lookForWord($userID, $mysqli); 
+	$word_id =lookForWord($userID); 
 	$results_array = getDefinitions($word_id, $mysqli);
 }
 
 $jsonData = json_encode($results_array);
 echo $jsonData;
 
-function lookForWord($userID, $mysqli) {
-	global $offsetModulo, $mode, $language, $allUsers;
+function lookForWord($userID) {
+	global $offsetModulo, $mode, $language, $allUsers, $mysqli;
 
 
 //fetch the user in order to see which word is for him
@@ -57,6 +57,8 @@ function lookForWord($userID, $mysqli) {
 	$sql.=	"SELECT w.ID, w.DefinitionID, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
 	$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.ID NOT IN (SELECT wordid FROM seengames WHERE (userid=? OR userid=?) AND language = ? AND game=?) AND sq.Rank = ? LIMIT 1;";
 
+	echo "THIS IS STATMENET; ";
+	echo $sql;
 	$sum = intval($user_position) + intval($user_offset);
 
 	$stmt = $mysqli->prepare($sql);
@@ -101,7 +103,7 @@ function lookForWord($userID, $mysqli) {
 			$stmt->close();	
 
 		}
-		return lookForWord($userID, $mysqli);
+		return lookForWord($userID);
 	}
 	else {
 		$stmt = $mysqli->prepare("INSERT INTO seengames (userid , game, wordid, language, rank) VALUES (?,?,?,?,?);");
