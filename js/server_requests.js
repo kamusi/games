@@ -789,42 +789,40 @@ function trigger_notification() {
     xmlhttp.send();   
 }
 
-function updateLeaderboard(){
-
-	languageSelect = document.getElementById("scoreLanguage");
-	scoreLanguage = languageSelect.selectedIndex;
-	gameSelect = document.getElementById("scoreGame");
+function autoUpdateOfLeaderboard () {
+    languageSelect = document.getElementById("scoreLanguage");
+    scoreLanguage = languageSelect.selectedIndex;
+    gameSelect = document.getElementById("scoreGame");
     scoreGame= gameSelect.selectedIndex;
-	timePeriodSelect = document.getElementById("scoretimePeriod");
-	scoretimePeriod = timePeriodSelect.selectedIndex;
-	metricSelect = document.getElementById("scoreMetric")
-	scoreMetric = metricSelect.selectedIndex;
+    timePeriodSelect = document.getElementById("scoretimePeriod");
+    scoretimePeriod = timePeriodSelect.selectedIndex;
+    metricSelect = document.getElementById("scoreMetric")
+    scoreMetric = metricSelect.selectedIndex;
 
-	var whichSliderToChange = 0;
+    var whichSliderToChange = 0;
 
-	var first = true;
 
-	if(Boolean(first)) {
-		setInterval(function () {
-			var whatTochange = languageSelect;
+    if(Boolean(first)) {
+        setInterval(function () {
+            var whatTochange = languageSelect;
 
-			switch(whichSliderToChange) {
-				case 0:
-				whatTochange = languageSelect;
-				break;
-				case 1:
-				whatTochange = gameSelect;
-				break;
-				case 2:
-				whatTochange = timePeriodSelect;
-				break;
-				case 3:
-				whatTochange = metricSelect;
-				break;
-				default:
+            switch(whichSliderToChange) {
+                case 0:
+                whatTochange = languageSelect;
+                break;
+                case 1:
+                whatTochange = gameSelect;
+                break;
+                case 2:
+                whatTochange = timePeriodSelect;
+                break;
+                case 3:
+                whatTochange = metricSelect;
+                break;
+                default:
                 console.log("PEROGVJEöRKFJ")
-				break;        
-			}
+                break;        
+            }
         whatTochange.selectedIndex = (whatTochange.selectedIndex + 1)  % (whatTochange.length) ;
         whichSliderToChange= (whichSliderToChange +1) % 4;
         console.log("INTERBVAAAAAAAAAAL" + whichSliderToChange)
@@ -832,8 +830,12 @@ function updateLeaderboard(){
 
 
     }, 3000);
-		first= false;
-	}
+        first= false;
+    }
+}
+
+function updateLeaderboard(){
+
 
     //All languages, All Games
 

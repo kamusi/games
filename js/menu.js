@@ -3,6 +3,8 @@ var min_length = 4;
 var default_value = '✎ I can write the winning definition for this idea!';
 var translation_default_value = '✎ Trong tiếng Việt từ này có nghĩa là ...';
 
+var autoUpdateIntervalJobID
+
 function InlineEditorController($scope){
 	$scope.showtooltip = false;
 	$scope.value = default_value;
@@ -238,6 +240,7 @@ function display_about() {
 
 function display_profile() {
 	getGameScore();
+	stopAutoUpdateOfLeaderboard();
 	document.getElementById("settings").style.display = "none";
 	document.getElementById("leaderboard").style.display = "none";
 	document.getElementById("welcome").style.display = "none";
@@ -469,6 +472,55 @@ function soumettre_traduction() {
 	if(class_name == "active_definition" && user_translation != translation_default_value) {
 		submit_translation(user_translation);
 	}
+}
+
+function startAutoUpdateOfLeaderboard () {
+    languageSelect = document.getElementById("scoreLanguage");
+    scoreLanguage = languageSelect.selectedIndex;
+    gameSelect = document.getElementById("scoreGame");
+    scoreGame= gameSelect.selectedIndex;
+    timePeriodSelect = document.getElementById("scoretimePeriod");
+    scoretimePeriod = timePeriodSelect.selectedIndex;
+    metricSelect = document.getElementById("scoreMetric")
+    scoreMetric = metricSelect.selectedIndex;
+
+    var whichSliderToChange = 0;
+
+
+    if(Boolean(first)) {
+       autoUpdateIntervalJobID= setInterval(function () {
+            var whatTochange = languageSelect;
+
+            switch(whichSliderToChange) {
+                case 0:
+                whatTochange = languageSelect;
+                break;
+                case 1:
+                whatTochange = gameSelect;
+                break;
+                case 2:
+                whatTochange = timePeriodSelect;
+                break;
+                case 3:
+                whatTochange = metricSelect;
+                break;
+                default:
+                console.log("PEROGVJEöRKFJ")
+                break;        
+            }
+        whatTochange.selectedIndex = (whatTochange.selectedIndex + 1)  % (whatTochange.length) ;
+        whichSliderToChange= (whichSliderToChange +1) % 4;
+        console.log("INTERBVAAAAAAAAAAL" + whichSliderToChange)
+        updateLeaderboard();
+
+
+    }, 3000);
+        first= false;
+    }
+}
+
+function stopAutoUpdateOfLeaderboard() {
+	clearInterval(autoUpdateIntervalJobID)
 }
 
 
