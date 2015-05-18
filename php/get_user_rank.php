@@ -20,9 +20,21 @@ $users = array();
 $thisUsersScore;
 
 
-//Get the 5 best players by rank according to the selected categories
+//Check if the passed user is known fo security reasons
 
-$mysqli = new mysqli('localhost', $user, $pass, $db);
+$stmt = $mysqli->prepare("SELECT * FROM users WHERE UserID = ? ");
+$stmt->bind_param("s", $userID );
+$stmt->execute();
+$result = $stmt->get_result(); 
+
+if( $result-> num_rows== 0){
+	die("UserID " . $userID . " is not known!!!");
+}
+
+
+$stmt->close();
+
+
 
 #get all concerned users;
 $stmt = $mysqli->prepare("SELECT UserID, Username FROM users;");
@@ -195,34 +207,19 @@ function getTotalXForUserStatement($user, $x){
 
 			//rank of everything
 				if($language == '0' && $selectedMode == '0'){
-					$first=TRUE;
-					foreach ($acceptedModes as $mode) {
-						if($first == TRUE){
-							$first=FALSE;
-						}
-						else {
-							$sql .=" UNION ALL ";
-						}
-						$sql .= " SELECT ". $x ." FROM game WHERE userid='".$user."' AND game= ? ";
-					}
+
+					$sql .= " SELECT ". $x ." FROM games WHERE userid='".$user."' ";
+					
 				}
 				else if($selectedMode == '0'){
-					$first=TRUE;
-					foreach ($acceptedModes as $mode) {
-						if($first == TRUE){
-							$first=FALSE;
-						}
-						else {
-							$sql .=" UNION ALL ";
-						}
-						$sql .= " SELECT ". $x ." FROM game".$mode." WHERE userid='".$user."' AND language=" . $language . " ";
-					}			
+
+					$sql .= " SELECT ". $x ." FROM games WHERE userid='".$user."' AND language=" . $language . " ";
 				}
 				else if( $language == '0') {
-					$sql .= " SELECT ". $x ." FROM game".$selectedMode." WHERE userid='".$user."' ";
+					$sql .= " SELECT ". $x ." FROM games".$selectedMode." WHERE userid='".$user."' ";
 				}
 				else {
-					$sql .= " SELECT ". $x ." FROM game".$selectedMode." WHERE userid='".$user."' AND language=" . $language . " ";
+					$sql .= " SELECT ". $x ." FROM games".$selectedMode." WHERE userid='".$user."' AND language=" . $language . " ";
 
 				}
 			}
