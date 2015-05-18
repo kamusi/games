@@ -792,6 +792,7 @@ function trigger_notification() {
 function updateLeaderboard(){
 
 	languageSelect = document.getElementById("scoreLanguage");
+    console.log("AIFJEIFSIZE: " + languageSelect.size)
 	scoreLanguage = languageSelect.selectedIndex;
 	gameSelect = document.getElementById("scoreGame");
 	scoreGame= gameSelect.selectedIndex;
