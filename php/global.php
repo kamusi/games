@@ -11,8 +11,8 @@ $mysqli = new mysqli('localhost', $user, $pass, $db);
 
 function addXToValueInGame($userID, $language, $mode, $value, $x){
 	global $mysqli;
-	$stmt = $mysqli->prepare("UPDATE game". $mode . " SET ". $value . " = " . $value . " + ? WHERE userid=? and language = ?;");
-	$stmt->bind_param("isi", $x, $userID, $language);
+	$stmt = $mysqli->prepare("UPDATE games SET ". $value . " = " . $value . " + ? WHERE userid=? and language = ? AND game=?;");
+	$stmt->bind_param("isii", $x, $userID, $language, $mode);
 	$stmt->execute();
 	$stmt->close();	
 }
