@@ -314,7 +314,7 @@ $newToken = generateToken();
 
 			</select>
 		</div>
-		<input id = "autoloop" type="checkbox" name="autoloop" value="autoloop">Auto-Loop<br>
+		<input id = "autoloop" type="checkbox" name="autoloop" value="autoloop" checked >Auto-Loop<br>
 	</div>
 	<h1>Leaderboard</h1>
 
