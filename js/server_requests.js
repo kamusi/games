@@ -794,7 +794,7 @@ function updateLeaderboard(){
 	languageSelect = document.getElementById("scoreLanguage");
 	scoreLanguage = languageSelect.selectedIndex;
 	gameSelect = document.getElementById("scoreGame");
-	    console.log("AIFJEIFSIZE: " + document.getElementById("scoreGame").size)
+	    console.log("AIFJEIFSIZE: " + document.getElementById("scoreGame").length)
 
     scoreGame= gameSelect.selectedIndex;
 	timePeriodSelect = document.getElementById("scoretimePeriod");
