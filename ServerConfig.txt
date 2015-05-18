@@ -84,11 +84,9 @@ sudo chown ec2-user html/
 
 install pyhton in order to get tweets
 
-additional constraints on the DB :
-ALTER TABLE game1,2,3 ADD UNIQUE (
-userID ,
-language
-);
+
+ALTER TABLE games ADD UNIQUE ( userid , game, language);
+
 
 Don t forget to make the folder containing the files for the crontabs readbale and writable by apache!
 include the global.php file in the autoprepend part of php.ini
@@ -101,8 +99,7 @@ http://www.rebol.com/docs/ssh-auto-login.html
 
 
 copy local taito script to taitoserver
-scp -i -i /home/timo/.ssh/taito.rsa getDataForWord.sh babst@taito.csc.fi
-
+scp -i /home/timo/.ssh/taito.rsa getDataForWord.sh babst@taito.csc.fi:getDataForWord.sh
 
 
 

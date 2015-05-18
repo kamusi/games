@@ -93,7 +93,7 @@ function lookForWord($userID, $mysqli) {
 		}
 		else {
 			$stmt = $mysqli->prepare("UPDATE games SET offset = offset + 1 WHERE userid=? AND language = ? AND game = ?;");
-			$stmt->bind_param("sis", $userID, $language, $mode);
+			$stmt->bind_param("sii", $userID, $language, $mode);
 			$stmt->execute();
 			$stmt->close();	
 
@@ -107,14 +107,14 @@ function lookForWord($userID, $mysqli) {
 		$stmt->close();	
 		if($user_offset > $offsetModulo){
 			$stmt = $mysqli->prepare("UPDATE games SET offset = 0 WHERE userid=? AND language = ? AND game= ?;");
-			$stmt->bind_param("sis", $userID, $language, $mode);
+			$stmt->bind_param("sii", $userID, $language, $mode);
 			$stmt->execute();
 			$stmt->close();
 		}
 		else {
 
-			$stmt = $mysqli->prepare("UPDATE game SET offset = offset + 1 WHERE userid=? AND language = ? AND game= ?;");
-			$stmt->bind_param("sis", $userID, $language, $mode);
+			$stmt = $mysqli->prepare("UPDATE games SET offset = offset + 1 WHERE userid=? AND language = ? AND game= ?;");
+			$stmt->bind_param("sii", $userID, $language, $mode);
 			$stmt->execute();
 			$stmt->close();	
 		}	
