@@ -67,7 +67,7 @@ function lookForWord($userID) {
 		die ("Mysql Error: " . $mysqli->error);
 	}
 
-	$stmt->bind_param("ssiii", $userID, $allUsers, $language, $sum, $mode);
+	$stmt->bind_param("ssiii", $userID, $allUsers, $language, $mode, $sum);
 
 	$stmt->execute();
 
