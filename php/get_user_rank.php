@@ -216,10 +216,10 @@ function getTotalXForUserStatement($user, $x){
 					$sql .= " SELECT ". $x ." FROM games WHERE userid='".$user."' AND language=" . $language . " ";
 				}
 				else if( $language == '0') {
-					$sql .= " SELECT ". $x ." FROM games".$selectedMode." WHERE userid='".$user."' ";
+					$sql .= " SELECT ". $x ." FROM games WHERE userid='".$user."' AND game = ". $selectedMode. " ";
 				}
 				else {
-					$sql .= " SELECT ". $x ." FROM games".$selectedMode." WHERE userid='".$user."' AND language=" . $language . " ";
+					$sql .= " SELECT ". $x ." FROM games WHERE userid='".$user."' AND language=" . $language . " AND game = ". $selectedMode. " ";
 
 				}
 			}
