@@ -886,6 +886,10 @@ function updateLeaderboard(){
             //add the user from before s score if use ris not in top3
 
             if( obj[3].rank > 4) {
+                var rowCount = table.rows.length;
+                var row = table.insertRow(rowCount);
+                row.insertCell(0).innerHTML=''
+
             	addScoreEntry(4,table) 
             }
 
