@@ -14,7 +14,7 @@ $checkResult = $result-> num_rows;
 $stmt->close();
 
 
-if( $checkResult== 0){
+if( $checkResult== 1){
 	//Add user to database
 	$stmt = $mysqli->prepare("INSERT INTO users (UserID, Username) VALUES(?,?);");
 	$stmt->bind_param("ss", $userID, $userName );
