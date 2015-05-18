@@ -56,9 +56,9 @@ function InlineEditorController($scope){
 	}
 
 	$scope.submitGame1 = function() {
-			$scope.hideTooltip();
-			playClick();vote();get_ranked();
-			$scope.value = default_value;	
+		$scope.hideTooltip();
+		playClick();vote();get_ranked();
+		$scope.value = default_value;	
 	}
 }
 
@@ -117,10 +117,10 @@ function InlineEditorController2($scope){
 	}
 
 	$scope.submitGame2 = function() {
-			get_ranked_mode_2();
-			$scope.hideTooltip2();
-			playClick();
-			$scope.translation = translation_default_value;	
+		get_ranked_mode_2();
+		$scope.hideTooltip2();
+		playClick();
+		$scope.translation = translation_default_value;	
 	}
 }
 
@@ -153,7 +153,7 @@ function initialise(userID) {
 }
 
 function enter_game1() {
-		pause_animation();
+	pause_animation();
 	game = 1;
 	get_ranked();
 	document.getElementById("welcome").style.display = "none";
@@ -171,7 +171,7 @@ function enter_game1() {
 }
 
 function enter_game2() {
-		pause_animation()
+	pause_animation()
 	game = 2;
 	get_ranked_mode_2();
 	document.getElementById("welcome").style.display = "none";
@@ -185,11 +185,11 @@ function enter_game2() {
 	// document.getElementById("gamezone-main2").style.display = "inline-block";
 	// document.getElementById("footer-next1").style.display = "none";
 	// document.getElementById("footer-next2").style.display = "inline-block";
-;
+	;
 }
 
 function enter_game3() {
-		pause_animation();
+	pause_animation();
 
 	game = 3;
 	get_randomForTweets();
@@ -277,13 +277,13 @@ function animate_logo() {
 }
 
 function changeColorOnClick(tweetDisplay,newInput){
-    if(newInput.checked){
-     tweetDisplay.style.color = "blue";
-    }
-    else {
-    tweetDisplay.style.color = "#af0800";
+	if(newInput.checked){
+		tweetDisplay.style.color = "blue";
+	}
+	else {
+		tweetDisplay.style.color = "#af0800";
 
-    }
+	}
 }
 
 function animate_logo_firstTime(){
@@ -475,48 +475,46 @@ function soumettre_traduction() {
 }
 
 function startAutoUpdateOfLeaderboard() {
-    languageSelect = document.getElementById("scoreLanguage");
-    scoreLanguage = languageSelect.selectedIndex;
-    gameSelect = document.getElementById("scoreGame");
-    scoreGame= gameSelect.selectedIndex;
-    timePeriodSelect = document.getElementById("scoretimePeriod");
-    scoretimePeriod = timePeriodSelect.selectedIndex;
-    metricSelect = document.getElementById("scoreMetric")
-    scoreMetric = metricSelect.selectedIndex;
+	languageSelect = document.getElementById("scoreLanguage");
+	scoreLanguage = languageSelect.selectedIndex;
+	gameSelect = document.getElementById("scoreGame");
+	scoreGame= gameSelect.selectedIndex;
+	timePeriodSelect = document.getElementById("scoretimePeriod");
+	scoretimePeriod = timePeriodSelect.selectedIndex;
+	metricSelect = document.getElementById("scoreMetric")
+	scoreMetric = metricSelect.selectedIndex;
 
-    var whichSliderToChange = 0;
-
-
-    if(Boolean(first)) {
-       autoUpdateIntervalJobID= setInterval(function () {
-            var whatTochange = languageSelect;
-
-            switch(whichSliderToChange) {
-                case 0:
-                whatTochange = languageSelect;
-                break;
-                case 1:
-                whatTochange = gameSelect;
-                break;
-                case 2:
-                whatTochange = timePeriodSelect;
-                break;
-                case 3:
-                whatTochange = metricSelect;
-                break;
-                default:
-                console.log("PEROGVJEöRKFJ")
-                break;        
-            }
-        whatTochange.selectedIndex = (whatTochange.selectedIndex + 1)  % (whatTochange.length) ;
-        whichSliderToChange= (whichSliderToChange +1) % 4;
-        console.log("INTERBVAAAAAAAAAAL" + whichSliderToChange)
-        updateLeaderboard();
+	var whichSliderToChange = 0;
 
 
-    }, 3000);
-        first= false;
-    }
+	autoUpdateIntervalJobID= setInterval(function () {
+		var whatTochange = languageSelect;
+
+		switch(whichSliderToChange) {
+			case 0:
+			whatTochange = languageSelect;
+			break;
+			case 1:
+			whatTochange = gameSelect;
+			break;
+			case 2:
+			whatTochange = timePeriodSelect;
+			break;
+			case 3:
+			whatTochange = metricSelect;
+			break;
+			default:
+			console.log("PEROGVJEöRKFJ")
+			break;        
+		}
+		whatTochange.selectedIndex = (whatTochange.selectedIndex + 1)  % (whatTochange.length) ;
+		whichSliderToChange= (whichSliderToChange +1) % 4;
+		console.log("INTERBVAAAAAAAAAAL" + whichSliderToChange)
+		updateLeaderboard();
+
+
+	}, 3000);
+	
 }
 
 function stopAutoUpdateOfLeaderboard() {
