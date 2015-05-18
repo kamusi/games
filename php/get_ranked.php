@@ -22,7 +22,7 @@ if (!$con) {
 if(!in_array($mode, $acceptedModes)) {
 	die("Got a strange mode as input!". $mode);
 }
-
+ 
 $mysqli = new mysqli('localhost', $user, $pass, $db);
 
 
