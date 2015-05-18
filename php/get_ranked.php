@@ -28,10 +28,10 @@ $mysqli = new mysqli('localhost', $user, $pass, $db);
 
 $results_array = FALSE;
 
-//while($results_array === FALSE) {
+while($results_array === FALSE) {
 	$word_id =lookForWord($userID, $mysqli); 
 	$results_array = getDefinitions($word_id, $mysqli);
-//}
+}
 
 $jsonData = json_encode($results_array);
 echo $jsonData;
@@ -73,6 +73,9 @@ function lookForWord($userID, $mysqli) {
 	$result = $stmt->get_result();
 	$row = $result->fetch_assoc();
 	$word_id = $row["ID"];
+
+	var_dump($result); 
+	return 13;
 
 	$stmt->close();
 	if($result->num_rows === 0){
