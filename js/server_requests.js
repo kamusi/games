@@ -789,7 +789,10 @@ function trigger_notification() {
     xmlhttp.send();   
 }
 
-function autoUpdateOfLeaderboard () {
+
+
+function updateLeaderboard(){
+
     languageSelect = document.getElementById("scoreLanguage");
     scoreLanguage = languageSelect.selectedIndex;
     gameSelect = document.getElementById("scoreGame");
@@ -798,45 +801,6 @@ function autoUpdateOfLeaderboard () {
     scoretimePeriod = timePeriodSelect.selectedIndex;
     metricSelect = document.getElementById("scoreMetric")
     scoreMetric = metricSelect.selectedIndex;
-
-    var whichSliderToChange = 0;
-
-
-    if(Boolean(first)) {
-        setInterval(function () {
-            var whatTochange = languageSelect;
-
-            switch(whichSliderToChange) {
-                case 0:
-                whatTochange = languageSelect;
-                break;
-                case 1:
-                whatTochange = gameSelect;
-                break;
-                case 2:
-                whatTochange = timePeriodSelect;
-                break;
-                case 3:
-                whatTochange = metricSelect;
-                break;
-                default:
-                console.log("PEROGVJEöRKFJ")
-                break;        
-            }
-        whatTochange.selectedIndex = (whatTochange.selectedIndex + 1)  % (whatTochange.length) ;
-        whichSliderToChange= (whichSliderToChange +1) % 4;
-        console.log("INTERBVAAAAAAAAAAL" + whichSliderToChange)
-        updateLeaderboard();
-
-
-    }, 3000);
-        first= false;
-    }
-}
-
-function updateLeaderboard(){
-
-
     //All languages, All Games
 
     var xmlhttp;
@@ -902,13 +866,9 @@ function updateLeaderboard(){
             	addScoreEntry(3,table)  
             }
 
-
             if( obj[5].id != "NOPE" ) {
             	addScoreEntry(5,table) 
-            }
-            
-
-
+            }    
         }
     }
 
