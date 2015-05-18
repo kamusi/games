@@ -906,6 +906,10 @@ function addScoreEntry(indexOfArray, table){
     if(obj[indexOfArray].id == userID){
         row.className = "highlightCurrentUser"; 
     }
+    else {
+          row.className = "otherUsersInTable"; 
+      
+    }
 
 	row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[indexOfArray].id + '/picture" >'        ;
 	row.insertCell(1).innerHTML= obj[2][obj[indexOfArray].id];
