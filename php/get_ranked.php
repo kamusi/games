@@ -76,8 +76,6 @@ function lookForWord($userID) {
 	$row = $result->fetch_assoc();
 	$word_id = $row["ID"];
 
-	var_dump($result); 
-	return 13;
 
 	$stmt->close();
 	if($result->num_rows === 0){
