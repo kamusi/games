@@ -18,10 +18,7 @@ if (!$con) {
 }
 
 //increase the number of submissions for this user
-$stmt = $mysqli->prepare("UPDATE game". $mode . " SET submissions = submissions + 1, submissionsmonth = submissionsmonth + 1, submissionsweek = submissionsweek + 1 WHERE userid=? and language = ?;");
-$stmt->bind_param("si", $userID, $data["language"]);
-$stmt->execute();
-$stmt->close();
+function addXSubmissionsInGame($userID, $language, $mode, 1);
 
 $sql = 	"INSERT INTO translations " .
 		"(LanguageID, WordID, UserID, Translation) VALUES " .

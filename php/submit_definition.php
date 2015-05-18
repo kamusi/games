@@ -16,14 +16,9 @@ if(!in_array($mode, $acceptedModes)) {
 	die("Got a strange mode as input!". $mode);
 }
 
-$mysqli = new mysqli('localhost', $user, $pass, $db);
 
 //increase the number of submissions for this user
-$stmt = $mysqli->prepare("UPDATE game". $mode . " SET submissions = submissions + 1, submissionsmonth = submissionsmonth + 1, submissionsweek = submissionsweek + 1 WHERE userid=? and language = ?;");
-$stmt->bind_param("si", $userID, $language);
-$stmt->execute();
-$stmt->close();
-
+function addXSubmissionsInGame($userID, $language, $mode, 1);
 
 
 if ($groupID == 'null') {
@@ -49,9 +44,9 @@ $stmt->execute();
 $stmt->close();
 
 //give the user 10 pending points : the one he gets if his definition reaches consensus
-$sql = 	"UPDATE game" . $mode . " SET pendingpoints = pendingpoints + 10 WHERE userid = ? AND language = ?; "; 
+$sql = 	"UPDATE games SET pendingpoints = pendingpoints + 10 WHERE userid = ? AND language = ? AND game= ?; "; 
 $stmt = $mysqli->prepare($sql);
-$stmt->bind_param("si", $userID, $language);
+$stmt->bind_param("sis", $userID, $language, $mode);
 $stmt->execute();
 
 $stmt->close();

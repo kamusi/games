@@ -123,7 +123,7 @@ if ($totalScoreOfTweet > 4 ) {
 	//We got enough tweets for this word : we don t need more.
 	if($numberOfRefsForThatWord > 2) {
 
-		$stmt = $mysqli->prepare("INSERT INTO seengame (userid, game, language,wordid, rank) VALUES (?,?,?,?, 2147483647) ;");
+		$stmt = $mysqli->prepare("INSERT INTO seengames (userid, game, language,wordid, rank) VALUES (?,?,?,?, 2147483647) ;");
 		$stmt->bind_param("siii",$allUsers, $data["mode"], $data["language"], $data["wordID"] );
 		$stmt->execute();
 
@@ -153,10 +153,7 @@ foreach($concernedUsers as $user) {
 function giveAllConcernedUsersAPoint($concernedUsers){
 	global $data, $mysqli;
 	foreach($concernedUsers as $user) {
-		$stmt = $mysqli->prepare("UPDATE game". $data["mode"] . " SET points = points + 1, pointsmonth = pointsmonth + 1, pointsweek = pointsweek + 1 WHERE userid=? and language = ?;");
-		$stmt->bind_param("si", $user, $data["language"]);
-		$stmt->execute();
-		$stmt->close();
+		addXToPointsInGame($user, $data["language"], $data["mode"], 1);
 
 		$returnText = $user;
 
