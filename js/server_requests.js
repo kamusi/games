@@ -794,8 +794,6 @@ function updateLeaderboard(){
 	languageSelect = document.getElementById("scoreLanguage");
 	scoreLanguage = languageSelect.selectedIndex;
 	gameSelect = document.getElementById("scoreGame");
-	    console.log("AIFJEIFSIZE: " + document.getElementById("scoreGame").length)
-
     scoreGame= gameSelect.selectedIndex;
 	timePeriodSelect = document.getElementById("scoretimePeriod");
 	scoretimePeriod = timePeriodSelect.selectedIndex;
@@ -826,14 +824,14 @@ function updateLeaderboard(){
 				default:
 				break;        
 			}
-        whatTochange.selectedIndex = (whatTochange.selectedIndex + 1)  % (whatTochange.size -1) ;
+        whatTochange.selectedIndex = (whatTochange.selectedIndex + 1)  % (whatTochange.length -1) ;
         whichSliderToChange= whichSliderToChange+=1 % 4;
         console.log("INTERBVAAAAAAAAAAL" + whichSliderToChange)
          console.log("INTERBVAAAAAAAAAALWhatTOCHANGE" + whatTochange)
         console.log("INTERBVAAAAAAAAAALWhatTOCHANGESIZE" + whatTochange.size)
 
 
-    }, 5000);
+    }, 3000);
 		first= false;
 	}
 
