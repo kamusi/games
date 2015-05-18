@@ -1,5 +1,5 @@
 
-var userID = "10203265649994971" //"???"; //so that it works offline:  10203265649994971
+var userID = "???" //"???"; //so that it works offline:  10203265649994971
 var wordID;
 var word;
 var definitionID;
@@ -321,7 +321,7 @@ function fetchNFromDB(amount, game){
         //For the swahili helsinki corpus game
         displayCheckBoxType="swahiliSentences"
         beginningOfUrl= "php/fetch_game4_db.php?wordID=";
-        
+
         break;
         default: 
         break;
