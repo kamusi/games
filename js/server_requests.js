@@ -802,9 +802,9 @@ function updateLeaderboard(){
 
 	var whichSliderToChange = 0;
 
-	var first = false;
+	var first = true;
 
-	if(first) {
+	if(Boolean(first)) {
 		setInterval(function () {
 			var whatTochange = languageSelect;
 
