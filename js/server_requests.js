@@ -828,8 +828,7 @@ function updateLeaderboard(){
         whatTochange.selectedIndex = (whatTochange.selectedIndex + 1)  % (whatTochange.length) ;
         whichSliderToChange= (whichSliderToChange +1) % 4;
         console.log("INTERBVAAAAAAAAAAL" + whichSliderToChange)
-         console.log("INTERBVAAAAAAAAAALWhatTOCHANGE" + whatTochange)
-        console.log("INTERBVAAAAAAAAAALWhatTOCHANGESIZE" + whatTochange.size)
+        whatTochange.onchange();
 
 
     }, 3000);
