@@ -25,12 +25,17 @@ function generateToken() {
 
 <?php
 $newToken = generateToken();
-if (!function_exists("gettext")){
-    echo "gettext is not installedn";
-}
-else{
-    echo "gettext is supportedn";
-}
+
+$locale="en"
+putenv("LANG=" . $locale); 
+setlocale(LC_ALL, $locale);
+
+$domain = "text";
+bindtextdomain($domain, "Locale"); 
+bind_textdomain_codeset($domain, 'UTF-8');
+
+echo _("Let’s make the web multilingual.");
+
 ?>
 
 <body> <!-- onkeypress="secondEnter(event)" -->
@@ -170,9 +175,9 @@ else{
 					</div>
 				</div>
 
-					<div id="footer-next3">
-						<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxData("game4"); setTimeout(get_randomForTweets, 500);'>
-					</div>
+				<div id="footer-next3">
+					<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxData("game4"); setTimeout(get_randomForTweets, 500);'>
+				</div>
 			</div>
 
 		</div>
@@ -252,13 +257,13 @@ else{
 		<option>tiếng Việt</option>
 	</select>
 
-		<p>Play for...</p>
-	</br>
-	<select id="language" onchange= size="1">
-		<option>English</option>
-		<option>Français</option>
-		<option>tiếng Việt</option>
-	</select>
+	<p>Play for...</p>
+</br>
+<select id="language" onchange= size="1">
+	<option>English</option>
+	<option>Français</option>
+	<option>tiếng Việt</option>
+</select>
 </br></br>
 <p>Notify me about new points I earn...</p>
 </br>
