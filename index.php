@@ -26,16 +26,24 @@ function generateToken() {
 <?php
 $newToken = generateToken();
 
-$locale="en_US";
-putenv("LANG=" . $locale); 
-setlocale(LC_ALL, $locale);
+$returnVal = setlocale(LC_ALL, 'de_DE.UTF-8');
+echo "DID WE GET IT: " . $returnVal;
 
-$domain = "text";
-bindtextdomain($domain, "Locale"); 
-textdomain($domain);
-bind_textdomain_codeset($domain, 'UTF-8');
+/**
+ * Because the .po file is named messages.po, the text domain must be named
+ * that as well. The second parameter is the base directory to start
+ * searching in.
+ */
+bindtextdomain('messages', 'locale');
 
-echo gettext("Let’s make the web multilingual.");
+/**
+ * Tell the application to use this text domain, or messages.mo.
+ */
+textdomain('messages');
+
+
+$name = "Vic";
+
 
 ?>
 
@@ -67,7 +75,7 @@ echo gettext("Let’s make the web multilingual.");
 				<div id="gamezone1" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 					<div id="gamezone-main1" >
 						<div id="entry">
-							<p id="instructions1">Write or vote for a definition!  </p>
+							<p id="instructions1"> <?php printf(_("Hello, %s, it is nice to see you today.\n"), $name); ?>  </p>
 
 							<p id="word"></p>
 							<p id="pos"></p>
