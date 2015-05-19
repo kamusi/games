@@ -26,7 +26,7 @@ function generateToken() {
 <?php
 $newToken = generateToken();
 
-$locale="fr";
+$locale="en_us";
 putenv("LANG=" . $locale); 
 setlocale(LC_ALL, $locale);
 
