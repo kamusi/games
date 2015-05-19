@@ -25,6 +25,12 @@ function generateToken() {
 
 <?php
 $newToken = generateToken();
+if (!function_exists("gettext")){
+    echo "gettext is not installedn";
+}
+else{
+    echo "gettext is supportedn";
+}
 ?>
 
 <body> <!-- onkeypress="secondEnter(event)" -->
