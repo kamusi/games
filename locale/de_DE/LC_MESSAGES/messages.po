@@ -3,18 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
-msgid   ""
-msgstr  "Project-Id-Version: Codegroove.net Example Translations 0.0.1\n"
-        "Report-Msgid-Bugs-To: vmc@codegroove.net\n"
-        "POT-Creation-Date: 2010-05-28 06:18-0500\n"
-        "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-        "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-        "Language-Team: LANGUAGE <LL@li.org>\n"
-        "MIME-Version: 1.0\n"
-        "Content-Type: text/plain; charset=UTF-8\n"
-        "Content-Transfer-Encoding: 8bit\n"
+msgid ""
+msgstr ""
+"Project-Id-Version: Codegroove.net Example Translations 0.0.1\n"
+"Report-Msgid-Bugs-To: vmc@codegroove.net\n"
+"POT-Creation-Date: 2010-05-28 06:18-0500\n"
+"PO-Revision-Date: 2015-05-19 17:16+0100\n"
+"Last-Translator: \n"
+"Language: de_DE\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #, php-format
-msgid   "Hello, %s, it is nice to see you today.\n"
-msgstr  "Hallo, %s, es ist schön dich zu sehen heute.\n"
+msgid "Hello, %s, it is nice to see you today.\n"
+msgstr "Hallo, %s, es ist schön dich zu sehen heute oder moregen du arscdh.\n"
