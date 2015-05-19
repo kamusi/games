@@ -207,7 +207,10 @@ function displayTextWithCheckboxes(elemText, index, whereToInsert){
 	newInput.id = "checkbox" + index;
 	newInput.name = "checkbox" ;
 	newInput.type = "checkbox";
-    newInput.onclick=newInput.onchange();
+    tweetDisplay.onclick=function(){
+
+        newInput.checked = !newInput.checked
+    };
 	newInput.onchange=function(){
 		changeColorOnClick(tweetDisplay,newInput);
 	}
