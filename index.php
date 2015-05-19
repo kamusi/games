@@ -26,15 +26,16 @@ function generateToken() {
 <?php
 $newToken = generateToken();
 
-$locale="en_us";
+$locale="en_US";
 putenv("LANG=" . $locale); 
 setlocale(LC_ALL, $locale);
 
 $domain = "text";
 bindtextdomain($domain, "Locale"); 
+textdomain($domain);
 bind_textdomain_codeset($domain, 'UTF-8');
 
-echo _("Let’s make the web multilingual.");
+echo gettext("Let’s make the web multilingual.");
 
 ?>
 
