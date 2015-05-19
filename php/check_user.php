@@ -5,7 +5,7 @@ $userID = $_GET['userID'];
 $userName = $_GET['userName'];
 
 
-$stmt = $mysqli->prepare("SELECT * FROM users WHERE UserID = ? ");
+$stmt = $mysqli->prepare("SELECT Language FROM users WHERE UserID = ? ");
 $stmt->bind_param("s", $userID );
 $stmt->execute();
 $result = $stmt->get_result(); 
@@ -14,7 +14,7 @@ $checkResult = $result-> num_rows;
 $stmt->close();
 
 
-if( $checkResult== 1){
+if( $checkResult== 0){
 	//Add user to database
 	$stmt = $mysqli->prepare("INSERT INTO users (UserID, Username) VALUES(?,?);");
 	$stmt->bind_param("ss", $userID, $userName );
@@ -31,7 +31,6 @@ if( $checkResult== 1){
 		$languageArray[] = $row['ID'];
 	}
 
-
 	foreach ($acceptedModes as $mode) {
 		foreach ($languageArray as $language) {
 			$stmt = $mysqli->prepare("INSERT INTO games (userID, game, language) VALUES(?,?,?);");
@@ -39,7 +38,13 @@ if( $checkResult== 1){
 			$stmt->execute();
 			$stmt->close();
 		}
-	}	
+	}
+	//The language is not set yet
+	$checkResult=-1;	
+}
+else {
+	$row = $result->fetch_assoc();
+	$checkResult = $row["Language"];	
 }
 
 $jsonData = json_encode($checkResult);

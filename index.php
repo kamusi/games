@@ -27,7 +27,8 @@ function generateToken() {
 $newToken = generateToken();
 
 $returnVal = setlocale(LC_ALL, 'de_DE.UTF-8');
-echo "DID WE GET IT: " . $returnVal;
+
+//TODO : GetUser should extract language number. With that we choose translation
 
 /**
  * Because the .po file is named messages.po, the text domain must be named
