@@ -2,6 +2,7 @@
 
 $acceptedModes = array("1","2","3","4");
 $allUsers = "allusers";
+$gameNames = array('1' => "Definition Game", '2' => "Translation Game", '3' => "Tweet Game", '4'=> "Sentence Game" );
 
 $user = 'root';
 $pass = '';
