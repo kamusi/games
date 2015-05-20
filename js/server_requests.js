@@ -519,7 +519,6 @@ function submit_definition(definition) {
 function isNewUser() {
 
 	console.log("Checking if New USER")
-	if(siteLanguage == "-1"){
 		if(userID == "???"){
 			console.log("Waiting until becoming defined!" + userID)
 		}
@@ -558,10 +557,7 @@ function isNewUser() {
 		xmlhttp.open("GET","php/check_user.php?userID=" + userID + "&userName=" + userName + "&lang=" + siteLanguage);
 		xmlhttp.send();
 		}
-	}
-	else {
-		animate_logo();
-	}
+
 
 }
 
