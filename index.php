@@ -76,7 +76,7 @@ $name = "Vic";
 				<div id="gamezone1" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 					<div id="gamezone-main1" >
 						<div id="entry">
-							<h1 id="instructions1"> <?php printf(_("%s"),$gameNames["1"]); ?>  </h1>
+							<h1 id="title1"> <?php printf(_("%s"),$gameNames["1"]); ?>  </h1>
 
 							<p id="instructions1"> <?php printf(_("Write or vote for a definition!")); ?>  </p>
 
@@ -115,6 +115,8 @@ $name = "Vic";
 				<div id="gamezone2" ng-controller="InlineEditorController2" ng-click="hideTooltip2();">
 					<div id="gamezone-main2">
 						<div id="translation_entry">
+						<h1 id="title2"> <?php printf(_("%s"),$gameNames["2"]); ?>  </h1>
+
 							<p id="translation_word"></p>
 							<p id="translation_pos"></p>
 							<p id="translation_definition"></p>
@@ -148,6 +150,7 @@ $name = "Vic";
 			<div id="gamezone3" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 				<div id="gamezone-main3" >
 					<div id="entry">
+					<h1 id="title3"> <?php printf(_("%s"),$gameNames["3"]); ?>  </h1>
 						<p id="instructions"><?php echo _("Check ONLY the tweets that are excellent examples of THIS meaning: "); ?>   </p>
 						<p id="word3"></p>		
 						<p id="pos3"></p>					
@@ -176,6 +179,7 @@ $name = "Vic";
 			<div id="gamezone4" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 				<div id="gamezone-main4" >
 					<div id="entry">
+						<h1 id="title4"> <?php printf(_("%s"),$gameNames["4"]); ?>  </h1>
 						<p id="instructions"><?php echo _("Check the sentences that correspond well to this word: "); ?></p>
 						<p id="word4"></p>		
 						<p id="pos4"></p>					
@@ -312,10 +316,10 @@ $name = "Vic";
 			<?php echo _("Game"); ?>
 			<select id= "scoreGame" onchange="updateLeaderboard(); playClick();" size="1">
 				<option><?php echo _("All games"); ?></option>
-				<option><?php echo _("Game1"); ?></option>
-				<option><?php echo _("Game2"); ?></option>
-				<option><?php echo _("Game3"); ?></option>
-				<option><?php echo _("Game4"); ?></option>
+				<option><?php printf(_("%s"),$gameNames["1"]); ?>></option>
+				<option><?php printf(_("%s"),$gameNames["2"]); ?></option>
+				<option><?php printf(_("%s"),$gameNames["3"]); ?></option>
+				<option><?php printf(_("%s"),$gameNames["4"]); ?></option>
 			</select>
 		</div>
 		<div class="settings-inner">
