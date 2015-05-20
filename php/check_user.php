@@ -1,6 +1,4 @@
 <?php
-//include 'global.php';
-
 $userID = $_GET['userID'];
 $userName = $_GET['userName'];
 
@@ -9,6 +7,7 @@ $stmt = $mysqli->prepare("SELECT Language FROM users WHERE UserID = ? ");
 $stmt->bind_param("s", $userID );
 $stmt->execute();
 $userExists= $stmt->bind_result($checkResult);
+$stmt->fetch();
 $result = $stmt->get_result(); 
 
 $stmt->close();
