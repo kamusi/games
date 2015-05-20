@@ -546,7 +546,7 @@ function isNewUser() {
 					console.log("NEQWIDNWE: " + siteLanguage)
 					/*xmlhttp.open("GET","/index.php?&lang=" + siteLanguage);
 					xmlhttp.send(); */
-					window.location.search += newString
+					//window.location.search += newString
 
 				}
 				else {
