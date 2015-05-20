@@ -26,7 +26,7 @@ function generateToken() {
 <?php
 $newToken = generateToken();
 
-$returnVal = setlocale(LC_ALL, 'de_DE.UTF-8');
+$returnVal = setlocale(LC_ALL, 'de_DE');
 
 //TODO : GetUser should extract language number. With that we choose translation
 
