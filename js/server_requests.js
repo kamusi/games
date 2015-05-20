@@ -535,11 +535,11 @@ function isNewUser() {
 		}
 		xmlhttp.onreadystatechange=function() {
 			if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-
+				if(siteLanguage == "-1"){
 				obj = JSON.parse(xmlhttp.responseText);
 				console.log("REPONSE NEW USER : " + xmlhttp.responseText + "END");
 				initialise(userID);
-				if(obj != "-1" && siteLanguage == "-1") {
+				if(obj != "-1") {
 					animate_logo();
 					siteLanguage=obj
 					newString = "&lang=" + siteLanguage
@@ -552,6 +552,7 @@ function isNewUser() {
 				else {
 					animate_logo_firstTime(); 
 				}
+			}
 			}
 		}
 		xmlhttp.open("GET","php/check_user.php?userID=" + userID + "&userName=" + userName + "&lang=" + siteLanguage);
