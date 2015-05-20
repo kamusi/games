@@ -42,7 +42,7 @@ if( !$userExists){
 	$checkResult="-1";	
 }
 else {
-	$checkResult="done"
+	$checkResult="done";
 	$_SESSION['lang']=$languageMap[$checkResult];
 
 }
