@@ -13,7 +13,7 @@ function generateToken() {
 	$locale= $_GET['lang'];
 
 	if(empty($locale)){
-		echo "No language set";
+		$locale= $languageMap["1"];
 	}
 	else {
 

@@ -38,14 +38,11 @@ if( !$userExists){
 			$stmt->close();
 		}
 	}
-	//The language is not set yet, set it to english temporyrirliy
-	$returnVal = setlocale(LC_ALL, $languageMap['1'] .'.utf8');
 
 	$checkResult=-1;	
 }
 else {
-
-	setOurLocale($languageMap[$checkResult]);
+	$checkResult=$languageMap[$checkResult];
 }
 
 $jsonData = json_encode($checkResult);

@@ -1,5 +1,6 @@
 
 var userID = "???" //"???"; //so that it works offline:  10203265649994971
+userName = "???"
 var wordID;
 var word;
 var definitionID;
@@ -10,12 +11,15 @@ var amountGame4;
 //settings saved
 var whenToPost;
 var whenToNotify;
-var menuLanguage;
+var gameLanguageSliderValue;
 
 //var to remember the current language
 var gameLanguage;
 //remember which game is currently played
 var game = 0;
+
+//This is the overallLanguage
+var siteLanguage=-1
 
 
 var translationID;
@@ -207,11 +211,11 @@ function displayTextWithCheckboxes(elemText, index, whereToInsert){
 	newInput.id = "checkbox" + index;
 	newInput.name = "checkbox" ;
 	newInput.type = "checkbox";
-    tweetDisplay.onclick=function(){
+	tweetDisplay.onclick=function(){
 
-        newInput.checked = !newInput.checked
-        changeColorOnClick(tweetDisplay,newInput);
-    };
+		newInput.checked = !newInput.checked
+		changeColorOnClick(tweetDisplay,newInput);
+	};
 	newInput.onchange=function(){
 		changeColorOnClick(tweetDisplay,newInput);
 	}
@@ -313,8 +317,8 @@ function displayNextNCheckboxes(game, amount) {
 }
 
 function fetchNFromDB(amount, game){
- switch(game) {
-    case '3':
+	switch(game) {
+		case '3':
         //Do stuff for tweets
         displayCheckBoxType="twitterWords"
         beginningOfUrl= "php/fetch_tweet_db.php?wordID=";
@@ -335,28 +339,28 @@ function fetchNFromDB(amount, game){
 
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
+    	xmlhttp=new XMLHttpRequest();
     }
     else {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     xmlhttp.onreadystatechange=function() {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+    	if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 
 
-            console.log("REsPONSE : " + xmlhttp.responseText + "End response");
+    		console.log("REsPONSE : " + xmlhttp.responseText + "End response");
 
-            var results_array = JSON.parse(xmlhttp.responseText);
-            var i = 0
-            for( i = 0; i<amount && typeof results_array[i] !== 'undefined'; i++) {
-                last20Tweets[i] = results_array[i];
-                displayTextWithCheckboxes(last20Tweets[i].Text,i,displayCheckBoxType)
-            }
-            console.log("this was i " + i + ", this is amount : " + amount);
-            if(i < amount) {
-                fetchMore(game, i);
-            }
-        }
+    		var results_array = JSON.parse(xmlhttp.responseText);
+    		var i = 0
+    		for( i = 0; i<amount && typeof results_array[i] !== 'undefined'; i++) {
+    			last20Tweets[i] = results_array[i];
+    			displayTextWithCheckboxes(last20Tweets[i].Text,i,displayCheckBoxType)
+    		}
+    		console.log("this was i " + i + ", this is amount : " + amount);
+    		if(i < amount) {
+    			fetchMore(game, i);
+    		}
+    	}
     }
     console.log("WORD ID IS : "+ wordID)
 
@@ -515,14 +519,14 @@ function submit_definition(definition) {
 function isNewUser() {
 
 	console.log("Checking if New USER")
+	if(siteLanguage == -1){
+		if(userID == "???"){
+			console.log("Waiting until becoming defined!" + userID)
+		}
+		else {
+			console.log("Defined!" + userID)
 
-	if(userID == "???"){
-		console.log("Waiting until becoming defined!" + userID)
-	}
-	else {
-		console.log("Defined!" + userID)
-
-		var xmlhttp;
+			var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
     	xmlhttp=new XMLHttpRequest();
     }
@@ -535,8 +539,11 @@ function isNewUser() {
     		obj = JSON.parse(xmlhttp.responseText);
     		console.log("REPONSE NEW USER : " + xmlhttp.responseText);
     		initialise(userID);
-    		if(xmlhttp.responseText != "-1") {
+    		if(obj != "-1") {
     			animate_logo();
+    			siteLanguage=obj
+    			xmlhttp.open("GET","/index.php?&lang=" + siteLanguage);
+    			xmlhttp.send();  
 
     		}
     		else {
@@ -544,8 +551,12 @@ function isNewUser() {
     		}
     	}
     }
-    xmlhttp.open("GET","php/check_user.php?userID=" + userID + "&userName=" + userName);
-    xmlhttp.send();
+    else {
+    	animate_logo();
+    }
+}
+xmlhttp.open("GET","php/check_user.php?userID=" + userID + "&userName=" + userName + "&lang=" + siteLanguage);
+xmlhttp.send();
 }
 }
 
@@ -564,13 +575,13 @@ function get_user_stats() {
             var obj = JSON.parse(xmlhttp.responseText);
             whenToNotify = obj.NotificationTimeUnit
             whenToPost = obj.PostTimeUnit
-            menuLanguage= obj.Language -1;
+            gameLanguageSliderValue= obj.Language -1;
             gameLanguage = obj.Language;
             console.log("The game language is now : " + gameLanguage);
 
             document.getElementById('notifications').selectedIndex = whenToNotify 
             document.getElementById('posts').selectedIndex= whenToPost
-            document.getElementById('language').selectedIndex= menuLanguage
+            document.getElementById('language').selectedIndex= gameLanguageSliderValue
 
         }
     }
@@ -595,7 +606,7 @@ function getGameScore(){
 
     	}
     }
-    console.log("language is : " + menuLanguage)
+    console.log("language is : " + gameLanguageSliderValue)
     xmlhttp.open("GET","php/get_game_score.php?userID=" + userID + "&mode=" + game + "&language=" + gameLanguage, true);
     xmlhttp.send();    
 }
@@ -726,8 +737,8 @@ function saveSettings() {
 	console.log("Begin save settings")
 	whenToNotify = document.getElementById("notifications").selectedIndex;
 	whenToPost = document.getElementById("posts").selectedIndex;
-	menuLanguage = document.getElementById("language").selectedIndex
-	gameLanguage = menuLanguage +1;
+	gameLanguageSliderValue = document.getElementById("language").selectedIndex
+	gameLanguage = gameLanguageSliderValue +1;
 	var xmlhttp;
 
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -798,14 +809,14 @@ function trigger_notification() {
 
 function updateLeaderboard(){
 
-    languageSelect = document.getElementById("scoreLanguage");
-    scoreLanguage = languageSelect.selectedIndex;
-    gameSelect = document.getElementById("scoreGame");
-    scoreGame= gameSelect.selectedIndex;
-    timePeriodSelect = document.getElementById("scoretimePeriod");
-    scoretimePeriod = timePeriodSelect.selectedIndex;
-    metricSelect = document.getElementById("scoreMetric")
-    scoreMetric = metricSelect.selectedIndex;
+	languageSelect = document.getElementById("scoreLanguage");
+	scoreLanguage = languageSelect.selectedIndex;
+	gameSelect = document.getElementById("scoreGame");
+	scoreGame= gameSelect.selectedIndex;
+	timePeriodSelect = document.getElementById("scoretimePeriod");
+	scoretimePeriod = timePeriodSelect.selectedIndex;
+	metricSelect = document.getElementById("scoreMetric")
+	scoreMetric = metricSelect.selectedIndex;
     //All languages, All Games
 
     var xmlhttp;
@@ -836,32 +847,32 @@ function updateLeaderboard(){
 
     		for(var i = 0; i <  obj[0].length; i++) {
     			var rowCount = table.rows.length;
-                var row = table.insertRow(rowCount);
-                rowUserID=  obj[1][i].toString();
+    			var row = table.insertRow(rowCount);
+    			rowUserID=  obj[1][i].toString();
     			console.log("This is the rowCount: " + rowCount)
-                if(rowUserID == userID){
-                    row.className = "highlightCurrentUser"; 
-                }
-                else {
-                  row.className = "otherUsersInTable"; 
+    			if(rowUserID == userID){
+    				row.className = "highlightCurrentUser"; 
+    			}
+    			else {
+    				row.className = "otherUsersInTable"; 
 
-              }
-              
+    			}
+    			
 
-              row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + rowUserID + '/picture" >'        ;
-              row.insertCell(1).innerHTML= obj[2][rowUserID];
+    			row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + rowUserID + '/picture" >'        ;
+    			row.insertCell(1).innerHTML= obj[2][rowUserID];
 
-              row.insertCell(2).innerHTML= obj[0][i];
+    			row.insertCell(2).innerHTML= obj[0][i];
              //   row.insertCell(3).innerHTML= obj[1][i];
                 row.insertCell(3).innerHTML= "Rank: " + (parseInt(i) + 1); //since index 0 is first rank
             }
             //add the user from before s score if use ris not in top3
 
             if( obj[3].rank > 4) {
-                var rowCount = table.rows.length;
-                var row = table.insertRow(rowCount);
-                row.className = "spaceUnder"; 
-                row.insertCell(0).innerHTML="  "
+            	var rowCount = table.rows.length;
+            	var row = table.insertRow(rowCount);
+            	row.className = "spaceUnder"; 
+            	row.insertCell(0).innerHTML="  "
 
             	addScoreEntry(4,table) 
             }
@@ -883,18 +894,18 @@ function updateLeaderboard(){
 }
 
 function addScoreEntry(indexOfArray, table){
-    var rowCount = table.rows.length;
-    var row = table.insertRow(rowCount);
-    if(obj[indexOfArray].id == userID){
-        row.className = "highlightCurrentUser"; 
-    }
-    else {
-      row.className = "otherUsersInTable"; 
-      
-  }
-  row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[indexOfArray].id + '/picture" >'        ;
-  row.insertCell(1).innerHTML= obj[2][obj[indexOfArray].id];
+	var rowCount = table.rows.length;
+	var row = table.insertRow(rowCount);
+	if(obj[indexOfArray].id == userID){
+		row.className = "highlightCurrentUser"; 
+	}
+	else {
+		row.className = "otherUsersInTable"; 
+		
+	}
+	row.insertCell(0).innerHTML=  '<img id="leaderPic1" src="http://graph.facebook.com/' + obj[indexOfArray].id + '/picture" >'        ;
+	row.insertCell(1).innerHTML= obj[2][obj[indexOfArray].id];
 
-  row.insertCell(2).innerHTML= obj[indexOfArray].score;
-  row.insertCell(3).innerHTML= "Rank: " + obj[indexOfArray].rank;
+	row.insertCell(2).innerHTML= obj[indexOfArray].score;
+	row.insertCell(3).innerHTML= "Rank: " + obj[indexOfArray].rank;
 }
