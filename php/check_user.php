@@ -3,6 +3,12 @@ session_start();
 $userID = $_GET['userID'];
 $userName = $_GET['userName'];
 
+	
+if (isset($_SESSION['lang'])){
+		$checkResult="aleadyDoneBefore";
+}
+else {
+
 
 $stmt = $mysqli->prepare("SELECT Language FROM users WHERE UserID = ? ;");
 $stmt->bind_param("s", $userID );
@@ -43,10 +49,14 @@ if( !$userExists){
 	$checkResult="-1";	
 }
 else {
+	if (isset($_SESSION['lang'])){
+		$checkResult="aleadyDoneBefore";
+	} 
 	$_SESSION['lang']=$languageMap[$checkResult];
 
 	$checkResult="done";
 
+}
 }
 
 $jsonData = json_encode($checkResult);

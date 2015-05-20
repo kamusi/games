@@ -541,9 +541,10 @@ function isNewUser() {
 				if(obj != "-1") {
 					animate_logo();
 					siteLanguage=obj
-					newString = "&lang=" + siteLanguage
 					console.log("NEQWIDNWE: " + siteLanguage)
+					if(obj != "aleadyDoneBefore") {
 					location.reload();
+				}
 					/*
 					xmlhttp.open("GET","/index.php?&lang=" + siteLanguage);
 					xmlhttp.send(); */
