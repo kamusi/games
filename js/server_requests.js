@@ -544,9 +544,9 @@ function isNewUser() {
 					siteLanguage=obj
 					newString = "&lang=" + siteLanguage
 					console.log("NEQWIDNWE: " + siteLanguage)
-					/*xmlhttp.open("GET","/index.php?&lang=" + siteLanguage);
-					xmlhttp.send(); */
-					window.location.search += newString
+					xmlhttp.open("GET","/index.php?&lang=" + siteLanguage);
+					xmlhttp.send(); 
+					//window.location.search += newString
 
 				}
 				else {
