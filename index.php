@@ -43,7 +43,11 @@ bindtextdomain('messages', 'locale');
 textdomain('messages');
 
 
-$name = "Vic";
+$e1=_("Definition Game");
+$e2=_("Translation Game");
+$e3= ("Tweet Game");
+$e4=_("Sentence Game");
+$gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 
 
 ?>
