@@ -10,12 +10,8 @@ function generateToken() {
 
 	return $token;
 }
-	$locale= $_GET['lang'];
+	$locale= isset($_GET['lang']) ? $_GET['lang'] : $languageMap["1"];
 
-	if(empty($locale)){
-		$locale= $languageMap["1"];
-	}
-	else {
 
 	$returnVal = setlocale(LC_ALL, $locale .'.utf8');
 
@@ -32,7 +28,7 @@ function generateToken() {
 	 * Tell the application to use this text domain, or messages.mo.
 	 */
 	textdomain('messages');	
-	}
+	
 ?>
 
 <!DOCTYPE>
