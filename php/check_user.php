@@ -45,9 +45,9 @@ if( !$userExists){
 }
 else {
 
-	$returnVal = setlocale(LC_ALL, $languageMap[$checkResult] .'.utf8');
+	$returnVal = App::setlocale(LC_ALL, $languageMap[$checkResult] .'.utf8');
 
-	echo "Returnval was : ". $returnVal . "END";
+	//echo "Returnval was : ". $returnVal . "END";
 
 	/**
 	 * Because the .po file is named messages.po, the text domain must be named
