@@ -344,7 +344,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 
 			</select>
 		</div>
-		<input id = "autoloop" type="checkbox" name="autoloop" value="autoloop" checked ><?php echo _("Auto-Loop"); ?><br>
+		<input id = "autoloop" type="checkbox" name="autoloop" value="autoloop" checked style="white-space:nowrap"; ><?php echo _("Auto-Loop"); ?><br>
 	</div>
 	<h1><?php echo _("Leaderboard"); ?></h1>
 
