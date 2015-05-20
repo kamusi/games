@@ -339,7 +339,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 			<?php echo _("What to compare"); ?>
 			<select id= "scoreMetric" onchange="updateLeaderboard(); playClick();" size="1">
 				<option><?php echo _("Points Earned"); ?></option>
-				<option><?php echo _("Number of Submissions"); ?></option>
+				<option><?php echo _("# of Submissions"); ?></option>
 				<option><?php echo _("Success Rate"); ?></option>
 
 			</select>
