@@ -76,6 +76,8 @@ $name = "Vic";
 				<div id="gamezone1" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 					<div id="gamezone-main1" >
 						<div id="entry">
+							<h1 id="instructions1"> <?php printf(_("Definition Game")); ?>  </h1>
+
 							<p id="instructions1"> <?php printf(_("Write or vote for a definition!")); ?>  </p>
 
 							<p id="word"></p>
