@@ -265,7 +265,7 @@ $name = "Vic";
 		<option><?php echo _("French"); ?></option>
 		<option><?php echo _("Vietnamese"); ?></option>
 	</select>
-
+</br></br>
 	<p><?php echo _("Play for..."); ?></p>
 <select id="language" onchange= size="1">
 	<option><?php echo _("English"); ?></option>
