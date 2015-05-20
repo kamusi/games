@@ -260,7 +260,6 @@ $name = "Vic";
 <div id="settings">
 	<div id="settings-main">
 		<p><?php echo _("Talk to me in..."); ?></p>
-	</br>
 	<select id="menu-language" onchange= size="1">
 		<option><?php echo _("English"); ?></option>
 		<option><?php echo _("French"); ?></option>
@@ -268,7 +267,6 @@ $name = "Vic";
 	</select>
 
 	<p><?php echo _("Play for..."); ?></p>
-</br>
 <select id="language" onchange= size="1">
 	<option><?php echo _("English"); ?></option>
 	<option><?php echo _("French"); ?></option>
