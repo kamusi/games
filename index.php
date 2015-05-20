@@ -146,7 +146,7 @@ $name = "Vic";
 			<div id="gamezone3" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 				<div id="gamezone-main3" >
 					<div id="entry">
-						<p id="instructions"><?php printf(_("Write or vote for a definition!")); ?>   </p>
+						<p id="instructions"><?php echo ("Check ONLY the tweets that are excellent examples of THIS meaning: "); ?>   </p>
 						<p id="word3"></p>		
 						<p id="pos3"></p>					
 						<p id="def3"></p>
