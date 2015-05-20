@@ -11,7 +11,8 @@ function generateToken() {
 	return $token;
 }
 
-function setOurLocale(newLocale) {
+function setOurLocale($newLocale) {
+
 		$returnVal = setlocale(LC_ALL, $newLocale .'.utf8');
 
 	//echo "Returnval was : ". $returnVal . "END";
