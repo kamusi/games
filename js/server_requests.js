@@ -535,15 +535,17 @@ function isNewUser() {
 		}
 		xmlhttp.onreadystatechange=function() {
 			if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-				console.log("RETURNED : " + xmlhttp.responseText)
+
 				obj = JSON.parse(xmlhttp.responseText);
-				console.log("REPONSE NEW USER : " + xmlhttp.responseText);
+				console.log("REPONSE NEW USER : " + xmlhttp.responseText + "END");
 				initialise(userID);
 				if(obj != "-1") {
 					animate_logo();
 					siteLanguage=obj
-					xmlhttp.open("GET","/index.php?&lang=" + siteLanguage);
-					xmlhttp.send();  
+					newString = "&lang=" + siteLanguage
+					/*xmlhttp.open("GET","/index.php?&lang=" + siteLanguage);
+					xmlhttp.send(); */
+					window.location.search += newString
 
 				}
 				else {
