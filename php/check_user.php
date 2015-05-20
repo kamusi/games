@@ -44,7 +44,6 @@ if( !$userExists){
 	$checkResult=-1;	
 }
 else {
-	$row = $result->fetch_assoc();
 
 	$returnVal = setlocale(LC_ALL, $languageMap[$checkResult] .'.utf8');
 
