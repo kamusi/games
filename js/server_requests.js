@@ -539,7 +539,7 @@ function isNewUser() {
 				obj = JSON.parse(xmlhttp.responseText);
 				console.log("REPONSE NEW USER : " + xmlhttp.responseText + "END");
 				initialise(userID);
-				if(obj != "-1") {
+				if(obj != "-1" && siteLanguage == "-1") {
 					animate_logo();
 					siteLanguage=obj
 					newString = "&lang=" + siteLanguage
