@@ -3,7 +3,7 @@ $userID = $_GET['userID'];
 $userName = $_GET['userName'];
 
 
-$stmt = $mysqli->prepare("SELECT Language FROM users WHERE UserID = ? ");
+$stmt = $mysqli->prepare("SELECT Language FROM users WHERE UserID = ? ;");
 $stmt->bind_param("s", $userID );
 $stmt->execute();
 $userExists= $stmt->bind_result($checkResult);
