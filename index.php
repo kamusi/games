@@ -263,7 +263,6 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 </select>
 </br></br>
 <p><?php echo _("Notify me about new points I earn..."); ?></p>
-</br>
 <select id="notifications" size="1">
 	<option><?php echo _("Real time"); ?></option>
 	<option><?php echo _("Once daily"); ?></option>

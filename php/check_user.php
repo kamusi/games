@@ -50,6 +50,8 @@ else {
 
 	$returnVal = setlocale(LC_ALL, $languageMap[$checkResult] .'.utf8');
 
+	echo "Returnval was : ". $returnVal ." , currentLang : " .$languageMap[$checkResult];
+
 	/**
 	 * Because the .po file is named messages.po, the text domain must be named
 	 * that as well. The second parameter is the base directory to start
