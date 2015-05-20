@@ -37,6 +37,10 @@ function lookForWord($userID) {
 
 	$stmt->close();
 
+	if($user_offset > 40) {
+		die("This is very likely an infinite loop in get_ranked!");
+	}
+
 //fetch the word that has as rank user s position+offset
 	$sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
 	$sql.=	"SELECT w.ID, w.DefinitionID, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
