@@ -19,7 +19,7 @@ var gameLanguage;
 var game = 0;
 
 //This is the overallLanguage
-var siteLanguage=-1
+var siteLanguage="-1"
 
 
 var translationID;
@@ -519,7 +519,7 @@ function submit_definition(definition) {
 function isNewUser() {
 
 	console.log("Checking if New USER")
-	if(siteLanguage == -1){
+	if(siteLanguage == "-1"){
 		if(userID == "???"){
 			console.log("Waiting until becoming defined!" + userID)
 		}
