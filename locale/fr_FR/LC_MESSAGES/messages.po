@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kamusi\n"
-"POT-Creation-Date: 2015-05-20 15:40+0100\n"
-"PO-Revision-Date: 2015-05-20 15:40+0100\n"
+"POT-Creation-Date: 2015-05-20 15:58+0100\n"
+"PO-Revision-Date: 2015-05-20 15:59+0100\n"
 "Last-Translator: \n"
 "Language-Team: timo\n"
 "Language: fr_FR\n"
@@ -13,6 +13,10 @@ msgstr ""
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: /home/timo/Documents/Semestre10/Projet/kamusi2\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: index.php:79
+msgid "Translate this"
+msgstr "Traduis-moi ça!"
 
 #: index.php:79 index.php:118 index.php:153 index.php:182 index.php:319
 #: index.php:320 index.php:321 index.php:322
@@ -235,10 +239,6 @@ msgstr "Jeu avec les définitions"
 
 #: php/global.php:7
 msgid "Translation Game"
-msgstr ""
-
-#: php/global.php:8
-msgid "Tweet Game"
 msgstr ""
 
 #: php/global.php:9
