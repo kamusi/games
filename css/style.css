@@ -672,4 +672,4 @@ tr.spaceUnder > td
   padding-bottom: 2em;
 }
 
-#scoreSelectors{white-space:nowrap;}
+.scoreSelectors{white-space:nowrap;}

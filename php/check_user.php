@@ -39,12 +39,28 @@ if( $checkResult== 0){
 			$stmt->close();
 		}
 	}
-	//The language is not set yet
+	//The language is not set yet, set it to english temporyrirliy
+	$returnVal = setlocale(LC_ALL, $languageMap['1'] .'.utf8');
+
 	$checkResult=-1;	
 }
 else {
 	$row = $result->fetch_assoc();
-	$checkResult = $row["Language"];	
+	$checkResult = $row["Language"];
+
+	$returnVal = setlocale(LC_ALL, $languageMap[$checkResult] .'.utf8');
+
+	/**
+	 * Because the .po file is named messages.po, the text domain must be named
+	 * that as well. The second parameter is the base directory to start
+	 * searching in.
+	 */
+	bindtextdomain('messages', 'locale');
+
+	/**
+	 * Tell the application to use this text domain, or messages.mo.
+	 */
+	textdomain('messages');	
 }
 
 $jsonData = json_encode($checkResult);

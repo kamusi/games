@@ -26,23 +26,6 @@ function generateToken() {
 <?php
 $newToken = generateToken();
 
-$returnVal = setlocale(LC_ALL, 'fr_FR' .'.utf8');
-
-//TODO : GetUser should extract language number. With that we choose translation
-
-/**
- * Because the .po file is named messages.po, the text domain must be named
- * that as well. The second parameter is the base directory to start
- * searching in.
- */
-bindtextdomain('messages', 'locale');
-
-/**
- * Tell the application to use this text domain, or messages.mo.
- */
-textdomain('messages');
-
-
 $e1=_("Definition Game");
 $e2=_("Translation Game");
 $e3=_("Tweet Game");
@@ -309,6 +292,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 			<select class="scoreSelectors" id= "scoreLanguage" onchange="updateLeaderboard(); playClick();" size="1">
 				<option><?php echo _("All languages"); ?></option>
 				<option><?php echo _("English"); ?></option>
+				<option><?php echo _("French"); ?></option>
 				<option><?php echo _("Vietnamese"); ?></option>
 			</select>
 		</div>
