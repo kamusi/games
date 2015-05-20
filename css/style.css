@@ -663,6 +663,7 @@ body {
     display: inline-block;
 }
 
+/*leaderboard stuff */
 .highlightCurrentUser{background-color: yellow;} 
 .otherUsersInTable{background-color:transparent;}
 
@@ -670,3 +671,5 @@ tr.spaceUnder > td
 {
   padding-bottom: 2em;
 }
+
+#scoreSelectors{white-space:nowrap;}

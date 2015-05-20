@@ -45,7 +45,7 @@ textdomain('messages');
 
 $e1=_("Definition Game");
 $e2=_("Translation Game");
-$e3= ("Tweet Game");
+$e3=_("Tweet Game");
 $e4=_("Sentence Game");
 $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 
@@ -170,10 +170,6 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 							<p id="greeting"></p>
 							<span><img id="avatar" src="" width="50"></span>
 						</a>
-						<span id="login_button">
-							<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
-						</span>
-
 					</div>
 					<div id="footer-next3">
 						<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxData("tweet"); setTimeout(get_randomForTweets, 500);'>
@@ -310,7 +306,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 	<div id="settings-outer">
 		<div class="settings-inner">   
 			<?php echo _("Language"); ?>
-			<select id= "scoreLanguage" onchange="updateLeaderboard(); playClick();" size="1">
+			<select class="scoreSelectors" id= "scoreLanguage" onchange="updateLeaderboard(); playClick();" size="1">
 				<option><?php echo _("All languages"); ?></option>
 				<option><?php echo _("English"); ?></option>
 				<option><?php echo _("Vietnamese"); ?></option>
@@ -318,7 +314,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 		</div>
 		<div class="settings-inner">
 			<?php echo _("Game"); ?>
-			<select id= "scoreGame" onchange="updateLeaderboard(); playClick();" size="1">
+			<select class="scoreSelectors" id= "scoreGame" onchange="updateLeaderboard(); playClick();" size="1">
 				<option><?php echo _("All games"); ?></option>
 				<option><?php printf(_("%s"),$gameNames["1"]); ?></option>
 				<option><?php printf(_("%s"),$gameNames["2"]); ?></option>
@@ -328,7 +324,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 		</div>
 		<div class="settings-inner">
 			<?php echo _("TimePeriod"); ?>
-			<select id= "scoretimePeriod" onchange="updateLeaderboard(); playClick();" size="1">
+			<select class="scoreSelectors" id= "scoretimePeriod" onchange="updateLeaderboard(); playClick();" size="1">
 				<option><?php echo _("All time"); ?></option>
 				<option><?php echo _("Last Month"); ?></option>
 				<option><?php echo _("Last Week"); ?></option>
@@ -337,14 +333,14 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 		</div>
 		<div class="settings-inner">
 			<?php echo _("What to compare"); ?>
-			<select id= "scoreMetric" onchange="updateLeaderboard(); playClick();" size="1">
+			<select class="scoreSelectors" id= "scoreMetric" onchange="updateLeaderboard(); playClick();" size="1">
 				<option><?php echo _("Points Earned"); ?></option>
 				<option><?php echo _("# of Submissions"); ?></option>
 				<option><?php echo _("Success Rate"); ?></option>
 
 			</select>
 		</div>
-		<input id = "autoloop" type="checkbox" name="autoloop" value="autoloop" checked style="white-space:nowrap"; ><?php echo _("Auto-Loop"); ?><br>
+		<input id = "autoloop" class="scoreSelectors" type="checkbox" name="autoloop" value="autoloop" checked; ><?php echo _("Auto-Loop"); ?><br>
 	</div>
 	<h1><?php echo _("Leaderboard"); ?></h1>
 
