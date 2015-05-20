@@ -76,7 +76,7 @@ $name = "Vic";
 				<div id="gamezone1" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 					<div id="gamezone-main1" >
 						<div id="entry">
-							<p id="instructions1"> <?php printf(_("Hello, %s, it is nice to see you today.\n"), $name); ?>  </p>
+							<p id="instructions1"> <?php printf(_("Write or vote for a definition!")); ?>  </p>
 
 							<p id="word"></p>
 							<p id="pos"></p>
@@ -146,7 +146,7 @@ $name = "Vic";
 			<div id="gamezone3" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 				<div id="gamezone-main3" >
 					<div id="entry">
-						<p id="instructions">Check ONLY the tweets that are excellent examples of THIS meaning:  </p>
+						<p id="instructions"><?php echo_("Check ONLY the tweets that are excellent examples of THIS meaning: "); ?> </p>
 						<p id="word3"></p>		
 						<p id="pos3"></p>					
 						<p id="def3"></p>
