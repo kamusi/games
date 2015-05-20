@@ -1,4 +1,5 @@
 <?php
+session_start();
 $userID = $_GET['userID'];
 $userName = $_GET['userName'];
 
