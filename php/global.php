@@ -11,6 +11,26 @@ $db = 'kamusi';
 
 $mysqli = new mysqli('localhost', $user, $pass, $db);
 
+function setOurLocale($newLocale) {
+
+		$returnVal = setlocale(LC_ALL, $newLocale .'.utf8');
+
+	//echo "Returnval was : ". $returnVal . "END";
+
+	/**
+	 * Because the .po file is named messages.po, the text domain must be named
+	 * that as well. The second parameter is the base directory to start
+	 * searching in.
+	 */
+	bindtextdomain('messages', 'locale');
+
+	/**
+	 * Tell the application to use this text domain, or messages.mo.
+	 */
+	textdomain('messages');	
+}
+
+
 function addXToValueInGame($userID, $language, $mode, $value, $x){
 	global $mysqli;
 	$stmt = $mysqli->prepare("UPDATE games SET ". $value . " = " . $value . " + ? WHERE userid=? and language = ? AND game=?;");
