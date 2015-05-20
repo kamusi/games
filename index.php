@@ -26,7 +26,7 @@ function generateToken() {
 <?php
 $newToken = generateToken();
 
-$returnVal = setlocale(LC_ALL, 'de_DE');
+$returnVal = setlocale(LC_ALL, 'de_DE' .'.utf8');
 
 //TODO : GetUser should extract language number. With that we choose translation
 
@@ -316,7 +316,7 @@ $name = "Vic";
 			<?php echo _("Game"); ?>
 			<select id= "scoreGame" onchange="updateLeaderboard(); playClick();" size="1">
 				<option><?php echo _("All games"); ?></option>
-				<option><?php printf(_("%s"),$gameNames["1"]); ?>></option>
+				<option><?php printf(_("%s"),$gameNames["1"]); ?></option>
 				<option><?php printf(_("%s"),$gameNames["2"]); ?></option>
 				<option><?php printf(_("%s"),$gameNames["3"]); ?></option>
 				<option><?php printf(_("%s"),$gameNames["4"]); ?></option>
