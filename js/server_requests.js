@@ -543,6 +543,7 @@ function isNewUser() {
 					animate_logo();
 					siteLanguage=obj
 					newString = "&lang=" + siteLanguage
+					console.log("NEQWIDNWE: " + siteLanguage)
 					/*xmlhttp.open("GET","/index.php?&lang=" + siteLanguage);
 					xmlhttp.send(); */
 					window.location.search += newString
