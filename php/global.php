@@ -3,7 +3,7 @@
 $acceptedModes = array("1","2","3","4");
 $allUsers = "allusers";
 
-$languageMap = array ("1" => "en_US", "2" => "fr_FR", "3" => "vi_VI" )
+$languageMap = array ("1" => "en_US", "2" => "fr_FR", "3" => "vi_VI" );
 
 $user = 'root';
 $pass = '';
