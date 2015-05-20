@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kamusi\n"
-"POT-Creation-Date: 2015-05-20 15:30+0100\n"
-"PO-Revision-Date: 2015-05-20 15:32+0100\n"
+"POT-Creation-Date: 2015-05-20 15:40+0100\n"
+"PO-Revision-Date: 2015-05-20 15:40+0100\n"
 "Last-Translator: \n"
 "Language-Team: timo\n"
 "Language: fr_FR\n"
@@ -229,18 +229,18 @@ msgstr ""
 msgid "Leaderboard"
 msgstr ""
 
-#: php/global.php:5
+#: php/global.php:6
 msgid "Definition Game"
 msgstr "Jeu avec les définitions"
 
-#: php/global.php:5
+#: php/global.php:7
 msgid "Translation Game"
 msgstr ""
 
-#: php/global.php:5
+#: php/global.php:8
 msgid "Tweet Game"
 msgstr ""
 
-#: php/global.php:5
+#: php/global.php:9
 msgid "Sentence Game"
 msgstr ""
