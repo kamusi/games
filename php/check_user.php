@@ -8,13 +8,13 @@ $userName = $_GET['userName'];
 $stmt = $mysqli->prepare("SELECT Language FROM users WHERE UserID = ? ");
 $stmt->bind_param("s", $userID );
 $stmt->execute();
+$userExists= $stmt->bind_result($checkResult);
 $result = $stmt->get_result(); 
 
-$checkResult = -1;
 $stmt->close();
 
 
-if( $result-> num_rows== 0){
+if( !$userExists){
 	//Add user to database
 	$stmt = $mysqli->prepare("INSERT INTO users (UserID, Username) VALUES(?,?);");
 	$stmt->bind_param("ss", $userID, $userName );
@@ -46,7 +46,6 @@ if( $result-> num_rows== 0){
 }
 else {
 	$row = $result->fetch_assoc();
-	$checkResult = $row["Language"];
 
 	$returnVal = setlocale(LC_ALL, $languageMap[$checkResult] .'.utf8');
 
