@@ -517,7 +517,7 @@ function submit_definition(definition) {
 }
 
 function isNewUser() {
-
+	if(siteLanguage == "-1"){
 	console.log("Checking if New USER")
 		if(userID == "???"){
 			console.log("Waiting until becoming defined!" + userID)
@@ -534,7 +534,7 @@ function isNewUser() {
 		}
 		xmlhttp.onreadystatechange=function() {
 			if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-				if(siteLanguage == "-1"){
+
 				obj = JSON.parse(xmlhttp.responseText);
 				console.log("REPONSE NEW USER : " + xmlhttp.responseText + "END");
 				initialise(userID);
@@ -543,20 +543,23 @@ function isNewUser() {
 					siteLanguage=obj
 					newString = "&lang=" + siteLanguage
 					console.log("NEQWIDNWE: " + siteLanguage)
+					location.reload();
+					/*
 					xmlhttp.open("GET","/index.php?&lang=" + siteLanguage);
-					xmlhttp.send(); 
+					xmlhttp.send(); */
 					//window.location.search += newString
 
 				}
 				else {
 					animate_logo_firstTime(); 
 				}
-			}
+			
 			}
 		}
-		xmlhttp.open("GET","php/check_user.php?userID=" + userID + "&userName=" + userName + "&lang=" + siteLanguage);
+		xmlhttp.open("GET","php/check_user.php?userID=" + userID + "&userName=" + userName);
 		xmlhttp.send();
 		}
+	}
 
 
 }

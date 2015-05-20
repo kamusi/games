@@ -10,7 +10,8 @@ function generateToken() {
 
 	return $token;
 }
-	$locale= isset($_GET['lang']) ? $_GET['lang'] : $languageMap["1"];
+	
+	$locale= isset($_SESSION['lang']) ? $_SESSION['lang'] : $languageMap["1"];
 
 
 	$returnVal = setlocale(LC_ALL, $locale .'.utf8');

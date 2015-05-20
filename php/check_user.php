@@ -39,10 +39,12 @@ if( !$userExists){
 		}
 	}
 
-	$checkResult=-1;	
+	$checkResult="-1";	
 }
 else {
-	$checkResult=$languageMap[$checkResult];
+	$checkResult="done"
+	$_SESSION['lang']=$languageMap[$checkResult];
+
 }
 
 $jsonData = json_encode($checkResult);
