@@ -10,8 +10,29 @@ function generateToken() {
 
 	return $token;
 }
+	$locale= $_GET['lang'];
 
+	if(empty($locale)){
+		echo "No language set"
+	}
+	else {
 
+	$returnVal = setlocale(LC_ALL, $locale .'.utf8');
+
+	//echo "Returnval was : ". $returnVal . "END";
+
+	/**
+	 * Because the .po file is named messages.po, the text domain must be named
+	 * that as well. The second parameter is the base directory to start
+	 * searching in.
+	 */
+	bindtextdomain('messages', 'locale');
+
+	/**
+	 * Tell the application to use this text domain, or messages.mo.
+	 */
+	textdomain('messages');	
+	}
 ?>
 
 <!DOCTYPE>
