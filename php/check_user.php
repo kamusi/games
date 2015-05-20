@@ -10,11 +10,11 @@ $stmt->bind_param("s", $userID );
 $stmt->execute();
 $result = $stmt->get_result(); 
 
-$checkResult = $result-> num_rows;
+$checkResult = -1;
 $stmt->close();
 
 
-if( $checkResult== 0){
+if( $result-> num_rows== 0){
 	//Add user to database
 	$stmt = $mysqli->prepare("INSERT INTO users (UserID, Username) VALUES(?,?);");
 	$stmt->bind_param("ss", $userID, $userName );
@@ -50,7 +50,7 @@ else {
 
 	$returnVal = setlocale(LC_ALL, $languageMap[$checkResult] .'.utf8');
 
-	echo "Returnval was : ". $returnVal ." , currentLang : " .$languageMap[$checkResult];
+	echo "Returnval was : ". $checkResult;
 
 	/**
 	 * Because the .po file is named messages.po, the text domain must be named
