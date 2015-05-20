@@ -146,7 +146,7 @@ $name = "Vic";
 			<div id="gamezone3" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 				<div id="gamezone-main3" >
 					<div id="entry">
-						<p id="instructions"><?php echo ("Check ONLY the tweets that are excellent examples of THIS meaning: "); ?>   </p>
+						<p id="instructions"><?php echo _("Check ONLY the tweets that are excellent examples of THIS meaning: "); ?>   </p>
 						<p id="word3"></p>		
 						<p id="pos3"></p>					
 						<p id="def3"></p>
@@ -174,7 +174,7 @@ $name = "Vic";
 			<div id="gamezone4" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 				<div id="gamezone-main4" >
 					<div id="entry">
-						<p id="instructions">Check the sentences that correspond well to this word: </p>
+						<p id="instructions"><?php echo _("Check the sentences that correspond well to this word: "); ?></p>
 						<p id="word4"></p>		
 						<p id="pos4"></p>					
 						<p id="transEnglish4"></p>
@@ -194,27 +194,27 @@ $name = "Vic";
 		<div id="about">
 			<div id="about-main">
 				<div id="about-data">
-					<h2>About</h2>
+					<h2><?php echo _("About"); ?></h2>
 					<p>
-						The Kamusi Project (<a href="http://kamusi.org/" target="_blank">http://kamusi.org/</a>) is a participatory international effort dedicated to improving knowledge of the world's languages. Our long term mission is to produce dictionaries and other language resources for every language, and to make those resources available for free to everyone.
+						<?php echo _("The Kamusi Project "); ?>(<a href="http://kamusi.org/" target="_blank">http://kamusi.org/</a>) <?php echo _("is a participatory international effort dedicated to improving knowledge of the world's languages. Our long term mission is to produce dictionaries and other language resources for every language, and to make those resources available for free to everyone."); ?>
 					</p>
 				</br>
-				<h2>How to write a great definition</h2>
+				<h2><?php echo _("How to write a great definition"); ?></h2>
 				<p>
-					Definitions are explanations of what a word means. They are not single words (those are synonyms). You can usually use a definition instead of the actual word. Stick to these rules:
+					<?php echo _("Definitions are explanations of what a word means. They are not single words (those are synonyms). You can usually use a definition instead of the actual word. Stick to these rules:"); ?>
 				</p>
 				<ul>
-					<li> Short and sweet: A definition should be as brief as possible to explain the concept, but long enough to describe it fully. If the same word has different meanings, those are different concepts with different definitions- a definition in Kamusi only explains *one* concept.
+					<li> <?php echo _("Short and sweet: A definition should be as brief as possible to explain the concept, but long enough to describe it fully. If the same word has different meanings, those are different concepts with different definitions- a definition in Kamusi only explains *one* concept."); ?>
 					</li>
-					<li> Easy does it: Use the simplest words you can -definitions should not force readers to jump around the dictionary more, unless technical terms are absolutely necessary.
+					<li> <?php echo _("Easy does it: Use the simplest words you can -definitions should not force readers to jump around the dictionary more, unless technical terms are absolutely necessary."); ?>
 					</li>
-					<li> No circles: Definitions should NOT contain the word that is being defined, nor its close relatives. "Happiness" is "A feeling of joy.", not "The feeling of being happy." Definitions should not be circular - we cannot now say "joy" is "A feeling of happiness."
+					<li> <?php echo _('No circles: Definitions should NOT contain the word that is being defined, nor its close relatives. "Happiness" is "A feeling of joy.", not "The feeling of being happy." Definitions should not be circular - we cannot now say "joy" is "A feeling of happiness."'); ?>
 					</li>
-					<li> No fluff: Do not start with "A term meaning", or "This is a", or "X refers to", etc. Style: Begin with a Capital letter and end with a period.
+					<li> <?php echo _('No fluff: Do not start with "A term meaning", or "This is a", or "X refers to", etc. Style: Begin with a Capital letter and end with a period.'); ?>
 					</li>
 				</ul>
 			</br>
-			For more information, you can watch this video: <a href="https://www.youtube.com/watch?v=aaqOQQOYuHA" target="_blank">https://www.youtube.com/watch?v=aaqOQQOYuHA</a>
+			<?php echo _("For more information, you can watch this video: "); ?><a href="https://www.youtube.com/watch?v=aaqOQQOYuHA" target="_blank">https://www.youtube.com/watch?v=aaqOQQOYuHA</a>
 		</div>
 	</div>
 	<div id="about-footer">
@@ -229,19 +229,19 @@ $name = "Vic";
 		<div id="profile-info-wrapper">
 			<table id="profile_info">
 				<tr>
-					<td>Name</td>
+					<td><?php echo _("Name"); ?></td>
 					<td id="profile_name"></td>
 				</tr>
 				<tr>
-					<td>Points</td>
+					<td><?php echo _("Points"); ?></td>
 					<td id="profile_points"></td>
 				</tr>
 				<tr>
-					<td>Pending points</td>
+					<td><?php echo _("Pending points"); ?></td>
 					<td id="pending_points"></td>
 				</tr>
 				<tr>
-					<td>Success Rate</td>
+					<td><?php echo _("Success Rate"); ?></td>
 					<td id="profile_attempts"></td>
 				</tr>
 			</table>
@@ -259,39 +259,39 @@ $name = "Vic";
 </div>
 <div id="settings">
 	<div id="settings-main">
-		<p>Talk to me in...</p>
+		<p><?php echo _("Talk to me in..."); ?></p>
 	</br>
 	<select id="menu-language" onchange= size="1">
-		<option>English</option>
-		<option>Français</option>
-		<option>tiếng Việt</option>
+		<option><?php echo _("English"); ?></option>
+		<option><?php echo _("French"); ?></option>
+		<option><?php echo _("Vietnamese"); ?></option>
 	</select>
 
-	<p>Play for...</p>
+	<p><?php echo _("Play for..."); ?></p>
 </br>
 <select id="language" onchange= size="1">
-	<option>English</option>
-	<option>Français</option>
-	<option>tiếng Việt</option>
+	<option><?php echo _("English"); ?></option>
+	<option><?php echo _("French"); ?></option>
+	<option><?php echo _("Vietnamese"); ?></option>
 </select>
 </br></br>
-<p>Notify me about new points I earn...</p>
+<p><?php echo _("Notify me about new points I earn..."); ?></p>
 </br>
 <select id="notifications" size="1">
-	<option>Real time</option>
-	<option>Once daily</option>
-	<option>Once weekly</option>
-	<option>When pigs fly...</option>
+	<option><?php echo _("Real time"); ?></option>
+	<option><?php echo _("Once daily"); ?></option>
+	<option><?php echo _("Once weekly"); ?></option>
+	<option><?php echo _("When pigs fly..."); ?></option>
 </select>
 </br></br>
-<p>Post achievements to my timeline...</p>
+<p><?php echo _("Post achievements to my timeline..."); ?></p>
 
 <select id= "posts" size="1">
-	<option>Always (Every time I have a winning entry)</option>
-	<option>Often (Max once a day)</option>
-	<option>Sometimes (Max once a week)</option>
-	<option>Occasionally (Max once monthly)</option>
-	<option>When pigs fly... (Never)</option>
+	<option><?php echo _("Always (Every time I have a winning entry)"); ?></option>
+	<option><?php echo _("Often (Max once a day)"); ?></option>
+	<option><?php echo _("Sometimes (Max once a week)"); ?></option>
+	<option><?php echo _("Occasionally (Max once monthly)"); ?></option>
+	<option><?php echo _("When pigs fly... (Never)"); ?></option>
 </select>
 </div>
 <div id="settings-footer">
@@ -301,43 +301,44 @@ $name = "Vic";
 <div id="leaderboard">
 	<div id="settings-outer">
 		<div class="settings-inner">   
-			Language
+			<?php echo _("Language"); ?>
 			<select id= "scoreLanguage" onchange="updateLeaderboard(); playClick();" size="1">
-				<option>All languages</option>
-				<option>English</option>
-				<option>Vietnamese</option>
+				<option><?php echo _("All languages"); ?></option>
+				<option><?php echo _("English"); ?></option>
+				<option><?php echo _("Vietnamese"); ?></option>
 			</select>
 		</div>
 		<div class="settings-inner">
-			Game
+			<?php echo _("Game"); ?>
 			<select id= "scoreGame" onchange="updateLeaderboard(); playClick();" size="1">
-				<option>All games</option>
-				<option>Game1</option>
-				<option>Game2</option>
-				<option>Game3</option>
+				<option><?php echo _("All games"); ?></option>
+				<option><?php echo _("Game1"); ?></option>
+				<option><?php echo _("Game2"); ?></option>
+				<option><?php echo _("Game3"); ?></option>
+				<option><?php echo _("Game4"); ?></option>
 			</select>
 		</div>
 		<div class="settings-inner">
-			TimePeriod
+			<?php echo _("TimePeriod"); ?>
 			<select id= "scoretimePeriod" onchange="updateLeaderboard(); playClick();" size="1">
-				<option>All time</option>
-				<option>Last Month</option>
-				<option>Last Week</option>
-				<option>Last 24 Hours</option>
+				<option><?php echo _("All time"); ?></option>
+				<option><?php echo _("Last Month"); ?></option>
+				<option><?php echo _("Last Week"); ?></option>
+				<option><?php echo _("Last 24 Hours"); ?></option>
 			</select>
 		</div>
 		<div class="settings-inner">
-			What to compare
+			<?php echo _("What to compare"); ?>
 			<select id= "scoreMetric" onchange="updateLeaderboard(); playClick();" size="1">
-				<option>Points Earned</option>
-				<option>Number of Submissions</option>
-				<option>Success Rate</option>
+				<option><?php echo _("Points Earned"); ?></option>
+				<option><?php echo _("Number of Submissions"); ?></option>
+				<option><?php echo _("Success Rate"); ?></option>
 
 			</select>
 		</div>
-		<input id = "autoloop" type="checkbox" name="autoloop" value="autoloop" checked >Auto-Loop<br>
+		<input id = "autoloop" type="checkbox" name="autoloop" value="autoloop" checked ><?php echo _("Auto-Loop"); ?><br>
 	</div>
-	<h1>Leaderboard</h1>
+	<h1><?php echo _("Leaderboard"); ?></h1>
 
 	<div id="leader">
 		<table id="score_table">
