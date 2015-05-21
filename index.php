@@ -63,7 +63,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 				<img title="Better English" id="enter1" class="shaded_enter" src="media/uk.png" onmousedown="playClick();enter_game1();">
 				<img title="Từ này là" id="enter2" class="shaded_enter" src="media/vn.png" onmousedown="playClick();enter_game2();">
 				<img title="TweetGame" id="enter3" class="shaded_enter" src="media/xbox.png" onmousedown="playClick();enter_game3();">
-				<img title="SwahiliGame" id="enter4" class="shaded_enter" src="media/puc.jpg" onmousedown="playClick();enter_game4();">
+				<img title="SwahiliGame" id="enter4" class="shaded_enter" src="media/puc.png" onmousedown="playClick();enter_game4();">
 				<img title="ChooseLanguage" id="enter0" class="shaded_enter" src="media/language_selector.png" onmousedown="playClick();enter_game1();display_profile();display_settings();">
 				<fb:login-button scope="public_profile,email" id="enterLogin" class="shaded_enterLogin" onlogin="checkLoginStateAfterFirstLogin();"></fb:login-button>
 
