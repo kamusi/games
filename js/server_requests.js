@@ -444,6 +444,7 @@ function sendTweetToDB(tweet, good){
 	}
 
 	function get_ranked() {
+		console.log("GENEERL SENSE: " + generalSense)
 
 		var xmlhttp;
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
