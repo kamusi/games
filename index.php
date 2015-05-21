@@ -267,7 +267,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 </div>
 <div id="settings">
 	<div id="settings-main">
-		<p><?php echo _("Talk to me in..."); ?></p>
+		<p><?php echo _("Some sentence to translate"); ?></p>
 	<select id="menu-language" onchange= size="1">
 		<option><?php echo _("English"); ?></option>
 		<option><?php echo _("French"); ?></option>
