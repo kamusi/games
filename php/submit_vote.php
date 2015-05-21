@@ -65,27 +65,7 @@ if($votes == 3 && $user_id != 'wordnet') {
 }
 
 //Give the points to the user
-/*
-$sql = 	"UPDATE game" . $mode .
-" SET points = points + " . $earnedPoints . 
-", pointsmonth = pointsmonth + " . $earnedPoints ." , pointsweek = pointsweek + " . $earnedPoints .
-" WHERE userid = ? AND language = ?;";
-echo "sql is : " . $sql;
-echo "ûserID " . $user_id;
-echo "votes was " . $votes;
-
-$stmt = $mysqli->prepare($sql);
-$stmt->bind_param("si", $user_id, $language);
-$stmt->execute();
-$stmt->close();
-*/
 addXToPointsInGame($user_id, $language, $mode, $earnedPoints);
-
-
-
-
-
-
 
 
 //update_user_rating($user_id, $wordID, $groupID);

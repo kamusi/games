@@ -21,12 +21,7 @@ if (!$mysqli->set_charset('utf8')) {
 }
 
 //increase the number of submissions for this user
-/*
-$stmt = $mysqli->prepare("UPDATE game". $data["mode"] . " SET submissions = submissions + 1, submissionsmonth = submissionsmonth + 1, submissionsweek = submissionsweek + 1 WHERE userid=? and language = ?;");
-$stmt->bind_param("si", $data["userID"], $data["language"]);
-$stmt->execute();
-$stmt->close();
-*/
+
 addXSubmissionsInGame($data["userID"],$data["language"], $data["mode"],1 );
 
 $totalScoreOfTweet = 0;
@@ -143,8 +138,8 @@ foreach($concernedUsers as $user) {
 	$stmt->close();
 
 
-	$stmt = $mysqli->prepare("UPDATE game". $data["mode"] . " SET pendingpoints = ? WHERE userid=? and language = ?;");
-	$stmt->bind_param("isi", $pendingScore, $user, $data["language"]);
+	$stmt = $mysqli->prepare("UPDATE games SET pendingpoints = ? WHERE userid=? and language = ? AND game = ?;");
+	$stmt->bind_param("isii", $pendingScore, $user, $data["language"], $data["mode"]);
 	$stmt->execute();
 	$stmt->close();
 
