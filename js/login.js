@@ -64,7 +64,7 @@ function welcome() {
   FB.api('/me', function(response) {
     userID = response.id;
     userName = response.name;
-
+    isNewUser();
 
 
   });
