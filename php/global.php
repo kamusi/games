@@ -5,7 +5,7 @@ $allUsers = "allusers";
 
 $languageMap = array ("1" => "en_US", "2" => "fr_FR", "3" => "vi_VI" );
 
-$config = parse_ini_file('../../phpPasswords/config.ini');
+$config = parse_ini_file('/var/www/phpPasswords/config.ini');
 
 $user = 'root';
 $pass = '';
