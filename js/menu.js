@@ -302,7 +302,7 @@ function animate_logo_login(){
 
 
 function set_consensus(definition) {
-	document.getElementById("consensus").innerHTML =  + definition;
+	document.getElementById("consensus").innerHTML = generalSense + definition;
 }
 
 function set_word(word, pos) {
