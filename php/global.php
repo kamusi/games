@@ -5,11 +5,14 @@ $allUsers = "allusers";
 
 $languageMap = array ("1" => "en_US", "2" => "fr_FR", "3" => "vi_VI" );
 
+$config = parse_ini_file('../phpPasswords/config.ini');
+
 $user = 'root';
 $pass = '';
 $db = 'kamusi';
 
-$mysqli = new mysqli('localhost', $user, $pass, $db);
+$mysqli = new mysqli('localhost',$config['username'],$config['password'],$config['dbname']);
+
 
 function setOurLocale($newLocale) {
 
