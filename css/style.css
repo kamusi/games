@@ -381,6 +381,7 @@ body {
 	#enter4 {
 		top: 225px;
 		left: 220px;
+		transform: scale(0.25);
 	}
 
 	#enterLogin{
