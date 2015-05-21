@@ -471,14 +471,14 @@ function sendTweetToDB(tweet, good){
 			// }
 			// else {
 				set_word(results_array[0].Word, results_array[0].PartOfSpeech);
-				add_definition(-1, "? I can't say - skip this one...", false);
+				add_definition(-1, "? " + ICantSay, false);
 
-				document.getElementById("consensus").innerHTML = "General Sense:";
+				document.getElementById("consensus").innerHTML = generalSense;
 
 				for(var i = 0; i < results_array.length ; i++) {
 					if(results_array[i].Author == 'wordnet') {
 						set_consensus(results_array[i].Definition);
-						add_definition(results_array[i].DefinitionID, "▶ Keep the General Sense. It's a good definition as is!", false);
+						add_definition(results_array[i].DefinitionID, "▶ " + keepTheGeneralSense, false);
 					}
 				}
 				for(var i = 0; i < results_array.length; i++) {
@@ -710,7 +710,7 @@ function get_ranked_mode_2() {
 			obj = JSON.parse(xmlhttp.responseText);
 			document.getElementById("translation_word").innerHTML = obj[0].Word;
 			document.getElementById("translation_pos").innerHTML = obj[0].PartOfSpeech;
-			document.getElementById("translation_definition").innerHTML = "General Sense: " + obj[0].Definition;
+			document.getElementById("translation_definition").innerHTML = generalSense + obj[0].Definition;
 
 			var underscored_word = obj[0].Word.replace(" /g", "_");
 

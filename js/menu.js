@@ -1,7 +1,7 @@
 var min_length = 4;
 
-var default_value = '✎ I can write the winning definition for this idea!';
-var translation_default_value = '✎ Trong tiếng Việt từ này có nghĩa là ...';
+var default_value = '✎' + ICanWrite;
+var translation_default_value = '✎ ';
 
 var autoUpdateIntervalJobID
 
@@ -301,15 +301,8 @@ function animate_logo_login(){
 }
 
 
-// function set_consensus_word(word, pos, definition) {
-// 	document.getElementById("word").innerHTML = word;
-// 	document.getElementById("pos").innerHTML = pos;
-// 	document.getElementById("consensus").style.display = "inline-block";
-// 	document.getElementById("consensus").innerHTML = " : " + definition;
-// }
-
 function set_consensus(definition) {
-	document.getElementById("consensus").innerHTML = "General Sense: " + definition;
+	document.getElementById("consensus").innerHTML =  + definition;
 }
 
 function set_word(word, pos) {
@@ -327,14 +320,7 @@ function set_profile_data(points, pendingPoints, ratio) {
 	document.getElementById("profile_points").innerHTML = points;
 	document.getElementById("pending_points").innerHTML = pendingPoints;
 	document.getElementById("profile_attempts").innerHTML = ratio.toPrecision(10);
-	
-/*
-	if(notify == 1) {
-		document.getElementById("gamezone2").style.display = "none";
-		display_profile();
-		complete_notification();
-	}
-	*/
+
 }
 
 function remove_active_translations() {
@@ -443,15 +429,7 @@ function add_definition(id, definition, spam) {
 	cell1.appendChild(img);
 	cell2.innerHTML = word;
 	cell3.innerHTML = definition;
-	// img1.classList.add('vote_button');
-	// var img2 = document.createElement("img");
-	// img2.src = 'media/down.png';
-	// img2.classList.add('vote_button');
-	// //NOTE THIS PROBABLY CAUSES A MEMORY LEAK - TO BE REVIEWED
-	// img1.onclick = (function(definition_id) { return function() { vote(definition_id, 1); playClick(); }; })(id);
-	// img2.onclick = (function(definition_id) { return function() { vote(definition_id, -1); playClick(); }; })(id);
-	// cell2.appendChild(img1);
-	// cell2.appendChild(img2);
+
 }
 
 function vote() {

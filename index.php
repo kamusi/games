@@ -63,7 +63,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 				<img title="Better English" id="enter1" class="shaded_enter" src="media/uk.png" onmousedown="playClick();enter_game1();">
 				<img title="Từ này là" id="enter2" class="shaded_enter" src="media/vn.png" onmousedown="playClick();enter_game2();">
 				<img title="TweetGame" id="enter3" class="shaded_enter" src="media/xbox.png" onmousedown="playClick();enter_game3();">
-				<img title="SwahiliGame" id="enter4" class="shaded_enter" src="media/xbox.png" onmousedown="playClick();enter_game4();">
+				<img title="SwahiliGame" id="enter4" class="shaded_enter" src="media/puc.jpg" onmousedown="playClick();enter_game4();">
 				<img title="ChooseLanguage" id="enter0" class="shaded_enter" src="media/language_selector.png" onmousedown="playClick();enter_game1();display_profile();display_settings();">
 				<fb:login-button scope="public_profile,email" id="enterLogin" class="shaded_enterLogin" onlogin="checkLoginStateAfterFirstLogin();"></fb:login-button>
 
@@ -366,6 +366,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 <script type="text/javascript"> var token = "<?php echo $newToken; ?>"; </script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript" src="php/js_translations.php"></script>
 <script src="js/server_requests.js"></script>
 <script src="js/login.js"></script>
 <script src="js/sound.js"></script>
