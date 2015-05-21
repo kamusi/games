@@ -48,7 +48,7 @@ function get_random() {
 	xmlhttp.send();
 }
 
-function get_randomForTweets() {
+function getRankedForTweets() {
 	console.log("In random for tweets function with userId: " + userID)
 	//remove previous tweet entries
 	document.getElementById("twitterWords").innerHTML = '';
@@ -74,7 +74,7 @@ function get_randomForTweets() {
 
 			if(groupID == '' || wordID == '' || word == '' || obj[0].Definition == '' || obj[0].PartOfSpeech == '') {
 				console.log("Fields are undefined when fetching a word, fetching the next word.")
-				get_randomForTweets();
+				getRankedForTweets();
 			}
 			else {
 				console.log("word id BeCaAAAME : " + wordID)
@@ -188,7 +188,7 @@ function get_tweets(alreadyDisplayed) {
 
 
 			if(realIndex == 0){
-				get_randomForTweets();
+				getRankedForTweets();
 				console.log("Nothing found for this keyword")
 			}
 
@@ -539,11 +539,14 @@ function isNewUser() {
 				obj = JSON.parse(xmlhttp.responseText);
 				initialise(userID);
 				if(obj != "-1") {
-					animate_logo();
+
 					siteLanguage=obj
 					console.log("NEQWIDNWE: " + siteLanguage)
 					if(obj != "aleadyDoneBefore") {
 					location.reload();
+				}
+				else {
+					animate_logo();
 				}
 					/*
 					xmlhttp.open("GET","/index.php?&lang=" + siteLanguage);

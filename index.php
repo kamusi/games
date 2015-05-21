@@ -174,7 +174,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 						</a>
 					</div>
 					<div id="footer-next3">
-						<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxData("tweet"); setTimeout(get_randomForTweets, 500);'>
+						<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxData("tweet"); setTimeout(getRankedForTweets(), 500);'>
 					</div>
 				</div>
 			</div>
@@ -194,7 +194,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 				</div>
 
 				<div id="footer-next3">
-					<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxData("game4"); setTimeout(get_randomForTweets, 500);'>
+					<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxData("game4"); setTimeout(getRankedForTweets(), 500);'>
 				</div>
 			</div>
 
