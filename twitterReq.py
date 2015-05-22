@@ -28,6 +28,7 @@ def search(keyword, amount):
     for line in file:
         fields = line.split()
         print fields
+        print "lalalaa"
 
     auth = tweepy.OAuthHandler(fields[0], fields[1])
     auth.set_access_token(fields[2], fields[3])
