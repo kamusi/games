@@ -366,7 +366,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 <script type="text/javascript"> var token = "<?php echo $newToken; ?>"; </script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script type="text/javascript" src="php/js_translations.php"></script>
+<script src="php/js_translations.js.php"></script>
 <script src="js/server_requests.js"></script>
 <script src="js/login.js"></script>
 <script src="js/sound.js"></script>
