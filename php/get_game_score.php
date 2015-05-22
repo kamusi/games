@@ -9,12 +9,6 @@ $mode = $_GET['mode'];
 
 $returnText = "nothing";
 
-$mysqli = new mysqli('localhost', $user, $pass, $db);
-
-if (!$mysqli->set_charset('utf8')) {
-	printf("Error loading character set utf8: %s\n", $mysqli->error);
-}
-
 if(!in_array($mode, $acceptedModes)) {
 	die("Got a strange mode as input!". $mode);
 }
