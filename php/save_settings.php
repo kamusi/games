@@ -20,12 +20,6 @@ $notify = $_GET['notify'];
 $post = $_GET['post'];
 $language = $_GET['language'];
 
-// USING ROOT IS A SECURITY CONCERN
-$user = 'root';
-$pass = '';
-$db = 'kamusi';
-
-$mysqli = new mysqli('localhost', $user, $pass, $db);
 
 $stmt = $mysqli->prepare("UPDATE users SET NotificationTimeUnit=? WHERE UserID=$userID;");
 $stmt->bind_param("s",  $notify);
