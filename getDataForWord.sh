@@ -76,7 +76,6 @@ allwords=$(echo "$relevantLines" | getWords)
 documentText=$(cat "$file" | getWords)
 
 test1=$( cat "$file" | getSourceInfo "$file")
-sources+=( "$test1" )
 
 for word in $allwords; do
 	((numberOfSentencesFound++))

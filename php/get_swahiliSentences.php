@@ -48,25 +48,36 @@ $stmt->bind_param("ss", $pointer, $keyword);
 $stmt->execute();
 $stmt->close();
 
-//extract the sentences we want:
-$beginSentenceDelimiter="<SENTENCES>";
-$endSentenceDelimiter="</SENTENCES>";
-
-$positionOfBeginSentenceDelimiter=strpos($result, $beginSentenceDelimiter) + strlen($beginSentenceDelimiter);
-
-$sentences = substr($result, $positionOfBeginSentenceDelimiter, strpos($result, $endSentenceDelimiter) - $positionOfBeginSentenceDelimiter);
-$sentencesArray= explode("\n", $sentences);
-
-
 $results_array= array();
 
-foreach ($sentencesArray as $sentence ) {
-	if(!ctype_space($sentence) && $sentence !=''){
-		$results_array[]=$sentence;
-	}
-}
+$sentences = extractArray("SENTENCES");
+$sourceFiles= extractArray("SOURCEFILE");
+$sourceText= extractArray("SOURCESTEXT");
+
+echo $sentences;
+echo $sourceFiles;
+echo $sourceText;
+
+
 $jsonData = json_encode($results_array);
 echo $jsonData;
+
+function extractArray($inputDelimiter){
+	$resulting_array;
+	$beginArrayDelimiter="<".$inputDelimiter.">";
+	$endArrayDelimiter="</".$inputDelimiter.">";
+	$positionOfbeginArray=strpos($result, $beginArray) + strlen($beginArrayDelimiter);
+
+	$sentences = substr($result, $positionOfBeginArrayDelimiter, strpos($result, $endArrayDelimiter) - $positionOfBeginArrayDelimiter);
+	$array= explode("\n", $sentences);
+
+	foreach ($array as $element ) {
+		if(!ctype_space($element) && $element !=''){
+			$resulting_array[]=$element;
+		}
+	}
+	return $resulting_array;
+}
 
 
 ?>

@@ -367,9 +367,8 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
-	
-
-	ICanWrite = "<?php echo gettext(" I can write the winning definition for this idea!"); ?>"
+//Translations fo the buttons.
+ICanWrite = "<?php echo gettext(" I can write the winning definition for this idea!"); ?>"
 ICantSay = "<?php echo gettext(" I can't say - skip this one..."); ?>"
 keepTheGeneralSense = "<?php echo gettext(" Keep the General Sense. It's a good definition as is!"); ?>"
 generalSense = "<?php echo _("General Sense: "); ?>"
