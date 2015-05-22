@@ -373,7 +373,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 ICantSay = "<?php echo gettext(" I can't say - skip this one..."); ?>"
 keepTheGeneralSense = "<?php echo gettext(" Keep the General Sense. It's a good definition as is!"); ?>"
 generalSense = "<?php echo _("General Sense: "); ?>"
-
+ 
 </script>
 <script src="js/server_requests.js"></script>
 <script src="js/login.js"></script>
