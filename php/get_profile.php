@@ -12,20 +12,13 @@ $userID = $_GET['userID'];
 // 	die();
 // }
 
-$user = 'root';
-$pass = '';
-$db = 'kamusi';
-
-$con = mysqli_connect('localhost', $user, $pass, $db);
-
-if (!$con) {
-	die('Could not connect: ' . mysqli_error($con));
-}
-
 $sql =  "SELECT * FROM users WHERE UserID='" . $userID . "';";
 
-$query = mysqli_query($con, $sql);
-$profileData = mysqli_fetch_array($query);
+$stmt = $mysqli->prepare($sql);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$profileData = $result->fetch_array(MYSQLI_ASSOC);
 
 $jsonData = json_encode($profileData);
 echo $jsonData;
