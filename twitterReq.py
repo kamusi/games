@@ -25,10 +25,9 @@ requests.packages.urllib3.disable_warnings()
 def search(keyword, amount):
 
     file = open('/var/www/passwords/pythonInput.txt')
+    fields = []
     for line in file:
-        fields = line.split()
-        print fields
-        print "lalalaa"
+        fields.append(line)
 
     auth = tweepy.OAuthHandler(fields[0], fields[1])
     auth.set_access_token(fields[2], fields[3])
