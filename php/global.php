@@ -7,17 +7,10 @@ $languageMap = array ("1" => "en_US", "2" => "fr_FR", "3" => "vi_VI" );
 
 $config = parse_ini_file('/var/www/phpPasswords/config.ini');
 
-$user = 'root';
-$pass = '';
-$db = 'kamusi';
+$helsinkiUserName = $config['helusername'];
+$helsinkiPassWord= $config['helpassword'];
 
-$mysqli = new mysqli('localhost',$config['username'],$config['password'],$config['dbname']);
-
-
-function setOurLocale($newLocale) {
-
-
-}
+$mysqli = new mysqli('localhost',$config['dbusername'],$config['dbpassword'],$config['dbname']);
 
 
 function addXToValueInGame($userID, $language, $mode, $value, $x){

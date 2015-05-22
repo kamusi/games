@@ -32,7 +32,7 @@ if(empty($pointer)) {
 }
 
 $ssh = new Net_SSH2('taito.csc.fi');
-if (!$ssh->login('babst', 'Jsts8472')) {
+if (!$ssh->login($helsinkiUserName, $helsinkiPassWord)) {
 	exit('Login Failed');
 }
 
