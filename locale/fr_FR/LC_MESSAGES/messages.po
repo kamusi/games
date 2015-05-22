@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kamusi\n"
-"POT-Creation-Date: 2015-05-21 10:01+0100\n"
-"PO-Revision-Date: 2015-05-21 10:01+0100\n"
+"POT-Creation-Date: 2015-05-22 17:18+0100\n"
+"PO-Revision-Date: 2015-05-22 17:19+0100\n"
 "Last-Translator: \n"
 "Language-Team: timo\n"
 "Language: fr_FR\n"
@@ -30,10 +30,6 @@ msgstr "Jeu avec les tweets"
 #: index.php:51
 msgid "Sentence Game"
 msgstr "Jeu avec les phrases"
-
-#: index.php:85
-msgid "Translate this"
-msgstr "Traduis-moi ça!"
 
 #: index.php:85 index.php:124 index.php:159 index.php:184 index.php:321
 #: index.php:322 index.php:323 index.php:324
@@ -250,6 +246,25 @@ msgstr "Boucle automatique"
 #: index.php:349
 msgid "Leaderboard"
 msgstr "Liste des scores"
+
+#: php/js_translations.php:1
+msgid " I can write the winning definition for this idea!"
+msgstr "Je peux écrire la définition gagnante pour cette idée!"
+
+#: php/js_translations.php:2
+msgid " I can't say - skip this one..."
+msgstr "Je ne saurais dire... Passons à la suivante."
+
+#: php/js_translations.php:3
+msgid " Keep the General Sense. It's a good definition as is!"
+msgstr "Garder le sense général : cette une bonne définition ainsi!"
+
+#: php/js_translations.php:4
+msgid "General Sense: "
+msgstr "Sens général"
+
+#~ msgid "Translate this"
+#~ msgstr "Traduis-moi ça!"
 
 #~ msgid "Talk to me in..."
 #~ msgstr "Parle-moi en..."
