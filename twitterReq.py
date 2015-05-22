@@ -25,7 +25,6 @@ requests.packages.urllib3.disable_warnings()
 def search(keyword, amount):
 
     file = open('/var/www/passwords/pythonInput.txt')
-    fields= array()
     for line in file:
         fields = line.strip().split()
         #print fields[0], fields[1], fields[2], fields[3]
