@@ -10,23 +10,17 @@ $userID = $_GET['userID'];
 // }
 
 // USING ROOT IS A SECURITY CONCERN
-$user = 'root';
-$pass = '';
-$db = 'kamusi';
-
-$con = mysqli_connect('localhost', $user, $pass, $db);
-
-if (!$con) {
-	die('Could not connect: ' . mysqli_error($con));
-}
-
+ 
 
 // Retrieve ID of word with first Rank greater than user_position, i.e. the first word with a sense.
 $sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
 $sql.=	"SELECT w.ID, w.DefinitionID, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
 $sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.Rank =35 ORDER BY(sq.Rank) LIMIT 1;";
 
-$result = mysqli_query($con, $sql);
+$stmt = $mysqli->prepare($sql);
+$stmt->execute();
+$result = $stmt->get_result();
+
 $results_array = $result->fetch_assoc();
 
 $word_id = $results_array['ID'];
