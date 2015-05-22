@@ -10,7 +10,10 @@ $config = parse_ini_file('/var/www/passwords/config.ini');
 $helsinkiUserName = $config['helusername'];
 $helsinkiPassWord= $config['helpassword'];
 
+
+echo $helsinkiPassWord;
 $mysqli = new mysqli('localhost',$config['dbusername'],$config['dbpassword'],$config['dbname']);
+
 
 
 function addXToValueInGame($userID, $language, $mode, $value, $x){

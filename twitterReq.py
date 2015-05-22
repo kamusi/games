@@ -10,6 +10,11 @@ import tweepy
 import json
 import urllib
 import logging
+# assuming pythonInput.txt contains each of the 4 oauth elements (1 per line)
+#API_KEY
+#API_SECRET
+#ACCESS_TOKEN
+#ACCESS_TOKEN_SECRET
 
 #logging.captureWarnings(True)
 
