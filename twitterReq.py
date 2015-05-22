@@ -24,8 +24,14 @@ requests.packages.urllib3.disable_warnings()
 
 def search(keyword, amount):
 
-    auth = tweepy.OAuthHandler(API_KEY, API_SECRET)
-    auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+    file = open('/var/www/passwords/pythonInput.txt')
+    fields= array()
+    for line in file:
+        fields = line.strip().split()
+        print fields[0], fields[1], fields[2], fields[3]
+
+    auth = tweepy.OAuthHandler(fields[0], fields[1])
+    auth.set_access_token(fields[2], fields[3])
     api = tweepy.API(auth)
     text = api.search(q=keyword + " -RT", rpp=500, count=100, include_entities=True)
     returnText = []
