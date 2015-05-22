@@ -63,10 +63,11 @@ $jsonData = json_encode($results_array);
 echo $jsonData;
 
 function extractArray($inputDelimiter){
-	$resulting_array;
+	global $result;
+	$resulting_array = array();
 	$beginArrayDelimiter="<".$inputDelimiter.">";
 	$endArrayDelimiter="</".$inputDelimiter.">";
-	$positionOfbeginArray=strpos($result, $beginArray) + strlen($beginArrayDelimiter);
+	$positionOfBeginArrayDelimiter=strpos($result, $beginArrayDelimiter) + strlen($beginArrayDelimiter);
 
 	$sentences = substr($result, $positionOfBeginArrayDelimiter, strpos($result, $endArrayDelimiter) - $positionOfBeginArrayDelimiter);
 	$array= explode("\n", $sentences);
