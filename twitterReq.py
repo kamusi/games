@@ -27,7 +27,7 @@ def search(keyword, amount):
     file = open('/var/www/passwords/pythonInput.txt')
     fields = []
     for line in file:
-        fields.append(line)
+        fields.append(line.strip('\n'))
 
     print fields
     auth = tweepy.OAuthHandler(fields[0], fields[1])
