@@ -34,7 +34,9 @@ $sql =  "SELECT sq.ID As WordID, sq.Word, sq.PartOfSpeech, d.ID As DefinitionID,
 $sql .= "FROM (SELECT * FROM words WHERE ID=" . $word_id . ") AS sq ";
 $sql .= "LEFT JOIN definitions As d ON sq.DefinitionID = d.GroupID ORDER BY Votes desc;";
 
-$result = mysqli_query($con, $sql);
+$stmt = $mysqli->prepare($sql);
+$stmt->execute();
+$result = $stmt->get_result();
 
 $results_array = array();
 
