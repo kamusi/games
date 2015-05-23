@@ -1,100 +1,15 @@
 BEGINNN
-Entering getNextFile in folder /appl/kielipankki/hcs
-file: 00README is not an xml file, i don t care.
-articles is a directory
-Entering getNextFile in folder /appl/kielipankki/hcs/articles
-alasiri is a directory
-Entering getNextFile in folder /appl/kielipankki/hcs/articles/alasiri
-Doing stuff with file: alasiri_1999-01-26-a.xml
-Doing stuff with file: alasiri_1999-01-29-a.xml
-Doing stuff with file: alasiri_1999-02-08-a.xml
-Doing stuff with file: alasiri_1999-02-11-a.xml
-Doing stuff with file: alasiri_1999-02-18-a.xml
-Doing stuff with file: alasiri_1999-02-19-a.xml
-Doing stuff with file: alasiri_1999-03-01-a.xml
-Doing stuff with file: alasiri_1999-03-04-a.xml
-Doing stuff with file: alasiri_1999-03-06-a.xml
-Doing stuff with file: alasiri_1999-03-10-a.xml
-Doing stuff with file: alasiri_1999-03-17-a.xml
-Doing stuff with file: alasiri_1999-03-23-a.xml
-Doing stuff with file: alasiri_1999-03-24-a.xml
-Doing stuff with file: alasiri_1999-03-29-a.xml
-Doing stuff with file: alasiri_1999-03-31-a.xml
-Doing stuff with file: alasiri_1999-04-08-a.xml
-Doing stuff with file: alasiri_1999-04-09-a.xml
-Doing stuff with file: alasiri_1999-04-13-a.xml
-Doing stuff with file: alasiri_1999-04-20-a.xml
-Doing stuff with file: alasiri_1999-04-23-a.xml
-Doing stuff with file: alasiri_1999-05-03-a.xml
-Doing stuff with file: alasiri_1999-05-07-a.xml
-Doing stuff with file: alasiri_1999-08-25-a.xml
-Doing stuff with file: alasiri_1999-08-28-a.xml
-Doing stuff with file: alasiri_1999-10-30-a.xml
-Doing stuff with file: alasiri_1999-11-03-a.xml
-Doing stuff with file: alasiri_1999-11-05-a.xml
-Doing stuff with file: alasiri_1999-11-06-a.xml
-Doing stuff with file: alasiri_1999-11-08-a.xml
-Doing stuff with file: alasiri_1999-11-10-a.xml
-Doing stuff with file: alasiri_1999-11-13-a.xml
-Doing stuff with file: alasiri_1999-11-16-a.xml
-Doing stuff with file: alasiri_1999-11-18-a.xml
-Doing stuff with file: alasiri_1999-11-22-a.xml
-Doing stuff with file: alasiri_1999-11-24-a.xml
-Doing stuff with file: alasiri_1999-11-27-a.xml
-Doing stuff with file: alasiri_1999-11-29-a.xml
-Doing stuff with file: alasiri_1999-12-08-a.xml
-Doing stuff with file: alasiri_1999-12-14-a.xml
-Doing stuff with file: alasiri_1999-12-16-a.xml
-Doing stuff with file: alasiri_1999-12-17-a.xml
-Doing stuff with file: alasiri_1999-12-20-a.xml
-Doing stuff with file: alasiri_2000-01-04-a.xml
-Doing stuff with file: alasiri_2000-01-06-a.xml
-Doing stuff with file: alasiri_2000-01-07-a.xml
-Doing stuff with file: alasiri_2000-01-12-a.xml
-Doing stuff with file: alasiri_2000-01-15-a.xml
-Doing stuff with file: alasiri_2000-01-20-a.xml
-Doing stuff with file: alasiri_2000-01-27-a.xml
-Doing stuff with file: alasiri_2000-01-29-a.xml
-Doing stuff with file: alasiri_2000-02-01-a.xml
-Doing stuff with file: alasiri_2000-02-05-a.xml
-Doing stuff with file: alasiri_2000-02-07-a.xml
-Kamusi:
-kamusi:
-kamusi:
-kamusi:
 <SENTENCES>
-Muswada wa serikali Bunge lalumbana l Kamusi zatafutwa Jumanne Februari 07,2000 Na Mwandishi Wetu , Bungeni Abunge wawili wa upinzani , akiwemo Mheshimiwa John Cheyo , wamekuwa wabunge wa kwanza kuvaana kimasomaso na cha Spika , kwa madai kuwa wanatumia lugha ya kusengenyana na wakati fulani kamusi zikatafutwa .
- Cheyo akanusurika kupigwa stopu baada ya kamusi kukosekana .
- Cheyo akagoma na kutaka kamusi ya kiswahili sanifu iletwe na maana ya neno hilo ( kufyata ) isomwe bungeni .
- 
+' Bomu ' jengo la PPF laitikisa Dar Wanajeshi , polisi walizingira Jumanne , Januari 26,1999 Na Agnether Kasenene , Jijini Hofu , kiwewe na mshikemshike leo zilitawala katikati ya Jiji hasa maeneo ya mitaa ya Samora na ile ya jirani kutokana na taarifa zilizotolewa polisi kwamba , kuna bomu limetegwa kwenye jengo jipya la PPF na lingelipuliwa saa nne kamili . 
 </SENTENCES>
 <SOURCESTEXT>
 
-          Original article in the newspaper/magazine alasiri,
+          Original article in the newspaper/magazine Alasiri,
           in section 
-          at date 2000-02-07.
-        
-
-          Original article in the newspaper/magazine alasiri,
-          in section 
-          at date 2000-02-07.
-        
-
-          Original article in the newspaper/magazine alasiri,
-          in section 
-          at date 2000-02-07.
-        
-
-          Original article in the newspaper/magazine alasiri,
-          in section 
-          at date 2000-02-07.
+          at date 1999-01-26.
          
 </SOURCESTEXT>
 <SOURCEFILE>
-alasiri_2000-02-07-a.xml
-alasiri_2000-02-07-a.xml
-alasiri_2000-02-07-a.xml
-alasiri_2000-02-07-a.xml 
+alasiri_1999-01-26-a.xml 
 </SOURCEFILE>
-Found That many sentences: 4
-NEXTPOINTER:/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_2000-02-07-a.xml
+NEXTPOINTER:/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml

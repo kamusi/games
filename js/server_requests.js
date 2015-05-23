@@ -123,7 +123,7 @@ function getRankedForSwahili() {
 			document.getElementById("transEnglish4").innerHTML = "Have or maintain an upright position, supported by one's feet.";
 			document.getElementById("defSwahili4").innerHTML = "Kuwa wima juu ya miguu";
 
-			queryHelsinkiDBForSentences("simama", 1)
+			queryHelsinkiDBForSentences("mshikemshike", 1)
 
 		}
 	}
