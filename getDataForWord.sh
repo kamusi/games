@@ -23,21 +23,19 @@ compareToPointer(){
 	fi
 #first word of pointer must be lower or equal: so that we can enter directories
 #if pointer is substring of directory we let it pass
-if [ -d "$1" ]; then
-	if [[ "$pointer" == *"$1"* ]] ; then
-			 #TODOO: work more on this for time saving: here we read all files!!
-			 return 0
-			fi
-		else 		
-
-			if [[ "$1" > "$pointer" ]]; then
-				return 0
-			else
-				return 1
-			fi
-
+	if [ -d "$1" ]; then
+		if [[ "$pointer" == *"$1"* ]] ; then
+			#TODOO: work more on this for time saving: here we read all files!!
+			return 0
 		fi
-	}
+	else 		
+		if [[ "$1" > "$pointer" ]]; then
+			return 0
+		else
+			return 1
+		fi
+	fi
+}
 
 #getting it from stdin
 getWords() {	
@@ -46,7 +44,7 @@ getWords() {
 }
 
 getSourceInfo() {
-	xml_grep 'sourceDesc' --text_only
+	xml_grep 'sourceDesc' --text_only | sed  's/\n/ /g'
 }
 
 #Returns the sentence in which the given word occurs
@@ -83,7 +81,7 @@ for word in $allwords; do
 	newSentence=$(printDocument | getSentence "$word")
 	sentences+=("$newSentence")
 	#TODO detect if a word appears 2 times in the same sentence
-	sources+=( "$test1" )
+	sources+=( sed "$test1" )
 	sourceFiles+=( "$file")
 	documentText=`printDocument | sed "s/$newSentence//"`
 
