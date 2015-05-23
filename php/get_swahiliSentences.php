@@ -54,9 +54,9 @@ $sentences = extractArray("SENTENCES");
 $sourceFiles= extractArray("SOURCEFILE");
 $sourceText= extractArray("SOURCESTEXT");
 
-echo $sentences;
-echo $sourceFiles;
-echo $sourceText;
+var_dump($sentences); 
+var_dump($sourceFiles);
+var_dump($sourceText);
 
 
 $jsonData = json_encode($results_array);
