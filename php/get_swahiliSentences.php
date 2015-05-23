@@ -57,16 +57,16 @@ $sourceText= extractArray("SOURCESTEXT");
 foreach ($sentences as $index => $sentence) {
 	$sql= "INSERT INTO game4sentences(sentence, author, fileinfo) VALUES (?,?,?);";
 	$stmt = $mysqli->prepare($sql);
-	$stmt->bind_param("sss", $sentences, $sourceText[$index], $sourceFiles[$index]);
+	$stmt->bind_param("sss", $sentence, $sourceText[$index], $sourceFiles[$index]);
 	$stmt->execute();
 	$stmt->close();
 
 }
 
-var_dump($sentences); 
+/*var_dump($sentences); 
 var_dump($sourceFiles);
 var_dump($sourceText);
-
+*/
 
 $jsonData = json_encode($sentences);
 echo $jsonData;
