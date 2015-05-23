@@ -89,5 +89,4 @@ function extractArray($inputDelimiter){
 	return $resulting_array;
 }
 
-
 ?>
