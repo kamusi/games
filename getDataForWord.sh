@@ -8,7 +8,7 @@ sources=()
 sourceFiles=()
 numberOfSentencesFound=0
 
-verbose=no
+verbose=yes
 
 verbose () {	
 if [ $verbose = yes ]; then
@@ -23,8 +23,8 @@ compareToPointer(){
 	fi
 #first word of pointer must be lower or equal: so that we can enter directories
 #if pointer is substring of directory we let it pass
-	if [ -d "$1" ]; then
-		if [[ "$pointer" == *"$1"* ]] ; then
+if [ -d "$1" ]; then
+	if [[ "$pointer" == *"$1"* ]] ; then
 			#TODOO: work more on this for time saving: here we read all files!!
 			return 0
 		fi
@@ -44,7 +44,7 @@ getWords() {
 }
 
 getSourceInfo() {
-	xml_grep 'sourceDesc' --text_only | sed  's/\n/ /g'
+	xml_grep 'sourceDesc' --text_only
 }
 
 #Returns the sentence in which the given word occurs
@@ -73,18 +73,21 @@ findAllSentencesInFile() {
 allwords=$(echo "$relevantLines" | getWords)
 documentText=$(cat "$file" | getWords)
 
-test1=$( cat "$file" | getSourceInfo "$file")
+test1=$( echo -n `cat "$file"` |  getSourceInfo )
 
 for word in $allwords; do
 	((numberOfSentencesFound++))
 	verbose "$word:"
 	newSentence=$(printDocument | getSentence "$word")
-	sentences+=("$newSentence")
-	#TODO detect if a word appears 2 times in the same sentence
-	sources+=( sed "$test1" )
-	sourceFiles+=( "$file")
-	documentText=`printDocument | sed "s/$newSentence//"`
 
+	if [ -z "$newSentence" ]; then
+		verbose "$word appeared multiple times in the same sentence! Ignoring it"
+	else
+		sentences+=("$newSentence")
+	sources+=( "$test1" )
+	sourceFiles+=( `readlink -e "$file"`)
+	documentText=`printDocument | sed "s/$newSentence//"`
+fi
 done
 
 #printDocument

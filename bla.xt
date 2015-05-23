@@ -1,15 +1,22 @@
 BEGINNN
+Entering getNextFile in folder /appl/kielipankki/hcs
+file: 00README is not an xml file, i don t care.
+articles is a directory
+Entering getNextFile in folder /appl/kielipankki/hcs/articles
+alasiri is a directory
+Entering getNextFile in folder /appl/kielipankki/hcs/articles/alasiri
+Doing stuff with file: alasiri_1999-01-26-a.xml
+chumba:
+chumba:
+chumba appeared multiple times!
 <SENTENCES>
-' Bomu ' jengo la PPF laitikisa Dar Wanajeshi , polisi walizingira Jumanne , Januari 26,1999 Na Agnether Kasenene , Jijini Hofu , kiwewe na mshikemshike leo zilitawala katikati ya Jiji hasa maeneo ya mitaa ya Samora na ile ya jirani kutokana na taarifa zilizotolewa polisi kwamba , kuna bomu limetegwa kwenye jengo jipya la PPF na lingelipuliwa saa nne kamili . 
+ Wamesema ilibidi wapekue jengo zima chumba hadi chumba kukagua kama kuna bomu ili walitegue kama watalikuta . 
 </SENTENCES>
 <SOURCESTEXT>
-
-          Original article in the newspaper/magazine Alasiri,
-          in section 
-          at date 1999-01-26.
-         
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.   
 </SOURCESTEXT>
 <SOURCEFILE>
-alasiri_1999-01-26-a.xml 
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml 
 </SOURCEFILE>
+Found That many sentences: 2
 NEXTPOINTER:/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
