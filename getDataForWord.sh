@@ -8,7 +8,7 @@ sources=()
 sourceFiles=()
 numberOfSentencesFound=0
 
-verbose=yes
+verbose=no
 
 verbose () {	
 if [ $verbose = yes ]; then

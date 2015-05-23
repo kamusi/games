@@ -55,7 +55,6 @@ $sourceFiles= extractArray("SOURCEFILE");
 $sourceText= extractArray("SOURCESTEXT");
 
 foreach ($sentences as $index => $sentence) {
-	$sentence
 	$sql= "INSERT INTO game4sentences(sentence, author, fileinfo) VALUES (?,?,?)  ?;";
 	$stmt = $mysqli->prepare($sql);
 	$stmt->bind_param("sss", $sentences, $sourceText[$index], $sourceFiles[$index]);
