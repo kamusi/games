@@ -11,6 +11,8 @@ $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("si", $keyword, $amount);
 $stmt->execute();
 $result = $stmt->get_result();
+
+var_dump($result);
 $stmt->close();
 
 $results_array = array();

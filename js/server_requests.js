@@ -179,7 +179,7 @@ function updateBufferForDatabase(keyword, amount){
 			console.log("BUFFER UPDATED!!!")
 		}
 	}//wordid is a mockup, not implemented yet
-	xmlhttp.open("GET","php/php/get_swahiliSentences.php?keyword=" + keyword + "&amount=" + amount + "&wordid=" + "1" , true);
+	xmlhttp.open("GET","php/get_swahiliSentences.php?keyword=" + keyword + "&amount=" + amount + "&wordid=" + "1" , true);
 
 	xmlhttp.send();	
 }
