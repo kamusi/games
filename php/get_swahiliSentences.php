@@ -39,36 +39,20 @@ $stmt->close();
 
 if($pointer != "DONE"){
 	//we have to fetch something, but in a background process heyho!!
-class AsyncOperation extends Thread {
+	echo "Starting\n";
 
-    public function __construct($arg) {
-        $this->arg = $arg;
-    }
+	# Create our client object.
+	$gmclient= new GearmanClient();
 
-    public function run() {
-        if ($this->arg) {
-            $sleep = mt_rand(1, 10);
-            printf('%s: %s  -start -sleeps %d' . "\n", date("g:i:sa"), $this->arg, $sleep);
-            sleep($sleep);
-            printf('%s: %s  -finish' . "\n", date("g:i:sa"), $this->arg);
-        }
-    }
-}
+	# Add default server (localhost).
+	$gmclient->addServer();
 
-// Create a array
-$stack = array();
+	echo "Sending job\n";
 
-//Iniciate Miltiple Thread
-foreach ( range("A", "D") as $i ) {
-    $stack[] = new AsyncOperation($i);
-}
+	$result = $gmclient->doNormal("reverse", "Hello!");
 
-// Start The Threads
-foreach ( $stack as $t ) {
-    $t->start();
-}
+	echo "Success: $result\n";
 
-/*
 	if(empty($pointer)) {
 		$pointer= "";
 		$sql= "INSERT INTO game4pointer (lemma, pointer ) VALUES (?,?);";
@@ -108,7 +92,7 @@ foreach ( $stack as $t ) {
 		$stmt->execute();
 		$stmt->close();
 
-	}*/
+	}
 }
 
 /*var_dump($sentences); 
