@@ -6,8 +6,6 @@ $amount = $_GET['amount'];
 $wordid = $_GET['wordid'];
 $pointer = "";
 
-$numberOfSentencesToFetchInAdvance = 3;
-
 set_include_path('/usr/share/pear/phpseclib/phpseclib');
 include('Net/SSH2.php');
 
@@ -42,7 +40,7 @@ if($pointer != "DONE"){
 		exit('Login Failed');
 	}
 
-	$result=$ssh->exec('./getDataForWord.sh ' . $keyword . " " . $numberOfSentencesToFetchInAdvance . " " . $pointer . "  2>&1");
+	$result=$ssh->exec('./getDataForWord.sh ' . $keyword . " " . $amount . " " . $pointer . "  2>&1");
 
 	$nextPointeDelimiter="NEXTPOINTER:";
 //Get the new pointer and store it in the DB
