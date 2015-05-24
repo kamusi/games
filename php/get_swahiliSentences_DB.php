@@ -12,15 +12,14 @@ $stmt->bind_param("si", $keyword, $amount);
 $stmt->execute();
 $result = $stmt->get_result();
 
-//$stmt->close();
-$row = $result->fetch_assoc();
+$stmt->close();
+
 $results_array = array();
 while ($row = $result->fetch_assoc()) {
 	$sql= "UPDATE game4sentences SET used = used + 1 WHERE sentenceid = ?;";
 	$stmt = $mysqli->prepare($sql);
 	$stmt->bind_param("i", $row["sentenceid"]);
 	$stmt->execute();
-	$result = $stmt->get_result();
 	$stmt->close();
 
 	$results_array[] = $row["sentence"];
