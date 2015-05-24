@@ -39,19 +39,37 @@ $stmt->close();
 
 if($pointer != "DONE"){
 	//we have to fetch something, but in a background process heyho!!
-	echo "Starting\n";
+<?php
+class AsyncOperation extends Thread {
 
-	# Create our client object.
-	$gmclient= new GearmanClient();
+    public function __construct($arg) {
+        $this->arg = $arg;
+    }
 
-	# Add default server (localhost).
-	$gmclient->addServer();
+    public function run() {
+        if ($this->arg) {
+            $sleep = mt_rand(1, 10);
+            printf('%s: %s  -start -sleeps %d' . "\n", date("g:i:sa"), $this->arg, $sleep);
+            sleep($sleep);
+            printf('%s: %s  -finish' . "\n", date("g:i:sa"), $this->arg);
+        }
+    }
+}
 
-	echo "Sending job\n";
+// Create a array
+$stack = array();
 
-	$result = $gmclient->doNormal("reverse", "Hello!");
+//Iniciate Miltiple Thread
+foreach ( range("A", "D") as $i ) {
+    $stack[] = new AsyncOperation($i);
+}
 
-	echo "Success: $result\n";
+// Start The Threads
+foreach ( $stack as $t ) {
+    $t->start();
+}
+
+?>
 /*
 	if(empty($pointer)) {
 		$pointer= "";
