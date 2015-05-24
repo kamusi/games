@@ -104,4 +104,3 @@ scp -i /home/timo/.ssh/taito.rsa getDataForWord.sh babst@taito.csc.fi:getDataFor
 
 
 
-

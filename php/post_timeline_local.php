@@ -5,14 +5,6 @@ ini_set('display_errors', 'On');
 $userID = $argv[1];
 
 
-// USING ROOT IS A SECURITY CONCERN
-
-$user = 'root';
-$pass = '';
-$db = 'kamusi';
-
-
-$mysqli = new mysqli('localhost', $user, $pass, $db);
 $stmt = $mysqli->prepare("UPDATE users SET DoPost=1  WHERE  UserID = ?;");
 $stmt->bind_param("s", $userID);
 $stmt->execute();

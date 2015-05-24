@@ -11,19 +11,6 @@ $numberOfSentencesToFetchInAdvance = 3;
 set_include_path('/usr/share/pear/phpseclib/phpseclib');
 include('Net/SSH2.php');
 
-//first we are going to look for the sentence in the buffered db.
-//Here we have a mockup of word ids because word retrieval from kamusi side could not be implemented yet
-
-$sql= "SELECT sentence FROM game4sentences WHERE keyword = ?;";
-$stmt = $mysqli->prepare($sql);
-$stmt->bind_param("s", $keyword);
-$stmt->execute();
-$result = $stmt->get_result();
-$results_array = $result->fetch_assoc();
-$stmt->close();
-///////////////
-
-//find out if we need to fetch more from helsinki
 
 $sql= "SELECT pointer FROM game4pointer WHERE lemma = ?;";
 $stmt = $mysqli->prepare($sql);
@@ -39,19 +26,7 @@ $stmt->close();
 
 if($pointer != "DONE"){
 	//we have to fetch something, but in a background process heyho!!
-	echo "Starting\n";
-
-	# Create our client object.
-	$gmclient= new GearmanClient();
-
-	# Add default server (localhost).
-	$gmclient->addServer();
-
-	echo "Sending job\n";
-
-	$result = $gmclient->doNormal("reverse", "Hello!");
-
-	echo "Success: $result\n";
+	
 
 	if(empty($pointer)) {
 		$pointer= "";

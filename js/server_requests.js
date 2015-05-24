@@ -123,7 +123,7 @@ function getRankedForSwahili() {
 			document.getElementById("transEnglish4").innerHTML = "Have or maintain an upright position, supported by one's feet.";
 			document.getElementById("defSwahili4").innerHTML = "Kuwa wima juu ya miguu";
 
-			queryHelsinkiDBForSentences("ya", 3)
+			getGame4Sentences("ya", 3)
 
 		}
 	}
@@ -133,7 +133,58 @@ function getRankedForSwahili() {
 	xmlhttp.send();
 }
 
-function queryHelsinkiDBForSentences(keyword, amount){
+//One JS call to verify number of sentences available.
+//Then If enough, 2 parallel calls: one to get sentences from the DB, one other to fetch new ones.
+function getGame4Sentences(keyword, amount) {
+	console.log("Checking if the DB contains enough sentences for this keyword")
+	var xmlhttp;
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			console.log(xmlhttp.responseText);
+			var numberOfSentences = JSON.parse(xmlhttp.responseText);
+			if(numberOfSentences < amount ){
+				//We need to fetch sentences right away in order to get to the desired numner
+				queryHelsinkiDBForSentences(keyword, amount, "server");
+			}
+			else {
+
+				queryHelsinkiDBForSentences(keyword, amount, "local");
+				updateBufferForDatabase(keyword, amount);
+			}
+
+		}
+	}//wordid is a mockup, not implemented yet
+	xmlhttp.open("GET","php/check_buffered_sentences.php?keyword=" + keyword , true);
+	xmlhttp.send(); 
+}
+
+function updateBufferForDatabase(keyword, amount){
+	console.log("Updating buffer...")
+	var xmlhttp;
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			console.log(xmlhttp.responseText);
+			console.log("BUFFER UPDATED!!!")
+		}
+	}//wordid is a mockup, not implemented yet
+	xmlhttp.open("GET","php/php/get_swahiliSentences.php?keyword=" + keyword + "&amount=" + amount + "&wordid=" + "1" , true);
+
+	xmlhttp.send();	
+}
+
+function queryForSentences(keyword, amount, source){
 	console.log("Querying the helsinki DB...")
 	amountGame4=amount
 	var xmlhttp;
@@ -156,7 +207,14 @@ function queryHelsinkiDBForSentences(keyword, amount){
 			}
 		}
 	}//wordid is a mockup, not implemented yet
-	xmlhttp.open("GET","php/get_swahiliSentences.php?keyword=" + keyword + "&amount=" + amount + "&wordid=" + "1" , true);
+	prefix = "php/get_swahiliSentences.php"
+	if(source == "local"){
+		prefix = "php/get_swahiliSentences_DB.php"
+	}
+	else {
+		prefix = "php/get_swahiliSentences.php"
+	}
+	xmlhttp.open("GET",prefix + "?keyword=" + keyword + "&amount=" + amount + "&wordid=" + "1" , true);
 	xmlhttp.send();  
 }
 
