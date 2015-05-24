@@ -121,7 +121,7 @@ function lookForWord($userID) {
 function getDefinitions($word_id, $mysqli){
 	$sql =  "SELECT sq.ID As WordID, sq.Word, sq.PartOfSpeech, d.ID As DefinitionID, d.Definition, d.GroupID, d.UserID As Author ";
 	$sql .= "FROM (SELECT * FROM words WHERE ID=? AND language = ?) AS sq ";
-	$sql .= "LEFT JOIN definitions As d ON sq.DefinitionID = d.GroupID WHERE d.GroupID IS NOT NULL AND language = ?";
+	$sql .= "LEFT JOIN definitions As d ON sq.DefinitionID = d.GroupID WHERE d.GroupID IS NOT NULL AND d.language = ?";
 	$sql .= " ORDER BY Votes desc;";
 
 	$stmt = $mysqli->prepare($sql);
