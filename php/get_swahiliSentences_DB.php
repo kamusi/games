@@ -13,7 +13,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 var_dump($result);
-$stmt->close();
+//$stmt->close();
 
 $results_array = array();
 while ($row = $result->fetch_assoc()) {
