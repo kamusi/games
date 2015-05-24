@@ -15,7 +15,9 @@ $results_array = FALSE;
 
 while($results_array === FALSE) {
 	$word_id =lookForWord($userID); 
-	$results_array = getDefinitions($word_id, $mysqli);
+	echo "THIS IS WORDID: " . $word_id;
+	break;
+	//$results_array = getDefinitions($word_id, $mysqli);
 }
 
 $jsonData = json_encode($results_array);
