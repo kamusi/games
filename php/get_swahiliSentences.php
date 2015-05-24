@@ -39,7 +39,6 @@ $stmt->close();
 
 if($pointer != "DONE"){
 	//we have to fetch something, but in a background process heyho!!
-<?php
 class AsyncOperation extends Thread {
 
     public function __construct($arg) {
@@ -69,7 +68,6 @@ foreach ( $stack as $t ) {
     $t->start();
 }
 
-?>
 /*
 	if(empty($pointer)) {
 		$pointer= "";
