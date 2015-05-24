@@ -8,6 +8,21 @@ $pointer = "";
 set_include_path('/usr/share/pear/phpseclib/phpseclib');
 include('Net/SSH2.php');
 
+//first we are going to look for the sentence in the buffered db.
+
+$sql= "SELECT pointer FROM game4context WHERE lemma = ?;";
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("s", $keyword);
+$stmt->execute();
+$result = $stmt->get_result();
+
+
+$results_array = $result->fetch_assoc();
+
+$pointer = $results_array['pointer'];
+$stmt->close();
+
+
 $sql= "SELECT pointer FROM game4pointer WHERE lemma = ?;";
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("s", $keyword);
