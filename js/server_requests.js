@@ -155,8 +155,8 @@ function queryHelsinkiDBForSentences(keyword, amount){
 
 			}
 		}
-	}
-	xmlhttp.open("GET","php/get_swahiliSentences.php?keyword=" + keyword + "&amount=" + amount, true);
+	}//wordid is a mockup, not implemented yet
+	xmlhttp.open("GET","php/get_swahiliSentences.php?keyword=" + keyword + "&amount=" + amount + "&wordid=" + "1" , true);
 	xmlhttp.send();  
 }
 
@@ -185,7 +185,6 @@ function get_tweets(alreadyDisplayed) {
 				displayTextWithCheckboxes(elem.Text,realIndex,"twitterWords")
 			}
 			);
-
 
 			if(realIndex == 0){
 				getRankedForTweets();

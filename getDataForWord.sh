@@ -8,6 +8,11 @@ sources=()
 sourceFiles=()
 numberOfSentencesFound=0
 
+if [[ "$pointer" == "DONE"]]; then
+	echo "No more files to search from!!"
+	exit(1)
+fi
+
 verbose=no
 
 verbose () {	
@@ -126,6 +131,9 @@ getNextFile () {
 		fi
 	done
 
+	if [[ $numberOfSentencesFound -lt $amount ]];  then
+		pointer="DONE"
+	fi
 }
 
 
