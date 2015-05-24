@@ -13,7 +13,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 //$stmt->close();
-
+$row = $result->fetch_assoc();
 $results_array = array();
 while ($row = $result->fetch_assoc()) {
 	$sql= "UPDATE game4sentences SET used = used + 1 WHERE sentenceid = ?;";
