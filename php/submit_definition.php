@@ -8,9 +8,6 @@ $userID = $_GET['userID'];
 $mode = $_GET['mode'];
 $language = $_GET['language'];
 
-$user = 'root';
-$pass = '';
-$db = 'kamusi';
 
 if(!in_array($mode, $acceptedModes)) {
 	die("Got a strange mode as input!". $mode);
@@ -18,9 +15,9 @@ if(!in_array($mode, $acceptedModes)) {
 
 
 //increase the number of submissions for this user
-function addXSubmissionsInGame($userID, $language, $mode, 1);
+addXSubmissionsInGame($userID, $language, $mode, 1);
 
-
+	global $mysqli;
 if ($groupID == 'null') {
 	$sql = 	"SELECT MAX(GroupID) FROM definitions;";
 	$stmt = $mysqli->prepare($sql);

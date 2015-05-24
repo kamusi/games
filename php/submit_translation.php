@@ -7,24 +7,18 @@ $translation = $_GET['translation'];
 $mode = $_GET['mode'];
 $language = $_GET['language'];
 
-$user = 'root';
-$pass = '';
-$db = 'kamusi';
-
-$con = mysqli_connect('localhost', $user, $pass, $db);
-
-if (!$con) {
-	die('Could not connect: ' . mysqli_error($con));
-}
 
 //increase the number of submissions for this user
-function addXSubmissionsInGame($userID, $language, $mode, 1);
+addXSubmissionsInGame($userID, $language, $mode, 1);
 
-$sql = 	"INSERT INTO translations " .
-		"(LanguageID, WordID, UserID, Translation) VALUES " .
-		"(" . $languageID . "," . $wordID . ",'" . $userID . "','" . $translation . "');";
+$sql = 	"INSERT INTO translations (LanguageID, WordID, UserID, Translation) VALUES (?,?,?,?);";
 
-$query = mysqli_query($con, $sql);
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("iiss", $languageID,$wordID, $userID ,$translation);
+
+$stmt->execute();
+
+$stmt->close();
 
 echo 'Success';
 

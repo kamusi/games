@@ -10,6 +10,8 @@ include('Net/SSH2.php');
 
 //first we are going to look for the sentence in the buffered db.
 
+
+
 $sql= "SELECT pointer FROM game4context WHERE lemma = ?;";
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("s", $keyword);

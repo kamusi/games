@@ -6,19 +6,8 @@ ini_set('display_errors', 'On');
 $data = json_decode($_POST['json'], true);
 
 
-
-
-$user = 'root';
-$pass = '';
-$db = 'kamusi';
-
 $returnText = "nothing";
 
-$mysqli = new mysqli('localhost', $user, $pass, $db);
-
-if (!$mysqli->set_charset('utf8')) {
-	printf("Error loading character set utf8: %s\n", $mysqli->error);
-}
 
 //increase the number of submissions for this user
 
