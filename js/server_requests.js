@@ -150,11 +150,11 @@ function getGame4Sentences(keyword, amount) {
 			var numberOfSentences = JSON.parse(xmlhttp.responseText);
 			if(numberOfSentences < amount ){
 				//We need to fetch sentences right away in order to get to the desired numner
-				queryHelsinkiDBForSentences(keyword, amount, "server");
+				queryForSentences(keyword, amount, "server");
 			}
 			else {
 
-				queryHelsinkiDBForSentences(keyword, amount, "local");
+				queryForSentences(keyword, amount, "local");
 				updateBufferForDatabase(keyword, amount);
 			}
 
