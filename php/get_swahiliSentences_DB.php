@@ -6,7 +6,7 @@ $amount = $_GET['amount'];
 $wordid = $_GET['wordid'];
 
 
-$sql= "SELECT sentenceid, sentence FROM game4sentences WHERE keyword = ? LIMIT ?;";
+$sql= "SELECT sentenceid, sentence, used FROM game4sentences WHERE keyword = ? ORDER BY used ASC LIMIT ?;";
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("si", $keyword, $amount);
 $stmt->execute();
