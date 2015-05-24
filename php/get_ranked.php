@@ -43,85 +43,87 @@ function lookForWord($userID) {
 
 //fetch the word that has as rank user s position+offset
 	$sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
-	$sql.=	"SELECT w.ID, w.DefinitionID, w.language, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
-	$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.language = ? AND sq.ID NOT IN (SELECT wordid FROM seengames WHERE (userid=? OR userid=?) AND language = ? AND game=?) AND sq.Rank = ?;";
+		$sql.=	"SELECT w.ID, w.DefinitionID, w.language, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
+		$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.language = ? AND sq.ID NOT IN (SELECT wordid FROM seengames WHERE (userid=? OR userid=?) AND language = ? AND game=?) AND sq.Rank = ?;";
 
-	$sum = intval($user_position) + intval($user_offset);
+$sum = intval($user_position) + intval($user_offset);
 
-	$stmt = $mysqli->prepare($sql);
+$stmt = $mysqli->prepare($sql);
 
-	if ($stmt === FALSE) {
-		die ("Mysql Error: " . $mysqli->error);
-	}
+if ($stmt === FALSE) {
+	die ("Mysql Error: " . $mysqli->error);
+}
 
-	$stmt->bind_param("issiii", $language, $userID, $allUsers, $language, $mode, $sum);
+$stmt->bind_param("issiii", $language, $userID, $allUsers, $language, $mode, $sum);
 
-	$stmt->execute();
-
-
-	$result = $stmt->get_result();
-	$row = $result->fetch_assoc();
-
-	$word_id = $row["ID"];
+$stmt->execute();
 
 
-	$stmt->close();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
 
-	$numberOfDefinitions=$result->num_rows;
+$word_id = $row["ID"];
+
+
+$stmt->close();
+
+$numberOfDefinitions=$result->num_rows;
 
 	//For Game3: skip the word if there are more than 3 meanings for that word
-	$conditionForGame3= ( $mode == 3 && $numberOfDefinitions > 3 );
-	if($numberOfDefinitions === 0 || $conditionForGame3 ){
+$conditionForGame3= ( $mode == 3 && $numberOfDefinitions > 3 );
+if($numberOfDefinitions === 0 || $conditionForGame3 ){
 
-		if($user_offset == 0) {
-			$stmt = $mysqli->prepare("UPDATE games SET position = position + 1 WHERE userid=? AND language = ? AND game= ?;");
-			$stmt->bind_param("sii", $userID, $language, $mode);
-			$stmt->execute();
-			$stmt->close();
+	if($user_offset == 0) {
+		$stmt = $mysqli->prepare("UPDATE games SET position = position + 1 WHERE userid=? AND language = ? AND game= ?;");
+		$stmt->bind_param("sii", $userID, $language, $mode);
+		$stmt->execute();
+		$stmt->close();
 
 			//Clean up the DB that stores the encountered words, else it become too big
 
-			$stmt = $mysqli->prepare("DELETE FROM seengames WHERE userid=? AND language = ? AND rank < ? AND game= ? ;");
-			$stmt->bind_param("siii", $userID, $language, $sum, $mode);
-			$stmt->execute();
-			$stmt->close();
+		$stmt = $mysqli->prepare("DELETE FROM seengames WHERE userid=? AND language = ? AND rank < ? AND game= ? ;");
+		$stmt->bind_param("siii", $userID, $language, $sum, $mode);
+		$stmt->execute();
+		$stmt->close();
 
-		}
-		else {
-			$stmt = $mysqli->prepare("UPDATE games SET offset = offset + 1 WHERE userid=? AND language = ? AND game = ?;");
-			$stmt->bind_param("sii", $userID, $language, $mode);
-			$stmt->execute();
-			$stmt->close();	
-
-		}
-		return lookForWord($userID);
 	}
 	else {
-		$stmt = $mysqli->prepare("INSERT INTO seengames (userid , game, wordid, language, rank) VALUES (?,?,?,?,?);");
-		$stmt->bind_param("siiii", $userID, $mode, $word_id, $language, $sum);
+		$stmt = $mysqli->prepare("UPDATE games SET offset = offset + 1 WHERE userid=? AND language = ? AND game = ?;");
+		$stmt->bind_param("sii", $userID, $language, $mode);
 		$stmt->execute();
 		$stmt->close();	
-		if($user_offset > $offsetModulo){
-			$stmt = $mysqli->prepare("UPDATE games SET offset = 0 WHERE userid=? AND language = ? AND game= ?;");
-			$stmt->bind_param("sii", $userID, $language, $mode);
-			$stmt->execute();
-			$stmt->close();
-		}
-		else {
 
-			$stmt = $mysqli->prepare("UPDATE games SET offset = offset + 1 WHERE userid=? AND language = ? AND game= ?;");
-			$stmt->bind_param("sii", $userID, $language, $mode);
-			$stmt->execute();
-			$stmt->close();	
-		}	
-		return $word_id;
 	}
+	return lookForWord($userID);
+}
+else {
+	$stmt = $mysqli->prepare("INSERT INTO seengames (userid , game, wordid, language, rank) VALUES (?,?,?,?,?);");
+	$stmt->bind_param("siiii", $userID, $mode, $word_id, $language, $sum);
+	$stmt->execute();
+	$stmt->close();	
+	if($user_offset > $offsetModulo){
+		$stmt = $mysqli->prepare("UPDATE games SET offset = 0 WHERE userid=? AND language = ? AND game= ?;");
+		$stmt->bind_param("sii", $userID, $language, $mode);
+		$stmt->execute();
+		$stmt->close();
+	}
+	else {
+
+		$stmt = $mysqli->prepare("UPDATE games SET offset = offset + 1 WHERE userid=? AND language = ? AND game= ?;");
+		$stmt->bind_param("sii", $userID, $language, $mode);
+		$stmt->execute();
+		$stmt->close();	
+	}	
+	return $word_id;
+}
 }
 
-function getDefinitions($word_id, $mysqli){
+function getDefinitions($word_id){
+	global $mysqli, $language;
+
 	$sql =  "SELECT sq.ID As WordID, sq.Word, sq.PartOfSpeech, d.ID As DefinitionID, d.Definition, d.GroupID, d.UserID As Author ";
-	$sql .= "FROM (SELECT * FROM words WHERE ID=?) AS sq ";
-	$sql .= "LEFT JOIN definitions As d ON sq.DefinitionID = d.GroupID WHERE d.GroupID IS NOT NULL";
+	$sql .= "FROM (SELECT * FROM words WHERE ID=? AND language = ?) AS sq ";
+	$sql .= "LEFT JOIN definitions As d ON sq.DefinitionID = d.GroupID WHERE d.GroupID IS NOT NULL AND d.language = ?";
 	$sql .= " ORDER BY Votes desc;";
 
 	$stmt = $mysqli->prepare($sql);
@@ -129,7 +131,7 @@ function getDefinitions($word_id, $mysqli){
 		die ("Mysql Error: " . $mysqli->error);
 	}
 
-	$stmt->bind_param("i",  $word_id);
+	$stmt->bind_param("iii",  $word_id, $language, $language);
 	$stmt->execute();
 	$result = $stmt->get_result();
 
