@@ -15,9 +15,7 @@ $results_array = FALSE;
 
 while($results_array === FALSE) {
 	$word_id =lookForWord($userID); 
-	echo "THIS IS WORDID: " . $word_id;
-	break;
-	//$results_array = getDefinitions($word_id, $mysqli);
+	$results_array = getDefinitions($word_id, $mysqli);
 }
 
 $jsonData = json_encode($results_array);
@@ -122,7 +120,7 @@ function lookForWord($userID) {
 
 function getDefinitions($word_id, $mysqli){
 	$sql =  "SELECT sq.ID As WordID, sq.Word, sq.PartOfSpeech, d.ID As DefinitionID, d.Definition, d.GroupID, d.UserID As Author ";
-	$sql .= "FROM (SELECT * FROM words WHERE ID=? AND language = ?) AS sq ";
+	$sql .= "FROM (SELECT * FROM words WHERE ID=?) AS sq ";
 	$sql .= "LEFT JOIN definitions As d ON sq.DefinitionID = d.GroupID WHERE d.GroupID IS NOT NULL";
 	$sql .= " ORDER BY Votes desc;";
 
@@ -131,7 +129,7 @@ function getDefinitions($word_id, $mysqli){
 		die ("Mysql Error: " . $mysqli->error);
 	}
 
-	$stmt->bind_param("ii",  $word_id, $language);
+	$stmt->bind_param("i",  $word_id);
 	$stmt->execute();
 	$result = $stmt->get_result();
 
