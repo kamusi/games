@@ -159,7 +159,7 @@ function getGame4Sentences(keyword, amount) {
 			}
 
 		}
-	}//wordid is a mockup, not implemented yet
+	}
 	xmlhttp.open("GET","php/check_buffered_sentences.php?keyword=" + keyword , true);
 	xmlhttp.send(); 
 }

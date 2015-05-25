@@ -1,5 +1,4 @@
 #!/bin/bash
-
 word="$1"
 amount="$2"
 pointer="$3" 
