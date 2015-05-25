@@ -78,7 +78,9 @@ insert into the post_receive file :
 cat > hooks/post-receive
 #!/bin/sh
 GIT_WORK_TREE=/var/www/html git checkout -f
-if git post receive hook does not have permission to modify files
+if git post receive hook does not have permission to modify files in case of error remote: error: unable to unlink old 'index.php' (Permission denied)
+
+
 sudo chown ec2-user html/
 
 
@@ -100,6 +102,7 @@ http://www.rebol.com/docs/ssh-auto-login.html
 
 copy local taito script to taitoserver
 scp -i /home/timo/.ssh/taito.rsa getDataForWord.sh babst@taito.csc.fi:getDataForWord.sh
+
 
 
 
