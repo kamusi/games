@@ -40,7 +40,7 @@ if($pointer != "DONE"){
 		exit('Login Failed');
 	}
 	$command = './getDataForWord.sh ' . $keyword . " " . $amount . " " . $pointer . "  2>&1";
-	echo "COMMAND : " . $command;
+	echo "COMMAND : " . $command . "end command";
 	$result=$ssh->exec($command);
 	echo "SHELL RETURNED : " . $result;
 	$nextPointeDelimiter="NEXTPOINTER:";
