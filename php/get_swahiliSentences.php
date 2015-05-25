@@ -39,8 +39,9 @@ if($pointer != "DONE"){
 	if (!$ssh->login($helsinkiUserName, $helsinkiPassWord)) {
 		exit('Login Failed');
 	}
-
-	$result=$ssh->exec('./getDataForWord.sh ' . $keyword . " " . $amount . " " . $pointer . "  2>&1");
+	$command = './getDataForWord.sh ' . $keyword . " " . $amount . " " . $pointer . "  2>&1";
+	echo "COMMAND : " . $command;
+	$result=$ssh->exec($command);
 	echo "SHELL RETURNED : " . $result;
 	$nextPointeDelimiter="NEXTPOINTER:";
 //Get the new pointer and store it in the DB

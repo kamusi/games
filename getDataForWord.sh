@@ -12,7 +12,7 @@ if [[ "$pointer" == "DONE" ]]; then
 	exit 1
 fi
 
-verbose=no
+verbose=yes
 
 verbose () {	
 if [ $verbose = yes ]; then
@@ -63,7 +63,7 @@ getSentence() {
 
 findOccurances() {
 #Usage : findOccurances file word numberOfOccurances
-
+verbose "JUST BEFORE GREP"
 occurances=`grep -n "$2" "$1"`
 echo "$occurances"
 }
@@ -88,10 +88,10 @@ for word in $allwords; do
 		verbose "$word appeared multiple times in the same sentence! Ignoring it"
 	else
 		sentences+=("$newSentence")
-	sources+=( "$test1" )
-	sourceFiles+=( `readlink -e "$file"`)
-	documentText=`printDocument | sed "s/$newSentence//"`
-fi
+		sources+=( "$test1" )
+		sourceFiles+=( `readlink -e "$file"`)
+		documentText=`printDocument | sed "s/$newSentence//"`
+	fi
 done
 
 #printDocument
