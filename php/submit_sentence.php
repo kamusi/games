@@ -21,7 +21,7 @@ $totalScoreOfSentece = 0;
 $pendingScore = 02;
 $concernedUsers = array();
 
-echo "ALL INFO : ". $wordID. "sss" . $sentenceID . " sd ws " . $userID . " "; 
+echo "ALL INFO : ". $wordID. "sss" . $sentenceID . " sd ws " . $userID . " goood " . $good; 
 
 #insert the sentence in the sentenceContext table
 $stmt = $mysqli->prepare("INSERT INTO game4context (userid, sentenceid, wordid) VALUES (?,?,?);");

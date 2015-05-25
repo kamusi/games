@@ -362,7 +362,7 @@ function sendGame4SentenceToDB(sentence, good){
 
 	}
 	//wordID, sentenceID, userID, game lang
-	console.log("When submitting sentence, wordID is : " + wordID)
+	console.log("When submitting sentence, good is : " + good)
 	xmlhttp.open("GET","php/submit_sentence.php?wordID=" + wordID + "&userID=" + userID  + "&sentenceID=" + sentence.sentenceid + "&good=" + good + "&mode=" + game + "&language=" + gameLanguage, true);
 	xmlhttp.send();
 }
