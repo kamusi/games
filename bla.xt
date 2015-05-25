@@ -1,22 +1,251 @@
 BEGINNN
-Entering getNextFile in folder /appl/kielipankki/hcs
-file: 00README is not an xml file, i don t care.
-articles is a directory
-Entering getNextFile in folder /appl/kielipankki/hcs/articles
-alasiri is a directory
-Entering getNextFile in folder /appl/kielipankki/hcs/articles/alasiri
-Doing stuff with file: alasiri_1999-01-26-a.xml
-chumba:
-chumba:
-chumba appeared multiple times!
 <SENTENCES>
- Wamesema ilibidi wapekue jengo zima chumba hadi chumba kukagua kama kuna bomu ili walitegue kama watalikuta . 
+ Bomba , aliyekuwepo madarakani jana , alisema uongozi huo utaitisha kikao cha kamati kuu kabla ya mwisho wa wiki .
+ Mbali na Matunda viongozi wengine wanaorejeshwa madarakani ni pamoja na Makamu Mwenyekiti Ally Namanganya , Kaimu Katibu Mkuu Costantino Maligo , Mweka Hazina John Gingi , Katibu Mwenezi Abbas Bomba na Katibu Mipango Hashim Kambi.
+ Hakimu Milumbe alitoa amri tano katika maamuzi yake , ambayo ni kufuta maombi ya kuusimamisha uongozi wa kuchaguliwa , kufuta amri ya kuwasimamisha viongozi hao , kutaka shughuli za klabu ziendeshwe na viongozi wa kuchaguliwa , kuiamuru FAT ishirikiane na viongozi wa kuchaguliwa na kwamba hakutakuwa na gharama zozote zitakazolipwa .
+ Akitoa amri hiyo , Hakimu Gabriel Milumbe , ambaye jana aliendesha kesi hiyo badala ya Hakimu Stella Majanjala , ambaye alikuwa mgonjwa , alisema pande zote mbili katika kesi hiyo zilikuwa na madai ya msingi , lakini zikashindwa kuthibitisha madai yao .
+ Akina Matunda warejeshwa madarakani Yanga Na Robert Komba Mahakama ya Kisutu jana ilitengua amri yake ya awali na kuwarudisha madarakani viongozi wa kuchaguliwa wa Yanga , ikieleza kuwa viongozi hao walitimuliwa katika kikao cha wanachama ambacho hakikuwa halali .
+ Pia amewahi kuwa Msaidizi wa Katibu Mkuu wa Umoja wa Mataifa kuhusu Mambo ya Wanawake .
+ Mongela amewahi kuwa waziri katika serikali ya awamu ya kwanza , iliyoongozwa na Mwalimu Julius Nyerere , na ile ya pili , iliyoongozwa na Bw.
+ Aliyeteuliwa kugombea katika vikao vya chama hicho alikuwa ni Rais Benjamin Mkapa .
+ Walioenguliwa ni pamoja na Pius Msekwa , Edward Lowassa , Jakaya Kikwete , Cleopa Msuya , John Malecela na Jaji Mark Bomani .
+ Lakini karibu wagombea wote walienguliwa , kutokana na mizengwe iliyopo ndani ya chama hicho .
+ Katika uchaguzi mkuu wa 1995 , wagombea zaidi ya 12 , akiwemo mwanamama mmoja Bi.
+ Hata hivyo , azma ya mwanamke huyo mashuhuri katika nyanja ya kisiasa huenda ikazimwa na mizengwe iliyoko katika chama chake cha CCM .
+ Ametoa wito kwa wananchi kutokuwa na wasiwasi juu ya mtu atakayesimama kugombea hicho .
+ Hatuwezi kuuacha umaskini uendelee kutusumbua milele yote bila kufanya mabadiliko ya utawala , amesema .
+ Amesema kuwa , Tanzania inakabiliwa na umaskini kwa miaka mingi , hivyo hakuna sababu ya kuuacha umaskini uendelee kuwasumbua wananchi miaka yote .
+ Balozi Mongella amesema kuwa anaweza kushiriki kwenye kinyang'anyiro hicho , ili kuikomboa nchi katika janga la umaskini .
+ Mongela azidi kuwatia kiwewe wanaotaka urais Na Mashaka Mugetta , Kisutu Balozi Getrude Mongella amesisitiza azma yake ya kugombea Urais mwaka 2000 , endapo atafikia uamuzi wa kufanya hivyo .
+ milioni 745 , zitakazosaidia kuimarisha usikivu kwa matangazo ya Redio Tanzania ( RTD ) kwa asilimia 50 .
+ Kuhusu Mikoa ya Arusha , Mwanza na Mbeya , amesema kuwa serikali imetenga kiasi cha Sh.
+ Waziri amesema kuwa serikali inaelewa kiu ya wananchi walio wengi , ya kutaka kupata matangazo ya televisheni na redio , na kwamba ndio maana inaataka kuanzisha televisheni yake ya taifa mwaka huu .
+ Kuhusu Radio Free Africa , amesema kuwa kituo hicho kiliomba kurusha matangazo katika Mikoa ya Dar es Salaam , Mwanza , Kagera , Shinyanga na Arusha .
+ Waziri amesema kuwa kituo cha Radio One , kilichagua kurusha matangazo yake katika mikoa ya Dar es Salaam , Arusha , Kilimanjaro , Dodoma na Mwanza .
+ Khatib amesema serikali haiwezi kuvishawishi vituo hivyo kurusha matangazo yao Musoma .
+ Emmanuel Magoti , Musoma Vijijini-ccm , aliyetaka kujua kama serikali itaviruhusu vyombo vya Radio One na Radio Free Africa kuweka mitambo yao Musoma , Bw.
+ Khatib , bila kufafanua kwa nini mashirika ya nje hayadhibitiwi .
+ Mbunge huyo alitaka kujua , ni vipi Redio za mashirika ya utangazaji kama BBC , Voa na Sauti ya Ujerumani , zinaruhusiwa kutangaza nchi nzima , wakati za humu nchini zinatakiwa kutangaza katika mikoa isiyozidi mitano .
+ Mbunge wa Musoma aililia Radio One Na Oswald Rutaihwa , Dodoma Waziri wa Nchi katika Ofisi ya waziri Mkuu anayeshughulikia Habari , Bwana Mohamed Seif Khatib , leo ameshindwa kujibu kwa nini serikali inavizuia vyombo binafsi kutangaza nchi nzima , kama mashirika mengine binafsi ya utangazaji yanavyofanya .
+ Kamanda huyo amesema kuwa habari nyingine kutoka eneo la tukio , zilisema kuwa marehemu alikutwa na tukio hilo , alipokuwa akitoka kwenye ukumbi wa , ambako alikuwa akienda mara kwwa mara kwa ajili ya burudani Bw.
+ Amesema mbali ya vitu hivyo , pia marehemu huyo alikutwa na fedha taslimu , ambazo hata hivyo hakuweza kutaja kiasi chake .
+ Aidha Kamanda Hemed , amesema mwili wa marehemu ulikutwa pamoja na vitu vyake vya thamani , vikiwamo saa ya mkononi aina ya Seiko na baiskeli .
+ Dereva wa Mamlaka ya Mapato auawa Dodoma Na Sechelela Kongola , PST Dodoma Kijana mmoja Mohamed Khalid , 30 , ambaye dereva wa Mamlaka ya Mapato Tanzania , TRA , ameuawa kwa kupigwa na nondo kichwani na watu wasiojulikana katika eneo la Chamwino mjini hapa .
+ Papalika ameahidi kuwasaka watu hao wanaojifanya polisi .
+ Cosmas Papalika , alipohojiwa , amesema kuwa wanaosemekana kwamba wanakula rushwa sio polisi wa TAZARA , bali ni watu ambao wanajifanya polisi ili kuwalia watu pesa zao .
+ Mizigo hiyo inasemekana ni ya mkaa , mbao na vyakula .
+ Kabla ya kufika Jijini , treni hiyo husimama njiani maeneo ya Yombo Kisiwani na kushusha mizigo hiyo ya watu , wamedai .
+ Wakazi Yombo wawatuhumu polisi wa TAZARA kutafuna rushwa Na Cynthia Temba , Yombo Wakazi kadhaa wa maeneo ya Yombo , wamedai kuwa wamekuwa wakiwapa hongo baadhi ya polisi wa TAZARA , ili washushie njiani mizigo ya aina mbalimbali kabla ya kufika stesheni ya TAZARA .
+ Majirani hao wamedai kuwa mipango ya mazishi inatarajiwa kufanywa nyumbani kwa marehemu .
+30 asubuhi , maiti ilikuwa bado inaning'inia mtini licha ya taarifa hizo kuwa zimesharipotiwa polisi .
+00 usiku kwa ajili ya kujisaidia , lakini hakukuwa na kitu katika mti .
+ Mmoja wa wapangaji wa nyumba hiyo jina tunalo , ndiye aliyemuona leo marehemu akining'inia katika mti aina ya mpera uliopo nyuma ya nyumba hiyo .
+ Amesema pia kuwa wiki mbili zilizopita siku ya Jumapili alfajiri , marehemu alichukua kamba kwa nia ya kujinyonga , lakini ilishindikana baada mtu mmoja aliyekuwa anakwenda msikitini kumuona na kunyang'anya kamba hiyo .
+ Mtoto huyo akiwa na majonzi , amefafanua kuwa miezi kadhaa ya nyuma , baba yake alitaka kujichinja kwa panga , lakini alinyang'anywa na Msamaria mwema , wakati akiwa kwenye harakati za kulinoa panga hilo .
+ Amedai kuwa kabla ya kujinyonga , baba yake amekuwa akisikika akisema kila mara kwamba , Rais Mkapa atamnyang'anya nyumba kutokana na deni hilo .
+ Msichana huyo amedai kuwa miaka kadhaa ya nyuma , kila nyumba ilikuwa inatozwa kodi ya Sh.
+ Kodi ya kiwanja hicho ni sh.
+ Mimi ninavyofahamu ni kuwa hajalipa kodi ya miaka mitano , amesema Bi.
+ Siwako Saidi , 21 , amesema kuwa baba yake amekuwa akitamka mara kwa mara kuwa , Rais Benjamin Mkapa na Wizara ya Ardhi , watamnyang'anya nyumba yake kwani anadaiwa fedha nyingi za kiwanja .
+ Wameongeza kuwa , chanzo cha Mzee huyo kujinyonga ni hofu ya kunyang'anywa nyumba na Wizara ya Ardhi , kutokana na kulimbikiza kodi ya kiwanja , anayodaiwa na wizara hiyo kwa zaidi ya miaka mitano sasa .
+ Majirani hao wamedai kuwa , marehemu amefanikiwa kujinyonga , kufuatia majaribio ya kujichinja kushindikana mara mbili .
+ Majirani wamedai leo kuwa , marehemu amejinyonga kwa kutumia msuli , nyuma ya nyumba yake iliyopo mtaa wa Taveta namba 13 .
+ Babu ajinyonga kwa kukosa kodi ya kiwanja Na Athumani Hamisi , Temeke Wailes Mzee mmoja mwenye umri wa zaidi ya miaka 90 , Saidi Shomvi , amejinyonga leo alfajiri nyumbani kwake Temeke-wailes Jijini .
+ PAC ina jumla ya wajumbe watatu wa kambi ya upinzani .
+ Utamaduni wa mabunge yote yaliyo chini ya nchi zilizomo kwenye Jumuiya ya Madola , unataka Wenyeviti wa PAC kutoka kambi ya upinzani .
+ Isaac Cheyo ambaye ni Mnadhimu Mkuu wa kambi ya upinzani , hakuweza kupatikana mara moja kuzungumzia suala hilo .
+ Shela , ulimfanya atoke nje ya kikao hicho cha wabunge wa Cuf .
+ Ali Mohamed Shela , Kiwani , ambaye ndiye msemaji wa Ofisi ya Rais ( Mipango ) , aliunga mkono mapendekezo ya Bwana Mapesa na hivyo kutofautiana na wenzake .
+ Habari zaidi zinasema kuwa , mara baada ya kikao hicho cha PAC kuvunjika , wabunge wote wa Cuf walikutana na kulaani vikali kitendo cha Bw.
+ Isaac Cheyo kuwa Mwenyekiti wa PAC , unasemekana umeleta hali ya kutoelewana , baina ya wabunge wa vyama vya Cuf na UDP katika muungano wao unaounda upinzani rasmi bungeni .
+ Makidara Mosi , Nccr-mageuzi-siha , amelithibitishia Alasiri juu ya kuvunjika kwa kikao hicho , kutokana na pendekezo hilo la Spika .
+ John Cheyo , kwamba kambi ya upinzani imepitisha jina la Bw.
+ Na Oswald Rutaihwa , Dodoma Kikao cha Kamati ya Bunge ya Mahesabu ya Serikali , PAC , kimevunjika bila ya kumchagua Mwenyekiti wake , baada ya wajumbe wote 12 kukataa pendekezo la Spika wa Bunge la kutaka Mbunge wa Bariadi Magharibi ( UDP ) , Bwana Isaac Cheyo , kuwa Mwenyekiti wa kamati hiyo .
+ Ndoa ya Cuf na UDP bungeni yakumbwa na misukosuko lkikao cha pamoja chasambaratika .
+ Hata hivyo hakuna bomu lililokutwa baada ya upekuzi .
+ Uvumi kama huu wa leo uliikumba Ofisi ya Habari ya Marekani mwaka jana , lakini Wataalam wa mambo ya mabomu walilifanyika upekuzi waligundua kuwa hapakuwa na bomu lililotegwa .
+ Baada ya bomu hilo la Agosti 7 mwaka jana , wakazi wa Jiji wamekuwa kila wakiingia kiwewe mara wasikiapo kwamba ndani ya jengo fulani kuna bomu .
+00 ili kuona kama kuna kitu kingetokea , lakini hakuna kilichoendelea , na hivyo wapangaji na watumishi wengine waliruhusiwa kuingia ndani ya jengo hilo .
+ Kiongozi wa askari hao wa JWTZ , Luteni Valerian Mahende , amesema kuwa baada ya kufanya upekuzi , waligundua kwamba kulikuwa hakuna bomu lililotegwa .
+ Hata hivyo , askari waliokuwa wametanda kwenye jengo hilo , waliuruhusu msafara wa Kofi , uendelee na safari yake .
+ Msafara wa kundi la mwanamuziki maarufu kutoka Zaire , Kofi Olomide uliokuwa ukitoka Uwanja wa Ndege kwenda katikati ya Jiji , ulilazimika kusimama kuangalia kulikoni .
+ Magari yote yalikuwa yamezuiwa kupita na pia kulikuwa na ulinzi mkali .
+ Alasiri ilipofika kwenye jengo hilo , ilishuhudia mamia ya wapangaji wa jengo hilo , watumishi wake na wale wa ofisi za jirani na wapita njia wakiwa wamekusanyika huku wakishaashangaa .
+ Suchak amedai kuwa alipomuuliza amejuaje namba yake ya simu ya mkononi , mtu huyo alimwambia kwamba yeye ni mtu wa usalama wa taifa na kwamba anafahamu namba za watu wote .
+10 usiku na mtu mmoja aliyejitambulisha kwa jina la Godwin ambaye alidai ni Ofisa wa Idara ya Usalama wa Taifa .
+ Amesema yeye katika kampuni yake ni Mkurugenzi .
+ Mfanyabiashara huyo , ofisi ya kampuni yake iko ghorofa ya tano jina lake halisi ni Bw.
+ Alipohojiwa na gazeti hili , mfanyabiashara huyo mwenye ofisi ya uwakala wa Bima amekiri kutoa taarifa hizo polisi .
+ Baadhi ya watu wamesema sakata hilo lilianza jana baada ya mfanyabiashara mmoja kutoa taarifa kituo cha Polisi cha Kati kuwa , ana wasiwasi kuna bomu limetegwa kwenye jengo hilo .
+ Askari hao wamesema kuwa walipofika kwenye tukio , waliwazuia wafanyakazi na wapangaji wote wa jengo hilo kuingia .
+ Alfred Gewe amesema kuwa baada ya kupewa taarifa hizo kuwa kuna bomu , alimwaga Askari Wataalam wa masuala hayo , Polisi wa kawaida na Askari wa Jeshi la Wananchi Tanzania kwa ajili ya kupambana na hali hiyo .
+ Jengo hilo lenye ghorofa 14 linalomilikiwa na Mfuko wa Pensheni wa Mashirika ya Umma , lijulikanalo kama PPF House , lipo kwenye makutano ya barabara za Samora na Morogoro , jirani kabisa na ofisi za Tume ya Jiji .
+' Bomu ' jengo la PPF laitikisa Dar Wanajeshi , polisi walizingira Jumanne , Januari 26,1999 Na Agnether Kasenene , Jijini Hofu , kiwewe na mshikemshike leo zilitawala katikati ya Jiji hasa maeneo ya mitaa ya Samora na ile ya jirani kutokana na taarifa zilizotolewa polisi kwamba , kuna bomu limetegwa kwenye jengo jipya la PPF na lingelipuliwa saa nne kamili . 
 </SENTENCES>
 <SOURCESTEXT>
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
+  Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.  
   Original article in the newspaper/magazine Alasiri, in section at date 1999-01-26.   
 </SOURCESTEXT>
 <SOURCEFILE>
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
+/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml
 /proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml 
 </SOURCEFILE>
-Found That many sentences: 2
 NEXTPOINTER:/proj/csc/ling/kielipankki/hcs/articles/alasiri/alasiri_1999-01-26-a.xml

@@ -8,9 +8,9 @@ sources=()
 sourceFiles=()
 numberOfSentencesFound=0
 
-if [[ "$pointer" == "DONE"]]; then
+if [[ "$pointer" == "DONE" ]]; then
 	echo "No more files to search from!!"
-	exit(1)
+	exit 1
 fi
 
 verbose=no
@@ -65,14 +65,14 @@ getSentence() {
 findOccurances() {
 #Usage : findOccurances file word numberOfOccurances
 
-occurances=`grep -n -m $3 "$2" "$1"`
+occurances=`grep -n "$2" "$1"`
 echo "$occurances"
 }
 
 findAllSentencesInFile() {
 	file="$1"
 
-	relevantLines=$(findOccurances $file "lemma=\"$word\"" 5)
+	relevantLines=$(findOccurances $file "lemma=\"$word\"" )
 
 #Get all occurences of words related to this lema in this document
 allwords=$(echo "$relevantLines" | getWords)
