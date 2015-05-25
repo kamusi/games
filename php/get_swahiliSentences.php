@@ -40,7 +40,7 @@ if($pointer != "DONE"){
 		exit('Login Failed');
 	}
 
-	$result=$ssh->exec('./getDataForWord.sh ' . $keyword . " " . $amount . " " . $pointer . "  2>&1");
+	$result=$ssh->exec('./getDataForWord.sh ' . $keyword . " " . $amount . " " . $pointer . " 2>&1");
 	echo "SHELL RETURNED : " . $result;
 	$nextPointeDelimiter="NEXTPOINTER:";
 //Get the new pointer and store it in the DB
