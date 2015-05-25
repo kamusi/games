@@ -123,7 +123,7 @@ function getRankedForSwahili() {
 			document.getElementById("transEnglish4").innerHTML = "Have or maintain an upright position, supported by one's feet.";
 			document.getElementById("defSwahili4").innerHTML = "Kuwa wima juu ya miguu";
 
-			getGame4Sentences("ya", 3)
+			getGame4Sentences("simama", 3)
 		}
 	}
 	xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
