@@ -56,7 +56,7 @@ $stmt->close();
 
 #Check if this sentence has been voted as bad by at least 2 users
 if ($totalScoreOfSentece < -1 ) {
-	
+	echo "WE WANT TO DELEEEEEEETE: " . $totalScoreOfSentece;
 	$stmt = $mysqli->prepare("DELETE FROM game4context WHERE wordid= ? AND sentenceid= ?;");
 	$stmt->bind_param("ii", $wordID, $sentenceID);
 	$stmt->execute();
@@ -78,6 +78,7 @@ if ($totalScoreOfSentece > 4 ) {
 	$stmt->execute();
 	$stmt->close();	
 
+echo "WE anto to delete because too goood : " . $totalScoreOfSentece;
 	#remove the sentence from the aggregation DB
 	$stmt = $mysqli->prepare("DELETE FROM game4context WHERE wordid= ? AND sentenceid= ?;");
 	$stmt->bind_param("ii", $wordID, $sentenceID);
