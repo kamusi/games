@@ -151,7 +151,7 @@ function getGame4Sentences(keyword, amount) {
 				updateBufferForDatabase(keyword, amount);
 			}
 				document.getElementById("swahiliSentences").innerHTML = "Searching the web for new sentences, this may take some time...";
-				setTimeout(getGame4Sentences(keyword, amount), 5000)
+				setTimeout( function(){getGame4Sentences(keyword, amount)}, 5000)
 			}
 			else {
 				document.getElementById("swahiliSentences").innerHTML = "";
@@ -403,10 +403,10 @@ function sendTweetToDB(tweet, good){
 
 	}
 
-	function get_ranked() {
-		console.log("GENEERL SENSE: " + generalSense)
+function get_ranked() {
+	console.log("GENEERL SENSE: " + generalSense)
 
-		var xmlhttp;
+	var xmlhttp;
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();
 	}
