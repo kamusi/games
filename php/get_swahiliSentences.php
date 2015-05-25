@@ -41,7 +41,7 @@ if($pointer != "DONE"){
 	}
 	$command = './getDataForWord.sh ' . $keyword . " " . $amount . " " . $pointer . "  2>&1";
 	echo "COMMAND : " . $command . "end command";
-	$result "ka" ;//=$ssh->exec($command);
+	$result = "ka" ;//=$ssh->exec($command);
 	echo "SHELL RETURNED : " . $result;
 	$nextPointeDelimiter="NEXTPOINTER:";
 //Get the new pointer and store it in the DB
