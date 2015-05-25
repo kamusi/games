@@ -147,7 +147,6 @@ function initialise(userID) {
 	console.log("INITLAIZINGGGGGGG")
 
 	get_user_stats();
-	get_user_trophies();
 	add_translation_dunno('? Tôi không biết...');
 
 }

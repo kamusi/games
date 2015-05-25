@@ -13,13 +13,7 @@ $stmt->fetch();
 $stmt->close(); 
 $returnValue = array();
 
-/* DO not do this twice
-$stmt = $mysqli->prepare("UPDATE users SET WordTweetsSinceLastPost=0  WHERE  UserID = ?;");
-$stmt->bind_param("s", $userID);
-$stmt->execute();
-$stmt->close(); 
-*/
-echo json_encode($WordTweetsSinceLastPost);
+ json_encode($WordTweetsSinceLastPost);
 
 
 

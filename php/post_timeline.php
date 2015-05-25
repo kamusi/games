@@ -5,15 +5,8 @@ ini_set('display_errors', 'On');
 $userID = $_GET['userID'];
 
 
-// USING ROOT IS A SECURITY CONCERN
-
-$user = 'root';
-$pass = '';
-$db = 'kamusi';
-
 $WordTweetsSinceLastPost= 41;
 
-$mysqli = new mysqli('localhost', $user, $pass, $db);
 $stmt = $mysqli->prepare("SELECT DoPost, WordTweetsSinceLastPost, PostTimeUnit  FROM users WHERE  UserID = ?;");
 $stmt->bind_param("s", $userID);
 $stmt->execute();

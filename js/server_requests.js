@@ -124,12 +124,9 @@ function getRankedForSwahili() {
 			document.getElementById("defSwahili4").innerHTML = "Kuwa wima juu ya miguu";
 
 			getGame4Sentences("ya", 3)
-
 		}
 	}
-
 	xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
-
 	xmlhttp.send();
 }
 
@@ -150,18 +147,25 @@ function getGame4Sentences(keyword, amount) {
 			var numberOfSentences = JSON.parse(xmlhttp.responseText);
 			if(numberOfSentences < amount ){
 				//We need to fetch sentences right away in order to get to the desired numner
-				queryForSentences(keyword, amount, "server");
+				if (document.getElementById("swahiliSentences").innerHTML == ""){
+				updateBufferForDatabase(keyword, amount);
+			}
+				document.getElementById("swahiliSentences").innerHTML = "Searching the web for new sentences, this may take some time...";
+				setTimeout(getGame4Sentences(keyword, amount), 5000)
 			}
 			else {
-
+				document.getElementById("swahiliSentences").innerHTML = "";
 				queryForSentences(keyword, amount, "local");
 				updateBufferForDatabase(keyword, amount);
 			}
-
 		}
 	}
 	xmlhttp.open("GET","php/check_buffered_sentences.php?keyword=" + keyword , true);
 	xmlhttp.send(); 
+}
+
+function displayLoadingResults(loadingMessage, whereToInsert){
+	document.getElementById(whereToInsert).innerHTML = loadingMessage;
 }
 
 function updateBufferForDatabase(keyword, amount){
@@ -178,8 +182,8 @@ function updateBufferForDatabase(keyword, amount){
 			console.log(xmlhttp.responseText);
 			console.log("BUFFER UPDATED!!!")
 		}
-	}//wordid is a mockup, not implemented yet
-	xmlhttp.open("GET","php/get_swahiliSentences.php?keyword=" + keyword + "&amount=" + amount + "&wordid=" + "1" , true);
+	}
+	xmlhttp.open("GET","php/get_swahiliSentences.php?keyword=" + keyword + "&amount=" + amount , true);
 
 	xmlhttp.send();	
 }
@@ -203,7 +207,6 @@ function queryForSentences(keyword, amount, source){
 				last20Tweets[i] = results_array[i];
 				lastSwahiliSentences[i] = results_array[i];
 				displayTextWithCheckboxes(lastSwahiliSentences[i],i,"swahiliSentences")               
-
 			}
 		}
 	}//wordid is a mockup, not implemented yet
@@ -214,7 +217,7 @@ function queryForSentences(keyword, amount, source){
 	else {
 		prefix = "php/get_swahiliSentences.php"
 	}
-	xmlhttp.open("GET",prefix + "?keyword=" + keyword + "&amount=" + amount + "&wordid=" + "1" , true);
+	xmlhttp.open("GET",prefix + "?keyword=" + keyword + "&amount=" + amount , true);
 	xmlhttp.send();  
 }
 
@@ -296,7 +299,6 @@ function fetchTweetsFromDB(amount) {
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 
-
 			console.log("REsPONSE : " + xmlhttp.responseText + "End response");
 
 			var results_array = JSON.parse(xmlhttp.responseText);
@@ -316,8 +318,6 @@ function fetchTweetsFromDB(amount) {
 	xmlhttp.open("GET","php/fetch_tweet_db.php?wordID=" + wordID + "&amount=" + amount);
 
 	xmlhttp.send();
-
-
 }
 
 function submitCheckBoxData(whatToSubmit) {
@@ -350,91 +350,6 @@ function submitCheckBoxData(whatToSubmit) {
 	post_timeline();
 }
 
-function displayNextNCheckboxes(game, amount) {
-
-	//TODO try out the behavior of thw game with multiple users simultaneously
-	//First, fetch the necessary text from the DB
-
-	switch(game) {
-		case '3':
-		//Do stuff for tweets
-		break;
-
-		case '4':
-		//For the swahili helsinki corpus game
-
-		//fetch amount from DB
-
-
-
-		break;
-		default: 
-		break;
-	}
-}
-
-function fetchNFromDB(amount, game){
-	switch(game) {
-		case '3':
-		//Do stuff for tweets
-		displayCheckBoxType="twitterWords"
-		beginningOfUrl= "php/fetch_tweet_db.php?wordID=";
-
-
-		break;
-
-		case '4':
-		//For the swahili helsinki corpus game
-		displayCheckBoxType="swahiliSentences"
-		beginningOfUrl= "php/fetch_game4_db.php?wordID=";
-
-		break;
-		default: 
-		break;
-	}
-
-
-	var xmlhttp;
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp=new XMLHttpRequest();
-	}
-	else {// code for IE6, IE5
-		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange=function() {
-		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-
-
-			console.log("REsPONSE : " + xmlhttp.responseText + "End response");
-
-			var results_array = JSON.parse(xmlhttp.responseText);
-			var i = 0
-			for( i = 0; i<amount && typeof results_array[i] !== 'undefined'; i++) {
-				last20Tweets[i] = results_array[i];
-				displayTextWithCheckboxes(last20Tweets[i].Text,i,displayCheckBoxType)
-			}
-			console.log("this was i " + i + ", this is amount : " + amount);
-			if(i < amount) {
-				fetchMore(game, i);
-			}
-		}
-	}
-	console.log("WORD ID IS : "+ wordID)
-
-	xmlhttp.open("GET",beginningOfUrl + wordID + "&amount=" + amount);
-
-	xmlhttp.send();
-
-
-}   
-
-
-function fetchMore(game, amount){
-
-}
-
-
-
 function sendGame4SentenceToDB(sentence, good){
 	console.log("Sending swahili results to DB:...")
 	var xmlhttp;
@@ -446,26 +361,14 @@ function sendGame4SentenceToDB(sentence, good){
 	}
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-			console.log("DB esponse was:  : " + xmlhttp.responseText)
+			console.log("DB Response t sending swahili results was:  " + xmlhttp.responseText)
 		}
+
 	}
-	/* TODO: Continue
-	var json_data= {"wordID":wordID, "sentence":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "mode":game, "language":gameLanguage, "tweetAuthor":tweet.Author, "good" : good    }
-
-	$.ajax({
-		type: 'POST',
-		url: 'php/submit_tweet.php',
-		data: {json: JSON.stringify(json_data)},
-		dataType: 'json'
-	})
-	.done( function( data ) {
-		console.log('done');
-	})
-	.fail( function( data ) {
-		console.log('fail');
-		console.log(data);
-	});*/
-
+	//wordID, sentenceID, userID, game lang
+	console.log("When submitting definition, wordID is : " + wordID)
+	xmlhttp.open("GET","php/submit_sentence.php?wordID=" + wordID + "&userID=" + userID  + "&sentenceID=" + sentence + "&good=" + good + "&mode=" + game + "&language=" + gameLanguage, true);
+	xmlhttp.send();
 }
 
 function sendTweetToDB(tweet, good){
@@ -518,33 +421,24 @@ function sendTweetToDB(tweet, good){
 			clear_definitions();
 			wordID = results_array[0].WordID;
 			groupID = results_array[0].GroupID;
-			// if(results_array[0].Consensus == 1) {
-			//     set_consensus_word(results_array[0].Word, results_array[0].PartOfSpeech, results_array[0].Definition);
-			//     add_definition(results_array[0].DefinitionID, '✓ That is a good definition');
-			//     for(var i = 1; i < results_array.length; i++) {
-			//         if(results_array[i].Definition != undefined) {
-			//             add_definition(results_array[i].DefinitionID, results_array[i].Definition);
-			//         }
-			//     }
-			// }
-			// else {
-				set_word(results_array[0].Word, results_array[0].PartOfSpeech);
-				add_definition(-1, "? " + ICantSay, false);
 
-				document.getElementById("consensus").innerHTML = generalSense;
+			set_word(results_array[0].Word, results_array[0].PartOfSpeech);
+			add_definition(-1, "? " + ICantSay, false);
 
-				for(var i = 0; i < results_array.length ; i++) {
-					if(results_array[i].Author == 'wordnet') {
-						set_consensus(results_array[i].Definition);
-						add_definition(results_array[i].DefinitionID, "▶ " + keepTheGeneralSense, false);
-					}
+			document.getElementById("consensus").innerHTML = generalSense;
+
+			for(var i = 0; i < results_array.length ; i++) {
+				if(results_array[i].Author == 'wordnet') {
+					set_consensus(results_array[i].Definition);
+					add_definition(results_array[i].DefinitionID, "▶ " + keepTheGeneralSense, false);
 				}
-				for(var i = 0; i < results_array.length; i++) {
+			}
+			for(var i = 0; i < results_array.length; i++) {
 
-					if(results_array[i].Definition != undefined && results_array[i].Author != 'wordnet') {
-						add_definition(results_array[i].DefinitionID, "▶ " + results_array[i].Definition, true);
-					}
+				if(results_array[i].Definition != undefined && results_array[i].Author != 'wordnet') {
+					add_definition(results_array[i].DefinitionID, "▶ " + results_array[i].Definition, true);
 				}
+			}
 			// }
 			definitionID = -1;
 		}
@@ -576,7 +470,7 @@ function submit_definition(definition) {
 
 function isNewUser() {
 	if(siteLanguage == "-1"){
-	console.log("Checking if New USER")
+		console.log("Checking if New USER")
 		if(userID == "???"){
 			console.log("Waiting until becoming defined!" + userID)
 		}
@@ -601,11 +495,11 @@ function isNewUser() {
 					siteLanguage=obj
 					console.log("NEQWIDNWE: " + siteLanguage)
 					if(obj != "aleadyDoneBefore") {
-					location.reload();
-				}
-				else {
-					animate_logo();
-				}
+						location.reload();
+					}
+					else {
+						animate_logo();
+					}
 					/*
 					xmlhttp.open("GET","/index.php?&lang=" + siteLanguage);
 					xmlhttp.send(); */
@@ -615,13 +509,13 @@ function isNewUser() {
 				else {
 					animate_logo_firstTime(); 
 				}
-			
+
 			}
 		}
 		xmlhttp.open("GET","php/check_user.php?userID=" + userID + "&userName=" + userName);
 		xmlhttp.send();
-		}
 	}
+}
 
 
 }
@@ -675,30 +569,6 @@ function getGameScore(){
 	console.log("language is : " + gameLanguageSliderValue)
 	xmlhttp.open("GET","php/get_game_score.php?userID=" + userID + "&mode=" + game + "&language=" + gameLanguage, true);
 	xmlhttp.send();    
-}
-
-function get_user_trophies() {
-	/*var xmlhttp;
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp=new XMLHttpRequest();
-	}
-	else {// code for IE6, IE5
-		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange=function() {
-		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-			var results_array = JSON.parse(xmlhttp.responseText);
-			if(results_array != undefined) {
-				for(var i = 0; i < results_array.length; i++) {
-					if(results_array[i].Definition != undefined) {
-						add_trophy(results_array[i].Word, results_array[i].Definition);
-					}
-				}
-			}
-		}
-	}
-	xmlhttp.open("GET","php/get_trophies.php?userID=" + userID, true);
-	xmlhttp.send();*/
 }
 
 function submit_vote(definition_id, vote) {

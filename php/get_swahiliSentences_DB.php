@@ -3,8 +3,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 $keyword = $_GET['keyword'];
 $amount = $_GET['amount'];
-$wordid = $_GET['wordid'];
-
 
 $sql= "SELECT sentenceid, sentence, used FROM game4sentences WHERE keyword = ? ORDER BY used ASC LIMIT ?;";
 $stmt = $mysqli->prepare($sql);
@@ -22,7 +20,7 @@ while ($row = $result->fetch_assoc()) {
 	$stmt->execute();
 	$stmt->close();
 
-	$results_array[] = $row["sentence"];
+	$results_array[] = $row;
 }
 
 

@@ -3,7 +3,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 $keyword = $_GET['keyword'];
 $amount = $_GET['amount'];
-$wordid = $_GET['wordid'];
 $pointer = "";
 
 set_include_path('/usr/share/pear/phpseclib/phpseclib');
@@ -40,9 +39,7 @@ if($pointer != "DONE"){
 		exit('Login Failed');
 	}
 	$command = './getDataForWord.sh ' . $keyword . " " . $amount . " " . $pointer . "  2>&1";
-	#echo "COMMAND : " . $command . "end command";
 	$result=$ssh->exec($command);
-	#echo "SHELL RETURNED : " . $result;
 	$nextPointeDelimiter="NEXTPOINTER:";
 //Get the new pointer and store it in the DB
 	$pointer= substr($result, strpos($result, $nextPointeDelimiter) + strlen($nextPointeDelimiter));
