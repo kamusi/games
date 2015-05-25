@@ -57,12 +57,12 @@ $stmt->close();
 #Check if this sentence has been voted as bad by at least 2 users
 if ($totalScoreOfSentece < -1 ) {
 	echo "WE WANT TO DELEEEEEEETE: " . $totalScoreOfSentece;
-	$stmt = $mysqli->prepare("DELETE FROM game4context WHERE wordid= ? AND sentenceid= ?;");
+/*	$stmt = $mysqli->prepare("DELETE FROM game4context WHERE wordid= ? AND sentenceid= ?;");
 	$stmt->bind_param("ii", $wordID, $sentenceID);
 	$stmt->execute();
 	$result = $stmt->get_result();
 	$stmt->close();
-
+*/
 //User gets notified for each point : upvotes and downvotes, but no posts for downvotes
 	giveAllConcernedUsersAPoint($concernedUsers);
 
