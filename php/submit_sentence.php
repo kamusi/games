@@ -53,6 +53,8 @@ while ($row = $result->fetch_assoc()) {
 
 $stmt->close();
 
+echo "Conerned users: ";
+var_dump($concernedUsers);
 
 #Check if this sentence has been voted as bad by at least 2 users
 if ($totalScoreOfSentece < -1 ) {

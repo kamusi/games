@@ -156,7 +156,7 @@ function getGame4Sentences(keyword, amount) {
 			else {
 				document.getElementById("swahiliSentences").innerHTML = "";
 				queryForSentences(keyword, amount, "local");
-				updateBufferForDatabase(keyword, amount);
+				//updateBufferForDatabase(keyword, amount);
 			}
 		}
 	}
