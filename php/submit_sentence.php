@@ -4,7 +4,6 @@ ini_set('display_errors', 'On');
 
 
 $wordID = $_GET['wordID'];
-$amount = $_GET['amount'];
 $userID = $_GET['userID'];
 $sentenceID = $_GET['sentenceID'];
 $good = $_GET['good'];
@@ -22,6 +21,7 @@ $totalScoreOfSentece = 0;
 $pendingScore = 02;
 $concernedUsers = array();
 
+echo "ALL INFO : ". $wordID. "sss" . $sentenceid . " sd ws " . $userID . " "; 
 
 #insert the sentence in the sentenceContext table
 $stmt = $mysqli->prepare("INSERT INTO game4context (userid, sentenceid, wordid) VALUES (?,?,?);");
@@ -113,9 +113,7 @@ if ($totalScoreOfSentece > 4 ) {
 		$stmt->execute();
 
 		$stmt->close();	
-
 	}
-
 }
 
 foreach($concernedUsers as $user) {
@@ -126,7 +124,6 @@ foreach($concernedUsers as $user) {
 	$stmt->bind_result($pendingScore);
 	$stmt->fetch();
 	$stmt->close();
-
 
 	$stmt = $mysqli->prepare("UPDATE games SET pendingpoints = ? WHERE userid=? and language = ? AND game = ?;");
 	$stmt->bind_param("isii", $pendingScore, $user, $language, $mode);

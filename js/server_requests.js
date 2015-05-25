@@ -164,10 +164,6 @@ function getGame4Sentences(keyword, amount) {
 	xmlhttp.send(); 
 }
 
-function displayLoadingResults(loadingMessage, whereToInsert){
-	document.getElementById(whereToInsert).innerHTML = loadingMessage;
-}
-
 function updateBufferForDatabase(keyword, amount){
 	console.log("Updating buffer...")
 	var xmlhttp;
