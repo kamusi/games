@@ -204,9 +204,9 @@ function queryForSentences(keyword, amount, source){
 			console.log(xmlhttp.responseText);
 			var results_array = JSON.parse(xmlhttp.responseText);
 			for( i = 0; i<amount ;i++) {
-				last20Tweets[i] = results_array[i];
+				//last20Tweets[i] = results_array[i];
 				lastSwahiliSentences[i] = results_array[i];
-				displayTextWithCheckboxes(lastSwahiliSentences[i],i,"swahiliSentences")               
+				displayTextWithCheckboxes(lastSwahiliSentences[i].sentence,i,"swahiliSentences")               
 			}
 		}
 	}//wordid is a mockup, not implemented yet
