@@ -3,25 +3,29 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
 
-$data = json_decode($_POST['json'], true);
-
+$wordID = $_GET['wordID'];
+$amount = $_GET['amount'];
+$userID = $_GET['userID'];
+$sentenceID = $_GET['sentenceID'];
+$good = $_GET['good'];
+$mode = $_GET['mode'];
+$language = $_GET['language'];
 
 $returnText = "nothing";
 
 
 //increase the number of submissions for this user
 
-addXSubmissionsInGame($data["userID"],$data["language"], $data["mode"],1 );
+addXSubmissionsInGame($userID,$language, $mode,1 );
 
-$totalScoreOfTweet = 0;
+$totalScoreOfSentece = 0;
 $pendingScore = 02;
 $concernedUsers = array();
 
-#remove chracters that might be a problem
 
-#insert the word in the TweetContext table
-$stmt = $mysqli->prepare("INSERT INTO TweetContext (TweetID, Text, Author, UserID, WordID, Good) VALUES (?,?,?,?,?,? );");
-$stmt->bind_param("ssssii",  $data["tweetID"],$data["tweetText"], $data["tweetAuthor"],$data["userID"], $data["wordID"], $data["good"]);
+#insert the sentence in the sentenceContext table
+$stmt = $mysqli->prepare("INSERT INTO game4context (userid, sentenceid, wordid) VALUES (?,?,?);");
+$stmt->bind_param("sii",  $userID,$sentenceID, $wordID);
 
 $stmt->execute();
 
@@ -29,32 +33,32 @@ $stmt->close();
 
 
 #Sum up the good values
-$stmt = $mysqli->prepare("SELECT SUM(Good) FROM TweetContext WHERE WordID= ? AND TweetID= ?;");
-$stmt->bind_param("is", $data["wordID"], $data["tweetID"]);
+$stmt = $mysqli->prepare("SELECT SUM(good) FROM game4context WHERE wordid= ? AND sentenceid= ?;");
+$stmt->bind_param("ii", $wordID, $sentenceID);
 $stmt->execute();
-$stmt->bind_result($totalScoreOfTweet);
+$stmt->bind_result($totalScoreOfSentece);
 $stmt->fetch();
 
 $stmt->close();
 
 #get all concerned users;
-$stmt = $mysqli->prepare("SELECT DISTINCT UserID FROM TweetContext WHERE WordID= ? AND TweetID= ?;");
-$stmt->bind_param("is", $data["wordID"], $data["tweetID"]);
+$stmt = $mysqli->prepare("SELECT DISTINCT userid FROM game4context WHERE wordid= ? AND sentenceid= ?;");
+$stmt->bind_param("ii", $wordID, $sentenceID);
 $stmt->execute();
 $result = $stmt->get_result();
 
 while ($row = $result->fetch_assoc()) {
-	$concernedUsers[] = $row["UserID"];
+	$concernedUsers[] = $row["userid"];
 }
 
 $stmt->close();
 
 
-#Check if this tweet has been voted as bad by at least 2 users
-if ($totalScoreOfTweet < -1 ) {
+#Check if this sentence has been voted as bad by at least 2 users
+if ($totalScoreOfSentece < -1 ) {
 	
-	$stmt = $mysqli->prepare("DELETE FROM TweetContext WHERE WordID= ? AND TweetID= ?;");
-	$stmt->bind_param("is", $data["wordID"], $data["tweetID"]);
+	$stmt = $mysqli->prepare("DELETE FROM game4context WHERE wordid= ? AND sentenceid= ?;");
+	$stmt->bind_param("ii", $wordID, $sentenceID);
 	$stmt->execute();
 	$result = $stmt->get_result();
 	$stmt->close();
@@ -64,51 +68,48 @@ if ($totalScoreOfTweet < -1 ) {
 
 }
 //We count the number of new examples validated by user. That way we will be able to show the new ones we he arrives on the link.
-#after 5 upvotes, this tweet is a definite example for that word. Remove it from temp db and add it to the definitive db
-if ($totalScoreOfTweet > 4 ) {  
+#after 5 upvotes, this sentence is a definite example for that word. Remove it from temp db and add it to the definitive db
+if ($totalScoreOfSentece > 4 ) {  
 // 
 	giveAllConcernedUsersAPoint($concernedUsers);
 
-	$stmt = $mysqli->prepare("INSERT INTO WordTweet (WordID, TweetID, UserID, ts) VALUES (?,?,?, UTC_TIMESTAMP());");
-	$stmt->bind_param("iss", $data["wordID"], $data["tweetID"], $data["userID"]);
+	$stmt = $mysqli->prepare("INSERT INTO wordsentence (wordid, sentenceid, userid, ts) VALUES (?,?,?, UTC_TIMESTAMP());");
+	$stmt->bind_param("iis", $wordID, $sentenceID, $userID);
 	$stmt->execute();
 	$stmt->close();	
 
-	$stmt = $mysqli->prepare("INSERT INTO Tweets (TweetID, Text, Author) VALUES (?,?,?);");
-	$stmt->bind_param("sss", $data["tweetID"], $data["tweetText"], $data["tweetAuthor"]  );
-	$stmt->execute();
-	$stmt->close();	
-
-
-	#remove the tweet from the aggregation DB
-	$stmt = $mysqli->prepare("DELETE FROM TweetContext WHERE WordID= ? AND TweetID= ?;");
-	$stmt->bind_param("is", $data["wordID"], $data["tweetID"]);
+	#remove the sentence from the aggregation DB
+	$stmt = $mysqli->prepare("DELETE FROM game4context WHERE wordid= ? AND sentenceid= ?;");
+	$stmt->bind_param("ii", $wordID, $sentenceID);
 	$stmt->execute();
 	$result = $stmt->get_result();
 	$stmt->close();
 
 
 	$numberOfRefsForThatWord = -1;
-	$stmt = $mysqli->prepare("SELECT Count(WordID) FROM WordTweet WHERE WordID= ?;");
-	$stmt->bind_param("i", $data["wordID"] );
+	$stmt = $mysqli->prepare("SELECT Count(wordid) FROM wordsentence WHERE wordid= ?;");
+	$stmt->bind_param("i", $wordID );
 	$stmt->execute();
 	$stmt->bind_result($numberOfRefsForThatWord);
 	$stmt->fetch();
 
 	$stmt->close();	
 
+	//increase number of submissions in order to post on facebook
+	/*
 	$stmt = $mysqli->prepare("UPDATE users SET WordTweetsSinceLastPost = WordTweetsSinceLastPost +1 WHERE UserID=?;");
 	$stmt->bind_param("s", $data["userID"] );
 	$stmt->execute();
 	$stmt->fetch();
 
 	$stmt->close();	
+	*/
 
-	//We got enough tweets for this word : we don t need more.
+	//We got enough sentences for this word : we don t need more.
 	if($numberOfRefsForThatWord > 2) {
 
 		$stmt = $mysqli->prepare("INSERT INTO seengames (userid, game, language,wordid, rank) VALUES (?,?,?,?, 2147483647) ;");
-		$stmt->bind_param("siii",$allUsers, $data["mode"], $data["language"], $data["wordID"] );
+		$stmt->bind_param("siii",$allUsers, $mode, $language, $wordID );
 		$stmt->execute();
 
 		$stmt->close();	
@@ -119,7 +120,7 @@ if ($totalScoreOfTweet > 4 ) {
 
 foreach($concernedUsers as $user) {
 
-	$stmt = $mysqli->prepare("SELECT Count(UserID) FROM TweetContext WHERE  UserID = ?;");
+	$stmt = $mysqli->prepare("SELECT Count(userid) FROM game4context WHERE  userid = ?;");
 	$stmt->bind_param("s", $user);
 	$stmt->execute();
 	$stmt->bind_result($pendingScore);
@@ -128,7 +129,7 @@ foreach($concernedUsers as $user) {
 
 
 	$stmt = $mysqli->prepare("UPDATE games SET pendingpoints = ? WHERE userid=? and language = ? AND game = ?;");
-	$stmt->bind_param("isii", $pendingScore, $user, $data["language"], $data["mode"]);
+	$stmt->bind_param("isii", $pendingScore, $user, $language, $mode);
 	$stmt->execute();
 	$stmt->close();
 
@@ -148,7 +149,6 @@ function giveAllConcernedUsersAPoint($concernedUsers){
 	}
 
 }
-
 
 echo json_encode($returnText);
 

@@ -98,7 +98,7 @@ function getRankedForTweets() {
 
 function getRankedForSwahili() {
 
-	document.getElementById("twitterWords").innerHTML = '';
+	document.getElementById("swahiliSentences").innerHTML = '';
 	wordID= 12345;
 
 	var xmlhttp;
@@ -209,7 +209,7 @@ function queryForSentences(keyword, amount, source){
 				displayTextWithCheckboxes(lastSwahiliSentences[i].sentence,i,"swahiliSentences")               
 			}
 		}
-	}//wordid is a mockup, not implemented yet
+	}
 	prefix = "php/get_swahiliSentences.php"
 	if(source == "local"){
 		prefix = "php/get_swahiliSentences_DB.php"
@@ -367,7 +367,7 @@ function sendGame4SentenceToDB(sentence, good){
 	}
 	//wordID, sentenceID, userID, game lang
 	console.log("When submitting definition, wordID is : " + wordID)
-	xmlhttp.open("GET","php/submit_sentence.php?wordID=" + wordID + "&userID=" + userID  + "&sentenceID=" + sentence + "&good=" + good + "&mode=" + game + "&language=" + gameLanguage, true);
+	xmlhttp.open("GET","php/submit_sentence.php?wordID=" + wordID + "&userID=" + userID  + "&sentenceID=" + sentence.sentenceid + "&good=" + good + "&mode=" + game + "&language=" + gameLanguage, true);
 	xmlhttp.send();
 }
 
