@@ -136,7 +136,7 @@ foreach($concernedUsers as $user) {
 }
 
 function giveAllConcernedUsersAPoint($concernedUsers){
-	global $data, $mysqli;
+	global $data, $mysqli, $language, $mode;
 	foreach($concernedUsers as $user) {
 		addXToPointsInGame($user, $language, $mode, 1);
 
