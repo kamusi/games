@@ -3,7 +3,7 @@
 $acceptedModes = array("1","2","3","4");
 $allUsers = "allusers";
 
-$languageMap = array ();
+$languageMap = array ("1" => "en_US", "2" => "fr_FR", "3" => "vi_VI" );
 
 $config = parse_ini_file('/var/www/passwords/config.ini');
 

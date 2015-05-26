@@ -44,9 +44,8 @@ function generateToken() {
 
 <?php
 $newToken = generateToken();
-$languageMap = array( "1" => "en_US", "2" => "fr_FR", "3" => "vi_VI" );
 $gameNames = array('1' => _("Definition Game"), '2' => _("Translation Game") , '3' => _("Tweet Game"), '4'=> _("Sentence Game"));
-$gameLanguages= array('1' => _("Definition Game"), '2' => _("Translation Game") , '3' => _("Tweet Game"), '4'=> _("Sentence Game"));
+$gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' => _("French") , '3' => _("Vietnamese"));
 
 
 
@@ -120,7 +119,7 @@ $gameLanguages= array('1' => _("Definition Game"), '2' => _("Translation Game") 
 					<div id="gamezone-main2">
 						<div id="translation_entry">
 						<h1 id="title2"> <?php printf(_("%s"),$gameNames["2"]); ?>  </h1>
-							<p id="instructions2"><?php echo _("Translate the following word to : "); ?>   </p>
+							<p id="instructions2"><?php echo _("Translate the following word to : ")  ?>   </p>
 			
 							<p id="translation_word"></p>
 							<p id="translation_pos"></p>
@@ -366,12 +365,18 @@ $gameLanguages= array('1' => _("Definition Game"), '2' => _("Translation Game") 
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
-//Translations fo the buttons.
+//Translations for the buttons.
 ICanWrite = "<?php echo gettext(" I can write the winning definition for this idea!"); ?>"
 ICantSay = "<?php echo gettext(" I can't say - skip this one..."); ?>"
 ICanTranslate = "<?php echo gettext(" I can translate this word!"); ?>"
 keepTheGeneralSense = "<?php echo gettext(" Keep the General Sense. It's a good definition as is!"); ?>"
 generalSense = "<?php echo _("General Sense: "); ?>"
+
+<?php
+$php_array = array('abc','def','ghi');
+$js_array = json_encode($gameLanguages);
+echo "var gameLanguages = ". $gameLanguages . ";\n";
+?>
  
 </script>
 <script src="js/server_requests.js"></script>
