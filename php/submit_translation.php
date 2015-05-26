@@ -21,6 +21,6 @@ $stmt->execute();
 
 $stmt->close();
 
-echo 'We sent : ' .$language ." " . $wordID . " " . $userID . " " . $translation;;
+echo 'lanugaeMap' . $languageMap;
 
 ?>

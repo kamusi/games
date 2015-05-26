@@ -44,7 +44,7 @@ function generateToken() {
 
 <?php
 $newToken = generateToken();
-array_push($languageMap, "1" => "en_US", "2" => "fr_FR", "3" => "vi_VI" );
+$languageMap = array( "1" => "en_US", "2" => "fr_FR", "3" => "vi_VI" );
 $gameNames = array('1' => _("Definition Game"), '2' => _("Translation Game") , '3' => _("Tweet Game"), '4'=> _("Sentence Game"));
 $gameLanguages= array('1' => _("Definition Game"), '2' => _("Translation Game") , '3' => _("Tweet Game"), '4'=> _("Sentence Game"));
 
