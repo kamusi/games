@@ -375,7 +375,7 @@ generalSense = "<?php echo _("General Sense: "); ?>"
 <?php
 $php_array = array('abc','def','ghi');
 $js_array = json_encode($gameLanguages);
-echo "var gameLanguages = ". $gameLanguages . ";\n";
+echo "var gameLanguages = ". $js_array . ";\n";
 ?>
  
 </script>
