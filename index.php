@@ -371,7 +371,7 @@ ICantSay = "<?php echo gettext(" I can't say - skip this one..."); ?>"
 ICanTranslate = "<?php echo gettext(" I can translate this word!"); ?>"
 keepTheGeneralSense = "<?php echo gettext(" Keep the General Sense. It's a good definition as is!"); ?>"
 generalSense = "<?php echo _("General Sense: "); ?>"
-translateTheFollowing= <?php echo _("Translate the following word to : ")  ?>
+translateTheFollowing= "<?php echo _("Translate the following word to : ")  ?>"
 
 <?php
 $php_array = array('abc','def','ghi');
