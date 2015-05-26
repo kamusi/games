@@ -21,6 +21,6 @@ $stmt->execute();
 
 $stmt->close();
 
-echo 'lanugaeMap' . $languageMap;
+echo 'lanugaeMap' . var_dump($languageMap);
 
 ?>
