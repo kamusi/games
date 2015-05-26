@@ -648,7 +648,7 @@ function get_ranked_mode_2() {
 			// document.getElementById("translation_input_tool_box").style.top="100px";
 		}
 	}
-	//Lanugage is always 1 since we take english words as input
+	//Lanugage is always 1 since we take english words as words to translate
 	xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + 1 + "&mode=" +'2', true);
 	xmlhttp.send();
 }
@@ -661,7 +661,11 @@ function submit_translation(translation) {
 	else {// code for IE6, IE5
 		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 	}
-	var noCache = new Date().getTime();
+	xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			console.log("END submit tranlsation : " + xmlhttp.responseText)
+		}
+	}
 	xmlhttp.open("GET","php/submit_translation.php?translation=" + translation + "&wordID=" + translationID + "&userID=" + userID  + "&language=" + gameLanguage + "&mode=" +'2', true);
 	xmlhttp.send();
 }
