@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kamusi\n"
-"POT-Creation-Date: 2015-05-26 17:43+0100\n"
-"PO-Revision-Date: 2015-05-26 17:43+0100\n"
+"POT-Creation-Date: 2015-05-26 17:45+0100\n"
+"PO-Revision-Date: 2015-05-26 17:46+0100\n"
 "Last-Translator: \n"
 "Language-Team: timo\n"
 "Language: fr_FR\n"
@@ -276,7 +276,7 @@ msgstr "Sens général: "
 
 #: index.php:374
 msgid "Translate the following word to : "
-msgstr "Traduisez le mot suivant en : "
+msgstr "Traduisez le mot suivant vers la langue suivante : "
 
 #~ msgid "Some sentence to translate"
 #~ msgstr "QQchose a traduire"
