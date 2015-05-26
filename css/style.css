@@ -394,13 +394,17 @@ body {
 		left: 400px;
 	}
 
-	#enter0:hover, #enterLogin:hover {
+	#changeLanguage {
+
+	}
+
+	#enter0:hover, #enterLogin:hover, #changeLanguage:hover {
 		transition: opacity 0s;
 		transform: scale(1.05);
 		opacity:1;
 	}
 
-	#enter0:hover:after, #enterLogin:hover:after {
+	#enter0:hover:after, #enterLogin:hover:after, #changeLanguage:hover:after  {
 		transition: opacity 0s;
 		transform: scale(1);
 		opacity:0.5;
