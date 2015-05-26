@@ -266,7 +266,7 @@ $gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' =
 <div id="settings">
 	<div id="settings-main">
 		<p><?php echo _("Menu Language"); ?></p>
-			<img title="ChooseLanguage" id="changeLanguage" class="shaded_enter" src="media/language_selector.png" onmousedown="playClick();">
+			<img title="ChooseLanguage" id="changeLanguage" src="media/language_selector.png" onmousedown="playClick();">
 
 </br></br>
 	<p><?php echo _("Game Language"); ?></p>
