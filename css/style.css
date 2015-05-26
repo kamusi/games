@@ -395,7 +395,7 @@ body {
 	}
 
 	#changeLanguage {
-
+		cursor:hand;
 	}
 
 	#enter0:hover, #enterLogin:hover, #changeLanguage:hover {
