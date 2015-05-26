@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kamusi\n"
 "POT-Creation-Date: 2015-05-26 12:15+0100\n"
-"PO-Revision-Date: 2015-05-26 12:18+0100\n"
+"PO-Revision-Date: 2015-05-26 12:35+0100\n"
 "Last-Translator: \n"
 "Language-Team: timo\n"
 "Language: fr_FR\n"
@@ -269,7 +269,7 @@ msgstr "Garder le sense général : cette une bonne définition ainsi!"
 
 #: index.php:376
 msgid "General Sense: "
-msgstr "Sens général"
+msgstr "Sens général: "
 
 #~ msgid "Talk to me in..."
 #~ msgstr "Parle-moi en..."

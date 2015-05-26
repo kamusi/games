@@ -94,9 +94,7 @@ function InlineEditorController2($scope){
 			if($scope.translation == translation_default_value) {
 				$scope.translation = '';
 			}
-   //      	document.getElementById("translation_input_tool_box").focus();
-			// document.getElementById("translation_input_tool_box").select();
-		}
+ 		}
 		else {
 			if ($scope.translation == '') {
 				$scope.translation = translation_default_value;
@@ -117,28 +115,12 @@ function InlineEditorController2($scope){
 	}
 
 	$scope.submitGame2 = function() {
-		get_ranked_mode_2();
+		soumettre_traduction();	get_ranked_mode_2();
 		$scope.hideTooltip2();
 		playClick();
 		$scope.translation = translation_default_value;	
 	}
 }
-
-// function secondEnter(e) {
-// 	if (e.keyCode == 13) {
-// 		var gamezone1 = document.getElementById("gamezone1");
-// 		var gamezone2 = document.getElementById("gamezone2");
-// 		var definition = document.getElementById("user_translation").className;
-// 		var translation = document.getElementById("user_translation").className;
-
-// 		if(gamezone1.style.display == "inline-block" && definition == "active_definition") {
-
-// 		}
-// 		else if(gamezone1.style.display == "inline-block" && translation == "active_definition") {
-
-// 		}
-// 	}
-// }
 
 function initialise(userID) {
 	
@@ -446,9 +428,9 @@ function vote() {
 function soumettre_traduction() {
 	var user_translation = document.getElementById("translation_input_tool_box").value;
 	var class_name = document.getElementById("user_translation").className;
-	if(class_name == "active_definition" && user_translation != translation_default_value) {
+//	if(class_name == "active_definition" && user_translation != translation_default_value) {
 		submit_translation(user_translation);
-	}
+//	}
 }
 
 function startAutoUpdateOfLeaderboard() {

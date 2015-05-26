@@ -132,7 +132,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 							<div class="input_tool" ng-click="$event.stopPropagation()" ng-show="showtooltip2">
 
 								<input id="translation_input_tool_box" type="text" ng-model="translation" ng-keypress="searchEnter2($event);" onFocus="this.select()"/>
-								<img title="Submit" id="SubmitTrans" ng-click="submitGame2();" class="controlSmall" src="media/rightarrowSmall.png" onclick="playClick();;soumettre_traduction();get_ranked_mode_2();">
+								<img title="Submit" id="SubmitTrans" ng-click="submitGame2($event);" class="controlSmall" src="media/rightarrowSmall.png" onclick="">
 
 							</div>
 							<table id="translations">
