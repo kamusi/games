@@ -45,11 +45,12 @@ function generateToken() {
 <?php
 $newToken = generateToken();
 
-$e1=_("Definition Game");
 $e2=_("Translation Game");
 $e3=_("Tweet Game");
 $e4=_("Sentence Game");
-$gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
+$gameNames = array('1' => _("Definition Game"), '2' => $e2 , '3' => $e3, '4'=> $e4);
+
+
 
 
 ?>
@@ -122,7 +123,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 					<div id="gamezone-main2">
 						<div id="translation_entry">
 						<h1 id="title2"> <?php printf(_("%s"),$gameNames["2"]); ?>  </h1>
-							<p id="instructions2"><?php echo _("Translate the following word to English: "); ?>   </p>
+							<p id="instructions2"><?php echo _("Translate the following word to : "); ?>   </p>
 			
 							<p id="translation_word"></p>
 							<p id="translation_pos"></p>
@@ -143,8 +144,6 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 						</table>
 					</div>
 					<div id="hunt_wrapper">
-
-					<p id="linkExplanation"><?php printf(_("These links can be helpful: ")); ?> </p>
 						<div id="hunt">
 							<a id="wiktionary" target="_blank">Wiktionary</a>
 							<a>•</a>
