@@ -667,7 +667,7 @@ function submit_translation(translation) {
 			console.log("END submit tranlsation : " + xmlhttp.responseText)
 		}
 	}
-	xmlhttp.open("GET","php/submit_translation.php?translation=" + translation + "&wordID=" + translationID + "&userID=" + userID  + "&language=" + gameLanguage + "&mode=" +'2', true);
+	xmlhttp.open("GET","php/submit_translation.php?translation=" + translation + "&wordID=" + wordID + "&userID=" + userID  + "&language=" + gameLanguage + "&mode=" +'2', true);
 	xmlhttp.send();
 }
 
