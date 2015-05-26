@@ -119,7 +119,7 @@ $gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' =
 					<div id="gamezone-main2">
 						<div id="translation_entry">
 						<h1 id="title2"> <?php printf(_("%s"),$gameNames["2"]); ?>  </h1>
-							<p id="instructions2"><?php echo _("Translate the following word to : ")  ?>   </p>
+							<p id="instructions2">   </p>
 			
 							<p id="translation_word"></p>
 							<p id="translation_pos"></p>
@@ -371,6 +371,7 @@ ICantSay = "<?php echo gettext(" I can't say - skip this one..."); ?>"
 ICanTranslate = "<?php echo gettext(" I can translate this word!"); ?>"
 keepTheGeneralSense = "<?php echo gettext(" Keep the General Sense. It's a good definition as is!"); ?>"
 generalSense = "<?php echo _("General Sense: "); ?>"
+translateTheFollowing= <?php echo _("Translate the following word to : ")  ?>
 
 <?php
 $php_array = array('abc','def','ghi');
