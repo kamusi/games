@@ -1,6 +1,5 @@
 <?php
 
-$languageID = 3; //Vietnamese by default
 $wordID = $_GET['wordID'];
 $userID = $_GET['userID'];
 $translation = $_GET['translation'];
@@ -14,7 +13,7 @@ addXSubmissionsInGame($userID, $language, $mode, 1);
 $sql = 	"INSERT INTO translations (LanguageID, WordID, UserID, Translation) VALUES (?,?,?,?);";
 
 $stmt = $mysqli->prepare($sql);
-$stmt->bind_param("iiss", $languageID,$wordID, $userID ,$translation);
+$stmt->bind_param("iiss", $language,$wordID, $userID ,$translation);
 
 $stmt->execute();
 

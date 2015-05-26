@@ -648,7 +648,8 @@ function get_ranked_mode_2() {
 			// document.getElementById("translation_input_tool_box").style.top="100px";
 		}
 	}
-	xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + gameLanguage + "&mode=" +'2', true);
+	//Lanugage is always 1 since we take english words as input
+	xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + 1 + "&mode=" +'2', true);
 	xmlhttp.send();
 }
 
