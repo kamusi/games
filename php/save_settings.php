@@ -1,6 +1,7 @@
 <?php
 $_SESSION = array();
 
+//TODO make this cleaner with the sessions
 // If it's desired to kill the session, also delete the session cookie.
 // Note: This will destroy the session, and not just the session data!
 if (ini_get("session.use_cookies")) {
@@ -18,7 +19,7 @@ ini_set('display_errors', 'On');
 $userID = $_GET['userID'];
 $notify = $_GET['notify'];
 $post = $_GET['post'];
-$language = $_GET['language'];
+$language = $_GET['gameLanguage'];
 
 
 $stmt = $mysqli->prepare("UPDATE users SET NotificationTimeUnit=? WHERE UserID=$userID;");
@@ -33,7 +34,7 @@ $stmt->bind_param("s",  $post);
 $stmt->execute();
 $stmt->close();
 
-$stmt = $mysqli->prepare("UPDATE users SET Language=? WHERE UserID=$userID;");
+$stmt = $mysqli->prepare("UPDATE users SET gameLanguage=? WHERE UserID=$userID;");
 $stmt->bind_param("i",  $language);
 $stmt->execute();
 $stmt->close();

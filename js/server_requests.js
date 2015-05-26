@@ -692,7 +692,7 @@ function saveSettings() {
 		}
 	}
 	console.log("Sending LANG : " + language)
-	xmlhttp.open("GET","php/save_settings.php?userID=" + userID + "&notify=" + whenToNotify + "&post=" + whenToPost + "&language=" + gameLanguage);
+	xmlhttp.open("GET","php/save_settings.php?userID=" + userID + "&notify=" + whenToNotify + "&post=" + whenToPost + "&gameLanguage=" + gameLanguage);
 	xmlhttp.send();
 }
 
