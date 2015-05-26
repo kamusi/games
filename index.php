@@ -142,8 +142,9 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 							</td></tr>
 						</table>
 					</div>
-					<p id="linkExplanation"><?php printf(_("These links can be helpful: ")); ?> </p>
 					<div id="hunt_wrapper">
+
+					<p id="linkExplanation"><?php printf(_("These links can be helpful: ")); ?> </p>
 						<div id="hunt">
 							<a id="wiktionary" target="_blank">Wiktionary</a>
 							<a>•</a>
