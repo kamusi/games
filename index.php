@@ -142,6 +142,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 							</td></tr>
 						</table>
 					</div>
+					<p id="linkExplanation"><?php printf(_("These links can be helpful: ")); ?> </p>
 					<div id="hunt_wrapper">
 						<div id="hunt">
 							<a id="wiktionary" target="_blank">Wiktionary</a>
@@ -268,14 +269,14 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 </div>
 <div id="settings">
 	<div id="settings-main">
-		<p><?php echo _("Some sentence to translate"); ?></p>
+		<p><?php echo _("Menu Language"); ?></p>
 	<select id="menu-language" onchange= size="1">
 		<option><?php echo _("English"); ?></option>
 		<option><?php echo _("French"); ?></option>
 		<option><?php echo _("Vietnamese"); ?></option>
 	</select>
 </br></br>
-	<p><?php echo _("Play for..."); ?></p>
+	<p><?php echo _("Game Language"); ?></p>
 <select id="language" onchange= size="1">
 	<option><?php echo _("English"); ?></option>
 	<option><?php echo _("French"); ?></option>
