@@ -122,7 +122,8 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 					<div id="gamezone-main2">
 						<div id="translation_entry">
 						<h1 id="title2"> <?php printf(_("%s"),$gameNames["2"]); ?>  </h1>
-
+							<p id="instructions2"><?php echo _("Translate the following word to English"); ?>   </p>
+			
 							<p id="translation_word"></p>
 							<p id="translation_pos"></p>
 							<p id="translation_definition"></p>
@@ -194,7 +195,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 				</div>
 
 				<div id="footer-next3">
-					<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxData("game4"); setTimeout(getRankedForSwahili(), 500);'>
+					<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxDtaa("game4"); setTimeout(getRankedForSwahili(), 500);'>
 				</div>
 			</div>
 
@@ -370,6 +371,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 //Translations fo the buttons.
 ICanWrite = "<?php echo gettext(" I can write the winning definition for this idea!"); ?>"
 ICantSay = "<?php echo gettext(" I can't say - skip this one..."); ?>"
+ICanTranslate = "<?php echo gettext(" I can translate this word!"); ?>"
 keepTheGeneralSense = "<?php echo gettext(" Keep the General Sense. It's a good definition as is!"); ?>"
 generalSense = "<?php echo _("General Sense: "); ?>"
  

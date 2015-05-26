@@ -1,7 +1,7 @@
 var min_length = 4;
 
 var default_value = '✎' + ICanWrite;
-var translation_default_value = '✎ ';
+var translation_default_value = '✎ ' + ICanTranslate;
 
 var autoUpdateIntervalJobID
 
@@ -147,7 +147,7 @@ function initialise(userID) {
 	console.log("INITLAIZINGGGGGGG")
 
 	get_user_stats();
-	add_translation_dunno('? Tôi không biết...');
+	add_translation_dunno('? ' + ICantSay);
 
 }
 
