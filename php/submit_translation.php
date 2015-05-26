@@ -10,6 +10,8 @@ $language = $_GET['language'];
 //increase the number of submissions for this user
 addXSubmissionsInGame($userID, $language, $mode, 1);
 
+
+
 $sql = 	"INSERT INTO translations (LanguageID, WordID, UserID, Translation) VALUES (?,?,?,?);";
 
 $stmt = $mysqli->prepare($sql);
@@ -19,6 +21,6 @@ $stmt->execute();
 
 $stmt->close();
 
-echo 'Success';
+echo 'We sent : ' .$language ." " . $wordID . " " . $userID . " " . $translation;;
 
 ?>
