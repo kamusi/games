@@ -122,7 +122,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 					<div id="gamezone-main2">
 						<div id="translation_entry">
 						<h1 id="title2"> <?php printf(_("%s"),$gameNames["2"]); ?>  </h1>
-							<p id="instructions2"><?php echo _("Translate the following word to English"); ?>   </p>
+							<p id="instructions2"><?php echo _("Translate the following word to English: "); ?>   </p>
 			
 							<p id="translation_word"></p>
 							<p id="translation_pos"></p>
