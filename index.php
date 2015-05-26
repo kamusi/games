@@ -195,7 +195,7 @@ $gameNames = array('1' => $e1, '2' => $e2 , '3' => $e3, '4'=> $e4);
 				</div>
 
 				<div id="footer-next3">
-					<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxDtaa("game4"); setTimeout(getRankedForSwahili(), 500);'>
+					<img title="Next" id="next1" ng-click="clear($event)" class="control" src="media/rightarrow.png" onclick='submitCheckBoxData("game4"); setTimeout(getRankedForSwahili(), 500);'>
 				</div>
 			</div>
 

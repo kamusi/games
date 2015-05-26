@@ -118,7 +118,7 @@ function getRankedForSwahili() {
 			console.log("All the details : " + groupID + word + wordID + obj[0].Definition + obj[0].PartOfSpeech )
 
 			console.log("word id BeCaAAAME : " + wordID)
-			document.getElementById("word4").innerHTML = "simama";
+			document.getElementById("word4").innerHTML = "ya";
 			document.getElementById("pos4").innerHTML = "Verb";
 			document.getElementById("transEnglish4").innerHTML = "Have or maintain an upright position, supported by one's feet.";
 			document.getElementById("defSwahili4").innerHTML = "Kuwa wima juu ya miguu";
