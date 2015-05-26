@@ -641,7 +641,8 @@ function get_ranked_mode_2() {
 			document.getElementById("wiktionary").href = "https://en.wiktionary.org/wiki/" + underscored_word;
 			document.getElementById("dictionary").href = "http://dictionary.reference.com/browse/" + underscored_word;
 			document.getElementById("wordnik").href = "https://www.wordnik.com/words/" + underscored_word;
-			translationID = obj[0].ID;
+			wordID = results_array[0].WordID;
+			groupID = results_array[0].GroupID;
 
 			// var newBottom = document.getElementById("translation_entry").getBoundingClientRect().bottom;
 			// var intString = (newBottom + 100).toString() + "px";
