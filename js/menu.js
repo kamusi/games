@@ -209,9 +209,7 @@ function display_settings() {
 
 function display_leaderboard() {
 	document.getElementById("profile").style.display = "none";
-	document.getElementById("leaderboard").style.display = "inline-block";
-
-	
+	document.getElementById("leaderboard").style.display = "inline-block";	
 }
 
 function display_about() {
@@ -230,6 +228,11 @@ function display_profile() {
 	document.getElementById("profile").style.display = "inline-block";
 }
 
+function display_changeLanguage() {
+		document.getElementById("profile").style.display = "none";
+	document.getElementById("changeMenuLanguage").style.display = "inline-block";	
+}
+
 function return_to_game() {
 	document.getElementById("about").style.display = "none";
 	document.getElementById("profile").style.display = "none";
@@ -240,6 +243,7 @@ function display_welcome() {
 	document.getElementById("game").style.display = "none";
 	document.getElementById("welcome").style.display = "inline-block";
 	document.getElementById("leaderboard").style.display = "none";
+	document.getElementById("changeMenuLanguage").style.display = "none";
 	continue_animation();
 }
 
