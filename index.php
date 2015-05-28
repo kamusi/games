@@ -299,11 +299,20 @@ $gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' =
 </div>
 </div>
 <div id="changeMenuLanguage">
+</br></br>
+</br></br>
+</br></br>
+</br></br>
+	<img src="media/checksign.jpg">
+	</br></br>
+	</br></br>
 <select id="menuLanguage" onchange= size="1">
 	<option><?php echo _("English"); ?></option>
 	<option><?php echo _("Français"); ?></option>
 	<option><?php echo _("tiếng Việt"); ?></option>
 </select>
+</br></br>
+</br></br>
 <div id="menuLanguage-footer">
 	<img title="Return" class="control" src="media/checksign.jpg" onclick="playClick(); saveMenuLanguage();">
 </div>
