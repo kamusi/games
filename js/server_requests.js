@@ -706,7 +706,7 @@ function saveMenuLanguage() {
 			location.reload();
 		}
 	}
-	console.log("Sending LANG : " + language)
+	console.log("Sending LANG : " + siteLanguage)
 	xmlhttp.open("GET","php/save_menu_language.php?userID=" + userID + "&menuLanguage=" + siteLanguage);
 	xmlhttp.send();
 
