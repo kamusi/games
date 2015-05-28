@@ -44,7 +44,7 @@ if( !$checkResult){
 	}
 
 	$checkResult="-1";
-	session_destroy();		
+	//session_destroy();		
 }
 else {
 	if (isset($_SESSION['lang'])){
