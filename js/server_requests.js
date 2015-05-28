@@ -526,8 +526,8 @@ function get_user_stats() {
 			var obj = JSON.parse(xmlhttp.responseText);
 			whenToNotify = obj.NotificationTimeUnit
 			whenToPost = obj.PostTimeUnit
-			gameLanguageSliderValue= obj.Language -1;
-			gameLanguage = obj.Language;
+			gameLanguageSliderValue= obj.gamelanguage -1;
+			gameLanguage = obj.gamelanguage;
 			console.log("The game language is now : " + gameLanguage);
 
 			document.getElementById('notifications').selectedIndex = whenToNotify 
