@@ -58,10 +58,8 @@ function welcome() {
     userID = response.id;
     userName = response.name;
     isNewUser();
-
-
   });
-      display_welcome();
+
 }
 
 function share() {

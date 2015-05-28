@@ -511,8 +511,12 @@ function isNewUser() {
 
 }
 
-function get_user_stats() {
-	console.log(  "GET USER STATS")
+function initialise() {
+	
+	set_avatar();
+
+	add_translation_dunno('? ' + ICantSay);
+
 	var xmlhttp;
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();
@@ -533,6 +537,8 @@ function get_user_stats() {
 			document.getElementById('notifications').selectedIndex = whenToNotify 
 			document.getElementById('posts').selectedIndex= whenToPost
 			document.getElementById('language').selectedIndex= gameLanguageSliderValue
+
+			display_welcome();
 
 		}
 	}

@@ -122,16 +122,7 @@ function InlineEditorController2($scope){
 	}
 }
 
-function initialise(userID) {
-	
-	set_avatar(userID);
 
-	console.log("INITLAIZINGGGGGGG")
-
-	get_user_stats();
-	add_translation_dunno('? ' + ICantSay);
-
-}
 
 function enter_game1() {
 	pause_animation();
@@ -310,7 +301,7 @@ function set_word(word, pos) {
 	document.getElementById("pos").innerHTML = pos;
 }
 
-function set_avatar(userID) {
+function set_avatar() {
 	document.getElementById("avatar").src = "https://graph.facebook.com/" + userID + "/picture";
 	document.getElementById("profile_avatar").src = "https://graph.facebook.com/" + userID + "/picture??width=200&height=200";
 }
