@@ -247,6 +247,17 @@ function display_welcome() {
 	document.getElementById("welcome").style.display = "inline-block";
 	document.getElementById("leaderboard").style.display = "none";
 	document.getElementById("changeMenuLanguage").style.display = "none";
+//display only the games that are avilable in the currentlanguage
+	
+	for( i = 1; i < 5; i++){
+		if(  $.inArray(gameLanguage, implementedGames[i]) == -1 {
+			document.getElementById("enter"+i).style.display = "none";
+		}
+		else {
+			document.getElementById("enter"+i).style.display = "inline-block";			
+		}
+	}
+
 	continue_animation();
 }
 
