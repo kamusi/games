@@ -493,9 +493,10 @@ function isNewUser() {
 					if(obj[1] != "aleadyDoneBefore") {
 						location.reload();
 					}
-					else {	
+					else {
+					initialise();	
 						animate_logo();					
-						initialise();
+						
 					}
 				}
 				else {
