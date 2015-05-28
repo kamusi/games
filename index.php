@@ -295,7 +295,7 @@ $implementedGames= array('1' => array(1), '2' => array(1,2,3), '3' => array(1), 
 </select>
 </div>
 <div id="settings-footer">
-	<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick(); saveSettings(); display_profile();">
+	<img title="Return" class="control" src="media/checksign.jpg" onclick="playClick(); saveSettings(); display_welcome;">
 </div>
 </div>
 <div id="changeMenuLanguage">
