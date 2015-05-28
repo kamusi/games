@@ -495,7 +495,7 @@ function isNewUser() {
 					}
 					else {	
 						animate_logo();					
-						initialise(userID);
+						initialise();
 					}
 				}
 				else {
