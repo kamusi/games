@@ -57,8 +57,8 @@ $gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' =
 			<div id="welcome">
 				<canvas width="930" height="550" id="animation">Your browser doesn't support HTML5.</canvas>
 				<img id="logo" src="media/logo.png" onmousedown="isNewUser();">
-				<img title="Definition Game" id="enter1" class="shaded_enter" src="media/definition2.png.png" onmousedown="playClick();enter_game1();">
-				<img title="Translation Game" id="enter2" class="shaded_enter" src="media/writingDefinition.png" onmousedown="playClick();enter_game2();">
+				<img title="Definition Game" id="enter1" class="shaded_enter" src="media/writingDefinition.png.png" onmousedown="playClick();enter_game1();">
+				<img title="Translation Game" id="enter2" class="shaded_enter" src="media/translation.jpg" onmousedown="playClick();enter_game2();">
 				<img title="Tweet Game" id="enter3" class="shaded_enter" src="media/twitterBird.png" onmousedown="playClick();enter_game3();">
 				<img title="Sentence Game" id="enter4" class="shaded_enter" src="media/book.png" onmousedown="playClick();enter_game4();">
 				<img title="ChooseLanguage" id="enter0" class="shaded_enter" src="media/language_selector.png" onmousedown="playClick();enter_game1();display_profile();display_settings();">
