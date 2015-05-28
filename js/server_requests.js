@@ -485,7 +485,7 @@ function isNewUser() {
 
 				console.log("REPONSE NEW USER : " + xmlhttp.responseText + "END");
 				obj = JSON.parse(xmlhttp.responseText);
-				initialise(userID);
+				
 				if(obj[1] != "unknown user") {
 
 					siteLanguage=obj[0]
@@ -493,8 +493,8 @@ function isNewUser() {
 					if(obj[1] != "aleadyDoneBefore") {
 						location.reload();
 					}
-					else {
-						animate_logo();
+					else {						
+						initialise(userID);
 					}
 				}
 				else {
@@ -539,6 +539,7 @@ function initialise() {
 			document.getElementById('language').selectedIndex= gameLanguageSliderValue
 
 			display_welcome();
+			animate_logo();
 
 		}
 	}
