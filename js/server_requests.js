@@ -493,7 +493,8 @@ function isNewUser() {
 					if(obj[1] != "aleadyDoneBefore") {
 						location.reload();
 					}
-					else {						
+					else {	
+						animate_logo();					
 						initialise(userID);
 					}
 				}
@@ -538,7 +539,7 @@ function initialise() {
 			document.getElementById('posts').selectedIndex= whenToPost
 			document.getElementById('language').selectedIndex= gameLanguageSliderValue
 
-			animate_logo();
+		
 display_welcome();
 			
 		}
