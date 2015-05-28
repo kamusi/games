@@ -62,7 +62,7 @@ $gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' =
 				<img title="Tweet Game" id="enter3" class="shaded_enter" src="media/twitterBird.png" onmousedown="playClick();enter_game3();">
 				<img title="Sentence Game" id="enter4" class="shaded_enter" src="media/book.png" onmousedown="playClick();enter_game4();">
 				<img title="Choose Language" id="enter0" class="shaded_enter" src="media/language_selector.png" onmousedown="playClick(); display_changeLanguage() ">
-				<fb:login-button scope="public_profile,email" id="enterLogin" class="shaded_enterLogin" onlogin="checkLoginStateAfterFirstLogin();"></fb:login-button>
+				<fb:login-button scope="public_profile,email" id="enterLogin" class="shaded_enterLogin" onlogin="checkLoginState();"></fb:login-button>
 
 			</div>
 			<div id="game" ng-app>
@@ -185,7 +185,7 @@ $gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' =
 						<p id="pos4"></p>					
 						<p id="transEnglish4"></p>
 						<p id="defSwahili4"></p>
-						<div id="definitions_wrapper">
+						<div id="sentences_wrapper">
 							<p id="swahiliSentences"></p>
 						</div>
 					</div>

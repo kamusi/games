@@ -256,6 +256,12 @@ body {
 		height: 310px;
 		overflow: scroll;
 	}
+	#sentences_wrapper {	
+		margin-top:20px;
+		width: 750px;
+		height: 240px;
+		overflow: scroll;
+	}
 
 	#translations_wrapper {	
 		margin-top:20px;

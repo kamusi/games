@@ -24,15 +24,6 @@ function checkLoginState() {
   });
 }
 
-function checkLoginStateAfterFirstLogin() {
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-  //location.reload();
-  //welcome();
-}
-
-
 //Called when page loads
 window.fbAsyncInit = function() {
 	//Initialise SDK
