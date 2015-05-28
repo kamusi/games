@@ -715,7 +715,7 @@ function saveMenuLanguage() {
 		}
 	}
 	console.log("Sending LANG : " + language)
-	xmlhttp.open("GET","php/save_settings.php?userID=" + userID + "&language=" + siteLanguage);
+	xmlhttp.open("GET","php/save_menu_language.php?userID=" + userID + "&language=" + siteLanguage);
 	xmlhttp.send();
 
 }
