@@ -697,7 +697,7 @@ function saveSettings() {
 
 function saveMenuLanguage() {
 
-	menuLanguageSliderValue = document.getElementById("language").selectedIndex
+	menuLanguageSliderValue = document.getElementById("menuLanguage").selectedIndex
 	siteLanguage = menuLanguageSliderValue +1;
 
 	var xmlhttp;
