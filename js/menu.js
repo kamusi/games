@@ -250,7 +250,7 @@ function display_welcome() {
 //display only the games that are avilable in the currentlanguage
 	
 	for( i = 1; i < 5; i++){
-		if(  $.inArray(gameLanguage, implementedGames[i]) == -1 {
+		if(  $.inArray(gameLanguage, implementedGames[i])) == -1 {
 			document.getElementById("enter"+i).style.display = "none";
 		}
 		else {
