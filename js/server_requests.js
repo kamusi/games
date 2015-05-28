@@ -486,11 +486,11 @@ function isNewUser() {
 				console.log("REPONSE NEW USER : " + xmlhttp.responseText + "END");
 				obj = JSON.parse(xmlhttp.responseText);
 				initialise(userID);
-				if(obj != "-1") {
+				if(obj[1] != "unknown user") {
 
-					siteLanguage=obj
+					siteLanguage=obj[0]
 					console.log("Site lanuguage is: " + siteLanguage)
-					if(obj != "aleadyDoneBefore") {
+					if(obj[1] != "aleadyDoneBefore") {
 						location.reload();
 					}
 					else {

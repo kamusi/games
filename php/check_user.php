@@ -13,6 +13,8 @@ $result = $stmt->get_result();
 
 $stmt->close();
 
+$returnValue[]= $checkResult;
+
 
 if( !$checkResult){
 	//Add user to database
@@ -39,8 +41,7 @@ if( !$checkResult){
 			$stmt->close();
 		}
 	}
-
-	$checkResult="-1";
+	$returnValue[]= "unknown user";
 	//destroy previsously existing session	
 	if (session_id() !== '') {
 		session_destroy();		
@@ -49,20 +50,17 @@ if( !$checkResult){
 else {
 		$_SESSION['lang']=$languageMap[$checkResult];
 	if (isset($_SESSION['lang'])){
-		$checkResult="aleadyDoneBefore";
+		$returnValue[]= "aleadyDoneBefore";
 	}
 	else {
-		$checkResult="done";
+		$returnValue[]= "done";
 	}
-
-
-
-
-
 }
 
 
-$jsonData = json_encode($checkResult);
+
+
+$jsonData = json_encode($returnValue);
 echo $jsonData;
 
 ?>
