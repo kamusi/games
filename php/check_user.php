@@ -48,11 +48,12 @@ if( !$checkResult){
 	}
 }
 else {
-		$_SESSION['lang']=$languageMap[$checkResult];
+
 	if (isset($_SESSION['lang'])){
 		$returnValue[]= "aleadyDoneBefore";
 	}
 	else {
+		$_SESSION['lang']=$languageMap[$checkResult];
 		$returnValue[]= "done";
 	}
 }
