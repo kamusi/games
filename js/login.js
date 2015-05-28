@@ -53,14 +53,15 @@ window.fbAsyncInit = function() {
 
 function welcome() {
   document.getElementById("login_button").style.display = "none";
-  
+
   FB.api('/me', function(response) {
     userID = response.id;
     userName = response.name;
     isNewUser();
-display_welcome();
+
 
   });
+      display_welcome();
 }
 
 function share() {
