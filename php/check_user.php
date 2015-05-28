@@ -14,7 +14,7 @@ $result = $stmt->get_result();
 $stmt->close();
 
 echo "USERIS: " . $userID;
-var_dump($userExists);
+var_dump($checkResult);
 
 
 if( !$userExists){
