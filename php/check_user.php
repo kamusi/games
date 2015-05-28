@@ -15,6 +15,8 @@ $stmt->close();
 
 $returnValue[]= $checkResult;
 
+var_dump($checkResult);
+
 //if we have a newUser
 if( !$checkResult){
 	//Add user to database
