@@ -265,7 +265,7 @@ $gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' =
 </div>
 <div id="settings">
 	<div id="settings-main">
-		<p><?php echo _("Menu Language"); ?></p>
+		<p><?php echo _("Hints and Help Language"); ?></p>
 			<img title="ChooseLanguage" id="changeLanguage" src="media/language_selector.png" onmousedown="playClick();">
 
 </br></br>
@@ -296,6 +296,16 @@ $gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' =
 </div>
 <div id="settings-footer">
 	<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick(); saveSettings(); display_profile();">
+</div>
+</div>
+<div id="changeMenuLangugae">
+<select id="menuLanguage" onchange= size="1">
+	<option><?php echo _("English"); ?></option>
+	<option><?php echo _("Français"); ?></option>
+	<option><?php echo _("tiếng Việt"); ?></option>
+</select>
+<div id="menuLanguage-footer">
+	<img title="Return" class="control" src="media/checksign.jpg" onclick="playClick(); ;">
 </div>
 </div>
 <div id="leaderboard">
@@ -345,10 +355,7 @@ $gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' =
 
 	<div id="leader">
 		<table id="score_table">
-
 		</table>
-
-
 	</div>
 	<div id="leaderboard-footer">
 		<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick(); display_profile();">
