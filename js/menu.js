@@ -222,6 +222,7 @@ function display_profile() {
 	stopAutoUpdateOfLeaderboard();
 	document.getElementById("settings").style.display = "none";
 	document.getElementById("leaderboard").style.display = "none";
+	document.getElementById("changeMenuLanguage").style.display = "none";	
 	document.getElementById("welcome").style.display = "none";
 	document.getElementById("game").style.display = "none";
 
