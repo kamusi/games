@@ -29,7 +29,7 @@ function checkLoginStateAfterFirstLogin() {
     statusChangeCallback(response);
   });
   //location.reload();
-  welcome();
+  //welcome();
 }
 
 
