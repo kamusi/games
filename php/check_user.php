@@ -47,14 +47,15 @@ if( !$checkResult){
 	}
 }
 else {
+		$_SESSION['lang']=$languageMap[$checkResult];
 	if (isset($_SESSION['lang'])){
 		$checkResult="aleadyDoneBefore";
 	}
 	else {
 		$checkResult="done";
 	}
-	
-	$_SESSION['lang']=$languageMap[$checkResult];
+
+
 
 
 
