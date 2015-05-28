@@ -301,9 +301,7 @@ $gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' =
 <div id="changeMenuLanguage">
 </br></br>
 </br></br>
-</br></br>
-</br></br>
-	<img src="media/checksign.jpg">
+	<img src="media/language_selector.png">
 	</br></br>
 	</br></br>
 <select id="menuLanguage" onchange= size="1">
