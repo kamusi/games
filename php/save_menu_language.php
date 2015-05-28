@@ -20,12 +20,12 @@ ini_set('display_errors', 'On');
 $userID = $_GET['userID'];
 $language = $_GET['menuLanguage'];
 
-$stmt = $mysqli->prepare("UPDATE users SET Language=? WHERE UserID=$userID;");
-$stmt->bind_param("i",  $language);
+$stmt = $mysqli->prepare("UPDATE users SET Language=? WHERE UserID= ?;");
+$stmt->bind_param("is",  $language, $userID);
 $stmt->execute();
 $stmt->close();
 
-$return = "Menu Language Changed";
+$return = "Menu Language Changed to " . $language;
 json_encode(return);
 
 ?>
