@@ -248,7 +248,7 @@ function display_welcome() {
 	document.getElementById("leaderboard").style.display = "none";
 	document.getElementById("changeMenuLanguage").style.display = "none";
 //display only the games that are avilable in the currentlanguage
-		console.log(implementedGames)
+		console.log(implementedGames[1])
 		console.log("HAHAH" + $.inArray(1, implementedGames[1]))
 	for( i = 1; i < 5; i++){
 		if(  $.inArray(gameLanguage, implementedGames[i]) == -1) {
