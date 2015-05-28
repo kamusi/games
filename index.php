@@ -294,9 +294,10 @@ $implementedGames= array('1' => array(1), '2' => array(1,2,3), '3' => array(1), 
 	<option><?php echo _("When pigs fly... (Never)"); ?></option>
 </select>
 </div>
-<div id="settings-footer">
+</br></br>
 	<img title="Submit" class="control" src="media/checksign.jpg" onclick="playClick(); saveSettings(); display_welcome;">
-</div>
+
+
 </div>
 <div id="changeMenuLanguage">
 </br></br>
