@@ -57,10 +57,10 @@ $gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' =
 			<div id="welcome">
 				<canvas width="930" height="550" id="animation">Your browser doesn't support HTML5.</canvas>
 				<img id="logo" src="media/logo.png" onmousedown="isNewUser();">
-				<img title="Better English" id="enter1" class="shaded_enter" src="media/uk.png" onmousedown="playClick();enter_game1();">
-				<img title="Từ này là" id="enter2" class="shaded_enter" src="media/vn.png" onmousedown="playClick();enter_game2();">
-				<img title="TweetGame" id="enter3" class="shaded_enter" src="media/xbox.png" onmousedown="playClick();enter_game3();">
-				<img title="SwahiliGame" id="enter4" class="shaded_enter" src="media/puc.png" onmousedown="playClick();enter_game4();">
+				<img title="Definition Game" id="enter1" class="shaded_enter" src="media/definition2.png.png" onmousedown="playClick();enter_game1();">
+				<img title="Translation Game" id="enter2" class="shaded_enter" src="media/writingDefinition.png" onmousedown="playClick();enter_game2();">
+				<img title="Tweet Game" id="enter3" class="shaded_enter" src="media/twitterBird.png" onmousedown="playClick();enter_game3();">
+				<img title="Sentence Game" id="enter4" class="shaded_enter" src="media/book.png" onmousedown="playClick();enter_game4();">
 				<img title="ChooseLanguage" id="enter0" class="shaded_enter" src="media/language_selector.png" onmousedown="playClick();enter_game1();display_profile();display_settings();">
 				<fb:login-button scope="public_profile,email" id="enterLogin" class="shaded_enterLogin" onlogin="checkLoginStateAfterFirstLogin();"></fb:login-button>
 
@@ -305,14 +305,14 @@ $gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' =
 	</br></br>
 	</br></br>
 <select id="menuLanguage" onchange= size="1">
-	<option><?php echo _("English"); ?></option>
-	<option><?php echo _("Français"); ?></option>
-	<option><?php echo _("tiếng Việt"); ?></option>
+	<option><?php echo ("English"); ?></option>
+	<option><?php echo ("Français"); ?></option>
+	<option><?php echo ("tiếng Việt"); ?></option>
 </select>
 </br></br>
 </br></br>
 <div id="menuLanguage-footer">
-	<img title="Return" class="control" src="media/checksign.jpg" onclick="playClick(); saveMenuLanguage();">
+	<img title="Submit" class="control" src="media/checksign.jpg" onclick="playClick(); saveMenuLanguage();">
 </div>
 </div>
 <div id="leaderboard">

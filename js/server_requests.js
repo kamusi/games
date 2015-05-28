@@ -711,7 +711,7 @@ function saveMenuLanguage() {
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 			console.log(xmlhttp.responseText)
-			//location.reload();
+			location.reload();
 		}
 	}
 	console.log("Sending LANG : " + language)
