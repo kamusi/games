@@ -235,6 +235,7 @@ function return_to_game() {
 
 function display_welcome() {
 	document.getElementById("game").style.display = "none";
+		document.getElementById("settings").style.display = "none";
 	document.getElementById("welcome").style.display = "inline-block";
 	document.getElementById("leaderboard").style.display = "none";
 	document.getElementById("changeMenuLanguage").style.display = "none";
