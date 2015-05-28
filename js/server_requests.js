@@ -696,6 +696,10 @@ function saveSettings() {
 }
 
 function saveMenuLanguage() {
+
+	menuLanguageSliderValue = document.getElementById("language").selectedIndex
+	siteLanguage = menuLanguageSliderValue +1;
+
 	var xmlhttp;
 
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
