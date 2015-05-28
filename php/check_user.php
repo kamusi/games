@@ -13,9 +13,6 @@ $result = $stmt->get_result();
 
 $stmt->close();
 
-echo "USERIS: " . $userID;
-var_dump($checkResult);
-
 
 if( !$checkResult){
 	//Add user to database
