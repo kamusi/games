@@ -13,6 +13,9 @@ $result = $stmt->get_result();
 
 $stmt->close();
 
+echo "USERIS: " . $userID;
+var_dump($userExists);
+
 
 if( !$userExists){
 	//Add user to database
@@ -41,8 +44,7 @@ if( !$userExists){
 	}
 
 	$checkResult="-1";
-	session_destroy();
-		
+	session_destroy();		
 }
 else {
 	if (isset($_SESSION['lang'])){
