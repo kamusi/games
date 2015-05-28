@@ -538,9 +538,9 @@ function initialise() {
 			document.getElementById('posts').selectedIndex= whenToPost
 			document.getElementById('language').selectedIndex= gameLanguageSliderValue
 
-			display_welcome();
 			animate_logo();
-
+display_welcome();
+			
 		}
 	}
 	xmlhttp.open("GET","php/get_profile.php?userID=" + userID + "&token=" + token, true);
