@@ -1,7 +1,7 @@
 <?php
 $_SESSION = array();
 
-if (isset($_SESSION['lang'])){
+//if (isset($_SESSION['lang'])){
 
 if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
@@ -13,7 +13,7 @@ if (ini_get("session.use_cookies")) {
 
 
 session_destroy();
-}
+//}
 
 error_reporting(E_ALL);
 
