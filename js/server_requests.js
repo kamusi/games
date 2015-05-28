@@ -496,11 +496,6 @@ function isNewUser() {
 					else {
 						animate_logo();
 					}
-					/*
-					xmlhttp.open("GET","/index.php?&lang=" + siteLanguage);
-					xmlhttp.send(); */
-					//window.location.search += newString
-
 				}
 				else {
 					animate_logo_firstTime(); 
@@ -645,9 +640,6 @@ function get_ranked_mode_2() {
 			wordID = obj[0].WordID;
 			groupID = obj[0].GroupID;
 
-			// var newBottom = document.getElementById("translation_entry").getBoundingClientRect().bottom;
-			// var intString = (newBottom + 100).toString() + "px";
-			// document.getElementById("translation_input_tool_box").style.top="100px";
 		}
 	}
 	//Lanugage is always 1 since we take english words as words to translate
