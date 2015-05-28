@@ -41,16 +41,22 @@ if( !$checkResult){
 	}
 
 	$checkResult="-1";
-	//session_destroy();		
+	//destroy previsously existing session	
+	if (session_id() !== '') {
+		session_destroy();		
+	}
 }
 else {
 	if (isset($_SESSION['lang'])){
 		$checkResult="aleadyDoneBefore";
 	}
- 
+	else {
+		$checkResult="done";
+	}
+	
 	$_SESSION['lang']=$languageMap[$checkResult];
 
-	$checkResult="done";
+
 
 }
 
