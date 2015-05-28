@@ -231,7 +231,6 @@ function display_profile() {
 
 function display_changeLanguage() {
 		document.getElementById("welcome").style.display = "none";
-	document.getElementById("game").style.display = "inline-block";
 		document.getElementById("profile").style.display = "none";
 			document.getElementById("settings").style.display = "none";
 	document.getElementById("changeMenuLanguage").style.display = "inline-block";	
