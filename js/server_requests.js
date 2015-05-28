@@ -489,7 +489,7 @@ function isNewUser() {
 				if(obj != "-1") {
 
 					siteLanguage=obj
-					console.log("NEQWIDNWE: " + siteLanguage)
+					console.log("Site lanuguage is: " + siteLanguage)
 					if(obj != "aleadyDoneBefore") {
 						location.reload();
 					}
