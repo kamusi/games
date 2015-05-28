@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 $userID = $_GET['userID'];
 $userName = $_GET['userName'];
 
@@ -7,7 +7,7 @@ $userName = $_GET['userName'];
 $stmt = $mysqli->prepare("SELECT Language FROM users WHERE UserID = ? ;");
 $stmt->bind_param("s", $userID );
 $stmt->execute();
-$userExists= $stmt->bind_result($checkResult);
+$stmt->bind_result($checkResult);
 $stmt->fetch();
 $result = $stmt->get_result(); 
 
@@ -15,7 +15,7 @@ $stmt->close();
 
 $returnValue[]= $checkResult;
 
-
+//if we have a newUser
 if( !$checkResult){
 	//Add user to database
 	$stmt = $mysqli->prepare("INSERT INTO users (UserID, Username) VALUES(?,?);");
@@ -49,13 +49,26 @@ if( !$checkResult){
 }
 else {
 
-	if (isset($_SESSION['lang'])){
-		$returnValue[]= "aleadyDoneBefore";
-	}
-	else {
+	$stmt = $mysqli->prepare("SELECT languagechanged FROM users WHERE UserID = ? ;");
+	$stmt->bind_param("s", $userID );
+	$stmt->execute();
+	$stmt->bind_result($languagechanged);
+	$stmt->fetch();
+	$result = $stmt->get_result(); 
+	$stmt->close();
+
+	if($languagechanged == "1"){
 		$_SESSION['lang']=$languageMap[$checkResult];
 		$returnValue[]= "done";
+		$stmt = $mysqli->prepare("UPDATE users SET languagechanged=0 WHERE UserID= ?;");
+		$stmt->bind_param("s", $userID);
+		$stmt->execute();
+		$stmt->close();	
 	}
+	else {
+		$returnValue[]= "aleadyDoneBefore";
+	}
+	
 }
 
 
