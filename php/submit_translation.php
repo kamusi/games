@@ -32,7 +32,7 @@ $stmt->close();
 
 if($numberOfTranslationAlreadyInDatabase == 1){
 	addXToPointsInGame($userID, $language, $mode, 10);
-	$returnValue= "transAlreadyExists"
+	$returnValue= "transAlreadyExists";
 }
 else {
 
