@@ -231,12 +231,14 @@ function return_to_game() {
 	document.getElementById("about").style.display = "none";
 	document.getElementById("profile").style.display = "none";
 	document.getElementById("game").style.display = "inline-block";
+		document.getElementById("changeMenuLanguage").style.display = "none";
 }
 
 function display_welcome() {
 	document.getElementById("game").style.display = "none";
 	document.getElementById("welcome").style.display = "inline-block";
 	document.getElementById("leaderboard").style.display = "none";
+				document.getElementById("settings").style.display = "none";
 	document.getElementById("changeMenuLanguage").style.display = "none";
 //display only the games that are avilable in the currentlanguage
 		console.log(implementedGames)

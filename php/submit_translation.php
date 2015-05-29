@@ -73,6 +73,17 @@ $stmt->close();
 
 }
 
+$sql = 	"SELECT Count(WordID) FROM translations WHERE UserID = ?;";
+
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("s", $userID);
+$stmt->execute();
+$stmt->bind_result($pendingpoints);
+$stmt->fetch();
+$stmt->close();
+
+setXToPendingPointsInGame($userID, $language, $mode, $pendingpoints);
+
 echo 'We sent : ' .$language ." " . $wordID . " " . $userID . " " . $translation;;
 
 ?>

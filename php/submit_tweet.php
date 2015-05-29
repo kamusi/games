@@ -126,11 +126,8 @@ foreach($concernedUsers as $user) {
 	$stmt->fetch();
 	$stmt->close();
 
-
-	$stmt = $mysqli->prepare("UPDATE games SET pendingpoints = ? WHERE userid=? and language = ? AND game = ?;");
-	$stmt->bind_param("isii", $pendingScore, $user, $data["language"], $data["mode"]);
-	$stmt->execute();
-	$stmt->close();
+	$setXToPendingPointsInGame($data["userID"],$data["language"], $data["mode"],$pendingScore );
+	
 
 }
 

@@ -22,6 +22,20 @@ function addXToValueInGame($userID, $language, $mode, $value, $x){
 	$stmt->close();	
 }
 
+function setXToValueInGame($userID, $language, $mode, $value, $x){
+	global $mysqli;
+	$stmt = $mysqli->prepare("UPDATE games SET ". $value . " = ? WHERE userid=? and language = ? AND game=?;");
+	$stmt->bind_param("isii", $x, $userID, $language, $mode);
+	$stmt->execute();
+	$stmt->close();	
+}
+
+function setXToPendingPointsInGame($userID, $language, $mode, $x){
+	global $mysqli;
+	setXToValueInGame($userID, $language, $mode, "pendingpoints", $x);
+
+}
+
 function addXToPointsInGame($userID, $language, $mode, $x) {
 	global $mysqli;
 
