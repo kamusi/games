@@ -53,4 +53,19 @@ function addXSubmissionsInGame($userID, $language, $mode, $x){
 
 }
 
+function giveAllConcernedUsersXPoints($concernedUsers, $x){
+	global $data, $mysqli;
+	foreach($concernedUsers as $user) {
+		addXToPointsInGame($user, $data["language"], $data["mode"], 1);
+
+		$returnText = $user;
+
+		$stmt = $mysqli->prepare("UPDATE users SET NewPointsSinceLastNotification = NewPointsSinceLastNotification + ? WHERE UserID=?;");
+		$stmt->bind_param("is", $x, $user);
+		$stmt->execute();
+		$stmt->close();
+	}
+
+}
+
 ?>
