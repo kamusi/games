@@ -156,7 +156,7 @@ function getDefinitions($word_id){
 			$stmt->close();
 
 			if(!$translatedWord){
-				$translatedWord = "Nothing Found"
+				$translatedWord = "Nothing Found";
 			}
 		}
 		$results_array[0]."trans" = $translatedWord;
