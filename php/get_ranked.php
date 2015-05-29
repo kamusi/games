@@ -156,6 +156,8 @@ function getDefinitions($word_id){
 			$stmt->fetch();
 			$stmt->close();
 
+			echo "éfknerf ". $translatedWord;
+
 			if(!$translatedWord){
 				$translatedWord = "Nothing Found";
 			}
