@@ -418,7 +418,14 @@ function get_ranked() {
 			wordID = results_array[0].WordID;
 			groupID = results_array[0].GroupID;
 
-			set_word(results_array[0].Word, results_array[0].PartOfSpeech);
+			wordToDisplay;
+			if(gameLanguage != '1'){
+				wordToDisplay = results_array[0].trans
+			}
+			else {
+				wordToDisplay = results_array[0].Word
+			}
+			set_word(wordToDisplay, results_array[0].PartOfSpeech);
 			add_definition(-1, "? " + ICantSay, false);
 
 			document.getElementById("consensus").innerHTML = generalSense;
