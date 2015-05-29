@@ -566,7 +566,7 @@ function getGameScore(){
 
 		}
 	}
-	console.log("language is : " + gameLanguageSliderValue)
+	console.log("gameLAnugage is : " + gameLanguage)
 	xmlhttp.open("GET","php/get_game_score.php?userID=" + userID + "&mode=" + game + "&language=" + gameLanguage, true);
 	xmlhttp.send();    
 }
