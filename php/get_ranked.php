@@ -42,7 +42,7 @@ function lookForWord($userID) {
 
 //fetch the word that has as rank user s position+offset
 	$sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
-		$sql.=	"SELECT w.ID, w.DefinitionID, , r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
+		$sql.=	"SELECT w.ID, w.DefinitionID, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
 		$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.ID NOT IN (SELECT wordid FROM seengames WHERE (userid=? OR userid=?) AND language = ? AND game=?) AND sq.Rank = ?;";
 
 $sum = intval($user_position) + intval($user_offset);
@@ -121,7 +121,7 @@ function getDefinitions($word_id){
 	global $mysqli, $language;
 
 	$sql =  "SELECT sq.ID As WordID, sq.ID As trans, sq.Word, sq.PartOfSpeech, d.ID As DefinitionID, d.Definition, d.GroupID, d.UserID As Author ";
-	$sql .= "FROM (SELECT * FROM words WHERE ID=? AND language = ?) AS sq ";
+	$sql .= "FROM (SELECT * FROM words WHERE ID=? ) AS sq ";
 	$sql .= "LEFT JOIN definitions As d ON sq.DefinitionID = d.GroupID WHERE d.GroupID IS NOT NULL AND d.language = ?";
 	$sql .= " ORDER BY Votes desc;";
 
@@ -130,7 +130,7 @@ function getDefinitions($word_id){
 		die ("Mysql Error: " . $mysqli->error);
 	}
 
-	$stmt->bind_param("iii",  $word_id, $language, $language);
+	$stmt->bind_param("ii",  $word_id,, $language);
 	$stmt->execute();
 	$result = $stmt->get_result();
 
