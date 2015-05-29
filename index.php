@@ -360,7 +360,7 @@ $implementedGames= array('1' => array(1,2), '2' => array(1,2,3), '3' => array(1)
 			</select>
 		</div>
 		<div class="settings-inner">
-		<input id = "autoloop" class="scoreSelectors" type="checkbox" name="autoloop" value="autoloop" checked; ><?php echo _("Auto-Loop"); ?><br>
+		<input id = "autoloop" class="scoreSelectors" type="checkbox" name="autoloop" value="autoloop" checked="true"; ><?php echo _("Auto-Loop"); ?><br>
 		</div>
 	</div>
 	<h1><?php echo _("Leaderboard"); ?></h1>
