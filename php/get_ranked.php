@@ -150,16 +150,11 @@ function getDefinitions($word_id){
 			$sql = 	"SELECT translation FROM wordtranslation WHERE wordid= ? AND language = ? LIMIT 1;";
 
 			$stmt = $mysqli->prepare($sql);
-			$stmt->bind_param("ii", $wordID, $language);
+			$stmt->bind_param("ii", $word_id, $language);
 			$stmt->execute();
-$result = $stmt->get_result();
-$row = $result->fetch_assoc();
-
-$translatedWord = $row["translation"];
+			$stmt->bind_result($translatedWord);
+			$stmt->fetch();
 			$stmt->close();
-
-			echo "éfknerf ";
-			var_dump($row);
 
 			if(!$translatedWord){
 				$translatedWord = "Nothing Found";
