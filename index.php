@@ -266,7 +266,7 @@ $implementedGames= array('1' => array(1), '2' => array(1,2,3), '3' => array(1), 
 <div id="settings">
 	<div id="settings-main">
 		<p><?php echo _("Hints and Help Language"); ?></p>
-			<img title="ChooseLanguage" id="changeLanguage" src="media/language_selector.png" onmousedown="playClick();display_changeLanguage();">
+			<img title="ChooseLanguage" id="changeLanguage" src="media/language_selector.png" onmousedown="playClick(); saveSettings();display_changeLanguage();">
 
 </br></br>
 	<p><?php echo _("Game Language"); ?></p>
