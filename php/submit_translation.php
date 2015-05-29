@@ -70,6 +70,14 @@ $stmt->bind_param("isi", $wordID, $translation, $language);
 $stmt->execute();
 $stmt->close();
 
+//And add the entry to the permanent database
+
+$sql = 	"INSERT INTO wordtranslation (language, wordid, userid, translation) VALUES (?,?,?,?);";
+
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("iiss", $language,$wordID, $userID ,$translation);
+$stmt->execute();
+$stmt->close();
 
 }
 
