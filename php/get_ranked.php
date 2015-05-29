@@ -158,7 +158,8 @@ $row = $result->fetch_assoc();
 $translatedWord = $row["translation"];
 			$stmt->close();
 
-			echo "éfknerf ". $translatedWord;
+			echo "éfknerf ";
+			var_dump($row);
 
 			if(!$translatedWord){
 				$translatedWord = "Nothing Found";
