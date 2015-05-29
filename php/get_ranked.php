@@ -13,10 +13,10 @@ $maximumNumberOfDefsForGame3=3;
 
 $results_array = FALSE;
 
-while($results_array === FALSE) {
+//while($results_array === FALSE) {
 	$word_id =lookForWord($userID); 
 	$results_array = getDefinitions($word_id);
-}
+//}
 
 $jsonData = json_encode($results_array);
 echo $jsonData;
