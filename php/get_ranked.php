@@ -15,7 +15,7 @@ $results_array = FALSE;
 
 while($results_array === FALSE) {
 	$word_id =lookForWord($userID); 
-	$results_array = getDefinitions($word_id);
+	$results_array = getDefinitions(35);
 }
 
 $jsonData = json_encode($results_array);
@@ -147,7 +147,7 @@ function getDefinitions($word_id){
 		$stmt->close();
 
 		if($language != '1') {
-			$sql = 	"SELECT translation FROM wordtranslation WHERE wordid= ? AND language = ?;";
+			$sql = 	"SELECT translation FROM wordtranslation WHERE wordid= ? AND language = ? LIMIT 1;";
 
 			$stmt = $mysqli->prepare($sql);
 			$stmt->bind_param("ii", $wordID, $language);
