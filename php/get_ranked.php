@@ -52,6 +52,7 @@ $stmt = $mysqli->prepare($sql);
 if ($stmt === FALSE) {
 	die ("Mysql Error: " . $mysqli->error);
 }
+echo "MY query : " .$sql
 
 $stmt->bind_param("ssii", $userID, $allUsers, $mode, $sum);
 
@@ -65,7 +66,6 @@ $word_id = $row["ID"];
 
 
 $stmt->close();
-var_dump($result);
 
 $numberOfDefinitions=$result->num_rows;
 
@@ -94,7 +94,6 @@ if($numberOfDefinitions === 0 || $conditionForGame3 ){
 		$stmt->close();	
 
 	}
-	//return 2324;
 	return lookForWord($userID);
 }
 else {
