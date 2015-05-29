@@ -21,7 +21,7 @@ $stmt->bind_param("iiss", $language,$wordID, $userID ,$translation);
 $stmt->execute();
 $stmt->close();
 
-$sql = 	"SELECT Count(wordid) FROM wordtranslations WHERE wordid = ? translation = ? AND language = ?;";
+$sql = 	"SELECT Count(wordid) FROM wordtranslation WHERE wordid = ? translation = ? AND language = ?;";
 
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("isi", $wordID, $translation, $language);
