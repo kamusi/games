@@ -94,6 +94,6 @@ $stmt->close();
 setXToPendingPointsInGame($userID, $language, $mode, $pendingpoints);
 }
 
-echo 'We sent : ' .$language ." " . $wordID . " " . $userID . " " . $translation;;
+echo 'We returned : ' . $returnValue;
 
 ?>
