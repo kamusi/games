@@ -435,7 +435,7 @@ function get_ranked() {
 					add_definition(results_array[i].DefinitionID, "▶ " + results_array[i].Definition, true);
 				}
 			}
-			// }
+
 			definitionID = -1;
 		}
 	}
@@ -652,8 +652,8 @@ function get_ranked_mode_2() {
 		}
 	}
 	//Lanugage is always 1 since we take english words as words to translate
-	//xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + 1 + "&mode=" +'2', true);
-	xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
+	xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + 1 + "&mode=" +'2', true);
+	//xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
 
 	xmlhttp.send();
 }

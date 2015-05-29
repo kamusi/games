@@ -66,14 +66,14 @@ if ($totalScoreOfSentece < -1 ) {
 	$stmt->close();
 */
 //User gets notified for each point : upvotes and downvotes, but no posts for downvotes
-	giveAllConcernedUsersAPoint($concernedUsers);
+	giveAllConcernedUsersXPoints($concernedUsers, 1);
 
 }
 //We count the number of new examples validated by user. That way we will be able to show the new ones we he arrives on the link.
 #after 5 upvotes, this sentence is a definite example for that word. Remove it from temp db and add it to the definitive db
 if ($totalScoreOfSentece > 4 ) {  
 // 
-	giveAllConcernedUsersAPoint($concernedUsers);
+	giveAllConcernedUsersXPoints($concernedUsers,1);
 
 	$stmt = $mysqli->prepare("INSERT INTO wordsentence (wordid, sentenceid, userid, ts) VALUES (?,?,?, UTC_TIMESTAMP());");
 	$stmt->bind_param("iis", $wordID, $sentenceID, $userID);
@@ -135,20 +135,6 @@ foreach($concernedUsers as $user) {
 
 }
 
-function giveAllConcernedUsersAPoint($concernedUsers){
-	global $data, $mysqli, $language, $mode;
-	foreach($concernedUsers as $user) {
-		addXToPointsInGame($user, $language, $mode, 1);
-
-		$returnText = $user;
-
-		$stmt = $mysqli->prepare("UPDATE users SET NewPointsSinceLastNotification = NewPointsSinceLastNotification +1 WHERE UserID=?;");
-		$stmt->bind_param("s", $user);
-		$stmt->execute();
-		$stmt->close();
-	}
-
-}
 
 echo json_encode($returnText);
 

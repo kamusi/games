@@ -15,7 +15,7 @@ $results_array = FALSE;
 
 while($results_array === FALSE) {
 	$word_id =lookForWord($userID); 
-	$results_array = getDefinitions($word_id, $mysqli);
+	$results_array = getDefinitions($word_id);
 }
 
 $jsonData = json_encode($results_array);
@@ -24,8 +24,7 @@ echo $jsonData;
 function lookForWord($userID) {
 	global $offsetModulo, $mode, $language, $allUsers, $mysqli;
 
-
-//fetch the user in order to see which word is for him
+	//fetch the user in order to see which word is for him
 	$stmt = $mysqli->prepare("SELECT * FROM games WHERE userid = ? AND language = ? AND game= ? ");
 	$stmt->bind_param("sii", $userID, $language, $mode );
 	$stmt->execute();
@@ -121,7 +120,7 @@ else {
 function getDefinitions($word_id){
 	global $mysqli, $language;
 
-	$sql =  "SELECT sq.ID As WordID, sq.Word, sq.PartOfSpeech, d.ID As DefinitionID, d.Definition, d.GroupID, d.UserID As Author ";
+	$sql =  "SELECT sq.ID As WordID, sq.ID As trans, sq.Word, sq.PartOfSpeech, d.ID As DefinitionID, d.Definition, d.GroupID, d.UserID As Author ";
 	$sql .= "FROM (SELECT * FROM words WHERE ID=? AND language = ?) AS sq ";
 	$sql .= "LEFT JOIN definitions As d ON sq.DefinitionID = d.GroupID WHERE d.GroupID IS NOT NULL AND d.language = ?";
 	$sql .= " ORDER BY Votes desc;";
@@ -144,8 +143,25 @@ function getDefinitions($word_id){
 			$results_array[] = $row;
 		}
 
-
 		$stmt->close();
+
+		if($language != '1') {
+			$sql = 	"SELECT translation FROM wordtranslation WHERE wordid= ? AND language = ?;";
+
+			$stmt = $mysqli->prepare($sql);
+			$stmt->bind_param("ii", $wordID, $language);
+			$stmt->execute();
+			$stmt->bind_result($translatedWord);
+			$stmt->fetch();
+			$stmt->close();
+
+			if(!$translatedWord){
+				$translatedWord = "Nothing Found"
+			}
+		}
+		$results_array[0]."trans" = $translatedWord;
+
+
 		return $results_array;
 	}
 }
