@@ -152,8 +152,10 @@ function getDefinitions($word_id){
 			$stmt = $mysqli->prepare($sql);
 			$stmt->bind_param("ii", $wordID, $language);
 			$stmt->execute();
-			$stmt->bind_result($translatedWord);
-			$stmt->fetch();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+
+$translatedWord = $row["translation"];
 			$stmt->close();
 
 			echo "éfknerf ". $translatedWord;
