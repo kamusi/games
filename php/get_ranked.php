@@ -130,7 +130,7 @@ function getDefinitions($word_id){
 		die ("Mysql Error: " . $mysqli->error);
 	}
 
-	$stmt->bind_param("ii",  $word_id,, $language);
+	$stmt->bind_param("ii",  $word_id, $language);
 	$stmt->execute();
 	$result = $stmt->get_result();
 
