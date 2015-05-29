@@ -94,7 +94,7 @@ if($numberOfDefinitions === 0 || $conditionForGame3 ){
 		$stmt->close();	
 
 	}
-	return 2324;
+	//return 2324;
 	return lookForWord($userID);
 }
 else {
