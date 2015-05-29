@@ -52,7 +52,7 @@ $stmt = $mysqli->prepare($sql);
 if ($stmt === FALSE) {
 	die ("Mysql Error: " . $mysqli->error);
 }
-echo "MY query : " .$sql
+echo "MY query : " .$sql;
 
 $stmt->bind_param("ssii", $userID, $allUsers, $mode, $sum);
 
