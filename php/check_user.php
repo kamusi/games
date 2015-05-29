@@ -15,6 +15,14 @@ $stmt->close();
 
 $returnValue[]= $checkResult;
 
+	foreach ($acceptedModes as $mode) {
+		foreach ($languageArray as $language) {
+			$stmt = $mysqli->prepare("INSERT INTO games (userID, game, language) VALUES(?,?,?);");
+			$stmt->bind_param("sii", $userID, $mode, $language );
+			$stmt->execute();
+			$stmt->close();
+		}
+	}
 //if we have a newUser
 if( !$checkResult){
 	//Add user to database
