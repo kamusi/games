@@ -15,7 +15,7 @@ $results_array = FALSE;
 
 while($results_array === FALSE) {
 	$word_id =lookForWord($userID); 
-	$results_array = getDefinitions(35);
+	$results_array = getDefinitions($word_id);
 }
 
 $jsonData = json_encode($results_array);
@@ -45,7 +45,7 @@ function lookForWord($userID) {
 		$sql.=	"SELECT w.ID, w.DefinitionID, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
 		$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.ID NOT IN (SELECT wordid FROM seengames WHERE (userid=? OR userid=?) AND game=?) AND sq.Rank = ?;";
 
-$sum = intval($user_position) + intval($user_offset);
+$sum = 35;//intval($user_position) + intval($user_offset);
 
 $stmt = $mysqli->prepare($sql);
 
