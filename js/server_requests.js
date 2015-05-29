@@ -418,7 +418,7 @@ function get_ranked() {
 			wordID = results_array[0].WordID;
 			groupID = results_array[0].GroupID;
 
-			wordToDisplay;
+			var wordToDisplay;
 			if(gameLanguage != '1'){
 				wordToDisplay = results_array[0].trans
 			}
