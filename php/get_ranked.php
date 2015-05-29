@@ -163,7 +163,7 @@ function getDefinitions($word_id){
 		$results_array[0]["trans"] = $translatedWord;
 		}
 		//var_dump($results_array);
-;
+		return array();
 
 
 		return $results_array;
