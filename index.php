@@ -295,7 +295,7 @@ $implementedGames= array('1' => array(1), '2' => array(1,2,3), '3' => array(1), 
 </select>
 </div>
 </br></br>
-	<img title="Submit" class="control" src="media/checksign.jpg" onclick="playClick(); saveSettings();return_to_game();">
+	<img title="Submit" class="control" src="media/checksign.jpg" onclick="playClick(); saveSettings();return_to_game(); display_welcome();">
 
 
 </div>
