@@ -274,6 +274,7 @@ $implementedGames= array('1' => array(1,2), '2' => array(1,2,3), '3' => array(1)
 	<option><?php echo _("English"); ?></option>
 	<option><?php echo _("French"); ?></option>
 	<option><?php echo _("Vietnamese"); ?></option>
+	<option><?php echo _("Swahili"); ?></option>
 </select>
 </br></br>
 <p><?php echo _("Notify me about new points I earn..."); ?></p>
