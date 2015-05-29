@@ -123,7 +123,7 @@ function getDefinitions($word_id){
 
 	$sql =  "SELECT sq.ID As WordID, sq.ID As trans, sq.Word, sq.PartOfSpeech, d.ID As DefinitionID, d.Definition, d.GroupID, d.UserID As Author ";
 	$sql .= "FROM (SELECT * FROM words WHERE ID=? ) AS sq ";
-	$sql .= "LEFT JOIN definitions As d ON sq.DefinitionID = d.GroupID WHERE d.GroupID IS NOT NULL AND d.language = ?";
+	$sql .= "LEFT JOIN definitions As d ON sq.DefinitionID = d.GroupID WHERE d.GroupID IS NOT NULL ";
 	$sql .= " ORDER BY Votes desc;";
 
 	$stmt = $mysqli->prepare($sql);
@@ -131,7 +131,7 @@ function getDefinitions($word_id){
 		die ("Mysql Error: " . $mysqli->error);
 	}
 
-	$stmt->bind_param("ii",  $word_id, $language);
+	$stmt->bind_param("i",  $word_id);
 	$stmt->execute();
 	$result = $stmt->get_result();
 
