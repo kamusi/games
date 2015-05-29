@@ -13,10 +13,10 @@ $maximumNumberOfDefsForGame3=3;
 
 $results_array = FALSE;
 
-//while($results_array === FALSE) {
+while($results_array === FALSE) {
 	$word_id =lookForWord($userID); 
 	$results_array = getDefinitions($word_id);
-//}
+}
 
 $jsonData = json_encode($results_array);
 echo $jsonData;
@@ -52,7 +52,7 @@ $stmt = $mysqli->prepare($sql);
 if ($stmt === FALSE) {
 	die ("Mysql Error: " . $mysqli->error);
 }
-echo "MY query : " .$sql;
+//echo "MY query : " .$sql;
 
 $stmt->bind_param("ssii", $userID, $allUsers, $mode, $sum);
 
@@ -163,10 +163,10 @@ function getDefinitions($word_id){
 		$results_array[0]["trans"] = $translatedWord;
 		}
 		//var_dump($results_array);
-		return array("lalala", "lolo");
+		//return array("lalala", "lolo");
 
 
-		//return $results_array;
+		return $results_array;
 	}
 }
 
