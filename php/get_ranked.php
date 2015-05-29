@@ -159,6 +159,7 @@ function getDefinitions($word_id){
 				$translatedWord = "Nothing Found";
 			}
 		}
+		var_dump($results_array);
 		$results_array[0]."trans" = $translatedWord;
 
 
