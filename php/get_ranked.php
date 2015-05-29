@@ -160,7 +160,7 @@ function getDefinitions($word_id){
 			}
 		}
 		var_dump($results_array);
-		$results_array[0]."trans" = $translatedWord;
+		//$results_array[0]."trans" = $translatedWord;
 
 
 		return $results_array;
