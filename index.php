@@ -231,6 +231,7 @@ $implementedGames= array('1' => array(1,2), '2' => array(2,3), '3' => array(1), 
 			<img id="profile_avatar" src="" width="200">
 		</div>
 		<div id="profile-info-wrapper">
+			<h1><?php echo _("Your achievements for this game"); ?></h1>
 			<table id="profile_info">
 				<tr>
 					<td><?php echo _("Name"); ?></td>
