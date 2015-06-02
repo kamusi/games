@@ -38,7 +38,7 @@ cd /var/www/html
 
 copy all files from local to server :
 
-scp -i /home/timo/.ssh/TimoAwsServerKeyPair.pem . ec2-user@ec2-54-187-146-101.us-west-2.compute.amazonaws.com:/home/ec2-user
+scp -i /home/timo/.ssh/TimoAwsServerKeyPair.pem . ec2-user@ec2-52-24-108-179.us-west-2.compute.amazonaws.com:/home/ec2-user
 
 sudo su
 SHOW DATABASES;
