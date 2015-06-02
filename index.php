@@ -14,9 +14,7 @@ function generateToken() {
 	$locale= isset($_SESSION['lang']) ? $_SESSION['lang'] : $languageMap["1"];
 
 
-	$returnVal = setlocale(LC_ALL, $locale .'.utf8');
-
-	//echo "Returnval was : ". $returnVal . "END";
+	setlocale(LC_ALL, $locale .'.utf8');
 
 	/**
 	 * Because the .po file is named messages.po, the text domain must be named
@@ -46,7 +44,7 @@ function generateToken() {
 $newToken = generateToken();
 $gameNames = array('1' => _("Definition Game"), '2' => _("Translation Game") , '3' => _("Tweet Game"), '4'=> _("Sentence Game"));
 $gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' => _("French") , '3' => _("Vietnamese"));
-$implementedGames= array('1' => array(1,2), '2' => array(1,2,3), '3' => array(1), '4' => array(4));
+$implementedGames= array('1' => array(1,2), '2' => array(2,3), '3' => array(1), '4' => array(4));
 
 
 ?>

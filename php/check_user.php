@@ -58,7 +58,7 @@ else {
 	$result = $stmt->get_result(); 
 	$stmt->close();
 
-	if($languagechanged == "1"){
+	if(! isset($_SESSION['lang'])){
 		$_SESSION['lang']=$languageMap[$checkResult];
 		$returnValue[]= "done";
 		$stmt = $mysqli->prepare("UPDATE users SET languagechanged=0 WHERE UserID= ?;");

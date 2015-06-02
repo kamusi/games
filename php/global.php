@@ -12,8 +12,6 @@ $helsinkiPassWord= $config['helpassword'];
 
 $mysqli = new mysqli('localhost',$config['dbusername'],$config['dbpassword'],$config['dbname']);
 
-
-
 function addXToValueInGame($userID, $language, $mode, $value, $x){
 	global $mysqli;
 	$stmt = $mysqli->prepare("UPDATE games SET ". $value . " = " . $value . " + ? WHERE userid=? and language = ? AND game=?;");

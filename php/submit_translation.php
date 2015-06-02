@@ -47,7 +47,7 @@ else {
 	$stmt->close();
 
 
-
+//We have reached consensus
 if($numberOfTranslationAlreadyInDatabase > 2 ) {
 
 #get all concerned users;

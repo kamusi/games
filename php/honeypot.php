@@ -11,7 +11,8 @@ function update_user_rating($userID, $wordID, $groupID) {
 		die('Could not connect: ' . mysqli_error($con));
 	}
 
-
+	$sql = 	"SELECT Consensus FROM rankedwords WHERE ID=" . $wordID . ";";
+	$result = mysqli_query($con, $sql);
 	//Check for consensus
 	$sql = 	"SELECT Consensus FROM rankedwords WHERE ID=" . $wordID . ";";
 	$result = mysqli_query($con, $sql);
