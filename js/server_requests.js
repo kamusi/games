@@ -148,8 +148,8 @@ function getGame4Sentences(keyword, amount) {
 			if(numberOfSentences < amount ){
 				//We need to fetch sentences right away in order to get to the desired numner
 				if (document.getElementById("swahiliSentences").innerHTML == ""){
-				updateBufferForDatabase(keyword, amount);
-			}
+					updateBufferForDatabase(keyword, amount);
+				}
 				document.getElementById("swahiliSentences").innerHTML = "Searching the web for new sentences, this may take some time...";
 				setTimeout( function(){getGame4Sentences(keyword, amount)}, 5000)
 			}
@@ -399,10 +399,10 @@ function sendTweetToDB(tweet, good){
 
 	}
 
-function get_ranked() {
-	console.log("GENEERL SENSE: " + generalSense)
+	function get_ranked() {
+		console.log("GENEERL SENSE: " + generalSense)
 
-	var xmlhttp;
+		var xmlhttp;
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();
 	}
@@ -501,12 +501,17 @@ function isNewUser() {
 						location.reload();
 					}
 					else {
-					initialise();	
-						animate_logo();					
-						
+						if(obj[2] == "showSettings"){
+							display_settings();							
+						}
+						else {
+						initialise();	
+						animate_logo();	
+						}						
 					}
 				}
 				else {
+					firsttime= true;
 					animate_logo_firstTime(); 
 				}
 
@@ -547,8 +552,8 @@ function initialise() {
 			document.getElementById('posts').selectedIndex= whenToPost
 			document.getElementById('language').selectedIndex= gameLanguageSliderValue
 
-		
-display_welcome();
+
+			display_welcome();
 			
 		}
 	}
@@ -836,7 +841,7 @@ function updateLeaderboard(){
 
 				row.insertCell(2).innerHTML= obj[0][i];
 			 //   row.insertCell(3).innerHTML= obj[1][i];
-				row.insertCell(3).innerHTML= "Rank: " + (parseInt(i) + 1); //since index 0 is first rank
+				row.insertCell(3).innerHTML= rankString + (parseInt(i) + 1); //since index 0 is first rank
 			}
 			//add the user from before s score if use ris not in top3
 

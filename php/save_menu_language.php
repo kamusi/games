@@ -26,11 +26,6 @@ $stmt->bind_param("is",  $language, $userID);
 $stmt->execute();
 $stmt->close();
 
-$stmt = $mysqli->prepare("UPDATE users SET languagechanged=1 WHERE UserID= ?;");
-$stmt->bind_param("s", $userID);
-$stmt->execute();
-$stmt->close();
-
 $return = "Menu Language Changed to " . $language;
 json_encode($return);
 

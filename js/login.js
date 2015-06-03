@@ -1,5 +1,6 @@
 <!--Load and initialise the Facebook API. xfbml checks for active login-->
 
+var firsttime = false;
 function statusChangeCallback(response) {
   if (response.status === 'connected') {
    welcome();
@@ -36,9 +37,7 @@ window.fbAsyncInit = function() {
 });
 
 	//Get login status
-	FB.getLoginStatus(function(response) {
-		statusChangeCallback(response);
-	});
+  checkLoginState()
 };
 
 // Load the SDK asynchronously

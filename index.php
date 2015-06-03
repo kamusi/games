@@ -392,6 +392,7 @@ translateTheFollowing= "<?php echo _("Translate the following word to : ")  ?>"
 yourAchievements = "<?php echo _("Your achievements for the ")  ?>"
 stringin= "<?php echo _(" in ")  ?>"
 writeOrVote= "<?php echo _("Write or vote for a definition in "); ?>" 
+rankString = "<?php echo _("Rank: "); ?>"
 
 <?php
 $js_array = json_encode($gameLanguages);
