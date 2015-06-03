@@ -24,7 +24,6 @@ var siteLanguage="-1"
 var translationID;
 
 var last20Tweets = {}
-var allTweetsWereBad;
 var lastSwahiliSentences = {}
 
 
@@ -283,6 +282,37 @@ function displayTextWithCheckboxes(elemText, index, whereToInsert){
 	document.getElementById(whereToInsert).appendChild(tweetDisplay);
 }
 
+function updateTweetDB(status) {
+	var xmlhttp;
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			console.log("Response from TweetDB update was: " + xmlhttp.responseText )
+		}
+			var json_data= {"wordID":wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "mode":game, "language":gameLanguage, "status" : status    }
+
+		$.ajax({
+			type: 'POST',
+			url: 'php/updateTweetDB.php',
+			data: {json: JSON.stringify(json_data)},
+			dataType: 'json'
+		})
+		.done( function( data ) {
+			console.log('done');
+		})
+		.fail( function( data ) {
+			console.log('fail');
+			console.log(data);
+		});
+		}
+	}
+}
+
 function fetchTweetsFromDB(amount) {
 	amountOfTweets = amount;
 	var xmlhttp;
@@ -327,6 +357,9 @@ function submitCheckBoxData(whatToSubmit) {
 			else {
 				sendTweetToDB(last20Tweets[i],-1);
 			}
+		}
+		if(allTweetsWereBad){
+			updateTweetDB("allTweetsWereBad")
 		}
 	}
 	else if (whatToSubmit == "game4")  {
@@ -381,7 +414,7 @@ function sendTweetToDB(tweet, good){
 				console.log("DB esponse was:  : " + xmlhttp.responseText)
 			}
 		}
-		var json_data= {"wordID":wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "mode":game, "language":gameLanguage, "tweetAuthor":tweet.Author, "good" : good, "allTweetsWereBad" : true    }
+		var json_data= {"wordID":wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "mode":game, "language":gameLanguage, "tweetAuthor":tweet.Author, "good" : good  }
 
 		$.ajax({
 			type: 'POST',
