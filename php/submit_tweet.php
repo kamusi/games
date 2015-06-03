@@ -17,7 +17,43 @@ $totalScoreOfTweet = 0;
 $pendingScore = 02;
 $concernedUsers = array();
 
-#remove chracters that might be a problem
+if($data["allTweetsWereBad"]) {
+// If no tweets were selected, remember that
+
+	$stmt = $mysqli->prepare("SELECT wordid, failures FROM wordfailure WHERE wordid= ?;");
+	$stmt->bind_param("i", $data["wordID"]);
+	$stmt->execute();
+	$stmt->bind_result($wordInTable, $failures);
+	$stmt->fetch();
+	$stmt->close();
+
+	if(!$wordInTable){
+
+		$stmt = $mysqli->prepare("INSERT INTO wordfailure (wordid, failures) VALUES (?,1);");
+		$stmt->bind_param("i", $data["wordID"]);
+
+		$stmt->execute();
+
+		$stmt->close();
+	}
+	else {
+			// If 6 players did not select anything for this word
+		if($failures > 0){
+			//ignore this word from now on
+
+			$stmt = $mysqli->prepare("INSERT INTO seengames (userid , game, wordid, language, rank) VALUES (?,?,?,?,2147483647);");
+			$stmt->bind_param("siiii", $data["userID"], $data["mode"], $data["word_id"], $data["language"]);
+			$stmt->execute();
+			$stmt->close();
+		}
+
+		$stmt = $mysqli->prepare("UPDATE wordfailure SET failures = failures+1 WHERE wordid= ?;");
+		$stmt->bind_param("i", $data["wordID"]);
+		$stmt->execute();
+		$stmt->close();		
+	}
+}
+
 
 #insert the word in the TweetContext table
 $stmt = $mysqli->prepare("INSERT INTO TweetContext (TweetID, Text, Author, UserID, WordID, Good) VALUES (?,?,?,?,?,? );");

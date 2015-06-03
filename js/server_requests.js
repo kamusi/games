@@ -21,10 +21,10 @@ var game = 0;
 //This is the overallLanguage
 var siteLanguage="-1"
 
-
 var translationID;
 
 var last20Tweets = {}
+var allTweetsWereBad;
 var lastSwahiliSentences = {}
 
 
@@ -318,10 +318,11 @@ function fetchTweetsFromDB(amount) {
 
 function submitCheckBoxData(whatToSubmit) {
 	if(whatToSubmit == "tweet"){
-
+		var allTweetsWereBad = true;
 		for(var i= 0; i < amountOfTweets; i++) {
 			if(document.getElementById("checkbox"+i).checked) {
 				sendTweetToDB(last20Tweets[i],1)
+				allTweetsWereBad= false;
 			}
 			else {
 				sendTweetToDB(last20Tweets[i],-1);
@@ -380,8 +381,7 @@ function sendTweetToDB(tweet, good){
 				console.log("DB esponse was:  : " + xmlhttp.responseText)
 			}
 		}
-
-		var json_data= {"wordID":wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "mode":game, "language":gameLanguage, "tweetAuthor":tweet.Author, "good" : good    }
+		var json_data= {"wordID":wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "mode":game, "language":gameLanguage, "tweetAuthor":tweet.Author, "good" : good, "allTweetsWereBad" : allTweetsWereBad    }
 
 		$.ajax({
 			type: 'POST',
@@ -503,8 +503,7 @@ function isNewUser() {
 					else {
 						if(obj[2] == "showSettings"){
 							display_settings();
-							alert("Kamusi allows you to distinguish between the language you support when playing, called the Game Language, and the language of the Hints and the Help.\n Depending on the Game Language you have chosen, different games will be available. Try them out! ")
-														
+							//alert("Kamusi allows you to distinguish between the language you support when playing, called the Game Language, and the language of the Hints and the Help.\n Depending on the Game Language you have chosen, different games will be available. Try them out! ")
 						}
 						else {
 						initialise();	
@@ -796,7 +795,6 @@ function updateLeaderboard(){
 	scoretimePeriod = timePeriodSelect.selectedIndex;
 	metricSelect = document.getElementById("scoreMetric")
 	scoreMetric = metricSelect.selectedIndex;
-	//All languages, All Games
 
 	var xmlhttp;
 	console.log("In update leaderboard")
@@ -842,7 +840,6 @@ function updateLeaderboard(){
 				row.insertCell(1).innerHTML= obj[2][rowUserID];
 
 				row.insertCell(2).innerHTML= obj[0][i];
-			 //   row.insertCell(3).innerHTML= obj[1][i];
 				row.insertCell(3).innerHTML= rankString + (parseInt(i) + 1); //since index 0 is first rank
 			}
 			//add the user from before s score if use ris not in top3
