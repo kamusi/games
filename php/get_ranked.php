@@ -160,6 +160,7 @@ function getDefinitions($word_id){
 			}
 
 		$results_array[0]["trans"] = $translatedWord;
+		$results_array[0]["PartOfSpeech"] = $partOfSpeechArray[$results_array[0]["PartOfSpeech"]];
 		}
 		//var_dump($results_array);
 		//return array("lalala", "lolo");

@@ -419,7 +419,7 @@ function get_ranked() {
 			groupID = results_array[0].GroupID;
 
 			var wordToDisplay;
-			if(gameLanguage != '1'){
+			if(gameLanguage != '1' && results_array[0].trans != "Nothing Found"){
 				wordToDisplay = results_array[0].trans
 			}
 			else {

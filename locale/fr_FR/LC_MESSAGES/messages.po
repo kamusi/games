@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kamusi\n"
-"POT-Creation-Date: 2015-06-01 12:32+0100\n"
-"PO-Revision-Date: 2015-06-01 12:52+0100\n"
+"POT-Creation-Date: 2015-06-03 13:14+0100\n"
+"PO-Revision-Date: 2015-06-03 13:16+0100\n"
 "Last-Translator: \n"
 "Language-Team: timo\n"
 "Language: fr_FR\n"
@@ -15,67 +15,86 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: php\n"
 
-#: index.php:47
+#: index.php:45
 msgid "Definition Game"
 msgstr "Jeu avec les définitions"
 
-#: index.php:47
+#: index.php:45
 msgid "Translation Game"
 msgstr "Jeu des traductions"
 
-#: index.php:47
+#: index.php:45
 msgid "Tweet Game"
 msgstr "Jeu avec les tweets"
 
-#: index.php:47
+#: index.php:45
 msgid "Sentence Game"
 msgstr "Jeu avec les phrases"
 
-#: index.php:48
+#: index.php:46
 msgid "Undefined Language"
 msgstr "Langue non définie"
 
-#: index.php:48 index.php:274 index.php:327
+#: index.php:46 index.php:274 index.php:328
 msgid "English"
 msgstr "Anglais"
 
-#: index.php:48 index.php:275 index.php:328
+#: index.php:46 index.php:275 index.php:329
 msgid "French"
 msgstr "Français"
 
-#: index.php:48 index.php:276 index.php:329
+#: index.php:46 index.php:276 index.php:330
 msgid "Vietnamese"
 msgstr "Vietnamien"
 
-#: index.php:82 index.php:121 index.php:157 index.php:182 index.php:338
-#: index.php:339 index.php:340 index.php:341
+#: index.php:48
+msgid "noun"
+msgstr "nom"
+
+#: index.php:48
+msgid "verb"
+msgstr "verbe"
+
+#: index.php:48
+msgid "adjective"
+msgstr "adjectif"
+
+#: index.php:48
+msgid "adjective_satellite"
+msgstr "adjectif_satellite"
+
+#: index.php:48
+msgid "adverb"
+msgstr "adverbe"
+
+#: index.php:48
+msgid "phrase"
+msgstr "phrase"
+
+#: index.php:80 index.php:119 index.php:155 index.php:180 index.php:339
+#: index.php:340 index.php:341 index.php:342
 #, php-format
 msgid "%s"
 msgstr "%s"
 
-#: index.php:84
-#, php-format
-msgid "Write or vote for a definition!"
-msgstr "Vote pour une définition ou crées-en une!"
-
-#: index.php:158
+#: index.php:156
 msgid "Check ONLY the tweets that are excellent examples of THIS meaning: "
 msgstr ""
 "Cochez UNIQUEMENT les tweets qui sont d'excellents examples pour ce sens-ci: "
 
-#: index.php:183
+#: index.php:181
 msgid "Check the sentences that correspond well to this word: "
 msgstr "Cochez les phrases qui corresponden bien à ce mot:"
 
-#: index.php:203
+#: index.php:201
 msgid "About"
 msgstr "A propos"
 
-#: index.php:205
+#: index.php:203
 msgid "The Kamusi Project "
 msgstr "Le Projet Kamusi"
 
-#: index.php:205
+#: index.php:203
 msgid ""
 "is a participatory international effort dedicated to improving knowledge of "
 "the world's languages. Our long term mission is to produce dictionaries and "
@@ -83,18 +102,18 @@ msgid ""
 "available for free to everyone."
 msgstr ""
 
-#: index.php:208
+#: index.php:206
 msgid "How to write a great definition"
 msgstr "Comment écrire une bonne définition"
 
-#: index.php:210
+#: index.php:208
 msgid ""
 "Definitions are explanations of what a word means. They are not single words "
 "(those are synonyms). You can usually use a definition instead of the actual "
 "word. Stick to these rules:"
 msgstr ""
 
-#: index.php:213
+#: index.php:211
 msgid ""
 "Short and sweet: A definition should be as brief as possible to explain the "
 "concept, but long enough to describe it fully. If the same word has "
@@ -102,14 +121,14 @@ msgid ""
 "a definition in Kamusi only explains *one* concept."
 msgstr ""
 
-#: index.php:215
+#: index.php:213
 msgid ""
 "Easy does it: Use the simplest words you can -definitions should not force "
 "readers to jump around the dictionary more, unless technical terms are "
 "absolutely necessary."
 msgstr ""
 
-#: index.php:217
+#: index.php:215
 msgid ""
 "No circles: Definitions should NOT contain the word that is being defined, "
 "nor its close relatives. \"Happiness\" is \"A feeling of joy.\", not \"The "
@@ -117,13 +136,13 @@ msgid ""
 "say \"joy\" is \"A feeling of happiness.\""
 msgstr ""
 
-#: index.php:219
+#: index.php:217
 msgid ""
 "No fluff: Do not start with \"A term meaning\", or \"This is a\", or \"X "
 "refers to\", etc. Style: Begin with a Capital letter and end with a period."
 msgstr ""
 
-#: index.php:223
+#: index.php:221
 msgid "For more information, you can watch this video: "
 msgstr "Pour plus d'informations, veuillez regarder cette vidéo: "
 
@@ -139,7 +158,7 @@ msgstr "Points"
 msgid "Pending points"
 msgstr "Points potentiels"
 
-#: index.php:250 index.php:358
+#: index.php:250 index.php:359
 msgid "Success Rate"
 msgstr "Ratio de succès"
 
@@ -149,9 +168,9 @@ msgstr "Langue pour les indices et pour l'aide"
 
 #: index.php:272
 msgid "Game Language"
-msgstr ""
+msgstr "Langue du jeu"
 
-#: index.php:277 index.php:330
+#: index.php:277 index.php:331
 msgid "Swahili"
 msgstr ""
 
@@ -199,85 +218,97 @@ msgstr "Occasionnellement (Une fois par mois au max)"
 msgid "When pigs fly... (Never)"
 msgstr "Lorsque les cochons voleront (Jamais)"
 
-#: index.php:324
+#: index.php:325
 msgid "Language"
 msgstr "Langue"
 
-#: index.php:326
+#: index.php:327
 msgid "All languages"
 msgstr "Toutes langues"
 
-#: index.php:335
+#: index.php:336
 msgid "Game"
 msgstr "Jeu"
 
-#: index.php:337
+#: index.php:338
 msgid "All games"
 msgstr "Tous les jeux"
 
-#: index.php:345
+#: index.php:346
 msgid "TimePeriod"
 msgstr "Période de temps"
 
-#: index.php:347
+#: index.php:348
 msgid "All time"
 msgstr "Toujours"
 
-#: index.php:348
+#: index.php:349
 msgid "Last Month"
 msgstr "Le mois passé"
 
-#: index.php:349
+#: index.php:350
 msgid "Last Week"
 msgstr "La semaine passée"
 
-#: index.php:350
+#: index.php:351
 msgid "Last 24 Hours"
 msgstr "Les dernières 24 heures"
 
-#: index.php:354
+#: index.php:355
 msgid "What to compare"
 msgstr "Score a comparer"
 
-#: index.php:356
+#: index.php:357
 msgid "Points Earned"
 msgstr "Points gagnés"
 
-#: index.php:357
+#: index.php:358
 msgid "# of Submissions"
 msgstr "# d'ajouts"
 
-#: index.php:363
+#: index.php:364
 msgid "Auto-Loop"
 msgstr "Boucle automatique"
 
-#: index.php:366
+#: index.php:367
 msgid "Leaderboard"
 msgstr "Liste des scores"
 
-#: index.php:385
+#: index.php:386
 msgid " I can write the winning definition for this idea!"
 msgstr "Je peux écrire la définition gagnante pour cette idée!"
 
-#: index.php:386
+#: index.php:387
 msgid " I can't say - skip this one..."
 msgstr "Je ne saurais dire... Passons à la suivante."
 
-#: index.php:387
+#: index.php:388
 msgid " I can translate this word!"
 msgstr "Je peux traduire ce mot"
 
-#: index.php:388
+#: index.php:389
 msgid " Keep the General Sense. It's a good definition as is!"
 msgstr "Garder le sense général : c'est une bonne définition ainsi!"
 
-#: index.php:389
+#: index.php:390
 msgid "General Sense: "
 msgstr "Sens général: "
 
-#: index.php:390
+#: index.php:391
 msgid "Translate the following word to : "
 msgstr "Traduisez le mot suivant vers la langue suivante : "
+
+#: index.php:392
+msgid "Your achievements for the "
+msgstr "Vos scores pour le"
+
+#: index.php:393
+msgid " in "
+msgstr " en "
+
+#: index.php:394
+msgid "Write or vote for a definition in "
+msgstr "Vote pour une définition ou crées-en une en "
 
 #, fuzzy
 #~ msgid "Menu Language"

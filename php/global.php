@@ -4,6 +4,8 @@ $acceptedModes = array("1","2","3","4");
 $allUsers = "allusers";
 $mysqli= null;
 
+$partOfSpeechArray= array();
+
 $languageMap = array ("1" => "en_US", "2" => "fr_FR", "3" => "vi_VI", "4" => "sw_SW" );
 {
 $config = parse_ini_file('/var/www/passwords/config.ini');

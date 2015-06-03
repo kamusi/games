@@ -45,7 +45,7 @@ $newToken = generateToken();
 $gameNames = array('1' => _("Definition Game"), '2' => _("Translation Game") , '3' => _("Tweet Game"), '4'=> _("Sentence Game"));
 $gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' => _("French") , '3' => _("Vietnamese"));
 $implementedGames= array('1' => array(1,2), '2' => array(2,3), '3' => array(1), '4' => array(4));
-
+$partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' => _('adjective'), 'adjective_satellite' => _('adjective_satellite'), 'adverb' => _('adverb'), 'phrase' => _('phrase'));
 
 ?>
 
@@ -309,8 +309,9 @@ $implementedGames= array('1' => array(1,2), '2' => array(2,3), '3' => array(1), 
 <select id="menuLanguage" onchange= size="1">
 	<option><?php echo ("English"); ?></option>
 	<option><?php echo ("Français"); ?></option>
+<!-- The languages are not translated yet
 	<option><?php echo ("tiếng Việt"); ?></option>	
-	<option><?php echo ("Swahili"); ?></option>
+	<option><?php echo ("Swahili"); ?></option> -->
 </select>
 </br></br>
 </br></br>
