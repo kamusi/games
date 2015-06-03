@@ -42,7 +42,7 @@ if($data["allTweetsWereBad"]) {
 			//ignore this word from now on
 
 			$stmt = $mysqli->prepare("INSERT INTO seengames (userid , game, wordid, language, rank) VALUES (?,?,?,?,2147483647);");
-			$stmt->bind_param("siii", $data["userID"], $data["mode"], $data["word_id"], $data["language"]);
+			$stmt->bind_param("siii", $data["userID"], $data["mode"], $data["wordID"], $data["language"]);
 			$stmt->execute();
 			$stmt->close();
 		}
