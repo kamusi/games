@@ -633,7 +633,6 @@ function complete_notification() {
 
 function get_ranked_mode_2() {
 	var xmlhttp;
-	document.getElementById("instructions2").innerHTML = translateTheFollowing + gameLanguages[gameLanguage];
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();
 	}

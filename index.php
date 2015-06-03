@@ -42,7 +42,7 @@ function generateToken() {
 
 <?php
 $newToken = generateToken();
-$gameNames = array('1' => _("Definition Mode"), '2' => _("Translation Mode") , '3' => _("Tweet Mode"), '4'=> _("Sentence Mode"));
+$gameNames = array('1' => _("Definition Game"), '2' => _("Translation Game") , '3' => _("Tweet Game"), '4'=> _("Sentence Game"));
 $gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' => _("French") , '3' => _("Vietnamese"));
 $implementedGames= array('1' => array(1,2), '2' => array(2,3), '3' => array(1), '4' => array(4));
 
@@ -79,7 +79,7 @@ $implementedGames= array('1' => array(1,2), '2' => array(2,3), '3' => array(1), 
 						<div id="entry">
 							<h1 id="title1"> <?php printf(_("%s"), $gameNames["1"]);; ?>  </h1>
 
-							<p id="instructions1"> <?php printf(_("Write or vote for a definition!")); ?>  </p>
+							<p id="instructions1"> </p>
 
 							<p id="word"></p>
 							<p id="pos"></p>
@@ -117,7 +117,7 @@ $implementedGames= array('1' => array(1,2), '2' => array(2,3), '3' => array(1), 
 					<div id="gamezone-main2">
 						<div id="translation_entry">
 						<h1 id="title2"> <?php printf(_("%s"),$gameNames["2"]); ?>  </h1>
-							<p id="instructions2">   </p>
+							<p id="instructions2"></p>
 			
 							<p id="translation_word"></p>
 							<p id="translation_pos"></p>
@@ -381,15 +381,16 @@ $implementedGames= array('1' => array(1,2), '2' => array(2,3), '3' => array(1), 
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
-//Translations for the buttons.
+//All dynamic text is references here
 ICanWrite = "<?php echo gettext(" I can write the winning definition for this idea!"); ?>"
 ICantSay = "<?php echo gettext(" I can't say - skip this one..."); ?>"
 ICanTranslate = "<?php echo gettext(" I can translate this word!"); ?>"
 keepTheGeneralSense = "<?php echo gettext(" Keep the General Sense. It's a good definition as is!"); ?>"
 generalSense = "<?php echo _("General Sense: "); ?>"
 translateTheFollowing= "<?php echo _("Translate the following word to : ")  ?>"
-yourAchievements = "<?php echo _("Your achievements for the game ")  ?>"
-stringin= "<?php echo _("in ")  ?>"
+yourAchievements = "<?php echo _("Your achievements for the ")  ?>"
+stringin= "<?php echo _(" in ")  ?>"
+writeOrVote= "<?php echo _("Write or vote for a definition in "); ?>" 
 
 <?php
 $js_array = json_encode($gameLanguages);
