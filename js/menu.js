@@ -198,9 +198,7 @@ function enter_game4() {
 }
 
 function display_settings() {
-		document.getElementById("welcome").style.display = "none";
-
-		document.getElementById("game").style.display = "inline-block";
+	document.getElementById("welcome").style.display = "none";
 	document.getElementById("profile").style.display = "none";
 	document.getElementById("settings").style.display = "inline-block";
 }
