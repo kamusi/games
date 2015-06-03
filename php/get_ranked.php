@@ -42,7 +42,8 @@ function lookForWord($userID) {
 //fetch the word that has as rank user s position+offset
 	$sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
 		$sql.=	"SELECT w.ID, w.DefinitionID, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
-		$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.ID NOT IN (SELECT wordid FROM seengames WHERE (userid=? OR userid=?) AND game=? AND language = ? AND wordid = ?) AND sq.Rank = ?;";
+		$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.ID NOT IN (SELECT wordid FROM seengames WHERE (userid=? OR userid=?) AND game=? AND language = ? ) AND sq.Rank = ?;";
+
 
 $sum = intval($user_position) + intval($user_offset);
 
@@ -51,9 +52,8 @@ $stmt = $mysqli->prepare($sql);
 if ($stmt === FALSE) {
 	die ("Mysql Error: " . $mysqli->error);
 }
-//echo "MY query : " .$sql;
 
-$stmt->bind_param("ssiiii", $userID, $allUsers, $mode, $language, $wordid, $sum);
+$stmt->bind_param("ssiii", $userID, $allUsers, $mode, $language, $sum);
 
 $stmt->execute();
 
