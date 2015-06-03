@@ -400,6 +400,8 @@ $js_array = json_encode($implementedGames);
 echo "var implementedGames = ". $js_array . ";\n"; 
 $js_array = json_encode($gameNames);
 echo "var gameNames = ". $js_array . ";\n"; 
+$js_array = json_encode($partOfSpeechArray);
+echo "var partOfSpeechArray = ". $js_array . ";\n";
 
 ?>
  

@@ -425,7 +425,7 @@ function get_ranked() {
 			else {
 				wordToDisplay = results_array[0].Word
 			}
-			set_word(wordToDisplay, results_array[0].PartOfSpeech);
+			set_word(wordToDisplay,  partOfSpeechArray[results_array[0].PartOfSpeech]);
 			add_definition(-1, "? " + ICantSay, false);
 
 			document.getElementById("consensus").innerHTML = generalSense;
