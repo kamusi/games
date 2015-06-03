@@ -502,8 +502,9 @@ function isNewUser() {
 					}
 					else {
 						if(obj[2] == "showSettings"){
+							display_settings();
 							alert("Kamusi allows you to support the language you choose, and have the game display everything in the lgnauge you want. The Game language allows you to choose for which language to play independently from the Hints and Help language. Depending on the game Language you have chosen, different games will be available. Try them out! ")
-							display_settings();							
+														
 						}
 						else {
 						initialise();	
