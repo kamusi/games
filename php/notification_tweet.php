@@ -49,9 +49,7 @@ $sql =	"SELECT * FROM app;";
 $stmt = $mysqli->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
-$stmt->close()
-
-
+$stmt->close();
 $results_array = $result->fetch_assoc();
 
 	//These must be retrieved from the database
