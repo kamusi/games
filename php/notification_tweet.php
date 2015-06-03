@@ -46,8 +46,11 @@ ini_set('display_errors', 'On');
 
 
 $sql =	"SELECT * FROM app;";
+$stmt = $mysqli->prepare($sql);
+$stmt->execute();
+$result = $stmt->get_result();
+$stmt->close()
 
-$result = mysqli_query($con, $sql);
 
 $results_array = $result->fetch_assoc();
 
@@ -55,15 +58,18 @@ $results_array = $result->fetch_assoc();
 $app_id = $results_array["app_id"];
 $app_secret = $results_array["app_secret"];
 
-$mysqli = new mysqli('localhost', $user, $pass, $db);
-
 $newPoints= 55;
 
-$sql =	"SELECT NewPointsSinceLastNotification FROM users WHERE UserID=" . $userID .";";
 
-$result = mysqli_query($con, $sql);
+$sql =	"SELECT NewPointsSinceLastNotification FROM users WHERE UserID= ?;";
+
+$stmt = $mysqli->prepare($sql);
+$stmt->execute();
+$result = $stmt->get_result();
 
 $results_array = $result->fetch_assoc();
+$stmt->close();
+
 $newPoints= $results_array["NewPointsSinceLastNotification"];
 
 

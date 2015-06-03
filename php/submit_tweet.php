@@ -92,7 +92,6 @@ if ($totalScoreOfTweet < -1 ) {
 	$stmt = $mysqli->prepare("DELETE FROM TweetContext WHERE WordID= ? AND TweetID= ?;");
 	$stmt->bind_param("is", $data["wordID"], $data["tweetID"]);
 	$stmt->execute();
-	$result = $stmt->get_result();
 	$stmt->close();
 
 //User gets notified for each point : upvotes and downvotes, but no posts for downvotes
@@ -162,7 +161,7 @@ foreach($concernedUsers as $user) {
 	$stmt->fetch();
 	$stmt->close();
 
-	$setXToPendingPointsInGame($data["userID"],$data["language"], $data["mode"],$pendingScore );
+	setXToPendingPointsInGame($data["userID"],$data["language"], $data["mode"],$pendingScore );
 	
 
 }
