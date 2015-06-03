@@ -218,6 +218,7 @@ function display_profile() {
 	document.getElementById("game").style.display = "none";
 
 	document.getElementById("profile").style.display = "inline-block";
+	document.getElementById("yourachievements").innerHTML = yourachievements + gameNames[game] + stringin + gameLanguages[gameLanguage]
 }
 
 function display_changeLanguage() {

@@ -1,6 +1,5 @@
 <?php
 
-//include 'global.php';
 include 'validate_token.php';
 $offsetModulo = 10;
 

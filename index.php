@@ -42,7 +42,7 @@ function generateToken() {
 
 <?php
 $newToken = generateToken();
-$gameNames = array('1' => _("Definition Game"), '2' => _("Translation Game") , '3' => _("Tweet Game"), '4'=> _("Sentence Game"));
+$gameNames = array('1' => _("Definition Mode"), '2' => _("Translation Mode") , '3' => _("Tweet Mode"), '4'=> _("Sentence Mode"));
 $gameLanguages= array('0' => _("Undefined Language"), '1' => _("English"), '2' => _("French") , '3' => _("Vietnamese"));
 $implementedGames= array('1' => array(1,2), '2' => array(2,3), '3' => array(1), '4' => array(4));
 
@@ -227,11 +227,11 @@ $implementedGames= array('1' => array(1,2), '2' => array(2,3), '3' => array(1), 
 </div>
 <div id="profile">
 	<div id="profile-main">
+		<h1 id= "yourachievements"></h1>
 		<div id="profile-avatar-wrapper">
 			<img id="profile_avatar" src="" width="200">
 		</div>
 		<div id="profile-info-wrapper">
-			<h1><u><?php echo _("Your achievements for this Game: "); ?></u></h1>
 			<br>
 			<table id="profile_info">
 				<tr>
@@ -388,12 +388,17 @@ ICanTranslate = "<?php echo gettext(" I can translate this word!"); ?>"
 keepTheGeneralSense = "<?php echo gettext(" Keep the General Sense. It's a good definition as is!"); ?>"
 generalSense = "<?php echo _("General Sense: "); ?>"
 translateTheFollowing= "<?php echo _("Translate the following word to : ")  ?>"
+yourAchievements = "<?php echo _("Your achievements for the game ")  ?>"
+stringin= "<?php echo _("in ")  ?>"
 
 <?php
 $js_array = json_encode($gameLanguages);
 echo "var gameLanguages = ". $js_array . ";\n";
 $js_array = json_encode($implementedGames);
 echo "var implementedGames = ". $js_array . ";\n"; 
+$js_array = json_encode($gameNames);
+echo "var gameNames = ". $js_array . ";\n"; 
+
 ?>
  
 </script>

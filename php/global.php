@@ -1,17 +1,21 @@
 <?php
-
+//global variables used throughout the application
 $acceptedModes = array("1","2","3","4");
 $allUsers = "allusers";
+$mysqli= null;
 
 $languageMap = array ("1" => "en_US", "2" => "fr_FR", "3" => "vi_VI", "4" => "sw_SW" );
-
+{
 $config = parse_ini_file('/var/www/passwords/config.ini');
-
 $helsinkiUserName = $config['helusername'];
 $helsinkiPassWord= $config['helpassword'];
+}
 
+//The object that allows access to the mysql database
 $mysqli = new mysqli('localhost',$config['dbusername'],$config['dbpassword'],$config['dbname']);
 
+
+//Functions used throughout the app in order to keep track of the scores
 function addXToValueInGame($userID, $language, $mode, $value, $x){
 	global $mysqli;
 	$stmt = $mysqli->prepare("UPDATE games SET ". $value . " = " . $value . " + ? WHERE userid=? and language = ? AND game=?;");

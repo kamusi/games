@@ -34,12 +34,10 @@ def search(keyword, amount):
     text = api.search(q=keyword + " -RT", rpp=500, count=100, include_entities=True)
     returnText = []
     i = 1;
-   #getting at tweet back based on it s id 
-  #  status = api.get_status(id="112652479837110273").text
-  #  print status
 
     for a in text:
         if a.text.lower().count(" " + keyword + " ") > 0:
+            #remove profanity
             conn = urllib.urlopen("http://www.wdyl.com/profanity?q="+ urllib.quote(a.text.encode("utf-8"))) 
             response = conn.read()
             if json.loads(response)["response"] == "false" :
@@ -59,7 +57,6 @@ def remove_non_ascii(text):
 
 def write_log(message):
     f_log = open("log.txt", 'a')
-    #f_log.write(message)
     print message
     f_log.close()
     
