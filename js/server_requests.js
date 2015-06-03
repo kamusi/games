@@ -381,7 +381,7 @@ function sendTweetToDB(tweet, good){
 				console.log("DB esponse was:  : " + xmlhttp.responseText)
 			}
 		}
-		var json_data= {"wordID":wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "mode":game, "language":gameLanguage, "tweetAuthor":tweet.Author, "good" : good, "allTweetsWereBad" : allTweetsWereBad    }
+		var json_data= {"wordID":wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "mode":game, "language":gameLanguage, "tweetAuthor":tweet.Author, "good" : good, "allTweetsWereBad" : true    }
 
 		$.ajax({
 			type: 'POST',
