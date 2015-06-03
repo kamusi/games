@@ -294,23 +294,24 @@ function updateTweetDB(status) {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 			console.log("Response from TweetDB update was: " + xmlhttp.responseText )
 		}
-			var json_data= {"wordID":wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "mode":game, "language":gameLanguage, "status" : status    }
-
-		$.ajax({
-			type: 'POST',
-			url: 'php/updateTweetDB.php',
-			data: {json: JSON.stringify(json_data)},
-			dataType: 'json'
-		})
-		.done( function( data ) {
-			console.log('done');
-		})
-		.fail( function( data ) {
-			console.log('fail');
-			console.log(data);
-		});
-		}
 	}
+	var json_data= {"wordID":wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "mode":game, "language":gameLanguage, "status" : status    }
+
+	$.ajax({
+		type: 'POST',
+		url: 'php/updateTweetDB.php',
+		data: {json: JSON.stringify(json_data)},
+		dataType: 'json'
+	})
+	.done( function( data ) {
+		console.log('done');
+	})
+	.fail( function( data ) {
+		console.log('fail');
+		console.log(data);
+	});
+	
+	
 }
 
 function fetchTweetsFromDB(amount) {
@@ -539,8 +540,8 @@ function isNewUser() {
 							//alert("Kamusi allows you to distinguish between the language you support when playing, called the Game Language, and the language of the Hints and the Help.\n Depending on the Game Language you have chosen, different games will be available. Try them out! ")
 						}
 						else {
-						initialise();	
-						animate_logo();	
+							initialise();	
+							animate_logo();	
 						}						
 					}
 				}
