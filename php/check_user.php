@@ -54,10 +54,6 @@ else {
 	$result = $stmt->get_result(); 
 	$stmt->close();
 
-	$stmt = $mysqli->prepare("UPDATE users SET firsttime=0 WHERE UserID= ?;");
-	$stmt->bind_param("s", $userID);
-	$stmt->execute();
-	$stmt->close();	
 
 	if(! isset($_SESSION['lang'])){
 		$_SESSION['lang']=$languageMap[$checkResult];
@@ -66,6 +62,10 @@ else {
 	}
 	else {
 		$returnValue[]= "aleadyDoneBefore";
+		$stmt = $mysqli->prepare("UPDATE users SET firsttime=0 WHERE UserID= ?;");
+		$stmt->bind_param("s", $userID);
+		$stmt->execute();
+		$stmt->close();	
 	}
 
 	if($firsttime == 1) {
@@ -74,7 +74,7 @@ else {
 	}
 	else {
 		$returnValue[]= "doNotShowSettings";
-		
+
 	}
 
 	
