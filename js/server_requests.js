@@ -298,7 +298,7 @@ function updateTweetDB(status) {
 			console.log("Response from TweetDB update was: " + xmlhttp.responseText )
 		}
 	}
-	var json_data= {"wordID":wordID, "tweetID":tweet.TweetID, "tweetText":tweet.Text, "userID":userID, "mode":game, "language":gameLanguage, "status" : status    }
+	var json_data= {"wordID":wordID, "userID":userID, "mode":game, "language":gameLanguage, "status" : status    }
 
 	$.ajax({
 		type: 'POST',
