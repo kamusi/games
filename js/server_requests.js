@@ -73,6 +73,7 @@ function getRankedForTweets() {
 
 			if(groupID == '' || wordID == '' || word == '' || obj[0].Definition == '' || obj[0].PartOfSpeech == '') {
 				console.log("Fields are undefined when fetching a word, fetching the next word.")
+				updateTweetDB("noTweetFound")
 				getRankedForTweets();
 			}
 			else {
@@ -243,8 +244,10 @@ function get_tweets(alreadyDisplayed) {
 			);
 
 			if(realIndex == 0){
-				getRankedForTweets();
 				console.log("Nothing found for this keyword")
+				
+				updateTweetDB("noTweetFound")
+				getRankedForTweets();
 			}
 
 		}
@@ -310,7 +313,7 @@ function updateTweetDB(status) {
 		console.log('fail');
 		console.log(data);
 	});
-	
+
 	
 }
 
