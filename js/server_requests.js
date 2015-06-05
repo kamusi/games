@@ -27,28 +27,7 @@ var last20Tweets = {}
 var lastSwahiliSentences = {}
 
 
-function get_random() {
-	var xmlhttp;
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp=new XMLHttpRequest();
-	}
-	else {// code for IE6, IE5
-		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange=function() {
-		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-			console.log("getting the data : " + xmlhttp.responseText)
-			obj = JSON.parse(xmlhttp.responseText);
-			document.getElementById("word").innerHTML = obj.Word;
-			document.getElementById("definition").innerHTML = obj.Definition;
-		}
-	}
-	xmlhttp.open("GET","php/get_random.php", true);
-	xmlhttp.send();
-}
-
 function getRankedForTweets() {
-	console.log("In random for tweets function with userId: " + userID)
 	//remove previous tweet entries
 	document.getElementById("twitterWords").innerHTML = '';
 
@@ -61,30 +40,22 @@ function getRankedForTweets() {
 	}
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-			console.log("JSON DATA LOOKS LIKE : " +xmlhttp.responseText)
 			obj = JSON.parse(xmlhttp.responseText);
-			console.log("response was : " + xmlhttp.responseText);
-			console.log("getting the data in random for tweets : " + obj[0].Word);
 			groupID = obj[0].GroupID;
 			wordID = obj[0].WordID;
 			word = obj[0].Word;
 
-			console.log("All the details : " + groupID + word + wordID + obj[0].Definition + obj[0].PartOfSpeech )
 
 			if(groupID == '' || wordID == '' || word == '' || obj[0].Definition == '' || obj[0].PartOfSpeech == '') {
-				console.log("Fields are undefined when fetching a word, fetching the next word.")
 				updateTweetDB("noTweetFound")
 				getRankedForTweets();
 			}
 			else {
-				console.log("word id BeCaAAAME : " + wordID)
 				document.getElementById("word3").innerHTML = obj[0].Word;
 
 				document.getElementById("def3").innerHTML = obj[0].Definition;
 				document.getElementById("pos3").innerHTML = obj[0].PartOfSpeech;
 
-
-				console.log("getting the data in EXECUTEDSFWEC : " + obj[0].Word);
 				fetchTweetsFromDB(8);
 			}
 		}

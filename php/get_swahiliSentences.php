@@ -38,6 +38,7 @@ if($pointer != "DONE"){
 	if (!$ssh->login($helsinkiUserName, $helsinkiPassWord)) {
 		exit('Login Failed');
 	}
+	//This command executes a shell file LOCATED ON THE HCS Server.
 	$command = './getDataForWord.sh ' . $keyword . " " . $amount . " " . $pointer . "  2>&1";
 	$result=$ssh->exec($command);
 	$nextPointeDelimiter="NEXTPOINTER:";
@@ -66,10 +67,6 @@ if($pointer != "DONE"){
 	}
 }
 
-/*var_dump($sentences); 
-var_dump($sourceFiles);
-var_dump($sourceText);
-*/
 
 $jsonData = json_encode($sentences);
 echo $jsonData;

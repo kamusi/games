@@ -1,5 +1,10 @@
 <?php
 
+/*
+Implementation of the Honeypot algorithm described in the report
+from the previous semester project.
+It is not used in the current project, but something similar will likely have to be implemented.
+
 function update_user_rating($userID, $wordID, $groupID) {
 	$user = 'root';
 	$pass = '';
@@ -28,7 +33,6 @@ function update_user_rating($userID, $wordID, $groupID) {
 		$sql = 	"SELECT COUNT(*) As Count FROM definitions WHERE GroupID= " . $groupID . ";";
 		$result = mysqli_query($con, $sql);
 		$results_array = $result->fetch_assoc();
-//DEBUG HONEYPOT ON OCCASION!!
 		$rand_exp = 1/min(5, $results_array["Count"]);
 //how did user selec correctlyy?
 		if($definition = $results_array['DefinitionID']) { //User selected correctly
@@ -40,5 +44,5 @@ function update_user_rating($userID, $wordID, $groupID) {
 		$result = mysqli_query($con, $sql);
 	}
 }
-
+*/
 ?>

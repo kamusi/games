@@ -2,17 +2,13 @@
 
 $userID = $_GET['userID'];
 
-$user = 'root';
-$pass = '';
-$db = 'kamusi';
+//Signal that a notification was completed, the flag to notify is set to off
 
-$con = mysqli_connect('localhost', $user, $pass, $db);
+$sql = "UPDATE users SET Notify=0 WHERE UserId= ?;";
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("s", $userID);
+$stmt->execute();
 
-if (!$con) {
-	die('Could not connect: ' . mysqli_error($con));
-}
-
-$sql = "UPDATE users SET Notify=0 WHERE UserId='" . $userID . "';";
-$query = mysqli_query($con, $sql);
+$stmt->close();
 
 ?>

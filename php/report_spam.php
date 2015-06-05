@@ -4,22 +4,22 @@ $wordID = $_GET['wordID'];
 $definitionID = $_GET['definitionID'];
 $userID = $_GET['userID'];
 
-$user = 'root';
-$pass = '';
-$db = 'kamusi';
-
-$con = mysqli_connect('localhost', $user, $pass, $db);
-
-if (!$con) {
-	die('Could not connect: ' . mysqli_error($con));
-}
 
 //Increment user reports
-$sql = "UPDATE users SET NumReports = NumReports + 1 WHERE userID='" . $userID . "';";
-$result = mysqli_query($con, $sql);
+$sql = "UPDATE users SET NumReports = NumReports + 1 WHERE userID=?;";
+	$stmt = $mysqli->prepare($sql);
+	$stmt->bind_param("s", $userID);
+	$stmt->execute();
+	$result = $stmt->get_result();
+	$stmt->close();
 
-$sql = "SELECT * FROM users WHERE userID='" . $userID . "';";
-$result = mysqli_query($con, $sql);
+
+$sql = "SELECT * FROM users WHERE userID=?;";
+	$stmt = $mysqli->prepare($sql);
+	$stmt->bind_param("s", $userID);
+	$stmt->execute();
+	$result = $stmt->get_result();
+	$stmt->close();
 $result_array = $result->fetch_assoc();
 
 if($result_array["Mute"]) { //User has been muted before--ignore
@@ -28,18 +28,29 @@ if($result_array["Mute"]) { //User has been muted before--ignore
 
 $num_reports = $result_array["NumReports"];
 
-$sql = "SELECT * FROM words WHERE ID=" . $wordID . ";";
-$result = mysqli_query($con, $sql);
+$sql = "SELECT * FROM words WHERE ID=?;";
+	$stmt = $mysqli->prepare($sql);
+	$stmt->bind_param("i", $wordID);
+	$stmt->execute();
+	$result = $stmt->get_result();
+	$stmt->close();
 $results_array = $result->fetch_assoc();
 $word = $results_array["Word"];
 
-$sql = "SELECT * FROM definitions WHERE ID=" . $definitionID . ";";
-$result = mysqli_query($con, $sql);
+$sql = "SELECT * FROM definitions WHERE ID=?;";
+	$stmt = $mysqli->prepare($sql);
+	$stmt->bind_param("i", $definitionID);
+	$stmt->execute();
+	$result = $stmt->get_result();
+	$stmt->close();
 $results_array = $result->fetch_assoc();
 $definition = $results_array["Definition"];
 
 $sql =	"SELECT * FROM admin;";
-$result = mysqli_query($con, $sql);
+	$stmt = $mysqli->prepare($sql);
+	$stmt->execute();
+	$result = $stmt->get_result();
+	$stmt->close();
 
 while ($row = $result->fetch_assoc()) {
 	$alias = $row["Alias"];

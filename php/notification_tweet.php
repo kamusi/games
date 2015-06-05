@@ -62,6 +62,7 @@ $newPoints= 55;
 $sql =	"SELECT NewPointsSinceLastNotification FROM users WHERE UserID= ?;";
 
 $stmt = $mysqli->prepare($sql);
+$stmt->bind_param("s", $userID);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -79,7 +80,12 @@ if($newPoints == 0){
 else {
 	$sql =	"UPDATE users SET NewPointsSinceLastNotification=0 WHERE UserID=" . $userID .";";
 
-$result = mysqli_query($con, $sql);
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("s", $userID);
+$stmt->execute();
+
+$stmt->close();
+
 	FacebookSession::setDefaultApplication($app_id, $app_secret);
 
 	// If you already have a valid access token:
@@ -108,7 +114,7 @@ $result = mysqli_query($con, $sql);
 		'/' . $userID . '/notifications',
 		array (
 			'href' => '',
-			'template' => "You just gained " . $newPoints . " new points !",
+			'template' => "You just gained " . $newPoints . " new points for your Tweet selections!",
 			)
 		);
 

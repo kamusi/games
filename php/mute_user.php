@@ -2,19 +2,15 @@
 
 $userID = $_GET['userID'];
 
-$user = 'root';
-$pass = '';
-$db = 'kamusi';
+//When a user reports a spam, the website admninistrator gets an e-mail.
+//When the administrator clicks on the link to mute the user, this script is called.
 
-$con = mysqli_connect('localhost', $user, $pass, $db);
+$sql =	"UPDATE users SET Mute=1 WHERE UserID=?;";
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("s", $userID);
+$stmt->execute();
 
-if (!$con) {
-	die('Could not connect: ' . mysqli_error($con));
-}
-
-$sql =	"UPDATE users SET Mute=1 WHERE UserID='" . $userID . "';";
-$result = mysqli_query($con, $sql);
-
+$stmt->close();
 echo "Mute successful";
 
 ?>

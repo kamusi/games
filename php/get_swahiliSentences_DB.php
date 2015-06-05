@@ -4,6 +4,7 @@ ini_set('display_errors', 'On');
 $keyword = $_GET['keyword'];
 $amount = $_GET['amount'];
 
+//First display the sentences that have been used the smallest number of times
 $sql= "SELECT sentenceid, sentence, used FROM game4sentences WHERE keyword = ? ORDER BY used ASC LIMIT ?;";
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("si", $keyword, $amount);
