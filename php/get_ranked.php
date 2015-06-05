@@ -125,7 +125,7 @@ function getDefinitions($word_id){
 	$sql .= "LEFT JOIN definitions As d ON sq.DefinitionID = d.GroupID WHERE d.GroupID IS NOT NULL ";
 	$sql .= " ORDER BY Votes desc;";
 
-	print("This is the staement: " + $sql);
+	print("This is the staement: " . $sql);
 	$stmt = $mysqli->prepare($sql);
 	if ($stmt === FALSE) {
 		die ("Mysql Error: " . $mysqli->error);
