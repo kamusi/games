@@ -36,27 +36,18 @@ use Facebook\GraphUser;
 use Facebook\Entities\AccessToken;
 use Facebook\Entities\SignedRequest;
 
-/////to BE MERGED WITH NOTIFICAITON_TWEET 
-
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
 function send_notification($user_id, $word_id) {
-	$user = 'root';
-	$pass = '';
-	$db = 'kamusi';
 
-	echo "The WORD ID IS : " . $word_id;
-
-	$con = mysqli_connect('localhost', $user, $pass, $db);
-
-	if (!$con) {
-		die('Could not connect: ' . mysqli_error($con));
-	}
 
 	$sql =	"SELECT * FROM app;";
 
-	$result = mysqli_query($con, $sql);
+	$stmt = $mysqli->prepare($sql);
+	$stmt->execute();
+	$result = $stmt->get_result();
+	$stmt->close();
 
 	$results_array = $result->fetch_assoc();
 
@@ -64,10 +55,12 @@ function send_notification($user_id, $word_id) {
 	$app_id = $results_array["app_id"];
 	$app_secret = $results_array["app_secret"];
 
-	$sql = 	"SELECT Word FROM words " .
-			"WHERE ID='" . $word_id . "';";
-	$result = mysqli_query($con, $sql);
-
+	$sql = 	"SELECT Word FROM words WHERE ID=?;";
+	$stmt = $mysqli->prepare($sql);
+	$stmt->bind_param("i", $word_id );
+	$stmt->execute();
+	$result = $stmt->get_result();
+	$stmt->close();
 	$results_array = $result->fetch_assoc();
 
 	$word = $results_array["Word"];
@@ -82,8 +75,11 @@ function send_notification($user_id, $word_id) {
 
 	//Mark user for notification on loading game
 	$sql = 	"UPDATE users SET Notify=1 WHERE UserID='" . $user_id . "'";
-	$query = mysqli_query($con, $sql);
-
+	$stmt = $mysqli->prepare($sql);
+	$stmt->bind_param("s", $userID);
+	$stmt->execute();
+	$result = $stmt->get_result();
+	$stmt->close();
 	// To validate the session:
 	try {
 		$session->validate();
@@ -103,10 +99,10 @@ function send_notification($user_id, $word_id) {
 		'POST',
 		'/' . $user_id . '/notifications',
 		array (
-	    	'href' => '',
-	    	'template' => "Your definition for '" . $word . "' has been voted best!",
-	  	)
-	);
+			'href' => '',
+			'template' => "Your definition for '" . $word . "' has been voted best!",
+			)
+		);
 
 	$response = $request->execute();
 	$graphObject = $response->getGraphObject();

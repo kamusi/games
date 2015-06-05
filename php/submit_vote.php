@@ -1,8 +1,7 @@
 <?php
 
-//include 'global.php';
 include 'notification.php';
-//include 'honeypot.php';
+
 
 $wordID = $_GET['wordID'];
 $definitionID = $_GET['definitionID'];
@@ -10,14 +9,6 @@ $vote = $_GET['vote'];
 $groupID = $_GET['groupID'];
 $mode = $_GET['mode'];
 $language = $_GET['language'];
-
-$user = 'root';
-$pass = '';
-$db = 'kamusi';
-
-if(!in_array($mode, $acceptedModes)) {
-	die("Got a strange mode as input!". $mode);
-}
 
 
 

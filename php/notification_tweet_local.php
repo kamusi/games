@@ -44,35 +44,29 @@ ini_set('display_errors', 'On');
 
 
 $userID = $argv[1];
-$user = 'root';
-$pass = '';
-$db = 'kamusi';
-
-$con = mysqli_connect('localhost', $user, $pass, $db);
-
-if (!$con) {
-	die('Could not connect: ' . mysqli_error($con));
-}
 
 $sql =	"SELECT * FROM app;";
-
-$result = mysqli_query($con, $sql);
-
+$stmt = $mysqli->prepare($sql);
+$stmt->execute();
+$result = $stmt->get_result();
+$stmt->close();
 $results_array = $result->fetch_assoc();
 
 	//These must be retrieved from the database
 $app_id = $results_array["app_id"];
 $app_secret = $results_array["app_secret"];
 
-$mysqli = new mysqli('localhost', $user, $pass, $db);
 
-$newPoints= 55;
+$sql =	"SELECT NewPointsSinceLastNotification FROM users WHERE UserID= ?;";
 
-$sql =	"SELECT NewPointsSinceLastNotification FROM users WHERE UserID=" . $userID .";";
-
-$result = mysqli_query($con, $sql);
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("s", $userID);
+$stmt->execute();
+$result = $stmt->get_result();
 
 $results_array = $result->fetch_assoc();
+$stmt->close();
+
 $newPoints= $results_array["NewPointsSinceLastNotification"];
 
 
@@ -84,8 +78,13 @@ if($newPoints == 0){
 else {
 	$sql =	"UPDATE users SET NewPointsSinceLastNotification=0 WHERE UserID=" . $userID .";";
 
-$result = mysqli_query($con, $sql);
-	FacebookSession::setDefaultApplication($app_id, $app_secret);
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("s", $userID);
+$stmt->execute();
+
+$stmt->close();
+
+FacebookSession::setDefaultApplication($app_id, $app_secret);
 
 	// If you already have a valid access token:
 	//$session = new FacebookSession($access_token);
@@ -113,13 +112,12 @@ $result = mysqli_query($con, $sql);
 		'/' . $userID . '/notifications',
 		array (
 			'href' => '',
-			'template' => "You just gained " . $newPoints . " new points !",
+			'template' => "You just gained " . $newPoints . " new points for your Tweet selections!",
 			)
 		);
 
 	$response = $request->execute();
 	$graphObject = $response->getGraphObject();
 }
-
 
 ?>

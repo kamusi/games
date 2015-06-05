@@ -42,7 +42,7 @@ use Facebook\Entities\SignedRequest;
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
-
+$userID = $_GET['userID'];
 
 
 $sql =	"SELECT * FROM app;";
@@ -86,7 +86,7 @@ $stmt->execute();
 
 $stmt->close();
 
-	FacebookSession::setDefaultApplication($app_id, $app_secret);
+FacebookSession::setDefaultApplication($app_id, $app_secret);
 
 	// If you already have a valid access token:
 	//$session = new FacebookSession($access_token);
@@ -121,6 +121,5 @@ $stmt->close();
 	$response = $request->execute();
 	$graphObject = $response->getGraphObject();
 }
-
 
 ?>

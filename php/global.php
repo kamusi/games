@@ -83,7 +83,6 @@ function giveAllConcernedUsersXPoints($concernedUsers, $x){
 		$stmt->execute();
 		$stmt->close();
 	}
-
 }
 
 ?>
