@@ -100,11 +100,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 								</td></tr>
 							</table>
 						</div>
-
-					</div>
-
-					<div id="gamezone-footer1">
-										<div id="hunt_wrapper">
+											<div id="hunt_wrapper">
 						<div id="hunt">
 							<a id="wiktionary" target="_blank">Wiktionary</a>
 							<a>•</a>
@@ -113,6 +109,9 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 							<a id="wordnik" target="_blank">Wordnik</a>
 						</div>
 					</div>
+
+					</div>
+					<div id="gamezone-footer1">
 						<div id="footer-greeting">
 							<a class="tooltip">
 								<p id="greeting"></p>
