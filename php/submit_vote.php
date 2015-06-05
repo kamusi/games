@@ -40,7 +40,7 @@ $votes = $results_array["Votes"];
 $earnedPoints = 1;
 
 //If the definition got 3 votes, we reached consensus and the user gets 10 extra points
-if($votes == 3 && $user_id != 'wordnet') {
+if($votes > 3 && $user_id != 'wordnet') {
 	$earnedPoints = 11;
 //Substract the pending points from the user
 	$sql = 	"UPDATE game" . $mode .
@@ -51,7 +51,7 @@ if($votes == 3 && $user_id != 'wordnet') {
 	$stmt->bind_param("si", $user_id, $language);
 	$stmt->execute();
 	$stmt->close();
-
+	echo "IN RIHWDIJWEDFKJERKCFJWçOKFJEçKLEKRGJF"
 	send_notification($user_id, $wordID);
 }
 
