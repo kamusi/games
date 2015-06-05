@@ -51,7 +51,7 @@ if($votes > 3 && $user_id != 'wordnet') {
 	$stmt->bind_param("si", $user_id, $language);
 	$stmt->execute();
 	$stmt->close();
-	echo "IN RIHWDIJWEDFKJERKCFJWçOKFJEçKLEKRGJF"
+	echo "IN RIHWDIJWEDFKJERKCFJWçOKFJEçKLEKRGJF";
 	send_notification($user_id, $wordID);
 }
 
