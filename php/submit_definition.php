@@ -16,7 +16,6 @@ if(!in_array($mode, $acceptedModes)) {
 
 //increase the number of submissions for this user
 addXSubmissionsInGame($userID, $language, $mode, 1);
-addXToPointsInGame($userID, $language, $mode, 1);
 
 	global $mysqli;
 if ($groupID == 'null') {

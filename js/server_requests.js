@@ -658,7 +658,7 @@ function get_ranked_mode_2() {
 			console.log("GEt ranked2 : " + xmlhttp.responseText)
 			obj = JSON.parse(xmlhttp.responseText);
 			document.getElementById("translation_word").innerHTML = obj[0].Word;
-			document.getElementById("translation_pos").innerHTML = obj[0].PartOfSpeech;
+			document.getElementById("translation_pos").innerHTML = partOfSpeechArray[obj[0].PartOfSpeech];
 			document.getElementById("translation_definition").innerHTML = generalSense + obj[0].Definition;
 
 			var underscored_word = obj[0].Word.replace(" /g", "_");
