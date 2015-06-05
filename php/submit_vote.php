@@ -43,12 +43,12 @@ $earnedPoints = 1;
 if($votes > 3 && $user_id != 'wordnet') {
 	$earnedPoints = 11;
 //Substract the pending points from the user
-	$sql = 	"UPDATE game" . $mode .
+	$sql = 	"UPDATE games " .
 	" SET pendingpoints = pendingpoints -10 ". 
-	" WHERE userid = ? AND language = ?;";
+	" WHERE userid = ? AND language = ? AND mode = ?;";
 
 	$stmt = $mysqli->prepare($sql);
-	$stmt->bind_param("si", $user_id, $language);
+	$stmt->bind_param("sii", $user_id, $language, $mode);
 	$stmt->execute();
 	$stmt->close();
 	echo "IN RIHWDIJWEDFKJERKCFJWçOKFJEçKLEKRGJF";
