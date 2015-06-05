@@ -40,7 +40,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
 function send_notification($user_id, $word_id) {
-
+	global $mysqli;
 
 	$sql =	"SELECT * FROM app;";
 
