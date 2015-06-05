@@ -100,7 +100,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 								</td></tr>
 							</table>
 						</div>
-											<div id="hunt_wrapper">
+					<div id="hunt_wrapper">
 						<div id="hunt">
 							<a id="wiktionary" target="_blank">Wiktionary</a>
 							<a>•</a>
