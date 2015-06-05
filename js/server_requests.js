@@ -435,6 +435,11 @@ function sendTweetToDB(tweet, good){
 			else {
 				wordToDisplay = results_array[0].Word
 			}
+			var underscored_word = wordToDisplay.replace(" /g", "_");
+
+			document.getElementById("wiktionary").href = "https://en.wiktionary.org/wiki/" + underscored_word;
+			document.getElementById("dictionary").href = "http://dictionary.reference.com/browse/" + underscored_word;
+			document.getElementById("wordnik").href = "https://www.wordnik.com/words/" + underscored_word;
 			set_word(wordToDisplay,  partOfSpeechArray[results_array[0].PartOfSpeech]);
 			add_definition(-1, "? " + ICantSay, false);
 
@@ -663,11 +668,6 @@ function get_ranked_mode_2() {
 			document.getElementById("translation_pos").innerHTML = partOfSpeechArray[obj[0].PartOfSpeech];
 			document.getElementById("translation_definition").innerHTML = generalSense + obj[0].Definition;
 
-			var underscored_word = obj[0].Word.replace(" /g", "_");
-
-			document.getElementById("wiktionary").href = "https://en.wiktionary.org/wiki/" + underscored_word;
-			document.getElementById("dictionary").href = "http://dictionary.reference.com/browse/" + underscored_word;
-			document.getElementById("wordnik").href = "https://www.wordnik.com/words/" + underscored_word;
 			wordID = obj[0].WordID;
 			groupID = obj[0].GroupID;
 
