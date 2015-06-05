@@ -40,6 +40,8 @@ function getRankedForTweets() {
 	}
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			console.log("TweetResponse was : " + xmlhttp.responseText)
+
 			obj = JSON.parse(xmlhttp.responseText);
 			groupID = obj[0].GroupID;
 			wordID = obj[0].WordID;
