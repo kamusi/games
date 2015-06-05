@@ -76,7 +76,7 @@ if($newPoints == 0){
 	echo "Did not sent notif, no points were gained." .$userID ;
 }
 else {
-	$sql =	"UPDATE users SET NewPointsSinceLastNotification=0 WHERE UserID=" . $userID .";";
+	$sql =	"UPDATE users SET NewPointsSinceLastNotification=0 WHERE UserID=?;";
 
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("s", $userID);
