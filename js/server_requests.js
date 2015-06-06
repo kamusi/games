@@ -705,7 +705,7 @@ function saveSettings() {
 	whenToPost = document.getElementById("posts").selectedIndex;
 	gameLanguageSliderValue = document.getElementById("language").selectedIndex
 	gameLanguage = gameLanguageSliderValue +1;
-	siteLanguage = document.getElementById("menuLanguageSettings").selectedIndex + 1;
+	//siteLanguage = document.getElementById("menuLanguageSettings").selectedIndex + 1;
 
 	var xmlhttp;
 
