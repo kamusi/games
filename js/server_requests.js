@@ -1,3 +1,5 @@
+//This file contains all code responsible for client-server communication
+
 
 var userID = "???" //"???"; //so that it works offline:  10203265649994971
 userName = "???"
