@@ -266,13 +266,9 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 </div>
 <div id="settings">
 	<div id="settings-main">
-		<p><?php echo _("Hints and Help Language"); ?></p>
-	<img src="media/language_selector.png">
-	</br></br>
-	</br></br>
-<select id="menuLanguage" onchange= size="1">
-	<option><?php echo ("English"); ?></option>
-	<option><?php echo ("Français"); ?></option>
+		<p><?php echo _("Change the Hints and Help Language"); ?></p>
+			<img title="ChooseLanguage" id="changeLanguage" src="media/language_selector.png" onmousedown="playClick(); saveSettings();display_changeLanguage();">
+
 </br></br>
 	<p><?php echo _("Game Language"); ?></p>
 <select id="language" onchange= size="1">
