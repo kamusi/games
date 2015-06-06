@@ -320,7 +320,7 @@ function set_profile_data(points, pendingPoints, ratio) {
 	document.getElementById("profile_name").innerHTML = userName;
 	document.getElementById("profile_points").innerHTML = points;
 	document.getElementById("pending_points").innerHTML = pendingPoints;
-	document.getElementById("profile_attempts").innerHTML = ratio.toPrecision(10);
+	document.getElementById("profile_attempts").innerHTML = ratio;
 
 }
 
