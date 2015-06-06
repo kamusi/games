@@ -35,7 +35,7 @@ function lookForWord($userID) {
 
 	$stmt->close();
 
-	if($user_offset > 40) {
+	if($user_offset > 150) {
 		die("This is very likely an infinite loop in get_ranked!");
 	}
 
@@ -125,7 +125,6 @@ function getDefinitions($word_id){
 	$sql .= "LEFT JOIN definitions As d ON sq.DefinitionID = d.GroupID WHERE d.GroupID IS NOT NULL ";
 	$sql .= " ORDER BY Votes desc;";
 
-	print("This is the staement: " . $sql);
 	$stmt = $mysqli->prepare($sql);
 	if ($stmt === FALSE) {
 		die ("Mysql Error: " . $mysqli->error);

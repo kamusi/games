@@ -63,10 +63,6 @@ function animation() {
 	clear_canvas();
 	for(var index = 0; index < symbol_objects.length; index++) {
 		symbol_objects[index].draw();
-		symbol_objects[index].draw();
-		symbol_objects[index].draw();
-		symbol_objects[index].draw();
-		symbol_objects[index].draw();
 	}
 }
 
