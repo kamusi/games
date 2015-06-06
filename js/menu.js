@@ -252,7 +252,7 @@ function display_welcome() {
 		console.log(implementedGames)
 		console.log(gameLanguage)
 	for( i = 1; i < 5; i++){
-		if(  true/*$.inArray(gameLanguage, implementedGames[i]*/) == -1) {
+		if(  true/*$.inArray(gameLanguage, implementedGames[i]) == -1 */) {
 			document.getElementById("enter"+i).style.display = "none";
 		}
 		else {
