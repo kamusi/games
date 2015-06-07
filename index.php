@@ -268,14 +268,12 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 	<div id="settings-main">
 		
 		<?php echo _("Hints and Help Language"); ?>
-			<div>
 			<img src="media/language_selector.png">
 
 <select id="menuLanguageSettings" onchange= size="1">
 	<option><?php echo _("English"); ?></option>
 	<option><?php echo _("French"); ?></option>
 </select>
-</div>
 
 </br></br>
 </br></br>
