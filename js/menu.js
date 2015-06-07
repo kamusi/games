@@ -287,8 +287,7 @@ function changeColorOnClick(tweetDisplay,newInput){
 	}
 }
 
-function animate_logo_firstTime(){
-	
+function animate_logo_firstTime(){	
 
 	document.getElementById("logo").classList.add("animatelogo");
 	document.getElementById("enter0").classList.remove("shaded_enter");

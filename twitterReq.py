@@ -41,7 +41,6 @@ def search(keyword, amount):
             conn = urllib.urlopen("http://www.wdyl.com/profanity?q="+ urllib.quote(a.text.encode("utf-8"))) 
             response = conn.read()
             if json.loads(response)["response"] == "false" :
-                #if not a.text in returnText :
                 returnText.append({"Text": a.text, "Author": a.author.screen_name, "TweetID": a.id})
                 i = i+1
                 if i > int(amount) :

@@ -308,7 +308,7 @@ function fetchTweetsFromDB(amount) {
 
 			var results_array = JSON.parse(xmlhttp.responseText);
 			var i = 0
-			for( i = 0; i<amount && typeof results_array[i] !== 'undefined'; i++) {
+			for( i = 0; i<amount && typeof results_array[i] !== 'undefined' && results_array[i] != null; i++) {
 				last20Tweets[i] = results_array[i];
 				displayTextWithCheckboxes(last20Tweets[i].Text,i,"twitterWords")
 			}
@@ -700,7 +700,10 @@ function submit_translation(translation) {
 }
 
 function saveSettings() {
-	console.log("Begin save settings")
+	menuLanguageSliderValue = document.getElementById("menuLanguageSettings").selectedIndex
+	if(siteLanguage != menuLanguageSliderValue +1 ){
+		saveMenuLanguage("menuLanguageSettings")
+	}
 	whenToNotify = document.getElementById("notifications").selectedIndex;
 	whenToPost = document.getElementById("posts").selectedIndex;
 	gameLanguageSliderValue = document.getElementById("language").selectedIndex
@@ -724,9 +727,34 @@ function saveSettings() {
 	xmlhttp.send();
 }
 
-function saveMenuLanguage() {
+function saveMenuLanguageInSettings() {
 
-	menuLanguageSliderValue = document.getElementById("menuLanguage").selectedIndex
+	menuLanguageSliderValue = document.getElementById("menuLanguageSettings").selectedIndex
+	if(siteLanguage != menuLanguageSliderValue +1 ){
+
+	var xmlhttp;
+
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			console.log(xmlhttp.responseText)
+			location.reload();
+		}
+	}
+	console.log("Sending LANG : " + siteLanguage)
+	xmlhttp.open("GET","php/save_menu_language.php?userID=" + userID + "&menuLanguage=" + siteLanguage);
+	xmlhttp.send();
+	}
+}
+
+function saveMenuLanguage(whichSlider) {
+
+	menuLanguageSliderValue = document.getElementById(whichSlider).selectedIndex
 	siteLanguage = menuLanguageSliderValue +1;
 
 	var xmlhttp;
@@ -746,7 +774,6 @@ function saveMenuLanguage() {
 	console.log("Sending LANG : " + siteLanguage)
 	xmlhttp.open("GET","php/save_menu_language.php?userID=" + userID + "&menuLanguage=" + siteLanguage);
 	xmlhttp.send();
-
 }
 
 function post_timeline() {
