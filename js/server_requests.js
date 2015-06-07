@@ -513,6 +513,8 @@ function isNewUser() {
 				if(obj[1] != "unknown user") {
 
 					siteLanguage=obj[0]
+					document.getElementById('menuLanguageSettings').selectedIndex= siteLanguage - 1
+
 					console.log("Site lanuguage is: " + siteLanguage)
 					if(obj[1] != "aleadyDoneBefore") {
 						location.reload();
