@@ -702,6 +702,7 @@ function submit_translation(translation) {
 function saveSettings() {
 	menuLanguageSliderValue = document.getElementById("menuLanguageSettings").selectedIndex
 	if(siteLanguage != menuLanguageSliderValue +1 ){
+		console.log("Changing language...")
 		saveMenuLanguage("menuLanguageSettings")
 	}
 	whenToNotify = document.getElementById("notifications").selectedIndex;
@@ -725,31 +726,6 @@ function saveSettings() {
 	}
 	xmlhttp.open("GET","php/save_settings.php?userID=" + userID + "&notify=" + whenToNotify + "&post=" + whenToPost + "&gameLanguage=" + gameLanguage);
 	xmlhttp.send();
-}
-
-function saveMenuLanguageInSettings() {
-
-	menuLanguageSliderValue = document.getElementById("menuLanguageSettings").selectedIndex
-	if(siteLanguage != menuLanguageSliderValue +1 ){
-
-	var xmlhttp;
-
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp=new XMLHttpRequest();
-	}
-	else {// code for IE6, IE5
-		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange=function() {
-		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-			console.log(xmlhttp.responseText)
-			location.reload();
-		}
-	}
-	console.log("Sending LANG : " + siteLanguage)
-	xmlhttp.open("GET","php/save_menu_language.php?userID=" + userID + "&menuLanguage=" + siteLanguage);
-	xmlhttp.send();
-	}
 }
 
 function saveMenuLanguage(whichSlider) {
