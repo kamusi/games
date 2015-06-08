@@ -469,7 +469,7 @@ function sendTweetToDB(tweet, good){
 			}
 
 			definitionID = -1;
-			$("#entry").removeClass("fade");
+			//$("#entry").removeClass("fade");
 
 		}
 	}
