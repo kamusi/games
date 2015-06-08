@@ -147,11 +147,6 @@ function enter_game2() {
 	document.getElementById("gamezone3").style.display = "none";
 	document.getElementById("gamezone4").style.display = "none";
 
-	// document.getElementById("gamezone-main1").style.display = "none";
-	// document.getElementById("gamezone-main2").style.display = "inline-block";
-	// document.getElementById("footer-next1").style.display = "none";
-	// document.getElementById("footer-next2").style.display = "inline-block";
-	;
 }
 
 function enter_game3() {
@@ -497,8 +492,8 @@ function stopAutoUpdateOfLeaderboard() {
 
 function updatePermanentMetrics(points, pendingPoints){
 	console.debug("Udpating permanent metrics: " + points + pendingPoints)
-	$("#points-pending").html("In Play: " + pendingPoints)
-	$("#points-total").html("Banked: " + points)
+	$("#points-pending").html(pointsInPlay + pendingPoints)
+	$("#points-total").html(pointsBanked + points)
 
 }
 

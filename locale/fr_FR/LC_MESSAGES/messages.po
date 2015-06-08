@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kamusi\n"
-"POT-Creation-Date: 2015-06-06 13:35+0100\n"
-"PO-Revision-Date: 2015-06-06 18:23+0100\n"
+"POT-Creation-Date: 2015-06-08 11:13+0100\n"
+"PO-Revision-Date: 2015-06-08 16:06+0100\n"
 "Last-Translator: \n"
 "Language-Team: timo\n"
 "Language: fr_FR\n"
@@ -35,19 +35,19 @@ msgstr "Jeu avec les phrases"
 msgid "Undefined Language"
 msgstr "Langue non définie"
 
-#: index.php:46 index.php:275 index.php:329
+#: index.php:46 index.php:274 index.php:282 index.php:336
 msgid "English"
 msgstr "Anglais"
 
-#: index.php:46 index.php:276 index.php:330
+#: index.php:46 index.php:275 index.php:283 index.php:337
 msgid "French"
 msgstr "Français"
 
-#: index.php:46 index.php:277 index.php:331
+#: index.php:46 index.php:284 index.php:338
 msgid "Vietnamese"
 msgstr "Vietnamien"
 
-#: index.php:46 index.php:278 index.php:332
+#: index.php:46 index.php:285 index.php:339
 msgid "Swahili"
 msgstr ""
 
@@ -75,8 +75,8 @@ msgstr "adverbe"
 msgid "phrase"
 msgstr "phrase"
 
-#: index.php:80 index.php:129 index.php:156 index.php:181 index.php:340
-#: index.php:341 index.php:342 index.php:343
+#: index.php:80 index.php:129 index.php:156 index.php:181 index.php:347
+#: index.php:348 index.php:349 index.php:350
 #, php-format
 msgid "%s"
 msgstr "%s"
@@ -162,158 +162,161 @@ msgstr "Points"
 msgid "Pending points"
 msgstr "Points potentiels"
 
-#: index.php:251 index.php:360
+#: index.php:251 index.php:367
 msgid "Success Rate"
 msgstr "Ratio de succès"
 
-#: index.php:269
+#: index.php:270
 #, fuzzy
-msgid "Change the Hints and Help Language"
+msgid "Hints and Help Language"
 msgstr "Langue pour les indices et pour l'aide"
 
-#: index.php:273
+#: index.php:280
 msgid "Game Language"
 msgstr "Langue du jeu"
 
-#: index.php:281
+#: index.php:288
 msgid "Notify me about new points I earn..."
 msgstr "Notifiez moi à propos des points que j'ai gagné..."
 
-#: index.php:283
+#: index.php:290
 msgid "Real time"
 msgstr "En temps réel"
 
-#: index.php:284
+#: index.php:291
 msgid "Once daily"
 msgstr "Une fois par jour"
 
-#: index.php:285
+#: index.php:292
 msgid "Once weekly"
 msgstr "Une fois par semaine"
 
-#: index.php:286
+#: index.php:293
 msgid "When pigs fly..."
 msgstr "Lorsque les cochons voleront..."
 
-#: index.php:289
+#: index.php:296
 msgid "Post achievements to my timeline..."
 msgstr "Publier mes exploits..."
 
-#: index.php:292
+#: index.php:299
 msgid "Always (Every time I have a winning entry)"
 msgstr "A chaque fois que mon ajout gagne"
 
-#: index.php:293
+#: index.php:300
 msgid "Often (Max once a day)"
 msgstr "Souvent (Une fois par jour max)"
 
-#: index.php:294
+#: index.php:301
 msgid "Sometimes (Max once a week)"
 msgstr "Parfois (Une fois par semaine max)"
 
-#: index.php:295
+#: index.php:302
 msgid "Occasionally (Max once monthly)"
 msgstr "Occasionnellement (Une fois par mois au max)"
 
-#: index.php:296
+#: index.php:303
 msgid "When pigs fly... (Never)"
 msgstr "Lorsque les cochons voleront (Jamais)"
 
-#: index.php:326
+#: index.php:333
 msgid "Language"
 msgstr "Langue"
 
-#: index.php:328
+#: index.php:335
 msgid "All languages"
 msgstr "Toutes langues"
 
-#: index.php:337
+#: index.php:344
 msgid "Game"
 msgstr "Jeu"
 
-#: index.php:339
+#: index.php:346
 msgid "All games"
 msgstr "Tous les jeux"
 
-#: index.php:347
+#: index.php:354
 msgid "TimePeriod"
 msgstr "Période de temps"
 
-#: index.php:349
+#: index.php:356
 msgid "All time"
 msgstr "Toujours"
 
-#: index.php:350
+#: index.php:357
 msgid "Last Month"
 msgstr "Le mois passé"
 
-#: index.php:351
+#: index.php:358
 msgid "Last Week"
 msgstr "La semaine passée"
 
-#: index.php:352
+#: index.php:359
 msgid "Last 24 Hours"
 msgstr "Les dernières 24 heures"
 
-#: index.php:356
+#: index.php:363
 msgid "What to compare"
 msgstr "Score a comparer"
 
-#: index.php:358
+#: index.php:365
 msgid "Points Earned"
 msgstr "Points gagnés"
 
-#: index.php:359
+#: index.php:366
 msgid "# of Submissions"
 msgstr "# d'ajouts"
 
-#: index.php:365
+#: index.php:372
 msgid "Auto-Loop"
 msgstr "Boucle automatique"
 
-#: index.php:368
+#: index.php:375
 msgid "Leaderboard"
 msgstr "Liste des scores"
 
-#: index.php:387
+#: index.php:394
 msgid " I can write the winning definition for this idea!"
 msgstr "Je peux écrire la définition gagnante pour cette idée!"
 
-#: index.php:388
+#: index.php:395
 msgid " I can't say - skip this one..."
 msgstr "Je ne saurais dire... Passons à la suivante."
 
-#: index.php:389
+#: index.php:396
 msgid " I can translate this word!"
 msgstr "Je peux traduire ce mot"
 
-#: index.php:390
-msgid " Keep the General Sense. It's a good definition as is!"
-msgstr "Garder le sense général : c'est une bonne définition ainsi!"
+#: index.php:397
+msgid " Keep the working definition. It's spectacular as it is!"
+msgstr "Garder la définition provisoire. C'est spectaculaire ainsi"
 
-#: index.php:391
+#: index.php:398
 msgid "Working definition: "
 msgstr ""
 
-#: index.php:392
+#: index.php:399
 msgid "Translate the following word to : "
 msgstr "Traduisez le mot suivant vers la langue suivante : "
 
-#: index.php:393
+#: index.php:400
 msgid "Your achievements for the "
 msgstr "Vos scores pour le "
 
-#: index.php:394
+#: index.php:401
 msgid " in "
 msgstr " en "
 
-#: index.php:395
+#: index.php:402
 msgid "Write or vote for a definition in "
 msgstr "Vote pour une définition ou crées-en une en "
 
-#: index.php:396
+#: index.php:403
 msgid "Rank: "
 msgstr ""
+
+#~ msgid " Keep the General Sense. It's a good definition as is!"
+#~ msgstr "Garder le sense général : c'est une bonne définition ainsi!"
 
 #~ msgid "General Sense: "
 #~ msgstr "Sens général: "
