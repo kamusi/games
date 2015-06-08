@@ -388,6 +388,8 @@ function add_definition(id, definition, spam) {
 			playClick();
 			vote();
 			get_ranked();
+
+			getGameScore();
 		};
 	})(id);
 
@@ -497,6 +499,9 @@ function stopAutoUpdateOfLeaderboard() {
 
 function updatePermanentMetrics(points, pendingPoints){
 	console.debug("Udpating permanent metrics: " + points + pendingPoints)
+	$(".points-pending").html("In Play: " + pendingPoints)
+	$(".points-total").html("Banked: " + points)
+
 }
 
 

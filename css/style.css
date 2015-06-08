@@ -166,6 +166,9 @@ body {
 		text-align:center;
 		display:none;
 	}
+	#points-pending, #points-total {
+		color: white;
+	}
 
 	#about-main {
 		text-align:justify !important
