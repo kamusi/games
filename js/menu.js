@@ -29,13 +29,13 @@ function InlineEditorController($scope){
 			remove_active();
 			document.getElementById("user_definition").className = "active_definition";
 			if($scope.value == default_value) {
-				//$scope.value = '';
+				$scope.value = '';
 			}
 
 			document.getElementById("input_tool_box").focus();
 			document.getElementById("input_tool_box").select();
-		}
-		/*else {
+		}/*
+		else {
 			if ($scope.value == '') {
 				$scope.value = default_value;
 				document.getElementById("user_definition").className = "inactive_definition";
@@ -57,7 +57,7 @@ function InlineEditorController($scope){
 	$scope.submitGame1 = function() {
 		$scope.hideTooltip();
 		playClick();vote();get_ranked();
-		$scope.value = default_value;	
+		$scope.value = '';	
 	}
 }
 
