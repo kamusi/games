@@ -32,7 +32,7 @@ function InlineEditorController($scope){
 				$scope.value = '';
 			}
 			console.debug($("#input_tool_box"));
-			$("#input_tool_box").focus();
+			$("#input_tool_box").focusin();
 			//document.getElementById("input_tool_box").select();
 		}
 
