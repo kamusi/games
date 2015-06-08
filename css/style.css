@@ -273,7 +273,7 @@ body {
 	#translations_wrapper {	
 		margin-top:20px;
 		width: 750px;
-		height: 130px;
+		min-height: 250px;
 		overflow: scroll;
 	}
 	#hunt_wrapper {
