@@ -38,7 +38,7 @@ function getRankedForTweets() {
 	document.getElementById("twitterWords").innerHTML = '';
 
 	console.debug("About to fade")
-	$("#entry").addClass("fade");
+	$(".entry").addClass("fade");
 	console.debug("I faded!!")
 	var xmlhttp;
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -69,7 +69,7 @@ function getRankedForTweets() {
 
 				fetchTweetsFromDB(8);
 			}
-			$("#entry").removeClass("fade");
+			$(".entry").removeClass("fade");
 		}
 	}
 
@@ -83,7 +83,7 @@ function getRankedForSwahili() {
 
 	document.getElementById("swahiliSentences").innerHTML = '';
 	wordID= 12345;
-	$("#entry").addClass("fade");
+	$(".entry").addClass("fade");
 	var xmlhttp;
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();
@@ -107,7 +107,7 @@ function getRankedForSwahili() {
 			document.getElementById("defSwahili4").innerHTML = "Kuwa wima juu ya miguu";
 
 			getGame4Sentences("ya", 3)
-			$("#entry").removeClass("fade");
+			$(".entry").removeClass("fade");
 		}
 	}
 	xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
@@ -424,7 +424,7 @@ function sendTweetToDB(tweet, good){
 
 	function get_ranked() {
 		
-		$("#entry").addClass("fade");
+		$(".entry").addClass("fade");
 
 
 		var xmlhttp;
@@ -475,7 +475,7 @@ function sendTweetToDB(tweet, good){
 			}
 
 			definitionID = -1;
-			$("#entry").removeClass("fade");				
+			$(".entry").removeClass("fade");				
 			//}, 1000);
 
 
@@ -678,7 +678,7 @@ function complete_notification() {
 }
 
 function get_ranked_mode_2() {
-	$("#entry").addClass("fade");
+	$(".entry").addClass("fade");
 	var xmlhttp;
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();
@@ -696,7 +696,7 @@ function get_ranked_mode_2() {
 
 			wordID = obj[0].WordID;
 			groupID = obj[0].GroupID;
-			$("#entry").removeClass("fade");
+			$(".entry").removeClass("fade");
 
 		}
 	}

@@ -126,10 +126,11 @@ body {
 		background-image: url('../media/kikoi.jpg');
 	}
 
-	#entry, #translation_entry {
+	.entry {
 		min-height:40px;
 		width:710px;
 		padding:20px;
+		height: auto;
 		color: #af0800;
 		background:white;
 		text-align:left;
@@ -139,12 +140,8 @@ body {
 		-webkit-transition: opacity .5s ease-in-out;
 	}
 
-	#entry.fade, #translation_entry.fade {
+	.entry.fade {
 		opacity: 0;
-	}
-
-	#translation_entry {
-		height: auto;
 	}
 
 	#word, #translation_word, #word3, #word4 {
