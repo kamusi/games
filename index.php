@@ -96,8 +96,8 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 
 								<ul>
 									<li ng-click="toggleTooltip($event); " id="user_definition" class="inactive_definition">✎ <?php echo gettext(" I can write the winning definition for this idea!"); ?></li> </ul>
-													<div class="input_tool" ng-click="$event.stopPropagation()" ng-show="showtooltip">
-								<input id="input_tool_box" type="textarea" ng-model="value" ng-keypress="searchEnter($event);"/>
+									<div class="input_tool" ng-click="$event.stopPropagation()" ng-show="showtooltip">
+								<input id="input_tool_box" type="text" ng-model="value" ng-keypress="searchEnter($event);"/>
 								<img title="Submit" id="SubmitDef" ng-click="submitGame1($event);" class="controlSmall" src="media/rightarrowSmall.png" onclick="">
 
 							</div>							
@@ -145,7 +145,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 								<li ng-click="toggleTooltip2($event)" id="user_translation" class="inactive_definition">✎ <?php echo gettext("I can translate this word!"); ?></li>
 								</ul>
 								<div class="input_tool" ng-click="$event.stopPropagation()" ng-show="showtooltip2">
-								<input id="translation_input_tool_box" type="textarea" ng-model="translation" ng-keypress="searchEnter2($event);" onFocus="this.select()"/>
+								<input id="translation_input_tool_box" type="text" ng-model="translation" ng-keypress="searchEnter2($event);" onFocus="this.select()"/>
 								<img title="Submit" id="SubmitTrans" ng-click="submitGame2($event);" class="controlSmall" src="media/rightarrowSmall.png" onclick="">
 
 							</div>
