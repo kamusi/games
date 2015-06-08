@@ -119,7 +119,7 @@ function InlineEditorController2($scope){
 function enter_game1() {
 	pause_animation();
 	game = 1;
-
+	getGameScore();
 	
 	get_ranked();
 	document.getElementById("instructions1").innerHTML = writeOrVote + gameLanguages[gameLanguage];
@@ -140,6 +140,7 @@ function enter_game1() {
 function enter_game2() {
 	pause_animation()
 	game = 2;
+	getGameScore();
 	get_ranked_mode_2();
 	document.getElementById("instructions2").innerHTML = translateTheFollowing + gameLanguages[gameLanguage];
 	document.getElementById("welcome").style.display = "none";
@@ -160,6 +161,7 @@ function enter_game3() {
 	pause_animation();
 
 	game = 3;
+	getGameScore();
 	getRankedForTweets();
 	document.getElementById("welcome").style.display = "none";
 	document.getElementById("game").style.display = "inline-block";
@@ -174,7 +176,7 @@ function enter_game3() {
 
 function enter_game4() {
 	game = 4;
-	
+	getGameScore();
 	document.getElementById("welcome").style.display = "none";
 	document.getElementById("game").style.display = "inline-block";
 	document.getElementById("gamezone1").style.display = "none";
