@@ -31,7 +31,7 @@ function InlineEditorController($scope){
 			if($scope.value == default_value) {
 				$scope.value = '';
 			}
-
+			console.debug($("#input_tool_box"))
 			$("#input_tool_box").focus();
 			//document.getElementById("input_tool_box").select();
 		}
