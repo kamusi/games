@@ -39,7 +39,7 @@ function InlineEditorController($scope){
 		else {
 			/*if ($scope.value == '') {*/
 			//	$scope.value = default_value;
-				document.getElementById("user_definition").className = "inactive_definition";
+			//	document.getElementById("user_definition").className = "inactive_definition";
 			//}
 		}
 	}
