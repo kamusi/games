@@ -690,7 +690,7 @@ function get_ranked_mode_2() {
 			obj = JSON.parse(xmlhttp.responseText);
 			document.getElementById("translation_word").innerHTML = obj[0].Word;
 			document.getElementById("translation_pos").innerHTML = partOfSpeechArray[obj[0].PartOfSpeech];
-			document.getElementById("translation_definition").innerHTML = generalSense + obj[0].Definition;
+			document.getElementById("translation_definition").innerHTML = generalSense + + "<strong>" + obj[0].Definition + + "</strong>";
 
 			wordID = obj[0].WordID;
 			groupID = obj[0].GroupID;

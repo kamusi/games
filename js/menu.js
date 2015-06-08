@@ -483,7 +483,7 @@ function startAutoUpdateOfLeaderboard() {
 	}
 
 
-	}, 3000);
+	}, 8000);
 
 }
 
