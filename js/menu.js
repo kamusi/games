@@ -55,7 +55,7 @@ function InlineEditorController($scope){
 		$scope.hideTooltip();
 		playClick();vote();get_ranked();
 		$scope.value = '';	
-		updatePointDisplay();
+		getGameScore();
 	}
 }
 

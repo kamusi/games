@@ -196,30 +196,6 @@ function queryForSentences(keyword, amount, source){
 	xmlhttp.send();  
 }
 
-function updatePointDisplay(){
-	var xmlhttp;
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp=new XMLHttpRequest();
-	}
-	else {// code for IE6, IE5
-		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange=function() {
-		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-				console.log("Updating points...")
-
-			console.debug(xmlhttp.responseText)
-			var obj = JSON.parse(xmlhttp.responseText);
-			
-			updatePermanentMetrics(obj.points,obj.pendingpoints);
-
-		}
-	}
-	xmlhttp.open("GET","php/get_profile.php?userID=" + userID + "&token=" + token, true);
-
-	xmlhttp.send();	
-}
-
 function get_tweets(alreadyDisplayed) {
 	console.log("inside the tweets function: ")
 
@@ -623,7 +599,7 @@ function getGameScore(){
 			var obj = JSON.parse(xmlhttp.responseText);
 
 			set_profile_data(obj.points, obj.pendingpoints, (obj.points / ( parseInt(obj.submissions) + 1)).toFixed(5));
-
+			updatePermanentMetrics(obj.points,obj.pendingpoints);
 		}
 	}
 	console.log("gameLAnugage is : " + gameLanguage)
