@@ -42,12 +42,7 @@ $stmt->execute();
 $stmt->close();
 
 //give the user 10 pending points : the one he gets if his definition reaches consensus
-$sql = 	"UPDATE games SET pendingpoints = pendingpoints + 10 WHERE userid = ? AND language = ? AND game= ?; "; 
-$stmt = $mysqli->prepare($sql);
-$stmt->bind_param("sis", $userID, $language, $mode);
-$stmt->execute();
-
-$stmt->close();
+addXToPendingPointsInGame($userID, $language, $mode, 10);
 echo 'Success';
 
 ?>
