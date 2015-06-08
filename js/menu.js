@@ -34,7 +34,7 @@ function InlineEditorController($scope){
 			console.debug($("#input_tool_box"));
 			setTimeout( function() {
 				$("#input_tool").focus();
-			}, 20 )
+			}, 1000 )
 			//document.getElementById("input_tool_box").select();
 		}
 
