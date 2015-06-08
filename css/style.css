@@ -139,7 +139,7 @@ body {
 		-webkit-transition: opacity 1s ease-in-out;
 	}
 
-	.fade {
+	#entry.fade, #translation_entry.fade {
 		opacity: 0.1;
 	}
 
