@@ -101,7 +101,14 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 								</td></tr>
 							</table>
 						</div>
-					<div id="hunt_wrapper">
+					</div>
+					<div id="gamezone-footer1">
+						<div id="footer-greeting">
+							<a class="tooltip">
+								<p id="greeting"></p>
+								<span><img id="avatar" src="" width="50"></span>
+							</a>
+								<div id="hunt_wrapper">
 						<div id="hunt">
 							<a id="wiktionary" target="_blank">Wiktionary</a>
 							<a>•</a>
@@ -110,17 +117,6 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 							<a id="wordnik" target="_blank">Wordnik</a>
 						</div>
 					</div>
-
-					</div>
-					<div id="gamezone-footer1">
-						<div id="footer-greeting">
-							<a class="tooltip">
-								<p id="greeting"></p>
-								<span><img id="avatar" src="" width="50"></span>
-							</a>
-							<span id="login_button">
-								<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
-							</span>
 						</div>
 					</div>
 				</div>
