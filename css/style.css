@@ -143,7 +143,7 @@ body {
 
 	#portal {
 		width: 930px;
-		height: 550px;
+		height: 580px;
 		border: 15px solid white;
 		margin: 20px;
 		display: inline-block;
@@ -657,7 +657,7 @@ body {
 	outline: none;
 	}*/
 
-	input#input_tool_box {
+	.input_tool > input {
 		width: 90%;
 		height: 46px;
 		font-size: 20px;

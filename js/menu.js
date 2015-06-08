@@ -19,9 +19,7 @@ function InlineEditorController($scope){
 
 	$scope.toggleTooltip = function(e){
 		e.stopPropagation();
-/*		document.getElementById("input_tool_box").focus();
-		document.getElementById("input_tool_box").select();
-*/		
+		
 		$scope.showtooltip = !$scope.showtooltip;
 		
 
@@ -86,13 +84,10 @@ function InlineEditorController2($scope){
 			if($scope.translation == translation_default_value) {
 				$scope.translation = '';
 			}
+			setTimeout( function() {
+				$("#translation_input_tool_box").focus();
+			}, 20 )
  		}
-		else {
-			if ($scope.translation == '') {
-				$scope.translation = translation_default_value;
-				document.getElementById("user_translation").className = "inactive_definition";
-			}
-		}
 	}
 
 	$scope.clear2 = function(e) {
@@ -108,6 +103,7 @@ function InlineEditorController2($scope){
 
 	$scope.submitGame2 = function() {
 		soumettre_traduction();	get_ranked_mode_2();
+		getGameScore();
 		$scope.hideTooltip2();
 		playClick();
 		$scope.translation = translation_default_value;	
