@@ -37,9 +37,7 @@ function getRankedForTweets() {
 	//remove previous tweet entries
 	document.getElementById("twitterWords").innerHTML = '';
 
-	console.debug("About to fade")
 	$(".entry").addClass("fade");
-	console.debug("I faded!!")
 	var xmlhttp;
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();
@@ -64,7 +62,7 @@ function getRankedForTweets() {
 			else {
 				document.getElementById("word3").innerHTML = obj[0].Word;
 
-				document.getElementById("def3").innerHTML = obj[0].Definition;
+				document.getElementById("def3").innerHTML = generalSense + "<strong>" + obj[0].Definition + "</strong>";
 				document.getElementById("pos3").innerHTML = obj[0].PartOfSpeech;
 
 				fetchTweetsFromDB(8);
