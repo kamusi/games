@@ -658,6 +658,7 @@ input#input_tool_box {
   height: 46px;
   font-size: 20px;
   border: #eba634 2px solid;
+  margin-bottom: 3px;
   padding: 5px;
 }
 
