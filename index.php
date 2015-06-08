@@ -93,7 +93,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 								<ul>
 									<li ng-click="toggleTooltip($event); " id="user_definition" class="inactive_definition"> <?php echo gettext("✎ I can write the winning definition for this idea!"); ?></li> </ul>
 													<div class="input_tool" ng-click="$event.stopPropagation()" ng-show="showtooltip">
-								<input id="input_tool_box" type="text" ng-model="value" ng-keypress="searchEnter($event);" onFocus="this.select()"/>
+								<input id="input_tool_box" type="text" ng-model="value" ng-keypress="searchEnter($event);"/>
 								<img title="Submit" id="SubmitDef" ng-click="submitGame1($event);" class="controlSmall" src="media/rightarrowSmall.png" onclick="">
 
 							</div>							
