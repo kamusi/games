@@ -409,7 +409,7 @@ writeOrVote= "<?php echo _("Write or vote for a definition in "); ?>"
 rankString = "<?php echo _("Rank: "); ?>"
 
 pointsInPlay = "<?php echo _("In Play: "); ?>"
-pointsBanked = "<?php echo _("BAnked: "); ?>"
+pointsBanked = "<?php echo _("Banked: "); ?>"
 
 <?php
 $js_array = json_encode($gameLanguages);
