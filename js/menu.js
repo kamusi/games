@@ -28,11 +28,11 @@ function InlineEditorController($scope){
 		if($scope.showtooltip) {
 			remove_active();
 			document.getElementById("user_definition").className = "active_definition";
-			if($scope.value == default_value) {
+			/*if($scope.value == default_value) {
 				$scope.value = '';
-			}
+			}*/
 			console.debug($("#input_tool_box"));
-			$("#input_tool_box").focusin();
+			$("input#input_tool_box").focus();
 			//document.getElementById("input_tool_box").select();
 		}
 
