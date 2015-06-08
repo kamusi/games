@@ -432,6 +432,7 @@ function sendTweetToDB(tweet, good){
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 
+			setTimeout(function(){
 			var results_array = JSON.parse(xmlhttp.responseText);
 
 			clear_definitions();
@@ -469,7 +470,10 @@ function sendTweetToDB(tweet, good){
 			}
 
 			definitionID = -1;
-			//$("#entry").removeClass("fade");
+			$("#entry").removeClass("fade");				
+			})
+
+
 
 		}
 	}
