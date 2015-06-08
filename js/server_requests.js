@@ -375,6 +375,7 @@ function sendGame4SentenceToDB(sentence, good){
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 			console.log("DB Response t sending swahili results was:  " + xmlhttp.responseText)
+			getGameScore();
 		}
 
 	}
@@ -407,6 +408,7 @@ function sendTweetToDB(tweet, good){
 		})
 		.done( function( data ) {
 			console.log('done');
+			getGameScore();
 		})
 		.fail( function( data ) {
 			console.log('fail');
@@ -484,6 +486,7 @@ function submit_definition(definition) {
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 			console.log("submit definition returns : " + xmlhttp.responseText)
+			getGameScore();
 		}
 
 	}
@@ -619,6 +622,7 @@ function submit_vote(definition_id, vote) {
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 			console.log("Submit_Vote returned : " + xmlhttp.responseText)
+			getGameScore();
 		}
 	}
 	console.log("WordID when submitting Vote : " + wordID)
@@ -699,6 +703,7 @@ function submit_translation(translation) {
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 			console.log("END submit tranlsation : " + xmlhttp.responseText)
+			getGameScore();
 		}
 	}
 	xmlhttp.open("GET","php/submit_translation.php?translation=" + translation + "&wordID=" + wordID + "&userID=" + userID  + "&language=" + gameLanguage + "&mode=" +'2', true);

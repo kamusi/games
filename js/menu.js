@@ -102,7 +102,8 @@ function InlineEditorController2($scope){
 	}
 
 	$scope.submitGame2 = function() {
-		soumettre_traduction();	get_ranked_mode_2();
+		soumettre_traduction();	
+		get_ranked_mode_2();
 		getGameScore();
 		$scope.hideTooltip2();
 		playClick();
@@ -387,7 +388,6 @@ function add_definition(id, definition, spam) {
 			vote();
 			get_ranked();
 
-			getGameScore();
 		};
 	})(id);
 
