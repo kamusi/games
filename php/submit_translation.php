@@ -14,8 +14,6 @@ addXSubmissionsInGame($userID, $language, $mode, 1);
 
 addXToPointsInGame($userID, $language, $mode, 1);
 
-addXToPendingPointsInGame($userID, $language, $mode, 10);
-
 
 $sql = 	"SELECT Count(wordid) FROM wordtranslation WHERE wordid = ? AND translation = ? AND language = ?;";
 
@@ -94,7 +92,7 @@ $stmt->bind_result($pendingpoints);
 $stmt->fetch();
 $stmt->close();
 
-setXToPendingPointsInGame($userID, $language, $mode, $pendingpoints);
+setXToPendingPointsInGame($userID, $language, $mode, $pendingpoints * 10);
 }
 
 echo 'We returned : ' . $returnValue;
