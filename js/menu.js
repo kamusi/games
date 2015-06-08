@@ -51,7 +51,8 @@ function InlineEditorController($scope){
 
 	$scope.submitGame1 = function() {
 		$scope.hideTooltip();
-		playClick();vote();get_ranked();
+		playClick();vote();
+		get_ranked();
 		$scope.value = '';	
 		getGameScore();
 	}

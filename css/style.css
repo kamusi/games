@@ -133,6 +133,14 @@ body {
 		color: #af0800;
 		background:white;
 		text-align:left;
+		opacity: 1;
+		transition: opacity .25s ease-in-out;
+		-moz-transition: opacity .25s ease-in-out;
+		-webkit-transition: opacity .25s ease-in-out;
+	}
+
+	.fade {
+		opacity: 0.1;
 	}
 
 	#translation_entry {

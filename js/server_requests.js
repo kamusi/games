@@ -418,7 +418,9 @@ function sendTweetToDB(tweet, good){
 	}
 
 	function get_ranked() {
-		console.log("GENEERL SENSE: " + generalSense)
+		
+		$("#entry").addClass("fade");
+
 
 		var xmlhttp;
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -429,7 +431,7 @@ function sendTweetToDB(tweet, good){
 	}
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-			console.log("LALALAL : " + xmlhttp.responseText)
+
 			var results_array = JSON.parse(xmlhttp.responseText);
 
 			clear_definitions();
@@ -467,6 +469,8 @@ function sendTweetToDB(tweet, good){
 			}
 
 			definitionID = -1;
+			$("#entry").removeClass("fade");
+
 		}
 	}
 	xmlhttp.open("GET","php/get_ranked.php?userID=" + userID + "&language=" + gameLanguage + "&mode=" +'1', true);
