@@ -394,7 +394,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 ICanWrite = "<?php echo gettext(" I can write the winning definition for this idea!"); ?>"
 ICantSay = "<?php echo gettext(" I can't say - skip this one..."); ?>"
 ICanTranslate = "<?php echo gettext(" I can translate this word!"); ?>"
-keepTheGeneralSense = "<?php echo gettext(" Keep the General Sense. It's a good definition as is!"); ?>"
+keepTheGeneralSense = "<?php echo gettext(" Keep the working definition. It's spectacular as it is!"); ?>"
 generalSense = "<?php echo _("Working definition: "); ?>"
 translateTheFollowing= "<?php echo _("Translate the following word to : ")  ?>"
 yourAchievements = "<?php echo _("Your achievements for the ")  ?>"
