@@ -653,6 +653,14 @@ body {
 	outline: none;
 }*/
 
+input#input_tool_box {
+  width: 90%;
+  height: 46px;
+  font-size: 20px;
+  border: orange 1px solid;
+  padding: 5px;
+}
+
 #profile-data, #about-data, #settings-data {
 	height:370px;
 	width:850px;
