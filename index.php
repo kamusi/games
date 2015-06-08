@@ -69,8 +69,8 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 						<img id="controltitle" src="media/banner.png">
 					</div>
 					<div id= "ProfileHeader">
-						<div class="points-pending">In Play: 0</div>
-						<div class="points-total">Banked: 0</div>
+						<div id="" ="points-pending">In Play: 0</div>
+						<div id="points-total">Banked: 0</div>
 						<img title="Profile" id="user" class="control" src="media/user.png" onclick="playClick();display_profile();">
 					</div>
 					<img title="Invite" id="shield" class="control" src="media/invite.png" onclick="playClick();request();">
