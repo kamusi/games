@@ -91,7 +91,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 								<tr><td>
 
 								<ul>
-									<li ng-click="toggleTooltip($event)" id="user_definition" class="inactive_definition">{{value}}</li> </ul>
+									<li ng-click="toggleTooltip($event)" id="user_definition" class="inactive_definition"> def </li> </ul>
 													<div class="input_tool" ng-click="$event.stopPropagation()" ng-show="showtooltip">
 								<input id="input_tool_box" type="text" ng-model="value" ng-keypress="searchEnter($event);" onFocus="this.select()"/>
 								<img title="Submit" id="SubmitDef" ng-click="submitGame1($event);" class="controlSmall" src="media/rightarrowSmall.png" onclick="">
