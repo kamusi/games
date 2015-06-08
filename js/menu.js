@@ -55,6 +55,7 @@ function InlineEditorController($scope){
 		$scope.hideTooltip();
 		playClick();vote();get_ranked();
 		$scope.value = '';	
+		updatePointDisplay();
 	}
 }
 
@@ -492,6 +493,10 @@ function startAutoUpdateOfLeaderboard() {
 
 function stopAutoUpdateOfLeaderboard() {
 	clearInterval(autoUpdateIntervalJobID)
+}
+
+function updatePermanentMetrics(points, pendingPoints){
+	console.debug("Udpating permanent metrics: " + points + pendingPoints)
 }
 
 

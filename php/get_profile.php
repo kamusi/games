@@ -6,11 +6,6 @@ include 'validate_token.php';
 $userID = $_GET['userID'];
 
 
-// session_start();
-
-// if($token != $_SESSION['token']) {
-// 	die();
-// }
 
 $sql =  "SELECT * FROM users WHERE UserID='" . $userID . "';";
 

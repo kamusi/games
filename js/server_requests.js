@@ -28,6 +28,10 @@ var translationID;
 var last20Tweets = {}
 var lastSwahiliSentences = {}
 
+//Current points for the current game
+
+
+
 
 function getRankedForTweets() {
 	//remove previous tweet entries
@@ -190,6 +194,28 @@ function queryForSentences(keyword, amount, source){
 	}
 	xmlhttp.open("GET",prefix + "?keyword=" + keyword + "&amount=" + amount , true);
 	xmlhttp.send();  
+}
+
+function updatePointDisplay(){
+	console.log("Updating points...")
+	var xmlhttp;
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			var obj = JSON.parse(xmlhttp.responseText);
+			
+			updatePermanentMetrics(obj.points,obj.pendingpoints);
+
+		}
+	}
+	xmlhttp.open("GET","php/get_profile.php?userID=" + userID + "&token=" + token, true);
+
+	xmlhttp.send();	
 }
 
 function get_tweets(alreadyDisplayed) {
