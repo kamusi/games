@@ -197,7 +197,6 @@ function queryForSentences(keyword, amount, source){
 }
 
 function updatePointDisplay(){
-	console.log("Updating points...")
 	var xmlhttp;
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();
@@ -207,6 +206,9 @@ function updatePointDisplay(){
 	}
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+				console.log("Updating points...")
+
+			console.debug(xmlhttp.responseText)
 			var obj = JSON.parse(xmlhttp.responseText);
 			
 			updatePermanentMetrics(obj.points,obj.pendingpoints);
