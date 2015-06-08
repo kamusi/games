@@ -24,15 +24,13 @@ body {
 	width:930px;height="550"
 	}*/
 
-	#consensus, #translation_definition, #def3, #transEnglish4, #defSwahili4 {
-		/*display:none;*/
+	.workingDefinition {
 		font-size: 20px;
 		margin-right:0.5em;
 		color: #eba634;
-		/*font-style: italic;*/
 	}
 
-	#consensus > strong {
+	.workingDefinition > strong {
 		font-size: 25px;
 	}
 

@@ -87,7 +87,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 
 							<p id="word"></p>
 							<p id="pos"></p>
-							<p id="consensus"></p>
+							<p id="consensus", class="workingDefinition"></p>
 						</div>
 						<div id="definitions_wrapper">
 										<table id="definitions">
@@ -135,7 +135,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 			
 							<p id="translation_word"></p>
 							<p id="translation_pos"></p>
-							<p id="translation_definition"></p>
+							<p id="translation_definition", class="workingDefinition"></p>
 						</div>
 						<div id="translations_wrapper">
 							<table id="translations">
@@ -163,7 +163,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 						<p id="instructions"><?php echo _("Check ONLY the tweets that are excellent examples of THIS meaning: "); ?>   </p>
 						<p id="word3"></p>		
 						<p id="pos3"></p>					
-						<p id="def3"></p>
+						<p id="def3", class="workingDefinition"></p>
 						<div id="definitions_wrapper">
 							<p id="twitterWords"></p>
 						</div>
@@ -189,7 +189,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 						<p id="word4"></p>		
 						<p id="pos4"></p>					
 						<p id="transEnglish4"></p>
-						<p id="defSwahili4"></p>
+						<p id="defSwahili4", class="workingDefinition"></p>
 						<div id="sentences_wrapper">
 							<p id="swahiliSentences"></p>
 						</div>
