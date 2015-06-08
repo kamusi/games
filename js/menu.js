@@ -291,7 +291,7 @@ function animate_logo_login(){
 
 
 function set_consensus(definition) {
-	document.getElementById("consensus").innerHTML = generalSense + definition;
+	document.getElementById("consensus").innerHTML = generalSense + "<strong>" + definition + "</strong>";
 }
 
 function set_word(word, pos) {
