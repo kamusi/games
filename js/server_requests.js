@@ -471,7 +471,7 @@ function sendTweetToDB(tweet, good){
 
 			definitionID = -1;
 			$("#entry").removeClass("fade");				
-		}, 3000);
+		}, 1000);
 
 
 

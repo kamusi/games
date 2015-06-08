@@ -134,13 +134,13 @@ body {
 		background:white;
 		text-align:left;
 		opacity: 1;
-		transition: opacity 1s ease-in-out;
-		-moz-transition: opacity 1s ease-in-out;
-		-webkit-transition: opacity 1s ease-in-out;
+		transition: opacity .5s ease-in-out;
+		-moz-transition: opacity .5s ease-in-out;
+		-webkit-transition: opacity .5s ease-in-out;
 	}
 
 	#entry.fade, #translation_entry.fade {
-		opacity: 0.1;
+		opacity: 0;
 	}
 
 	#translation_entry {
