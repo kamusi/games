@@ -34,6 +34,12 @@ function setXToValueInGame($userID, $language, $mode, $value, $x){
 	$stmt->close();	
 }
 
+function addXToPendingPointsInGame($userID, $language, $mode, $x){
+	global $mysqli;
+	addXToValueInGame($userID, $language, $mode, "pendingpoints", $x);
+
+}
+
 function setXToPendingPointsInGame($userID, $language, $mode, $x){
 	global $mysqli;
 	setXToValueInGame($userID, $language, $mode, "pendingpoints", $x);

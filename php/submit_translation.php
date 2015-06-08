@@ -14,6 +14,8 @@ addXSubmissionsInGame($userID, $language, $mode, 1);
 
 addXToPointsInGame($userID, $language, $mode, 1);
 
+addXToPendingPointsInGame($userID, $language, $mode, 10);
+
 
 $sql = 	"SELECT Count(wordid) FROM wordtranslation WHERE wordid = ? AND translation = ? AND language = ?;";
 
@@ -62,6 +64,7 @@ if($numberOfTranslationAlreadyInDatabase > 2 ) {
 	$stmt->close();
 
 	giveAllConcernedUsersXPoints($concernedUsers, 10);
+	addXToPendingPointsInGame($userID, $language, $mode, -10);
 //remove this translation from the temporal database
 
 	$sql = 	"DELETE FROM translations WHERE WordID= ? AND Translation= ? AND LanguageID = ?;";
