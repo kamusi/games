@@ -699,8 +699,13 @@ body {
 	}
 
 	/*leaderboard stuff */
-	.highlightCurrentUser{background-color: yellow;} 
-	.otherUsersInTable{background-color:transparent;}
+	.highlightCurrentUser{
+		background-image: url('../media/kikoi.jpg');
+
+	} 
+	.otherUsersInTable{
+		background-color:transparent;
+	}
 
 	tr.spaceUnder > td
 	{
