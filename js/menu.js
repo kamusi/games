@@ -33,7 +33,7 @@ function InlineEditorController($scope){
 			}
 
 			$("#input_tool_box").focus();
-			document.getElementById("input_tool_box").select();
+			//document.getElementById("input_tool_box").select();
 		}
 
 	}
