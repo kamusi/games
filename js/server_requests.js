@@ -36,7 +36,10 @@ var lastSwahiliSentences = {}
 function getRankedForTweets() {
 	//remove previous tweet entries
 	document.getElementById("twitterWords").innerHTML = '';
+
+	console.debug("About to fade")
 	$("#entry").addClass("fade");
+	console.debug("I faded!!")
 	var xmlhttp;
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();
