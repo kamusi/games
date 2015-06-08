@@ -10,6 +10,10 @@ h1 {
 	text-decoration: underline;
 }
 
+h1#title1{
+	text-decoration: none;
+}
+
 body {
 	font-size: 15px;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
