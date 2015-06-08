@@ -81,7 +81,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 				<div id="gamezone1" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 					<div id="gamezone-main1" >
 						<div class="entry">
-							<h1 id="title1"> <?php printf(_("%s"), $gameNames["1"]);; ?>  </h1>
+							<h1 id="title1", class="title"> <?php printf(_("%s"), $gameNames["1"]);; ?>  </h1>
 
 							<p id="instructions1"> </p>
 
@@ -130,7 +130,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 				<div id="gamezone2" ng-controller="InlineEditorController2" ng-click="hideTooltip2();">
 					<div id="gamezone-main2">
 						<div class="entry">
-						<h1 id="title2"> <?php printf(_("%s"),$gameNames["2"]); ?>  </h1>
+						<h1 id="title2", class="title"> <?php printf(_("%s"),$gameNames["2"]); ?>  </h1>
 							<p id="instructions2"></p>
 			
 							<p id="translation_word"></p>
@@ -159,7 +159,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 			<div id="gamezone3" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 				<div id="gamezone-main3" >
 					<div class="entry">
-					<h1 id="title3"> <?php printf(_("%s"),$gameNames["3"]); ?>  </h1>
+					<h1 id="title3", class="title"> <?php printf(_("%s"),$gameNames["3"]); ?>  </h1>
 						<p id="instructions"><?php echo _("Check ONLY the tweets that are excellent examples of THIS meaning: "); ?>   </p>
 						<p id="word3"></p>		
 						<p id="pos3"></p>					
@@ -184,7 +184,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 			<div id="gamezone4" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 				<div id="gamezone-main4" >
 					<div class="entry">
-						<h1 id="title4"> <?php printf(_("%s"),$gameNames["4"]); ?>  </h1>
+						<h1 id="title4", class="title"> <?php printf(_("%s"),$gameNames["4"]); ?>  </h1>
 						<p id="instructions"><?php echo _("Check the sentences that correspond well to this word: "); ?></p>
 						<p id="word4"></p>		
 						<p id="pos4"></p>					

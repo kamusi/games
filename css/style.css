@@ -11,7 +11,7 @@ h1 {
 	margin: 5px 0;
 }
 
-h1#title1{
+h1.title{
 	text-decoration: none;
 }
 
