@@ -9,6 +9,39 @@ function InlineEditorController($scope){
 	$scope.showtooltip = false;
 	$scope.value = default_value;
 
+	$scope.hideTooltip = function(){
+		$scope.showtooltip = false;
+		if ($scope.value == '') {
+			$scope.value = default_value;
+			document.getElementById('user_definition').className = "inactive_definition";
+		}
+	}
+
+	$scope.toggleTooltip = function(e){
+		e.stopPropagation();
+		document.getElementById("input_tool_box").focus();
+		document.getElementById("input_tool_box").select();
+		
+		$scope.showtooltip = !$scope.showtooltip;
+		
+
+		if($scope.showtooltip) {
+			remove_active();
+			document.getElementById("user_definition").className = "active_definition";
+			if($scope.value == default_value) {
+				$scope.value = '';
+			}
+
+			document.getElementById("input_tool_box").focus();
+			document.getElementById("input_tool_box").select();
+		}
+		/*else {
+			if ($scope.value == '') {
+				$scope.value = default_value;
+				document.getElementById("user_definition").className = "inactive_definition";
+			}
+		}*/
+	}
 
 	$scope.clear = function(e) {
 		e.stopPropagation();
@@ -26,11 +59,6 @@ function InlineEditorController($scope){
 		playClick();vote();get_ranked();
 		$scope.value = default_value;	
 	}
-}
-
-function focusToolbox() {
-	document.getElementById("input_tool_box").focus();
-	document.getElementById("input_tool_box").select();
 }
 
 //THIS IS REALLY UGLY - TO BE REWORKED
