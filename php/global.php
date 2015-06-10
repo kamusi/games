@@ -16,6 +16,8 @@ $helsinkiPassWord= $config['helpassword'];
 //The object that allows access to the mysql database
 $mysqli = new mysqli('localhost',$config['dbusername'],$config['dbpassword'],$config['dbname']);
 
+//All userdata necesay for logging in with kamusi services
+$kamusiUser= array();
 
 //Functions used throughout the app in order to keep track of the scores
 function addXToValueInGame($userID, $language, $mode, $value, $x){
