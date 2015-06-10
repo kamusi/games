@@ -4,9 +4,8 @@ include 'notification.php';
 include 'login_services.php';
 
 //login($sess_user, $sess_pass, $base_url);
-getToken($kamusiUser['session_name'], $kamusiUser['session_id'], $base_url);
 
-echo "END 1";
+echo "START";
 var_dump($kamusiUser);
 login($sess_user, $sess_pass, $base_url);
 echo "END 2";
