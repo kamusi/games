@@ -66,7 +66,7 @@ function login($sess_user, $sess_pass, $base_url) {
 	else { 
             // Show me the result 
 		echo "Login BEGIN";
-	//	var_dump($result); 
+		var_dump($result); 
 
 		storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid, '');
 		echo "Login END";
