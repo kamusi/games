@@ -103,6 +103,53 @@ http://www.rebol.com/docs/ssh-auto-login.html
 copy local taito script to taitoserver
 scp -i /home/timo/.ssh/taito.rsa getDataForWord.sh babst@taito.csc.fi:getDataForWord.sh
 
+Create the new table worddefinitions
+create table worddefinitions (id1 int, wordnetid varchar(64), headword varchar(80), title varchar(80), kamusilang int, wordnetlang varchar(64), kamusipos varchar(64), wordnetpos varchar(64), definition varchar(512), example varchar(512), wordnetreference varchar(256));
+Query OK, 0 rows affected (0.00 sec)
+
+take it s input from the csv file :
+
+LOAD DATA LOCAL INFILE 'kamusiData.csv' INTO TABLE worddefinitions FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 1 LINES;
+Then drop unneccsary columns.
+Then in order to split that table into words and definitions :
+
+DROP PROCEDURE IF EXISTS splittable;
+DELIMITER ;;
+CREATE PROCEDURE splittable()
+BEGIN
+DECLARE n INT DEFAULT 0;
+DECLARE i INT DEFAULT 0;
+DECLARE done INT DEFAULT FALSE;
+SELECT COUNT(*) FROM worddefinitions INTO n;
+SET i=0;
+WHILE i<n DO 
+  INSERT INTO words(ID, Word, PartOfSpeech, DefinitionID, language) SELECT (id, headword, wordnetpos, id, 1) FROM worddefinitions LIMIT i,1;
+INSERT INTO definitions(ID, GroupID, Definition, UserID, Votes,Language , reference) SELECT (id, id,definition,'wordnet',0,1,wordnetreference) FROM wordnetdefinitions LIMIT i,1;
+  SET i = i + 1;
+END WHILE;
+End;
+;;
+DELIMITER ;
+
+CALL splittable();
+
+DROP PROCEDURE IF EXISTS splittable;
+DELIMITER ;;
+CREATE PROCEDURE splittable()
+BEGIN
+DECLARE n INT DEFAULT 0;
+DECLARE i INT DEFAULT 0;
+DECLARE done INT DEFAULT FALSE;
+SELECT COUNT(*) FROM worddefinitions INTO n;
+SET i=0;
+WHILE i<n DO 
+  INSERT INTO words(Word, PartOfSpeech, DefinitionID) SELECT headword, wordnetpos, id FROM worddefinitions LIMIT i,1;
+INSERT INTO definitions(GroupID, Definition, UserID, reference) SELECT id,definition,'wordnet',wordnetreference FROM worddefinitions LIMIT i,1;
+  SET i = i + 1;
+END WHILE;
+End;
+;;
+DELIMITER ;
 
 
 

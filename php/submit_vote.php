@@ -1,6 +1,10 @@
 <?php
 
 include 'notification.php';
+include 'login_services.php';
+
+connect('','','',"http://dev.kamusi.org:8282");
+
 
 
 $wordID = $_GET['wordID'];
