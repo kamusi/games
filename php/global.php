@@ -7,17 +7,23 @@ $mysqli= null;
 $partOfSpeechArray= array();
 
 $languageMap = array ("1" => "en_US", "2" => "fr_FR", "3" => "vi_VI", "4" => "sw_SW" );
-{
+
 $config = parse_ini_file('/var/www/passwords/config.ini');
 $helsinkiUserName = $config['helusername'];
 $helsinkiPassWord= $config['helpassword'];
-}
+//Login information for connecting to services
+
+$sess_user=$config['sess_user'];
+$sess_pass = $config['sess_pass'];
+
 
 //The object that allows access to the mysql database
 $mysqli = new mysqli('localhost',$config['dbusername'],$config['dbpassword'],$config['dbname']);
 
 //All userdata necesay for logging in with kamusi services
 $kamusiUser= array();
+
+
 
 //Functions used throughout the app in order to keep track of the scores
 function addXToValueInGame($userID, $language, $mode, $value, $x){

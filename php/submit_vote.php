@@ -6,6 +6,9 @@ include 'login_services.php';
 connect('','','',"http://dev.kamusi.org:8282");
 
 
+login($sess_user, $sess_pass, "http://dev.kamusi.org:8282");
+
+
 
 $wordID = $_GET['wordID'];
 $definitionID = $_GET['definitionID'];
