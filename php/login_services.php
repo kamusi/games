@@ -13,11 +13,11 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	//data type is json. HAve to set cache, tieout?
 
 	curl_setopt($ch, CURLOPT_FRESH_CONNECT, TRUE); //equivalent to cache: false
-	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,30000); 
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,30000);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); //so that we get the data in the data variable in not on stdout 
 
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $connectHeaders);
 	echo "HEEEEEEEEERe";
-	var_dump($ch);
 
 	$data = curl_exec($ch); 
 
