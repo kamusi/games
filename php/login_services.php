@@ -71,7 +71,7 @@ function login($sess_user, $sess_pass, $base_url) {
 	}
 }
 
-function getToken(session_name, session_id, base_url) {
+function getToken($session_name, $session_id, $base_url) {
 	$ch = curl_init();
 	setCurlDefaults($ch,$base_url);
 	$headers = array();
