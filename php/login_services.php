@@ -63,14 +63,14 @@ function login($sess_user, $sess_pass, $base_url) {
 		echo "Login BEGIN";
 		var_dump($result); 
 
-	storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid, $csrf_token);
+	storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid, $result->token);
 		echo "Login END";
 
 
 		curl_close($ch); 
 	}
 }
-
+//3) Get Token, anonymous token
 function getToken($session_name, $session_id, $base_url) {
 	$ch = curl_init();
 	setCurlDefaults($ch,$base_url);
