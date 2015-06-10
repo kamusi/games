@@ -6,7 +6,7 @@ include 'login_services.php';
 //login($sess_user, $sess_pass, $base_url);
 
 echo "START";
-getToken($kamusiUser['session_name'], $kamusiUser['session_id'], $base_url);
+getToken('', '', $base_url);
 var_dump($kamusiUser);
 login($sess_user, $sess_pass, $base_url);
 echo "END 2";
