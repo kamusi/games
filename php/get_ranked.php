@@ -40,11 +40,10 @@ function lookForWord($userID) {
 	}
 
 //fetch the word that has as rank user s position+offset
-/*	$sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
+	$sql =  "SELECT ID As ID, DefinitionID As DefinitionID, Rank As Rank FROM (";
 		$sql.=	"SELECT w.ID, w.DefinitionID, r.Rank FROM rankedwords As r LEFT JOIN words As w ON r.Word = w.Word";
 		$sql.=	") As sq WHERE sq.ID IS NOT NULL AND sq.DefinitionID IS NOT NULL AND sq.ID NOT IN (SELECT wordid FROM seengames WHERE (userid=? OR userid=?) AND game=? AND language = ? ) AND sq.Rank = ?;";
-*/
-$sql = "SELECT "
+
 
 $sum = intval($user_position) + intval($user_offset);
 
