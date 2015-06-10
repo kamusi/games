@@ -2,7 +2,6 @@
 //1) Connect, see if you have a session_id and session_name
 
 function setCurlDefaults($ch, $base_url){
-	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/system/connect.json");
 	curl_setopt($ch, CURLOPT_POST, 1);
 	//data type is json. HAve to set cache, tieout?
 
@@ -19,6 +18,8 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	};
 
 	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/system/connect.json");
+
 	setCurlDefaults($ch,$base_url);
 
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $connectHeaders);
@@ -42,6 +43,8 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 function login($sess_user, $sess_pass, $base_url) {
 
 	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/user/login.json");
+
 	setCurlDefaults($ch,$base_url);
 
 	$data = array();
