@@ -434,7 +434,7 @@ function sendTweetToDB(tweet, good){
 	}
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-
+			console.debug("GET ranked result is : " + xmlhttp.responseText)
 			//setTimeout(function(){
 			var results_array = JSON.parse(xmlhttp.responseText);
 
