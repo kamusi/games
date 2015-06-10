@@ -33,7 +33,8 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	}
 	else { 
             // Show me the result 
-//		var_dump($result); 
+		echo "CONNECT RETURNED : "
+		var_dump($result); 
 		storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid, $csrf_token);
 		$kamusiUser['csrf_token'] = $csrf_token;
 		curl_close($ch); 
