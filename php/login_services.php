@@ -102,6 +102,7 @@ function getToken($session_name, $session_id, $base_url) {
 
 		 $kamusiUser['csrf_token'] = $result->token;
 
+		 
 
 		curl_close($ch); 
 	}
