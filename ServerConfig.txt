@@ -141,7 +141,7 @@ DECLARE n INT DEFAULT 0;
 DECLARE i INT DEFAULT 0;
 DECLARE done INT DEFAULT FALSE;
 SELECT COUNT(*) FROM worddefinitions INTO n;
-SET i=0;
+SET i=96000;
 WHILE i<n DO 
   INSERT INTO words(Word, PartOfSpeech, DefinitionID) SELECT headword, wordnetpos, id FROM worddefinitions LIMIT i,1;
 INSERT INTO definitions(GroupID, Definition, UserID, reference) SELECT id,definition,'wordnet',wordnetreference FROM worddefinitions LIMIT i,1;

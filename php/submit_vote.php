@@ -4,9 +4,8 @@ include 'notification.php';
 include 'login_services.php';
 
 //connect('','','',"http://dev.kamusi.org:8282");
-var_dump($sess_pass);
 login($sess_user, $sess_pass, "http://dev.kamusi.org:8282");
-
+getToken($kamusiUser['session_name'], $kamusiUser['session_id'], $base_url);
 
 
 $wordID = $_GET['wordID'];
