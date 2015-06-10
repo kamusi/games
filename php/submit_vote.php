@@ -3,7 +3,14 @@
 include 'notification.php';
 include 'login_services.php';
 
-//login($sess_user, $sess_pass, $base_url);
+/*
+1) Connect, see if you have a session_id and session_name
+2) If Anonymous == uid->0, you need to login
+3) Get Token, anonymous token
+4) Do Login
+5) Get new Token, Session_id and Session_name from either response of login request, or do a new Get Token
+6) Test Connect again, an if UID > 0, you are logged in
+*/
 
 echo "START";
 getToken('', '', $base_url);
@@ -11,6 +18,8 @@ var_dump($kamusiUser);
 login($sess_user, $sess_pass, $base_url);
 echo "END 2";
 var_dump($kamusiUser);
+getToken($kamusiUser['session_name'], $kamusiUser['session_id'], $base_url);
+
 connect($kamusiUser['session_name'], $kamusiUser['session_id'], '', $base_url);
 echo "END 3";
 var_dump($kamusiUser);
