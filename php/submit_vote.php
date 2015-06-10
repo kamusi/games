@@ -11,7 +11,7 @@ include 'login_services.php';
 5) Get new Token, Session_id and Session_name from either response of login request, or do a new Get Token
 6) Test Connect again, an if UID > 0, you are logged in
 */
-
+connect('', '', '', $base_url);
 echo "START";
 getToken('', '', $base_url);
 var_dump($kamusiUser);
