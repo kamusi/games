@@ -78,6 +78,8 @@ function login($sess_user, $sess_pass, $base_url) {
 }
 //3) Get Token, anonymous token
 function getToken($session_name, $session_id, $base_url) {
+global $kamusiUser;
+
 	$ch = curl_init();
 	setCurlDefaults($ch,$base_url);
 	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/user/token.json");
