@@ -60,33 +60,6 @@ function login($sess_user, $sess_pass, $base_url) {
 
 		curl_close($ch); 
 	}
-
-  return $.ajax({
-    url: base_url + "/facebook_game_v1/user/login.json",
-    type:"post",
-    dataType:"json",
-    //async: false,
-    cache: false,
-    timeout: 30000,
-    data : {
-      name: sess_user,
-      username: sess_user,
-      pass: sess_pass,
-      password: sess_pass
-    },
-   // xhrFields: {
-   //   withCredentials: true
-   // },
-    error:function (jqXHR, textStatus, errorThrown) {
-      errorAlert('Login Failed');
-      errorAlert('error='+JSON.stringify(jqXHR) + " " + textStatus + " " + errorThrown);
-    },
-    success: function (result) {
-      debugAlert('Successfully logged in.');
-      debugAlert(JSON.stringify(result));
-      storeUserData(base_url, result.user.uid, result.session_name, result.sessid, result.token);
-    }
-  });
 }
 
 function storeUserData($base_url, $uid, $session_name, $session_id, $csrf_token) {
