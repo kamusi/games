@@ -16,9 +16,10 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,30000); 
 
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $connectHeaders);
+	echo "HEEEEEEEEERe";
+	var_dump($ch);
 
 	$data = curl_exec($ch); 
-	echo "HEEEEEEEEERe";
 
 	if (curl_errno($ch)) { 
 		print "Error: " . curl_error($ch); 
