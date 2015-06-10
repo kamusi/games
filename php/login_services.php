@@ -12,6 +12,8 @@ function setCurlDefaults($ch, $base_url){
 }
 
 function connect($session_name, $session_id, $csrf_token, $base_url) {
+	global $kamusiUser;
+
 	$connectHeaders = array();
 	if ($csrf_token !== '' || $csrf_token !== 'undefined') {
 		$connectHeaders['X-CSRF-Token'] = $csrf_token;
@@ -33,7 +35,7 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
             // Show me the result 
 //		var_dump($result); 
 		storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid, $csrf_token);
-
+		$kamusiUser['csrf_token'] = $csrf_token;
 		curl_close($ch); 
 	}
 }
@@ -66,7 +68,7 @@ function login($sess_user, $sess_pass, $base_url) {
 		echo "Login BEGIN";
 		var_dump($result); 
 
-	storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid, $result->token);
+	storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid);
 		echo "Login END";
 
 
@@ -77,6 +79,8 @@ function login($sess_user, $sess_pass, $base_url) {
 function getToken($session_name, $session_id, $base_url) {
 	$ch = curl_init();
 	setCurlDefaults($ch,$base_url);
+	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/user/token.json");
+
 	$headers = array();
 	$headers['Cookie'] = $session_name + "=" + $session_id;
 	//set xhrfields : with credentials?
@@ -104,13 +108,13 @@ function getToken($session_name, $session_id, $base_url) {
 
 }
 
-function storeUserData($base_url, $uid, $session_name, $session_id, $csrf_token) {
+function storeUserData($base_url, $uid, $session_name, $session_id) {
 		global $kamusiUser;
 		$kamusiUser['base_url'] = $base_url;
 		$kamusiUser['uid'] = $uid;
 		$kamusiUser['session_name'] = $session_name;
 		$kamusiUser['session_id'] = $session_id;
-		$kamusiUser['csrf_token'] = $csrf_token;
+
 
 		//var_dump($kamusiUser);
 }
