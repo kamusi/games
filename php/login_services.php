@@ -19,16 +19,16 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $connectHeaders);
 	echo "HEEEEEEEEERe";
 
-	$data = curl_exec($ch); 
+	$result = curl_exec($ch); 
 
 	if (curl_errno($ch)) { 
 		print "Error: " . curl_error($ch); 
 	}
 	else { 
             // Show me the result 
-		echo "Connect BEGIN";
-		var_dump($data); 
-		echo "Connect END";
+		var_dump($result); 
+		storeUserData($base_url, $result['user']['uid'], $result['session_name'], $result['sessid'], $csrf_token);
+
 		curl_close($ch); 
 	}
 }
@@ -74,4 +74,6 @@ function storeUserData($base_url, $uid, $session_name, $session_id, $csrf_token)
 		$kamusiUser['session_name'] = $session_name;
 		$kamusiUser['session_id'] = $session_id;
 		$kamusiUser['csrf_token'] = $csrf_token;
+
+		var_dump($kamusiUser);
 }
