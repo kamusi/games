@@ -1,13 +1,7 @@
 <?php
 //1) Connect, see if you have a session_id and session_name
 
-function connect($session_name, $session_id, $csrf_token, $base_url) {
-	$connectHeaders = array();
-	if ($csrf_token !== '' || $csrf_token !== 'undefined') {
-		$connectHeaders['X-CSRF-Token'] = $csrf_token;
-	};
-
-	$ch = curl_init();
+function setCurlDefaults($ch, $base_url){
 	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/system/connect.json");
 	curl_setopt($ch, CURLOPT_POST, 1);
 	//data type is json. HAve to set cache, tieout?
@@ -16,8 +10,18 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,30000);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); //so that we get the data in the data variable in not on stdout 
 
+}
+
+function connect($session_name, $session_id, $csrf_token, $base_url) {
+	$connectHeaders = array();
+	if ($csrf_token !== '' || $csrf_token !== 'undefined') {
+		$connectHeaders['X-CSRF-Token'] = $csrf_token;
+	};
+
+	$ch = curl_init();
+	setCurlDefaults($ch,$base_url);
+
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $connectHeaders);
-	echo "HEEEEEEEEERe";
 
 	$result = $result = json_decode(curl_exec($ch)); 
 
@@ -33,15 +37,12 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	}
 }
 
-//2) If Anonymous == uid<0, you need to login
+//2) If Anonymous == uid<0 or uid=empty, you need to login
 
 function login($sess_user, $sess_pass, $base_url) {
 
 	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/system/connect.json");
-	curl_setopt($ch, CURLOPT_POST, 1);
-	curl_setopt($ch, CURLOPT_FRESH_CONNECT, TRUE); //equivalent to cache: false
-	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,30000); 
+	setCurlDefaults($ch,$base_url);
 
 	$data = array();
 	$data['name']=$sess_user;
@@ -58,7 +59,6 @@ function login($sess_user, $sess_pass, $base_url) {
             // Show me the result 
 		echo "Login BEGIN";
 
-		var_dump($data); 
 	//	storeUserData($base_url, $result.user.uid, $result.session_name, result.sessid, csrf_token);
 		echo "Login END";
 
