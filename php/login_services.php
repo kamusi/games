@@ -98,7 +98,6 @@ function getToken($session_name, $session_id, $base_url) {
 		echo "getToken BEGIN";
 		//var_dump($result); 
 
-	//	storeUserData($base_url, $result.user.uid, $result.session_name, result.sessid, csrf_token);
 		echo "getToken END";
 
 		$kamusiUser['csrf_token'] = $result->token;
