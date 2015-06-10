@@ -2,10 +2,9 @@
 
 include 'notification.php';
 include 'login_services.php';
-echo "BEFORE CALLING";
 
 connect('','','',"http://dev.kamusi.org:8282");
-echo "AFTER CALLING";
+
 
 
 $wordID = $_GET['wordID'];
