@@ -34,7 +34,7 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	else { 
             // Show me the result 
 		echo "CONNECT RETURNED : ";
-		var_dump($result); 
+		//var_dump($result); 
 		storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid, $csrf_token);
 		$kamusiUser['csrf_token'] = $csrf_token;
 		curl_close($ch); 
@@ -67,7 +67,7 @@ function login($sess_user, $sess_pass, $base_url) {
 	else { 
             // Show me the result 
 		echo "Login BEGIN";
-		var_dump($result); 
+	//	var_dump($result); 
 
 	storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid);
 		echo "Login END";
@@ -95,14 +95,14 @@ function getToken($session_name, $session_id, $base_url) {
 	else { 
             // Show me the result 
 		echo "getToken BEGIN";
-		var_dump($result); 
+	//	var_dump($result); 
 
 	//	storeUserData($base_url, $result.user.uid, $result.session_name, result.sessid, csrf_token);
 		echo "getToken END";
 
 		 $kamusiUser['csrf_token'] = $result->token;
 
-		 
+
 
 		curl_close($ch); 
 	}
