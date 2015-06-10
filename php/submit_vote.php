@@ -3,8 +3,9 @@
 include 'notification.php';
 include 'login_services.php';
 
-connect('','','',"http://dev.kamusi.org:8282");
+//connect('','','',"http://dev.kamusi.org:8282");
 
+var_dump($sess_user);
 
 login($sess_user, $sess_pass, "http://dev.kamusi.org:8282");
 
