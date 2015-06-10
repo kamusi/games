@@ -19,7 +19,7 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $connectHeaders);
 	echo "HEEEEEEEEERe";
 
-	$result = curl_exec($ch); 
+	$result = $result = json_decode(curl_exec($ch)); 
 
 	if (curl_errno($ch)) { 
 		print "Error: " . curl_error($ch); 
