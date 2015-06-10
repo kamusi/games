@@ -36,7 +36,6 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 		echo "CONNECT RETURNED : ";
 		var_dump($result); 
 		storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid, $csrf_token);
-		$kamusiUser['csrf_token'] = $csrf_token;
 		curl_close($ch); 
 	}
 }
@@ -56,12 +55,12 @@ function login($sess_user, $sess_pass, $base_url) {
 	$data['pass'] = $sess_pass;
 	$data['password'] = $sess_pass;
 
- 	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 
 	$result =  json_decode(curl_exec($ch)); 
 
 
- 	if (curl_errno($ch)) { 
+	if (curl_errno($ch)) { 
 		print "Error: " . curl_error($ch); 
 	}
 	else { 
@@ -69,7 +68,7 @@ function login($sess_user, $sess_pass, $base_url) {
 		echo "Login BEGIN";
 	//	var_dump($result); 
 
-	storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid);
+		storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid, '');
 		echo "Login END";
 
 
@@ -78,7 +77,7 @@ function login($sess_user, $sess_pass, $base_url) {
 }
 //3) Get Token, anonymous token
 function getToken($session_name, $session_id, $base_url) {
-global $kamusiUser;
+	global $kamusiUser;
 
 	$ch = curl_init();
 	setCurlDefaults($ch,$base_url);
@@ -91,7 +90,7 @@ global $kamusiUser;
 	//set requestHEaderBefore Send?
 	$result =  json_decode(curl_exec($ch)); 
 
- 	if (curl_errno($ch)) { 
+	if (curl_errno($ch)) { 
 		print "Error: " . curl_error($ch); 
 	}
 	else { 
@@ -102,9 +101,7 @@ global $kamusiUser;
 	//	storeUserData($base_url, $result.user.uid, $result.session_name, result.sessid, csrf_token);
 		echo "getToken END";
 
-		 $kamusiUser['csrf_token'] = $result->token;
-
-
+		$kamusiUser['csrf_token'] = $result->token;
 
 		curl_close($ch); 
 	}
@@ -112,12 +109,17 @@ global $kamusiUser;
 
 }
 
-function storeUserData($base_url, $uid, $session_name, $session_id) {
-		global $kamusiUser;
-		$kamusiUser['base_url'] = $base_url;
-		$kamusiUser['uid'] = $uid;
-		$kamusiUser['session_name'] = $session_name;
-		$kamusiUser['session_id'] = $session_id;
+function storeUserData($base_url, $uid, $session_name, $session_id, $csrf_token) {
+	global $kamusiUser;
+	$kamusiUser['base_url'] = $base_url;
+	$kamusiUser['uid'] = $uid;
+	$kamusiUser['session_name'] = $session_name;
+	$kamusiUser['session_id'] = $session_id;
+
+	if($csrf_token != ''){
+		$kamusiUser['csrf_token'] = $csrf_token;
+	}
+
 
 
 		//var_dump($kamusiUser);
