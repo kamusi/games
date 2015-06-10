@@ -15,6 +15,7 @@ $helsinkiPassWord= $config['helpassword'];
 
 $sess_user=$config['sess_user'];
 $sess_pass = $config['sess_pass'];
+$base_url = "http://dev.kamusi.org:8282":
 
 
 //The object that allows access to the mysql database
