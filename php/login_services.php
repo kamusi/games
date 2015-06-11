@@ -72,7 +72,7 @@ function login($sess_user, $sess_pass, $base_url) {
 	else { 
             // Show me the result 
 		echo "Login BEGIN";
-		echo print_r($result, true); 
+		echo print_r($plainresult, true); 
 
 		storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid, '');
 		echo "Login END";
@@ -89,7 +89,7 @@ function getToken($session_name, $session_id, $base_url) {
 	setCurlDefaults($ch,$base_url);
 
 	if($session_name != '' && $session_id != '' ){
-	//	curl_setopt($ch, CURLOPT_HEADER, TRUE);
+		curl_setopt($ch, CURLOPT_HEADER, TRUE);
 		$headers = array ('Cookie: ' .$session_name . "=" . $session_id);
 
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -108,7 +108,7 @@ function getToken($session_name, $session_id, $base_url) {
 	else { 
             // Show me the result 
 		echo "getToken BEGIN";
-		echo print_r($result, true); 
+		echo print_r($plainresult, true); 
 
 		echo "getToken END";
 		
