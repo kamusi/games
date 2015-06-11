@@ -113,44 +113,12 @@ LOAD DATA LOCAL INFILE 'kamusiData.csv' INTO TABLE worddefinitions FIELDS TERMIN
 Then drop unneccsary columns.
 Then in order to split that table into words and definitions :
 
-DROP PROCEDURE IF EXISTS splittable;
-DELIMITER ;;
-CREATE PROCEDURE splittable()
-BEGIN
-DECLARE n INT DEFAULT 0;
-DECLARE i INT DEFAULT 0;
-DECLARE done INT DEFAULT FALSE;
-SELECT COUNT(*) FROM worddefinitions INTO n;
-SET i=0;
-WHILE i<n DO 
-  INSERT INTO words(ID, Word, PartOfSpeech, DefinitionID, language) SELECT (id, headword, wordnetpos, id, 1) FROM worddefinitions LIMIT i,1;
-INSERT INTO definitions(ID, GroupID, Definition, UserID, Votes,Language , reference) SELECT (id, id,definition,'wordnet',0,1,wordnetreference) FROM wordnetdefinitions LIMIT i,1;
-  SET i = i + 1;
-END WHILE;
-End;
-;;
-DELIMITER ;
-
-CALL splittable();
-
-DROP PROCEDURE IF EXISTS splittable;
-DELIMITER ;;
-CREATE PROCEDURE splittable()
-BEGIN
-DECLARE n INT DEFAULT 0;
-DECLARE i INT DEFAULT 0;
-DECLARE done INT DEFAULT FALSE;
-SELECT COUNT(*) FROM worddefinitions INTO n;
-SET i=96000;
-WHILE i<n DO 
-  INSERT INTO words(Word, PartOfSpeech, DefinitionID) SELECT headword, wordnetpos, id FROM worddefinitions LIMIT i,1;
-INSERT INTO definitions(GroupID, Definition, UserID, reference) SELECT id,definition,'wordnet',wordnetreference FROM worddefinitions LIMIT i,1;
-  SET i = i + 1;
-END WHILE;
-End;
-;;
-DELIMITER ;
 
 
+SELECT headword AS Word, wordnetpos AS PartOfSpeech, id AS DefinitionID INTO words FROM worddefinitions;
+
+INSERT INTO words (Word, PartOfSpeech,DefinitionID, language)  SELECT headword AS Word, wordnetpos AS PartOfSpeech, id AS DefinitionID, 1 FROM worddefinitions
+
+INSERT INTO definitions(GroupID, Definition, UserID, reference) SELECT id,definition,'wordnet',wordnetreference FROM worddefinitions
 
 

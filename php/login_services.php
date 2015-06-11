@@ -1,4 +1,4 @@
-<?php
+<?php   
 //1) Connect, see if you have a session_id and session_name
 
 function setCurlDefaults($ch, $base_url){
@@ -17,6 +17,7 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	$connectHeaders = array();
 	if ($csrf_token !== '' || $csrf_token !== 'undefined') {
 		$connectHeaders['X-CSRF-Token'] = $csrf_token;
+		var_dump($connectHeaders);
 	};
 
 	$ch = curl_init();
