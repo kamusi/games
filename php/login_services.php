@@ -23,10 +23,10 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	$ch = curl_init();
 
 	setCurlDefaults($ch,$base_url);
-//	curl_setopt($ch, CURLOPT_HEADER, TRUE);
+	curl_setopt($ch, CURLOPT_HEADER, TRUE);
 	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/system/connect.json");
 
-//	curl_setopt($ch, CURLOPT_HTTPHEADER, $connectHeaders);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $connectHeaders);
 
 	$result = json_decode(curl_exec($ch)); 
 
@@ -85,7 +85,7 @@ function getToken($session_name, $session_id, $base_url) {
 	setCurlDefaults($ch,$base_url);
 
 	if($session_name != '' && $session_id != '' ){
-		curl_setopt($ch, CURLOPT_HEADER, TRUE);
+	//	curl_setopt($ch, CURLOPT_HEADER, TRUE);
 		$headers = array();
 		$headers['Cookie'] = $session_name . "=" . $session_id;
 
