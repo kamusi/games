@@ -100,4 +100,10 @@ function giveAllConcernedUsersXPoints($concernedUsers, $x){
 	}
 }
 
+function debugVariable($var, $name){
+	echo "Begin " . $name;
+	 echo print_r($var, true);
+	 echo "End " . $name;
+}
+
 ?>

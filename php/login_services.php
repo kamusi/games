@@ -31,7 +31,7 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	$plainresult =  curl_exec($ch);
 
 	$sentHeaders = curl_getinfo($ch);
-	 echo print_r($sentHeaders, true); 
+	debugVariable($sentHeaders, "Sent headers in connect"); 
 	
 	$result = tryToparseToJSONElseDie($plainresult);
 
@@ -40,8 +40,8 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	}
 	else { 
             // Show me the result 
-		echo "CONNECT RETURNED : ";
-		var_dump($result); 
+			debugVariable($result, "JSON response in connect"); 
+
 		//storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid, $csrf_token);
 		curl_close($ch); 
 	}
@@ -72,15 +72,10 @@ function login($sess_user, $sess_pass, $base_url) {
 		print "Error: " . curl_error($ch); 
 	}
 	else { 
-            // Show me the result 
-		/*
-		echo "Login BEGIN";
-		echo print_r($plainresult, true); 
-		echo "Login END";*/
+ 		
+		//debugVariable($result, "JSON response in login"); 
+
 		storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid, '');
-
-
-
 		curl_close($ch); 
 	}
 }
@@ -102,6 +97,8 @@ function getToken($session_name, $session_id, $base_url) {
 
 	//set requestHEaderBefore Send?
 	$plainresult =  curl_exec($ch);
+	$sentHeaders = curl_getinfo($ch);
+	debugVariable($sentHeaders, "Sent headers in getToken"); 
 
 
 	
@@ -111,11 +108,8 @@ function getToken($session_name, $session_id, $base_url) {
 		print "Error: " . curl_error($ch); 
 	}
 	else { 
-            // Show me the result 
-		echo "getToken BEGIN";
-		echo print_r($plainresult, true); 
-
-		echo "getToken END";		
+ 		debugVariable($result, "JSON response in getToken"); 
+	
 		$kamusiUser['csrf_token'] = $result->token;
 
 		curl_close($ch); 
