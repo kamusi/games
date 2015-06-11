@@ -106,7 +106,7 @@ function getToken($session_name, $session_id, $base_url) {
 	else { 
             // Show me the result 
 		echo "getToken BEGIN";
-		//var_dump($result); 
+		var_dump($result); 
 
 		echo "getToken END";
 		
