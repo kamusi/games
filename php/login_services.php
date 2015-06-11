@@ -30,6 +30,8 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 
 	$result = (curl_exec($ch)); 
 
+	print_r(apache_request_headers());
+
 	if (curl_errno($ch)) { 
 		print "Error: " . curl_error($ch); 
 	}
