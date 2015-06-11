@@ -30,8 +30,10 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $connectHeaders);
 
 	$result = (curl_exec($ch)); 
+	$sentHeaders = curl_getinfo($ch);
 
-	print_r(apache_request_headers());
+
+	print_r($sentHeaders);
 
 	if (curl_errno($ch)) { 
 		print "Error: " . curl_error($ch); 
