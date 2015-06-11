@@ -16,7 +16,7 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 
 	$connectHeaders = array();
 	if ($csrf_token !== '' || $csrf_token !== 'undefined') {
-		$connectHeaders = array('X-CSRF-Token :' .$csrf_token);
+		$connectHeaders = array('X-CSRF-Token : ' .$csrf_token);
 		echo "Here are the connect headers";
 		var_dump($connectHeaders);
 	}
