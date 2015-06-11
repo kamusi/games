@@ -88,6 +88,8 @@ function getToken($session_name, $session_id, $base_url) {
 	curl_setopt($ch, CURLOPT_HEADER, TRUE);
 	$headers = array();
 	$headers['Cookie'] = $session_name + "=" + $session_id;
+	echo "HEADERS : ";
+	var_dump($headers);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 }
 
