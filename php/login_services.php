@@ -14,7 +14,7 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 
 	$connectHeaders = array();
 	if ($csrf_token !== '' || $csrf_token !== 'undefined') {
-		$connectHeaders = array('X-CSRF-Token: ' .$csrf_token);
+		$connectHeaders = array('X-CSRF-Token: ' .$csrf_token, 'Cookie: ' .$session_name . "=" . $session_id);
 
 	}
 
@@ -102,8 +102,6 @@ function getToken($session_name, $session_id, $base_url) {
 
 	$sentHeaders = curl_getinfo($ch);
 	debugVariable($sentHeaders, "Sent headers in getToken"); 
-
-
 	
 	$result = tryToparseToJSONElseDie($plainresult);
 
