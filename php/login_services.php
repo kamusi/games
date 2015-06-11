@@ -28,7 +28,10 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $connectHeaders);
 
-	$plainresult =  curl_exec($ch); 
+	$plainresult =  curl_exec($ch);
+
+	$sentHeaders = curl_getinfo($ch);
+	 echo print_r($sentHeaders, true); 
 	
 	$result = tryToparseToJSONElseDie($plainresult);
 
@@ -100,8 +103,7 @@ function getToken($session_name, $session_id, $base_url) {
 	//set requestHEaderBefore Send?
 	$plainresult =  curl_exec($ch);
 
-	$sentHeaders = curl_getinfo($ch);
-	 echo print_r($sentHeaders, true);
+
 	
 	$result = tryToparseToJSONElseDie($plainresult);
 
