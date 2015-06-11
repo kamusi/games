@@ -4,7 +4,7 @@
 function setCurlDefaults($ch, $base_url){
 	curl_setopt($ch, CURLOPT_POST, 1);
 	//data type is json. HAve to set cache, tieout?
-//	curl_setopt($ch, CURLOPT_HEADER, TRUE);
+//	
 	curl_setopt($ch, CURLOPT_FRESH_CONNECT, TRUE); //equivalent to cache: false
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,30000);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); //so that we get the data in the data variable in not on stdout 
@@ -21,9 +21,10 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	};
 
 	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/system/connect.json");
 
 	setCurlDefaults($ch,$base_url);
+	curl_setopt($ch, CURLOPT_HEADER, TRUE);
+	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/system/connect.json");
 
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $connectHeaders);
 
@@ -82,6 +83,8 @@ function getToken($session_name, $session_id, $base_url) {
 
 	$ch = curl_init();
 	setCurlDefaults($ch,$base_url);
+	curl_setopt($ch, CURLOPT_HEADER, TRUE);
+
 	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/user/token.json");
 
 	$headers = array();
