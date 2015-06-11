@@ -125,6 +125,7 @@ function tryToparseToJSONElseDie($whatToParse){
 	if($result == NULL){
 		die("Could not parse CURL response to JSON, what we got was: \n" . $whatToParse);
 	}
+	return $result;
 }
 
 function storeUserData($base_url, $uid, $session_name, $session_id, $csrf_token) {
