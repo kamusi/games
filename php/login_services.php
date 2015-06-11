@@ -23,6 +23,7 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 
 	setCurlDefaults($ch,$base_url);
 //	curl_setopt($ch, CURLOPT_HEADER, TRUE);
+	curl_setopt($ch, CURLINFO_HEADER_OUT, true);
 
 	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/system/connect.json");
 
