@@ -88,7 +88,7 @@ function getToken($session_name, $session_id, $base_url) {
 	if($session_name != '' && $session_id != '' ){
 	//	curl_setopt($ch, CURLOPT_HEADER, TRUE);
 		$headers = array ('Cookie: ' .$session_name . "=" . $session_id);
-
+		debugVariable($session_name, "MAde it inside that if");
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 	}
 
