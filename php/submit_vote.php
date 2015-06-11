@@ -19,8 +19,10 @@ login($sess_user, $sess_pass, $base_url);
 echo "END 2";
 var_dump($kamusiUser);
 getToken($kamusiUser['session_name'], $kamusiUser['session_id'], $base_url);
-echo "END 3";
+echo "END ĴUST BEFOE ND CONNECT";
 var_dump($kamusiUser);
+echo "END ĴUST AFTER ND CONNECT";
+
 connect($kamusiUser['session_name'], $kamusiUser['session_id'], $kamusiUser['csrf_token'], $base_url);
 echo "END 4";
 var_dump($kamusiUser);
