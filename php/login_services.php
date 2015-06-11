@@ -14,7 +14,7 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 
 	$connectHeaders = array();
 	if ($csrf_token !== '' || $csrf_token !== 'undefined') {
-		$connectHeaders = array('X-CSRF-Tokensssssss: ' .$csrf_token);
+		$connectHeaders = array('X-CSRF-Token: ' .$csrf_token);
 
 	}
 
@@ -90,17 +90,17 @@ function getToken($session_name, $session_id, $base_url) {
 	if($session_name != '' && $session_id != '' ){
 	//	curl_setopt($ch, CURLOPT_HEADER, TRUE);
 		$headers = array ('Cookie: ' .$session_name . "=" . $session_id);
-		debugVariable($session_name, "MAde it inside that if");
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 	}
 
 	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/user/token.json");
 
 	//set requestHEaderBefore Send?
+	curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+
 	$plainresult =  curl_exec($ch);
 
 	$sentHeaders = curl_getinfo($ch);
-	curl_setopt($ch, CURLINFO_HEADER_OUT, true);
 	debugVariable($sentHeaders, "Sent headers in getToken"); 
 
 
