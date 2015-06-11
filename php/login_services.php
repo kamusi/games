@@ -4,7 +4,7 @@
 function setCurlDefaults($ch, $base_url){
 	curl_setopt($ch, CURLOPT_POST, 1);
 	//data type is json. HAve to set cache, tieout?
-
+	curl_setopt($ch, CURLOPT_HEADER, TRUE);
 	curl_setopt($ch, CURLOPT_FRESH_CONNECT, TRUE); //equivalent to cache: false
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,30000);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); //so that we get the data in the data variable in not on stdout 
@@ -86,8 +86,10 @@ function getToken($session_name, $session_id, $base_url) {
 
 	$headers = array();
 	$headers['Cookie'] = $session_name + "=" + $session_id;
-	//set xhrfields : with credentials?
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+	//set xhrfields : with credentials?
+
 	//set requestHEaderBefore Send?
 	$result =  json_decode(curl_exec($ch)); 
 
