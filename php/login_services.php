@@ -29,11 +29,9 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $connectHeaders);
 
-	$result = (curl_exec($ch)); 
-	$sentHeaders = curl_getinfo($ch);
-
-
-	print_r($sentHeaders);
+	$plainresult =  curl_exec($ch); 
+	
+	$result = tryToparseToJSONElseDie($plainresult);
 
 	if (curl_errno($ch)) { 
 		print "Error: " . curl_error($ch); 
@@ -64,8 +62,9 @@ function login($sess_user, $sess_pass, $base_url) {
 
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 
-	$result =  json_decode(curl_exec($ch)); 
-
+	$plainresult =  curl_exec($ch); 
+	
+	$result = tryToparseToJSONElseDie($plainresult);
 
 	if (curl_errno($ch)) { 
 		print "Error: " . curl_error($ch); 
@@ -91,7 +90,6 @@ function getToken($session_name, $session_id, $base_url) {
 
 	if($session_name != '' && $session_id != '' ){
 	//	curl_setopt($ch, CURLOPT_HEADER, TRUE);
-		$headers = array();
 		$headers = array ('Cookie: ' .$session_name . "=" . $session_id);
 
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -100,7 +98,9 @@ function getToken($session_name, $session_id, $base_url) {
 	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/user/token.json");
 
 	//set requestHEaderBefore Send?
-	$result =  json_decode(curl_exec($ch)); 
+	$plainresult =  curl_exec($ch); 
+	
+	$result = tryToparseToJSONElseDie($plainresult);
 
 	if (curl_errno($ch)) { 
 		print "Error: " . curl_error($ch); 
@@ -118,6 +118,13 @@ function getToken($session_name, $session_id, $base_url) {
 	}
 
 
+}
+
+function tryToparseToJSONElseDie($whatToParse){
+	$result = json_decode($whatToParse);
+	if($result == NULL){
+		die("Could not parse CURL response to JSON, what we got was: \n" . $whatToParse);
+	}
 }
 
 function storeUserData($base_url, $uid, $session_name, $session_id, $csrf_token) {
