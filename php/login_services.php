@@ -68,7 +68,7 @@ function login($sess_user, $sess_pass, $base_url) {
 	else { 
             // Show me the result 
 		echo "Login BEGIN";
-		var_dump($result); 
+		echo print_r($result, true); 
 
 		storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid, '');
 		echo "Login END";
@@ -88,14 +88,11 @@ function getToken($session_name, $session_id, $base_url) {
 		curl_setopt($ch, CURLOPT_HEADER, TRUE);
 		$headers = array();
 		$headers['Cookie'] = $session_name . "=" . $session_id;
-		echo "HEADERS : ";
-		var_dump($headers);
+
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 	}
 
 	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/user/token.json");
-
-	//set xhrfields : with credentials?
 
 	//set requestHEaderBefore Send?
 	$result =  json_decode(curl_exec($ch)); 
@@ -106,7 +103,7 @@ function getToken($session_name, $session_id, $base_url) {
 	else { 
             // Show me the result 
 		echo "getToken BEGIN";
-		var_dump($result); 
+		echo print_r($result, true); 
 
 		echo "getToken END";
 		
