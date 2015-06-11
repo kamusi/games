@@ -15,8 +15,7 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	$connectHeaders = array();
 	if ($csrf_token !== '' || $csrf_token !== 'undefined') {
 		$connectHeaders = array('X-CSRF-Token: ' .$csrf_token);
-		echo "Here are the connect headers";
-		var_dump($connectHeaders);
+
 	}
 
 	$ch = curl_init();
@@ -71,11 +70,12 @@ function login($sess_user, $sess_pass, $base_url) {
 	}
 	else { 
             // Show me the result 
+		/*
 		echo "Login BEGIN";
 		echo print_r($plainresult, true); 
-
+		echo "Login END";*/
 		storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid, '');
-		echo "Login END";
+
 
 
 		curl_close($ch); 
@@ -89,7 +89,7 @@ function getToken($session_name, $session_id, $base_url) {
 	setCurlDefaults($ch,$base_url);
 
 	if($session_name != '' && $session_id != '' ){
-		curl_setopt($ch, CURLOPT_HEADER, TRUE);
+	//	curl_setopt($ch, CURLOPT_HEADER, TRUE);
 		$headers = array ('Cookie: ' .$session_name . "=" . $session_id);
 
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -98,7 +98,10 @@ function getToken($session_name, $session_id, $base_url) {
 	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/user/token.json");
 
 	//set requestHEaderBefore Send?
-	$plainresult =  curl_exec($ch); 
+	$plainresult =  curl_exec($ch);
+
+	$sentHeaders = curl_getinfo($ch);
+	 echo print_r($sentHeaders, true);
 	
 	$result = tryToparseToJSONElseDie($plainresult);
 
@@ -110,14 +113,11 @@ function getToken($session_name, $session_id, $base_url) {
 		echo "getToken BEGIN";
 		echo print_r($plainresult, true); 
 
-		echo "getToken END";
-		
+		echo "getToken END";		
 		$kamusiUser['csrf_token'] = $result->token;
 
 		curl_close($ch); 
 	}
-
-
 }
 
 function tryToparseToJSONElseDie($whatToParse){
