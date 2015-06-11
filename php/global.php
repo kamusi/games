@@ -1,6 +1,6 @@
 <?php
 //global variables used throughout the application
-/*$acceptedModes = array("1","2","3","4");
+$acceptedModes = array("1","2","3","4");
 $allUsers = "allusers";
 $mysqli= null;
 
@@ -99,5 +99,5 @@ function giveAllConcernedUsersXPoints($concernedUsers, $x){
 		$stmt->close();
 	}
 }
-*/
+
 ?>
