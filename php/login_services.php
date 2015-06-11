@@ -95,8 +95,6 @@ function getToken($session_name, $session_id, $base_url) {
 
 	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/user/token.json");
 
-
-
 	//set xhrfields : with credentials?
 
 	//set requestHEaderBefore Send?
