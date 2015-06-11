@@ -91,8 +91,9 @@ function getToken($session_name, $session_id, $base_url) {
 	//	curl_setopt($ch, CURLOPT_HEADER, TRUE);
 		$headers = array ('Cookie: ' .$session_name . "=" . $session_id);
 		debugVariable($session_name, "MAde it inside that if");
-		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 	}
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
 
 	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/user/token.json");
 
