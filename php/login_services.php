@@ -131,8 +131,5 @@ function storeUserData($base_url, $uid, $session_name, $session_id, $csrf_token)
 		$kamusiUser['csrf_token'] = $csrf_token;
 	}
 
-
-
-		//var_dump($kamusiUser);
 }
 
