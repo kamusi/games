@@ -208,13 +208,11 @@ function display_about() {
 		document.getElementById("about2").style.display = "inline-block";
 		break;
 		case 3:
-		code block
 		break;
 		case 4:
-		code block
 		break;
 		default:
-		default alert("ERROR DO NOT KNOW THIS ABOUT PAGE!")
+		alert("ERROR DO NOT KNOW THIS ABOUT PAGE!")
 	}
 	document.getElementById("about").style.display = "inline-block";
 }
