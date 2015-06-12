@@ -215,8 +215,8 @@ function getSwahiliwords($uid){
 //	debugVariable($result, 'USER PSOTIION : ' . $result );
 
 	
-	$pageNumber = $result / 20;
-	$pageEntry = $result % 20;
+	$pageNumber = $result / 25;
+	$pageEntry = $result % 25;
 
 	$plainResult = authenticatedGETRequest("/facebook_game_v1/search-define.json?to_language=371&page=".$pageNumber);
 //	debugVariable($plainResult, 'words: ' );
@@ -227,7 +227,7 @@ function getSwahiliwords($uid){
 	//What we will return to the javascript
 	var_dump($json);
 
-//	debugVariable($plainResult, 'JSON RESPONSE : ' . $json );
+	debugVariable($plainResult, 'akfnerfknrfg : ' . $pageEntry );
 
 
 }
@@ -235,7 +235,7 @@ function getSwahiliwords($uid){
 function getUserPosAndOffset($uid){
 	global $mysqli;
 
-	$maxOffset = 20;
+	$maxOffset = 24;
 
 	//fetch the user in order to see which word is for him
 	$stmt = $mysqli->prepare("SELECT * FROM games WHERE userid = ? AND language = 4 AND game= 4 ");
