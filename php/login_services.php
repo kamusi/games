@@ -233,7 +233,14 @@ function getSwahiliwords($uid){
 //	debugVariable($json[$pageEntry], 'words: ' );
 
 	//What we will return to the javascript
+
+	if(array_key_exists ($pageEntry, $json)){
 	echo json_encode($json[$pageEntry]);
+	}
+	else {
+		debugVariable($pageEntry, 'pahe entry');
+		debugVariable($json, 'json');
+	}
 
 }
 
