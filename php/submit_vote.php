@@ -11,27 +11,9 @@ include 'login_services.php';
 5) Get new Token, Session_id and Session_name from either response of login request, or do a new Get Token
 6) Test Connect again, an if UID > 0, you are logged in
 */
-/*
-connect($kamusiUser['session_name'], $kamusiUser['session_id'], $kamusiUser['csrf_token'], $base_url);
-echo "START";
-getToken('', '', $base_url);
-//var_dump($kamusiUser);
-login($sess_user, $sess_pass, $base_url);
-//echo "END 2";
-//var_dump($kamusiUser);
-getToken($kamusiUser['session_name'], $kamusiUser['session_id'], $base_url);
-//echo "END ĴUST BEFOE ND CONNECT";
-//var_dump($kamusiUser);
-//echo "END ĴUST AFTER ND CONNECT";
 
-connect($kamusiUser['session_name'], $kamusiUser['session_id'], $kamusiUser['csrf_token'], $base_url);
-echo "END 4";
-var_dump($kamusiUser);
-connect($kamusiUser['session_name'], $kamusiUser['session_id'], $kamusiUser['csrf_token'], $base_url);
-*/
 echo "RESULT IS : ".authentification();
-logout();
-logout();
+getSwahiliwords();
 
 $wordID = $_GET['wordID'];
 $definitionID = $_GET['definitionID'];

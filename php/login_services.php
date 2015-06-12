@@ -159,7 +159,9 @@ function logout() {
 	if (array_key_exists ('csrf_token', $kamusiUser)) {
 		$logoutHeaders = array('X-CSRF-Token: ' .$kamusiUser['csrf_token'], 'Cookie: ' . $kamusiUser['session_name'] . "=" . $kamusiUser['session_id']);
 	}
-
+	else {
+		die("Trying to logout witout having been logged in!");
+	}
 
 	setCurlDefaults($ch,$base_url);
 	curl_setopt($ch, CURLINFO_HEADER_OUT, true);
@@ -168,7 +170,6 @@ function logout() {
 
 	$plainresult =  curl_exec($ch);
 	debugVariable($plainresult, 'logout ');
-
 	setCurlDefaults($ch,$base_url);
 
 }
@@ -179,6 +180,30 @@ function loginProcess(){
 	login($sess_user, $sess_pass, $base_url);
 	getToken($kamusiUser['session_name'], $kamusiUser['session_id'], $base_url);
 	return 	connect($kamusiUser['session_name'], $kamusiUser['session_id'], $kamusiUser['csrf_token'], $base_url);
+}
+
+function getSwahiliwords(){
+	global $kamusiUser;
+
+	curl_setopt($ch, CURLOPT_URL, $base_url . "http://dev.kamusi.org:8282/facebook_game_v1/search-define.json?to_language=371");
+	$getSwahiliwordsHeaders = array();
+	if (array_key_exists ('csrf_token', $kamusiUser)) {
+		$getSwahiliwordsHeaders = array('X-CSRF-Token: ' .$kamusiUser['csrf_token'], 'Cookie: ' . $kamusiUser['session_name'] . "=" . $kamusiUser['session_id']);
+	}
+	else {
+		die("Not logged in for swahili headers");
+	}
+
+	setCurlDefaults($ch,$base_url);
+	curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $getSwahiliwordsHeaders);
+
+	$plainresult =  curl_exec($ch);
+	debugVariable($plainresult, 'Get Swahili Words: ');
+
+
+
 }
 
 function tryToparseToJSONElseDie($whatToParse){
@@ -199,6 +224,5 @@ function storeUserData($base_url, $uid, $session_name, $session_id, $csrf_token)
 	if($csrf_token != ''){
 		$kamusiUser['csrf_token'] = $csrf_token;
 	}
-
 }
 

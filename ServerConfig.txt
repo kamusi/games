@@ -117,8 +117,8 @@ Then in order to split that table into words and definitions :
 
 SELECT headword AS Word, wordnetpos AS PartOfSpeech, id AS DefinitionID INTO words FROM worddefinitions;
 
-INSERT INTO words (Word, PartOfSpeech,DefinitionID, language)  SELECT headword AS Word, wordnetpos AS PartOfSpeech, id AS DefinitionID, 1 FROM worddefinitions
+INSERT INTO words (Word, PartOfSpeech,DefinitionID, language, reference)  SELECT headword AS Word, wordnetpos AS PartOfSpeech, id AS DefinitionID, 1, wordnetreference FROM worddefinitions
 
-INSERT INTO definitions(GroupID, Definition, UserID, reference) SELECT id,definition,'wordnet',wordnetreference FROM worddefinitions
+INSERT INTO definitions(GroupID, Definition, UserID) SELECT id,definition,'wordnet' FROM worddefinitions
 
 
