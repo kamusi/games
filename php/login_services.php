@@ -40,7 +40,12 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	else { 
             // Show me the result 
 			debugVariable($result, "JSON response in connect"); 
-			
+			if($result->user->uid == 0){
+				return false;
+			}
+			else {
+				return true;
+			}
 
 		//storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid, $csrf_token);
 		curl_close($ch); 
