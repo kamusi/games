@@ -40,6 +40,7 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	else { 
             // Show me the result 
 			debugVariable($result, "JSON response in connect"); 
+			
 
 		//storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid, $csrf_token);
 		curl_close($ch); 
@@ -115,6 +116,10 @@ function getToken($session_name, $session_id, $base_url) {
 
 		curl_close($ch); 
 	}
+}
+
+function authentification(){
+
 }
 
 function tryToparseToJSONElseDie($whatToParse){
