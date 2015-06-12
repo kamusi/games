@@ -13,7 +13,7 @@ include 'login_services.php';
 */
 
 echo "RESULT IS : ".authentification();
-getSwahiliwords();
+getSwahiliwords("asa");
 
 $wordID = $_GET['wordID'];
 $definitionID = $_GET['definitionID'];
