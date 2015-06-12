@@ -211,9 +211,34 @@ function authenticatedGETRequest($endURL){
 function getSwahiliwords($uid){
 
 
+	//We will use the users offset in order to remember which page is to be queried
+	//We will sue the user s position in order to remember which one of the results on each page is to get.
+	//So position will go from 1 to 20 and offset from 1 to number of pages.
+	//We do this in order not to repedetly present the user the same word with a different meaning.
+	//So we will take result 1 of page 1, then result 1 of page 2, etc until last page then return to first pgae with offest +=1
+		
 
-	$plainResult = authenticatedGETRequest("/facebook_game_v1/search-define.json?to_language=371&page=120");
-	debugVariable($plainResult, 'words: ');
+	for(i = 125; i < 200; i++){
+	$plainResult = authenticatedGETRequest("/facebook_game_v1/search-define.json?to_language=371&page=".i);
+	debugVariable($plainResult, 'words: ' . i );
+	}
+}
+
+function getUserPosAndOffset($uid){
+		global $mysqli;
+
+	//fetch the user in order to see which word is for him
+	$stmt = $mysqli->prepare("SELECT * FROM games WHERE userid = ? AND language = 4 AND game= 4 ");
+	$stmt->bind_param("s", $uid);
+	$stmt->execute();
+	$result = $stmt->get_result();
+	$row = $result->fetch_assoc();
+
+	$user_position = $row["position"];
+	$user_offset = $row["offset"];
+
+
+	$stmt->close();
 }
 
 function tryToparseToJSONElseDie($whatToParse){
