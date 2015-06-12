@@ -187,6 +187,8 @@ function getSwahiliwords(){
 	
 	$ch = curl_init();
 	setCurlDefaults($ch,$base_url);
+		curl_setopt($ch, CURLOPT_POST, 0);
+
 	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/search-define.json?to_language=371");
 	
 	$getSwahiliwordsHeaders = array();
