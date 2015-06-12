@@ -88,7 +88,7 @@ function InlineEditorController2($scope){
 			setTimeout( function() {
 				$("#translation_input_tool_box").focus();
 			}, 20 )
- 		}
+		}
 	}
 
 	$scope.clear2 = function(e) {
@@ -197,6 +197,25 @@ function display_leaderboard() {
 
 function display_about() {
 	document.getElementById("game").style.display = "none";
+	switch(game) {
+		case 1:
+		document.getElementById("about2").style.display = "none";
+		document.getElementById("about1").style.display = "inline-block";
+
+		break;
+		case 2:
+		document.getElementById("about1").style.display = "none";
+		document.getElementById("about2").style.display = "inline-block";
+		break;
+		case 3:
+		code block
+		break;
+		case 4:
+		code block
+		break;
+		default:
+		default alert("ERROR DO NOT KNOW THIS ABOUT PAGE!")
+	}
 	document.getElementById("about").style.display = "inline-block";
 }
 
@@ -214,15 +233,15 @@ function display_profile() {
 }
 
 function display_changeLanguage() {
-		document.getElementById("welcome").style.display = "none";
-		document.getElementById("profile").style.display = "none";
-			document.getElementById("settings").style.display = "none";
+	document.getElementById("welcome").style.display = "none";
+	document.getElementById("profile").style.display = "none";
+	document.getElementById("settings").style.display = "none";
 	document.getElementById("changeMenuLanguage").style.display = "inline-block";	
 }
 
 function return_to_game() {
-			document.getElementById("changeMenuLanguage").style.display = "none";
-							document.getElementById("settings").style.display = "none";
+	document.getElementById("changeMenuLanguage").style.display = "none";
+	document.getElementById("settings").style.display = "none";
 
 	document.getElementById("about").style.display = "none";
 	document.getElementById("profile").style.display = "none";
@@ -236,18 +255,18 @@ function display_welcome() {
 	document.getElementById("leaderboard").style.display = "none";
 	document.getElementById("changeMenuLanguage").style.display = "none";
 //display only the games that are avilable in the currentlanguage
-		console.log(implementedGames)
-		console.log(gameLanguage)
-	for( i = 1; i < 5; i++){
-		if(  $.inArray(gameLanguage, implementedGames[i]) == -1) {
-			document.getElementById("enter"+i).style.display = "none";
-		}
-		else {
-			document.getElementById("enter"+i).style.display = "inline-block";			
-		}
+console.log(implementedGames)
+console.log(gameLanguage)
+for( i = 1; i < 5; i++){
+	if(  $.inArray(gameLanguage, implementedGames[i]) == -1) {
+		document.getElementById("enter"+i).style.display = "none";
 	}
+	else {
+		document.getElementById("enter"+i).style.display = "inline-block";			
+	}
+}
 
-	continue_animation();
+continue_animation();
 }
 
 function animate_logo() {
@@ -436,7 +455,7 @@ function soumettre_traduction() {
 	var user_translation = document.getElementById("translation_input_tool_box").value;
 	var class_name = document.getElementById("user_translation").className;
 //	if(class_name == "active_definition" && user_translation != translation_default_value) {
-		submit_translation(user_translation);
+	submit_translation(user_translation);
 //	}
 }
 
@@ -457,30 +476,30 @@ function startAutoUpdateOfLeaderboard() {
 
 	autoUpdateIntervalJobID= setInterval(function () {
 		if(document.getElementById("autoloop").checked) {
-		var whatTochange = languageSelect;
+			var whatTochange = languageSelect;
 
-		switch(whichSliderToChange) {
-			case 0:
-			whatTochange = languageSelect;
-			break;
-			case 1:
-			whatTochange = gameSelect;
-			break;
-			case 2:
-			whatTochange = timePeriodSelect;
-			break;
-			case 3:
-			whatTochange = metricSelect;
-			break;
-			default:
-			console.log("PEROGVJEöRKFJ")
-			break;        
+			switch(whichSliderToChange) {
+				case 0:
+				whatTochange = languageSelect;
+				break;
+				case 1:
+				whatTochange = gameSelect;
+				break;
+				case 2:
+				whatTochange = timePeriodSelect;
+				break;
+				case 3:
+				whatTochange = metricSelect;
+				break;
+				default:
+				console.log("PEROGVJEöRKFJ")
+				break;        
+			}
+			whatTochange.selectedIndex = (whatTochange.selectedIndex + 1)  % (whatTochange.length) ;
+			whichSliderToChange= (whichSliderToChange +1) % 4;
+			console.log("INTERBVAAAAAAAAAAL" + whichSliderToChange)
+			updateLeaderboard();
 		}
-		whatTochange.selectedIndex = (whatTochange.selectedIndex + 1)  % (whatTochange.length) ;
-		whichSliderToChange= (whichSliderToChange +1) % 4;
-		console.log("INTERBVAAAAAAAAAAL" + whichSliderToChange)
-		updateLeaderboard();
-	}
 
 
 	}, 8000);

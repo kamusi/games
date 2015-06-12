@@ -204,8 +204,8 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 		</div>
 		<div id="about">
 			<div id="about-main">
-				<div id="about-data">
-					<h2><?php echo _("About"); ?></h2>
+				<div id="about1">
+					<h2><?php echo _("About1"); ?></h2>
 					<p>
 						<?php echo _("The Kamusi Project "); ?>(<a href="http://kamusi.org/" target="_blank">http://kamusi.org/</a>) <?php echo _("is a participatory international effort dedicated to improving knowledge of the world's languages. Our long term mission is to produce dictionaries and other language resources for every language, and to make those resources available for free to everyone."); ?>
 					</p>
@@ -227,6 +227,31 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 			</br>
 			<?php echo _("For more information, you can watch this video: "); ?><a href="https://www.youtube.com/watch?v=aaqOQQOYuHA" target="_blank">https://www.youtube.com/watch?v=aaqOQQOYuHA</a>
 		</div>
+
+		<div id="about2">
+					<h2><?php echo _("About2"); ?></h2>
+					<p>
+						<?php echo _("The Kamusi Project "); ?>(<a href="http://kamusi.org/" target="_blank">http://kamusi.org/</a>) <?php echo _("is a participatory international effort dedicated to improving knowledge of the world's languages. Our long term mission is to produce dictionaries and other language resources for every language, and to make those resources available for free to everyone."); ?>
+					</p>
+				</br>
+				<h2><?php echo _("How to write a great definition"); ?></h2>
+				<p>
+					<?php echo _("Definitions are explanations of what a word means. They are not single words (those are synonyms). You can usually use a definition instead of the actual word. Stick to these rules:"); ?>
+				</p>
+				<ul>
+					<li> <?php echo _("Short and sweet: A definition should be as brief as possible to explain the concept, but long enough to describe it fully. If the same word has different meanings, those are different concepts with different definitions- a definition in Kamusi only explains *one* concept."); ?>
+					</li>
+					<li> <?php echo _("Easy does it: Use the simplest words you can -definitions should not force readers to jump around the dictionary more, unless technical terms are absolutely necessary."); ?>
+					</li>
+					<li> <?php echo _('No circles: Definitions should NOT contain the word that is being defined, nor its close relatives. "Happiness" is "A feeling of joy.", not "The feeling of being happy." Definitions should not be circular - we cannot now say "joy" is "A feeling of happiness."'); ?>
+					</li>
+					<li> <?php echo _('No fluff: Do not start with "A term meaning", or "This is a", or "X refers to", etc. Style: Begin with a Capital letter and end with a period.'); ?>
+					</li>
+				</ul>
+			</br>
+			<?php echo _("For more information, you can watch this video: "); ?><a href="https://www.youtube.com/watch?v=aaqOQQOYuHA" target="_blank">https://www.youtube.com/watch?v=aaqOQQOYuHA</a>
+		</div>
+
 	</div>
 	<div id="about-footer">
 		<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick();return_to_game(); ">
