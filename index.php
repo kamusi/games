@@ -203,78 +203,80 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 
 		</div>
 		<div id="about">
-
-		<p><strong>About</strong><br />
-  The Kamusi Project (<a href="http://kamusi.org/">http://kamusi.org/</a>) is a participatory international effort dedicated to improving knowledge of the world's languages. Our long term mission is to produce dictionaries and other language resources for every language, and to make those resources available for free to everyone.</p>
-<p><strong>Purpose</strong><br />
-  Our games are designed to learn all about your language, from you, so that we can share that knowledge with the rest of the world. Different games seek different pieces of information. What we learn in one game builds information we can use in the next. Our goal is a detailed dictionary for your language, linked to translations for all other languages, available to you for free.</p>
-<p><strong>Play</strong><br />
-  Our games ask you a variety of types of questions. You earn points when your answer agrees with the consensus. Your points will remain <strong><em>in play</em></strong> until consensus, when they are <strong><em>banked</em></strong> if you are on the winning team. If you do not have an answer, just skip to the next question! When enough people agree to the same answer, it is published to the live Kamusi. For definitions, the winning author will receive credit on the entry page.</p>
-<p><strong>Honor Code</strong><br />
-  We ask each player to give their one best answer to each question. Please do not attempt to game the game, and please alert us to suspicious items so we can remove spammers and all their spam.</p>
-<p><strong>Friends</strong><br />
-  The more people who play for your language, the more fun you will have – you score points more quickly, and move toward more advanced questions. If you enjoy playing, please tell your friends to join us! They&rsquo;ll have fun too, and together you will contribute to a great resource for your whole community.</p>
-</body>
 			<div id="about-main">
 				<div id="about1">
-<p><strong>Definition Game</strong><br />
-  Write a definition: 1 point<br />
-  Vote for the winning definition: 1 point<br />
-  <em><strong>Write the winning definition</strong></em>: 5 points + credit on the dictionary entry page<br />
-  Submit a <em>spam</em> definition: -10 points + watchlist</p>
-<p><strong>How to write a great definition</strong><br />
-  Definitions are explanations of what a word means. They are not single words (those are synonyms). You can usually use a definition instead of the actual word. </p>
-<p>Definitions are NOT translations. They are written in the same language as the term you are defining. If you are defining a word in your language, the definition should be in that language, too. Definitions should define what the term means in your language – the meaning may differ somewhat from the English definition we show of a matched English concept!</p>
-<p>Stick to these rules:</p>
-<ul type="disc">
-  <li>Short and sweet: A definition should be as brief as possible to explain the concept, but long enough to describe it fully. If the same word has <strong><em>different meanings</em></strong>, those are <strong><em>different concepts</em></strong> with different definitions. <strong><em>A definition</em></strong> in Kamusi only explains <strong><em>one concept</em></strong>.</li>
-  <li>Easy does it: Use the simplest words you can. Definitions should not force readers to jump around the dictionary more, unless technical terms are absolutely necessary.</li>
-  <li>No circles: Definitions should NOT contain the word that is being defined, nor its close relatives. <em>Happiness</em> is "A feeling of joy.", not "The feeling of being happy." Definitions should not be circular - we cannot now say <em>joy</em> is "A feeling of happiness."</li>
-  <li>No fluff: Do not start with "A term meaning", or "This is a", or "X refers to", etc. Style: Begin with a Capital letter and end with a period.</li>
-</ul>
-<p><br />
-  For <strong>English</strong>, we have 200,000 entries with "working definitions" borrowed from the <a href="http://wordnet-rdf.princeton.edu" target="_blank">Princeton WordNet</a>. Some of these definitions are great, but many can be much better. When you improve the definitions in English, we can provide better guidance for translations across languages.</p>
-<p>For more insight about writing definitions, you can <a href="https://www.youtube.com/watch?v=aaqOQQOYuHA" target="_blank">watch this video</a>.</p>		
-</div>
+					<h2><?php echo _("About1"); ?></h2>
+					<p>
+						<?php echo _("The Kamusi Project "); ?>(<a href="http://kamusi.org/" target="_blank">http://kamusi.org/</a>) <?php echo _("is a participatory international effort dedicated to improving knowledge of the world's languages. Our long term mission is to produce dictionaries and other language resources for every language, and to make those resources available for free to everyone."); ?>
+					</p>
+				</br>
+				<h2><?php echo _("How to write a great definition"); ?></h2>
+				<p>
+					<?php echo _("Definitions are explanations of what a word means. They are not single words (those are synonyms). You can usually use a definition instead of the actual word. Stick to these rules:"); ?>
+				</p>
+				<ul>
+					<li> <?php echo _("Short and sweet: A definition should be as brief as possible to explain the concept, but long enough to describe it fully. If the same word has different meanings, those are different concepts with different definitions- a definition in Kamusi only explains *one* concept."); ?>
+					</li>
+					<li> <?php echo _("Easy does it: Use the simplest words you can -definitions should not force readers to jump around the dictionary more, unless technical terms are absolutely necessary."); ?>
+					</li>
+					<li> <?php echo _('No circles: Definitions should NOT contain the word that is being defined, nor its close relatives. "Happiness" is "A feeling of joy.", not "The feeling of being happy." Definitions should not be circular - we cannot now say "joy" is "A feeling of happiness."'); ?>
+					</li>
+					<li> <?php echo _('No fluff: Do not start with "A term meaning", or "This is a", or "X refers to", etc. Style: Begin with a Capital letter and end with a period.'); ?>
+					</li>
+				</ul>
+			</br>
+			<?php echo _("For more information, you can watch this video: "); ?><a href="https://www.youtube.com/watch?v=aaqOQQOYuHA" target="_blank">https://www.youtube.com/watch?v=aaqOQQOYuHA</a>
+		</div>
 
 		<div id="about2">
-<p><strong>Translation Game</strong><br />
-  Submit a term that becomes the consensus: 3 points<br />
-  Skip a term where the consensus is "skip" for this language: 1 point</p>
-<p>When we do not already have an equivalent term in your language for an idea that we have in our English dataset, we ask you to tell us the best way to express the same meaning.</p>
-<ul>
-  <li>You may not be able to give any translation. For example, many languages do not have a term for <strong><em>run</em></strong>, "a point in the game of baseball". If you cannot translate a term, <strong>skip</strong> to the next.</li>
-  <li>Your term may not have exactly the same meaning as the English term. For example, English has 10 <strong><em>fingers</em></strong> and 10 <strong><em>toes</em></strong>, while Spanish has 20 <strong><em>dedos</em></strong>. For the translation game, just give us the closest equivalent, and we'll figure out non-parallel meanings in a different game.</li>
-  <li>Your language might have more than one word that means the same thing. For example, you might use the words <strong><em>sofa</em></strong> and <strong><em>couch</em></strong> interchangeably. For the translation game, just tell us your favorite. We'll figure out synonyms in a different game, and you'll earn your points if you provide an answer that eventually reaches consensus.</li>
-</ul>
+					<h2><?php echo _("About2"); ?></h2>
+					<p>
+						<?php echo _("The Kamusi Project "); ?>(<a href="http://kamusi.org/" target="_blank">http://kamusi.org/</a>) <?php echo _("is a participatory international effort dedicated to improving knowledge of the world's languages. Our long term mission is to produce dictionaries and other language resources for every language, and to make those resources available for free to everyone."); ?>
+					</p>
+				</br>
+				<h2><?php echo _("How to write a great definition"); ?></h2>
+				<p>
+					<?php echo _("Definitions are explanations of what a word means. They are not single words (those are synonyms). You can usually use a definition instead of the actual word. Stick to these rules:"); ?>
+				</p>
+				<ul>
+					<li> <?php echo _("Short and sweet: A definition should be as brief as possible to explain the concept, but long enough to describe it fully. If the same word has different meanings, those are different concepts with different definitions- a definition in Kamusi only explains *one* concept."); ?>
+					</li>
+					<li> <?php echo _("Easy does it: Use the simplest words you can -definitions should not force readers to jump around the dictionary more, unless technical terms are absolutely necessary."); ?>
+					</li>
+					<li> <?php echo _('No circles: Definitions should NOT contain the word that is being defined, nor its close relatives. "Happiness" is "A feeling of joy.", not "The feeling of being happy." Definitions should not be circular - we cannot now say "joy" is "A feeling of happiness."'); ?>
+					</li>
+					<li> <?php echo _('No fluff: Do not start with "A term meaning", or "This is a", or "X refers to", etc. Style: Begin with a Capital letter and end with a period.'); ?>
+					</li>
+				</ul>
+			</br>
+			<?php echo _("For more information, you can watch this video: "); ?><a href="https://www.youtube.com/watch?v=aaqOQQOYuHA" target="_blank">https://www.youtube.com/watch?v=aaqOQQOYuHA</a>
 		</div>
 
 				<div id="about3">
-<p><strong>Examples Games (Tweets and Sentences)</strong><br />
-  Skip an example where the consensus is "skip": 1 point<br />
-  Select an example where the consensus is "select": 1 point</p>
-<p>Usage examples help people understand how a term is really used. Finding a good example can be hard, however.</p>
-<ul>
-  <li>Bad: "Your eyes are blue."</li>
-  <li>Good: "Your eyes are the same blue as the water in the bay, and sparkle even more in the sunlight."</li>
-</ul>
-<p>Because words have different senses, an example might be excellent in one context but completely wrong in another.</p>
-<ul>
-  <li>Good example for a different meaning of <strong><em>blue</em></strong>: "My heart is aching from the pain of missing you, I'm feeling so blue."</li>
-</ul>
-<p>In the Examples games, your goal is to find sentences that are real gems for a specific meaning of a term. The Tweet game shows you a bunch of recent postings to Twitter, while the Sentences game grabs examples from other sources. You read the definition, and click on the tweets or sentences that will be a great help for dictionary users to understand the exact meaning we show.</p>
-<ul>
-  <li>Do NOT click on an entry if it is a good example of a <em>different</em> meaning.</li>
-  <li>Do NOT click on an entry if it kind-of, sort-of works with the meaning in question.</li>
-  <li>ONLY click on an entry if it <strong><em>perfectly demonstrates</em></strong> the meaning <strong><font color="#EBA634">written in orange</font></strong>.</li>
-</ul>
-<p>Remember, you will score points if you and others all agree to "skip", and you will score points if you and others all agree to "select". </p>
-<p><strong>Play at your own risk </strong><br />
-  We try to filter out inappropriate content in advance. Please be warned, however, that some objectionable content might slip through our automated filters. We apologize in advance for the possibility that you might see offensive Tweets. We do not have humans reviewing the content you see in the Examples games – YOU are the filter. By ignoring offensive examples, you will help make them vanish from our data collection.</p>
-	</div>
+					<h2><?php echo _("About2"); ?></h2>
+					<p>
+						<?php echo _("The Kamusi Project "); ?>(<a href="http://kamusi.org/" target="_blank">http://kamusi.org/</a>) <?php echo _("is a participatory international effort dedicated to improving knowledge of the world's languages. Our long term mission is to produce dictionaries and other language resources for every language, and to make those resources available for free to everyone."); ?>
+					</p>
+				</br>
+				<h2><?php echo _("How to write a great definition"); ?></h2>
+				<p>
+					<?php echo _("Definitions are explanations of what a word means. They are not single words (those are synonyms). You can usually use a definition instead of the actual word. Stick to these rules:"); ?>
+				</p>
+				<ul>
+					<li> <?php echo _("Short and sweet: A definition should be as brief as possible to explain the concept, but long enough to describe it fully. If the same word has different meanings, those are different concepts with different definitions- a definition in Kamusi only explains *one* concept."); ?>
+					</li>
+					<li> <?php echo _("Easy does it: Use the simplest words you can -definitions should not force readers to jump around the dictionary more, unless technical terms are absolutely necessary."); ?>
+					</li>
+					<li> <?php echo _('No circles: Definitions should NOT contain the word that is being defined, nor its close relatives. "Happiness" is "A feeling of joy.", not "The feeling of being happy." Definitions should not be circular - we cannot now say "joy" is "A feeling of happiness."'); ?>
+					</li>
+					<li> <?php echo _('No fluff: Do not start with "A term meaning", or "This is a", or "X refers to", etc. Style: Begin with a Capital letter and end with a period.'); ?>
+					</li>
+				</ul>
+			</br>
+			<?php echo _("For more information, you can watch this video: "); ?><a href="https://www.youtube.com/watch?v=aaqOQQOYuHA" target="_blank">https://www.youtube.com/watch?v=aaqOQQOYuHA</a>
+		</div>
 
 	</div>
-
 	<div id="about-footer">
 		<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick();return_to_game(); ">
 	</div>
