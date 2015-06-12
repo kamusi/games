@@ -21,8 +21,7 @@ $groupID = $_GET['groupID'];
 $mode = $_GET['mode'];
 $language = $_GET['language'];
 
-authentification();
-getSwahiliwords("10203265649994971");
+
 
 
 //Increment number of votes for this definition

@@ -91,7 +91,8 @@ function getRankedForSwahili() {
 	}
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-			console.log("JSON DATA LOOKS LIKE : " +xmlhttp.responseText)
+			console.log("JSON DATA SWAHILI LOOKS LIKE : " +xmlhttp.responseText)
+			/*
 			obj = JSON.parse(xmlhttp.responseText);
 			console.log("response was : " + xmlhttp.responseText);
 
@@ -104,11 +105,11 @@ function getRankedForSwahili() {
 			document.getElementById("transEnglish4").innerHTML = "Have or maintain an upright position, supported by one's feet.";
 			document.getElementById("defSwahili4").innerHTML = "Kuwa wima juu ya miguu";
 
-			getGame4Sentences("ya", 3)
-			$(".entry").removeClass("fade");
+			getGame4Sentences("ya", 3) /*
+			$(".entry").removeClass("fade"); 
 		}
 	}
-	xmlhttp.open("GET","php/get_ranked_debug.php?userID=" + userID, true);
+	xmlhttp.open("GET","php/get_swahili_word.php?userID=" + userID, true);
 	xmlhttp.send();
 }
 
