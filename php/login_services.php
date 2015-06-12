@@ -156,7 +156,7 @@ function logout() {
 	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/user/logout.json");
 
 	$logoutHeaders = array();
-	if ($csrf_token !== '' || $csrf_token !== 'undefined') {
+	if (array_key_exists ('csrf_token', $kamusiUser)) {
 		$logoutHeaders = array('X-CSRF-Token: ' .$kamusiUser['csrf_token'], 'Cookie: ' . $kamusiUser['session_name'] . "=" . $kamusiUser['session_id']);
 	}
 
