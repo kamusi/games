@@ -183,7 +183,7 @@ function loginProcess(){
 }
 
 function getSwahiliwords(){
-	global $kamusiUser;
+	global $kamusiUser, $base_url;
 	
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/search-define.json?to_language=371");
