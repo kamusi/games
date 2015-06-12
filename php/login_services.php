@@ -215,7 +215,7 @@ function getSwahiliwords($uid){
 //	debugVariable($result, 'USER PSOTIION : ' . $result );
 
 	
-	$pageNumber = 0;// $result / 25;
+	$pageNumber = $result / 25;
 	$pageEntry = $result % 25;
 
 	$plainResult = null;
@@ -234,9 +234,6 @@ function getSwahiliwords($uid){
 
 	//What we will return to the javascript
 	var_dump($json[$pageEntry]);
-
-	debugVariable($plainResult, 'akfnerfknrfg : ' . $pageEntry );
-
 
 }
 
