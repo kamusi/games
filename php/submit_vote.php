@@ -30,6 +30,7 @@ var_dump($kamusiUser);
 connect($kamusiUser['session_name'], $kamusiUser['session_id'], $kamusiUser['csrf_token'], $base_url);
 */
 echo "RESULT IS : ".authentification();
+logout();
 
 $wordID = $_GET['wordID'];
 $definitionID = $_GET['definitionID'];

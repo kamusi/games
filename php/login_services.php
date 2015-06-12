@@ -150,6 +150,29 @@ function authentification(){
 	}	
 }
 
+function logout() {
+	global $base_url, $kamusiUser;
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/user/logout.json");
+
+	$logoutHeaders = array();
+	if ($csrf_token !== '' || $csrf_token !== 'undefined') {
+		$logoutHeaders = array('X-CSRF-Token: ' .$kamusiUser['csrf_token'], 'Cookie: ' . $kamusiUser['session_name'] . "=" . $kamusiUser['session_id']);
+	}
+
+
+	setCurlDefaults($ch,$base_url);
+	curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $logoutHeaders);
+
+	$plainresult =  curl_exec($ch);
+	debugVariable($plainresult, 'logout ');
+
+	setCurlDefaults($ch,$base_url);
+
+}
+
 function loginProcess(){
 	global $base_url, $sess_user, $sess_pass, $kamusiUser;
 	getToken('', '', $base_url);
