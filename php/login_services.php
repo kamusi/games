@@ -216,17 +216,20 @@ function getSwahiliwords($uid){
 	//So position will go from 1 to 20 and offset from 1 to number of pages.
 	//We do this in order not to repedetly present the user the same word with a different meaning.
 	//So we will take result 1 of page 1, then result 1 of page 2, etc until last page then return to first pgae with offest +=1
-		
+
 	$i = 123;
-	for($i = 125; $i < 200; $i++){
+	for($i = 199; $i < 230; $i++){
 		echo "Starting loop " . $i;
-	$plainResult = authenticatedGETRequest("/facebook_game_v1/search-define.json?to_language=371&page=".$i);
-	debugVariable($plainResult, 'words: ' . $i );
+		$plainResult = authenticatedGETRequest("/facebook_game_v1/search-define.json?to_language=371&page=".$i);
+		debugVariable($plainResult, 'words: ' . $i );
 	}
 }
 
 function getUserPosAndOffset($uid){
-		global $mysqli;
+	global $mysqli;
+
+	$numberOfPages = 200;
+	$numberOfPageEntries = 20;
 
 	//fetch the user in order to see which word is for him
 	$stmt = $mysqli->prepare("SELECT * FROM games WHERE userid = ? AND language = 4 AND game= 4 ");
@@ -237,9 +240,45 @@ function getUserPosAndOffset($uid){
 
 	$user_position = $row["position"];
 	$user_offset = $row["offset"];
-
-
 	$stmt->close();
+	if($numberOfPageEntries ==$user_offset){
+	//We are at the last page
+			if($user_position == $numberOfPageEntries){
+
+			echo "WE WENT THROUGH ALL WORDS, Strating over...";
+
+			$stmt = $mysqli->prepare("UPDATE games SET offset = 0 WHERE userid=? AND language = 4 AND game = 4;");
+			$stmt->bind_param("s", $uid);
+			$stmt->execute();
+			$stmt->close();
+
+			$stmt = $mysqli->prepare("UPDATE games SET position = 0 WHERE userid=? AND language = 4 AND game = 4;");
+			$stmt->bind_param("s", $uid);
+			$stmt->execute();
+			$stmt->close();
+		}
+		else {
+			//PJust increment offset now until we hit the end
+			$stmt = $mysqli->prepare("UPDATE games SET offset = 0 WHERE userid=? AND language = 4 AND game = 4;");
+			$stmt->bind_param("s", $uid);
+			$stmt->execute();
+			$stmt->close();			
+
+			$stmt = $mysqli->prepare("UPDATE games SET position = position +1 WHERE userid=? AND language = 4 AND game = 4;");
+			$stmt->bind_param("s", $uid);
+			$stmt->execute();
+			$stmt->close();			
+
+		}
+	}
+	$returnArray['position'] = $user_position;
+	$returnArray['offset'] = $user_offset;
+
+	return $returnArray;
+
+
+
+
 }
 
 function tryToparseToJSONElseDie($whatToParse){
