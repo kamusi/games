@@ -39,13 +39,13 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	}
 	else { 
             // Show me the result 
-			debugVariable($result, "JSON response in connect"); 
-			if($result->user->uid == 0){
-				return false;
-			}
-			else {
-				return true;
-			}
+		debugVariable($result, "JSON response in connect"); 
+		if($result->user->uid == 0){
+			return false;
+		}
+		else {
+			return true;
+		}
 
 		//storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid, $csrf_token);
 		curl_close($ch); 
@@ -77,7 +77,7 @@ function login($sess_user, $sess_pass, $base_url) {
 		print "Error: " . curl_error($ch); 
 	}
 	else { 
- 		
+
 		//debugVariable($result, "JSON response in login"); 
 
 		storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid, '');
@@ -115,8 +115,8 @@ function getToken($session_name, $session_id, $base_url) {
 		print "Error: " . curl_error($ch); 
 	}
 	else { 
- 		debugVariable($result, "JSON response in getToken"); 
-	
+		debugVariable($result, "JSON response in getToken"); 
+
 		$kamusiUser['csrf_token'] = $result->token;
 
 		curl_close($ch); 
@@ -124,7 +124,37 @@ function getToken($session_name, $session_id, $base_url) {
 }
 
 function authentification(){
+	global $kamusiUser;
+	//We have tried to authenticate before
+	if (array_key_exists ($kamusiUser['session_name'] ) ){
+		//We are not connected even though we have authenticated before
+		if (!connect($kamusiUser['session_name'], $kamusiUser['session_id'], $kamusiUser['csrf_token'], $base_url)){
+			if(!loginProcess()){
+				die("Could not login!");
+			}
+			else {
+				return true;
+			}
+		}
+		else {
+			return true;
+		}
+	}
+	else {
+		if(!loginProcess()){
+			die("Could not login!");
+		}
+		else {
+			return true;
+		}		
+	}	
+}
 
+function loginProcess(){
+	getToken('', '', $base_url);
+	login($sess_user, $sess_pass, $base_url);
+	getToken($kamusiUser['session_name'], $kamusiUser['session_id'], $base_url);
+	return 	connect($kamusiUser['session_name'], $kamusiUser['session_id'], $kamusiUser['csrf_token'], $base_url);
 }
 
 function tryToparseToJSONElseDie($whatToParse){
