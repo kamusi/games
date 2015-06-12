@@ -203,6 +203,9 @@ function getSwahiliwords(){
 	$plainresult =  curl_exec($ch);
 	debugVariable($plainresult, 'Get Swahili Words: ');
 
+	$sentHeaders = curl_getinfo($ch);
+	debugVariable($sentHeaders, "Sent headers in getToken"); 
+
 
 
 }
