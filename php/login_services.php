@@ -204,40 +204,16 @@ function authenticatedGETRequest($endURL){
 
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $authenticatedGETRequest);
 
-	$plainresult =  curl_exec($ch);
-	debugVariable($plainresult, 'Authenticated GET REQUEST ');
+	return curl_exec($ch);
 
 }
 
-function getSwahiliwords(){/*
-	global $kamusiUser, $base_url;
-	
-	$ch = curl_init();
-	setCurlDefaults($ch,$base_url);
-	curl_setopt($ch, CURLOPT_POST, 0);
-
-	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/search-define.json?to_language=371");
-	
-	$getSwahiliwordsHeaders = array();
-	if (array_key_exists ('csrf_token', $kamusiUser)) {
-		$getSwahiliwordsHeaders = array('X-CSRF-Token: ' .$kamusiUser['csrf_token'], 'Cookie: ' . $kamusiUser['session_name'] . "=" . $kamusiUser['session_id']);
-	}
-	else {
-		die("Not logged in for swahili headers");
-	}
+function getSwahiliwords($uid){
 
 
-	curl_setopt($ch, CURLINFO_HEADER_OUT, true);
 
-	curl_setopt($ch, CURLOPT_HTTPHEADER, $getSwahiliwordsHeaders);
+	$plainResult = authenticatedGETRequest("/facebook_game_v1/search-define.json?to_language=371&page=200");
 
-	$plainresult =  curl_exec($ch);
-	debugVariable($plainresult, 'Get Swahili Words: ');
-
-	$sentHeaders = curl_getinfo($ch);
-	debugVariable($sentHeaders, "Sent headers in getToken"); 
-	*/
-	authenticatedGETRequest("/facebook_game_v1/search-define.json?to_language=371");
 }
 
 function tryToparseToJSONElseDie($whatToParse){

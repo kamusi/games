@@ -1,7 +1,7 @@
 <?php
 
 include 'validate_token.php';
-$offsetModulo = 30;
+$offsetModulo = 10;
 
 $userID = $_GET['userID'];
 $mode = $_GET['mode'];
