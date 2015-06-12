@@ -220,6 +220,7 @@ function getSwahiliwords($uid){
 
 	$plainResult = authenticatedGETRequest("/facebook_game_v1/search-define.json?to_language=371&page=".$pageNumber);
 	debugVariable($plainResult, 'words: ' );
+	debugVariable($pageNumber, 'page numebr');
 
 	$json = tryToparseToJSONElseDie($plainresult);
 
