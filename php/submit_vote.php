@@ -31,6 +31,7 @@ connect($kamusiUser['session_name'], $kamusiUser['session_id'], $kamusiUser['csr
 */
 echo "RESULT IS : ".authentification();
 logout();
+logout();
 
 $wordID = $_GET['wordID'];
 $definitionID = $_GET['definitionID'];
