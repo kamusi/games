@@ -222,7 +222,7 @@ function getSwahiliwords($uid){
 	debugVariable($plainResult, 'words: ' );
 	debugVariable($pageNumber, 'page numebr');
 
-	$json = tryToparseToJSONElseDie($plainresult);
+	$json = json_decode($plainResult, true);
 
 	debugVariable($plainResult, 'JSON RESPONSE : ' . $json );
 
