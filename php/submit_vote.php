@@ -29,7 +29,7 @@ echo "END 4";
 var_dump($kamusiUser);
 connect($kamusiUser['session_name'], $kamusiUser['session_id'], $kamusiUser['csrf_token'], $base_url);
 */
-authentification();
+echo "RESULT IS : ".authentification();
 
 $wordID = $_GET['wordID'];
 $definitionID = $_GET['definitionID'];
