@@ -103,7 +103,7 @@ function getRankedForSwahili() {
 			document.getElementById("transEnglish4").innerHTML = "English def Not accessible yet";
 			document.getElementById("defSwahili4").innerHTML = "Swahili def Not accessible yet";
 
-			getGame4Sentences(word, 3);
+			//getGame4Sentences(word, 3);
 			$(".entry").removeClass("fade"); 
 		}
 	}

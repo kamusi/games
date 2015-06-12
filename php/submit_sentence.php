@@ -67,7 +67,6 @@ if ($totalScoreOfSentece > 4 ) {
 	$stmt->execute();
 	$stmt->close();	
 
-echo "WE anto to delete because too goood : " . $totalScoreOfSentece;
 	#remove the sentence from the aggregation DB
 	$stmt = $mysqli->prepare("DELETE FROM game4context WHERE wordid= ? AND sentenceid= ?;");
 	$stmt->bind_param("ii", $wordID, $sentenceID);
@@ -123,7 +122,6 @@ foreach($concernedUsers as $user) {
 	$stmt->close();
 
 }
-
 
 echo json_encode($returnText);
 

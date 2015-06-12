@@ -12,7 +12,7 @@ if [[ "$pointer" == "DONE" ]]; then
 	exit 1
 fi
 
-verbose=yes
+verbose=no
 
 verbose () {	
 if [ $verbose = yes ]; then
