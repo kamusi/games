@@ -225,7 +225,7 @@ function getSwahiliwords($uid){
 	$json = json_decode($plainResult, true);
 
 	//What we will return to the javascript
-	echo $json[$pageNumber];
+	echo $json;
 
 //	debugVariable($plainResult, 'JSON RESPONSE : ' . $json );
 
