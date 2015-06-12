@@ -200,16 +200,31 @@ function display_about() {
 	switch(game) {
 		case 1:
 		document.getElementById("about2").style.display = "none";
+		document.getElementById("about3").style.display = "none";
+		document.getElementById("about4").style.display = "none";
 		document.getElementById("about1").style.display = "inline-block";
 
 		break;
 		case 2:
 		document.getElementById("about1").style.display = "none";
+		document.getElementById("about3").style.display = "none";
+		document.getElementById("about4").style.display = "none";
+
 		document.getElementById("about2").style.display = "inline-block";
 		break;
 		case 3:
+		document.getElementById("about1").style.display = "none";
+		document.getElementById("about2").style.display = "none";
+		document.getElementById("about3").style.display = "inline-block";
+		document.getElementById("about4").style.display = "none";
+
 		break;
 		case 4:
+		document.getElementById("about1").style.display = "none";
+		document.getElementById("about2").style.display = "none";
+		document.getElementById("about3").style.display = "inline-block";
+		document.getElementById("about4").style.display = "none";
+
 		break;
 		default:
 		alert("ERROR DO NOT KNOW THIS ABOUT PAGE!")
