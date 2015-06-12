@@ -240,6 +240,7 @@ function getSwahiliwords($uid){
 	else {
 		debugVariable($pageEntry, 'pahe entry');
 		debugVariable($json, 'json');
+		debugVariable($plainResult, 'plainResult');
 	}
 
 }
