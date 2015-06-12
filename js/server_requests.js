@@ -103,7 +103,7 @@ function getRankedForSwahili() {
 			document.getElementById("transEnglish4").innerHTML = "English def Not accessible yet";
 			document.getElementById("defSwahili4").innerHTML = "Swahili def Not accessible yet";
 
-			getGame4Sentences("ya", 3)
+			getGame4Sentences(word, 3);
 			$(".entry").removeClass("fade"); 
 		}
 	}
@@ -156,7 +156,7 @@ function updateBufferForDatabase(keyword, amount){
 	}
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-			console.log(xmlhttp.responseText);
+			//console.log(xmlhttp.responseText);
 			console.log("BUFFER UPDATED!!!")
 		}
 	}

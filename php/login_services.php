@@ -221,7 +221,7 @@ function getSwahiliwords($uid){
 	$plainResult = null;
 	$numberOfTimeITry = 3;
 	$nuberOfTries = 0;
-	while($nuberOfTries < $numberOfTimeITry && $plainResult == null) {
+	while($nuberOfTries < $numberOfTimeITry && ($plainResult == null || $plainResult == '')) {
 	$plainResult = authenticatedGETRequest("/facebook_game_v1/search-define.json?to_language=371&page=".$pageNumber);
 	}
 	if($plainResult == null){
@@ -247,7 +247,7 @@ function getSwahiliwords($uid){
 function getUserPosAndOffset($uid){
 	global $mysqli;
 
-	$maxOffset = 24;
+	$maxOffset = 100;
 
 	//fetch the user in order to see which word is for him
 	$stmt = $mysqli->prepare("SELECT * FROM games WHERE userid = ? AND language = 4 AND game= 4 ");
@@ -260,10 +260,7 @@ function getUserPosAndOffset($uid){
 	$offset = $row["offset"];
 	$stmt->close();
 
-	$stmt = $mysqli->prepare("UPDATE games SET position = position +1 WHERE userid=? AND language = 4 AND game = 4;");
-	$stmt->bind_param("s", $uid);
-	$stmt->execute();
-	$stmt->close();
+
 
 	if($offset == $maxOffset){
 
@@ -271,6 +268,18 @@ function getUserPosAndOffset($uid){
 		$stmt->bind_param("s", $uid);
 		$stmt->execute();
 		$stmt->close();
+
+		$stmt = $mysqli->prepare("UPDATE games SET position = position +1 WHERE userid=? AND language = 4 AND game = 4;");
+		$stmt->bind_param("s", $uid);
+		$stmt->execute();
+		$stmt->close();
+	}
+	else {
+	$stmt = $mysqli->prepare("UPDATE games SET offset = offset +10 WHERE userid=? AND language = 4 AND game = 4;");
+	$stmt->bind_param("s", $uid);
+	$stmt->execute();
+	$stmt->close();
+
 	}
 	return $position + $offset;
 
