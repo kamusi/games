@@ -217,11 +217,11 @@ function getSwahiliwords($uid){
 	//We do this in order not to repedetly present the user the same word with a different meaning.
 	//So we will take result 1 of page 1, then result 1 of page 2, etc until last page then return to first pgae with offest +=1
 		
-
-	for($i = 125; $i < 127; $i++){
+	$i = 123;
+//	for($i = 125; $i < 127; $i++){
 	$plainResult = authenticatedGETRequest("/facebook_game_v1/search-define.json?to_language=371&page=".$i);
 	debugVariable($plainResult, 'words: ' . $i );
-	}
+	//}
 }
 
 function getUserPosAndOffset($uid){
