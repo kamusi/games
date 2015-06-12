@@ -95,7 +95,7 @@ function getRankedForSwahili() {
 			
 			obj = JSON.parse(xmlhttp.responseText);
 			console.log("response was : " + xmlhttp.responseText);
-			word = obj.field_headword;
+			word = obj.title;
 			wordID = obj.nid;
 
 			document.getElementById("word4").innerHTML = word;
