@@ -218,13 +218,13 @@ function getSwahiliwords($uid){
 	$pageNumber = $result / 25;
 	$pageEntry = $result % 25;
 
-	$plainResult = '';
+	$plainResult = null;
 	$numberOfTimeITry = 3;
 	$nuberOfTries = 0;
-	while($nuberOfTries < $numberOfTimeITry && $plainResult == '') {
+	while($nuberOfTries < $numberOfTimeITry && $plainResult == null) {
 	$plainResult = authenticatedGETRequest("/facebook_game_v1/search-define.json?to_language=371&page=".$pageNumber);
 	}
-	if($plainResult == ''){
+	if($plainResult == null){
 		die("Services are down!");
 	}
 //	debugVariable($plainResult, 'words: ' );
