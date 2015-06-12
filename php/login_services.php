@@ -202,7 +202,7 @@ function getSwahiliwords(){
 
 	curl_setopt($ch, CURLINFO_HEADER_OUT, true);
 
-	//curl_setopt($ch, CURLOPT_HTTPHEADER, $getSwahiliwordsHeaders);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $getSwahiliwordsHeaders);
 
 	$plainresult =  curl_exec($ch);
 	debugVariable($plainresult, 'Get Swahili Words: ');
