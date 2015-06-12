@@ -12,8 +12,7 @@ include 'login_services.php';
 6) Test Connect again, an if UID > 0, you are logged in
 */
 
-echo "RESULT IS : ".authentification();
-getSwahiliwords("asa");
+
 
 $wordID = $_GET['wordID'];
 $definitionID = $_GET['definitionID'];
@@ -22,6 +21,8 @@ $groupID = $_GET['groupID'];
 $mode = $_GET['mode'];
 $language = $_GET['language'];
 
+authentification();
+getSwahiliwords("10203265649994971");
 
 
 //Increment number of votes for this definition

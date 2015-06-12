@@ -210,26 +210,28 @@ function authenticatedGETRequest($endURL){
 
 function getSwahiliwords($uid){
 
+	$result = getUserPosAndOffset($uid);
 
-	//We will use the users offset in order to remember which page is to be queried
-	//We will sue the user s position in order to remember which one of the results on each page is to get.
-	//So position will go from 1 to 20 and offset from 1 to number of pages.
-	//We do this in order not to repedetly present the user the same word with a different meaning.
-	//So we will take result 1 of page 1, then result 1 of page 2, etc until last page then return to first pgae with offest +=1
+	debugVariable($plainResult, 'USER PSOTIION : ' . $result );
 
-	$i = 123;
-	for($i = 199; $i < 230; $i++){
-		echo "Starting loop " . $i;
-		$plainResult = authenticatedGETRequest("/facebook_game_v1/search-define.json?to_language=371&page=".$i);
-		debugVariable($plainResult, 'words: ' . $i );
-	}
+	
+	$pageNumber = $result / 20;
+	$pageEntry = $result % 20;
+
+	$plainResult = authenticatedGETRequest("/facebook_game_v1/search-define.json?to_language=371&page=".$pageNumber);
+	debugVariable($plainResult, 'words: ' . $i );
+
+	$json = tryToparseToJSONElseDie($plainresult);
+
+	debugVariable($plainResult, 'JSON RESPONSE : ' . $json );
+
+
 }
 
 function getUserPosAndOffset($uid){
 	global $mysqli;
 
-	$numberOfPages = 200;
-	$numberOfPageEntries = 20;
+	$maxOffset = 20;
 
 	//fetch the user in order to see which word is for him
 	$stmt = $mysqli->prepare("SELECT * FROM games WHERE userid = ? AND language = 4 AND game= 4 ");
@@ -238,12 +240,28 @@ function getUserPosAndOffset($uid){
 	$result = $stmt->get_result();
 	$row = $result->fetch_assoc();
 
-	$user_position = $row["position"];
-	$user_offset = $row["offset"];
+	$position = $row["position"];
+	$offset = $row["offset"];
 	$stmt->close();
-	if($numberOfPageEntries ==$user_offset){
-	//We are at the last page
-			if($user_position == $numberOfPageEntries){
+
+	$stmt = $mysqli->prepare("UPDATE games SET position = position +1 WHERE userid=? AND language = 4 AND game = 4;");
+	$stmt->bind_param("s", $uid);
+	$stmt->execute();
+	$stmt->close();
+
+	if($offset == $maxOffset){
+
+		$stmt = $mysqli->prepare("UPDATE games SET offset = 0 WHERE userid=? AND language = 4 AND game = 4;");
+		$stmt->bind_param("s", $uid);
+		$stmt->execute();
+		$stmt->close();
+	}
+	return $position + $offset;
+
+	/*
+	if($currentPage ==$numberOfPages){
+	//We are at the last page. Will need to either increment position or to go bacj to beginning
+		if($currentEntry == $numberOfPageEntries){
 
 			echo "WE WENT THROUGH ALL WORDS, Strating over...";
 
@@ -258,23 +276,30 @@ function getUserPosAndOffset($uid){
 			$stmt->close();
 		}
 		else {
-			//PJust increment offset now until we hit the end
-			$stmt = $mysqli->prepare("UPDATE games SET offset = 0 WHERE userid=? AND language = 4 AND game = 4;");
-			$stmt->bind_param("s", $uid);
-			$stmt->execute();
-			$stmt->close();			
+			//Just go back to first page and go to next entry
 
 			$stmt = $mysqli->prepare("UPDATE games SET position = position +1 WHERE userid=? AND language = 4 AND game = 4;");
 			$stmt->bind_param("s", $uid);
 			$stmt->execute();
 			$stmt->close();			
 
+			$stmt = $mysqli->prepare("UPDATE games SET offset = 0 WHERE userid=? AND language = 4 AND game = 4;");
+			$stmt->bind_param("s", $uid);
+			$stmt->execute();
+			$stmt->close();
 		}
 	}
-	$returnArray['position'] = $user_position;
-	$returnArray['offset'] = $user_offset;
+	else {
+		//We are not at the last page
+		if($currentEntry == $numberOfPageEntries){
+			//But we are at the last entry
+			//Just continue incrementing pages until we hit the end
+		}
+	}
 
-	return $returnArray;
+	*/
+
+
 
 
 
