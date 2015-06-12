@@ -92,20 +92,18 @@ function getRankedForSwahili() {
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 			console.log("JSON DATA SWAHILI LOOKS LIKE : " +xmlhttp.responseText)
-			/*
+			
 			obj = JSON.parse(xmlhttp.responseText);
 			console.log("response was : " + xmlhttp.responseText);
+			word = obj.field_headword;
+			wordID = obj.nid;
 
+			document.getElementById("word4").innerHTML = word;
+			document.getElementById("pos4").innerHTML = "Not set Yet";
+			document.getElementById("transEnglish4").innerHTML = "English def Not accessible yet";
+			document.getElementById("defSwahili4").innerHTML = "Swahili def Not accessible yet";
 
-			console.log("All the details : " + groupID + word + wordID + obj[0].Definition + obj[0].PartOfSpeech )
-
-			console.log("word id BeCaAAAME : " + wordID)
-			document.getElementById("word4").innerHTML = "ya";
-			document.getElementById("pos4").innerHTML = "Verb";
-			document.getElementById("transEnglish4").innerHTML = "Have or maintain an upright position, supported by one's feet.";
-			document.getElementById("defSwahili4").innerHTML = "Kuwa wima juu ya miguu";
-
-			getGame4Sentences("ya", 3) */
+			getGame4Sentences("ya", 3)
 			$(".entry").removeClass("fade"); 
 		}
 	}

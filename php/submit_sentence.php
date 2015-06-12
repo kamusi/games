@@ -56,19 +56,6 @@ $stmt->close();
 echo "Conerned users: ";
 var_dump($concernedUsers);
 
-#Check if this sentence has been voted as bad by at least 2 users
-if ($totalScoreOfSentece < -1 ) {
-	echo "WE WANT TO DELEEEEEEETE: " . $totalScoreOfSentece;
-/*	$stmt = $mysqli->prepare("DELETE FROM game4context WHERE wordid= ? AND sentenceid= ?;");
-	$stmt->bind_param("ii", $wordID, $sentenceID);
-	$stmt->execute();
-	$result = $stmt->get_result();
-	$stmt->close();
-*/
-//User gets notified for each point : upvotes and downvotes, but no posts for downvotes
-	giveAllConcernedUsersXPoints($concernedUsers, 1);
-
-}
 //We count the number of new examples validated by user. That way we will be able to show the new ones we he arrives on the link.
 #after 5 upvotes, this sentence is a definite example for that word. Remove it from temp db and add it to the definitive db
 if ($totalScoreOfSentece > 4 ) {  
@@ -82,12 +69,12 @@ if ($totalScoreOfSentece > 4 ) {
 
 echo "WE anto to delete because too goood : " . $totalScoreOfSentece;
 	#remove the sentence from the aggregation DB
-/*	$stmt = $mysqli->prepare("DELETE FROM game4context WHERE wordid= ? AND sentenceid= ?;");
+	$stmt = $mysqli->prepare("DELETE FROM game4context WHERE wordid= ? AND sentenceid= ?;");
 	$stmt->bind_param("ii", $wordID, $sentenceID);
 	$stmt->execute();
 	$result = $stmt->get_result();
 	$stmt->close();
-*/
+
 
 	$numberOfRefsForThatWord = -1;
 	$stmt = $mysqli->prepare("SELECT Count(wordid) FROM wordsentence WHERE wordid= ?;");
@@ -108,7 +95,8 @@ echo "WE anto to delete because too goood : " . $totalScoreOfSentece;
 	$stmt->close();	
 	*/
 
-	//We got enough sentences for this word : we don t need more.
+	//We got enough sentences for this word : we don t need more. TODO: implement
+	/*
 	if($numberOfRefsForThatWord > 2) {
 
 		$stmt = $mysqli->prepare("INSERT INTO seengames (userid, game, language,wordid, rank) VALUES (?,?,?,?, 2147483647) ;");
@@ -117,6 +105,7 @@ echo "WE anto to delete because too goood : " . $totalScoreOfSentece;
 
 		$stmt->close();	
 	}
+	*/
 }
 
 foreach($concernedUsers as $user) {
