@@ -124,9 +124,9 @@ function getToken($session_name, $session_id, $base_url) {
 }
 
 function authentification(){
-	global $kamusiUser;
+	global $kamusiUser, $base_url;
 	//We have tried to authenticate before
-	if (array_key_exists ($kamusiUser['session_name'] ) ){
+	if (array_key_exists ('session_name', $kamusiUser ) ){
 		//We are not connected even though we have authenticated before
 		if (!connect($kamusiUser['session_name'], $kamusiUser['session_id'], $kamusiUser['csrf_token'], $base_url)){
 			if(!loginProcess()){
@@ -151,6 +151,7 @@ function authentification(){
 }
 
 function loginProcess(){
+	global $base_url;
 	getToken('', '', $base_url);
 	login($sess_user, $sess_pass, $base_url);
 	getToken($kamusiUser['session_name'], $kamusiUser['session_id'], $base_url);
