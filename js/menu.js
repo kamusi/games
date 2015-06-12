@@ -196,7 +196,7 @@ function display_leaderboard() {
 }
 
 function display_about() {
-	document.getElementById("game").style.display = "none";
+	document.getElementById("game").style.display = "none";/*
 	switch(game) {
 		case 1:
 		document.getElementById("about2").style.display = "none";
@@ -229,6 +229,7 @@ function display_about() {
 		default:
 		alert("ERROR DO NOT KNOW THIS ABOUT PAGE!")
 	}
+	*/
 	document.getElementById("about").style.display = "inline-block";
 }
 

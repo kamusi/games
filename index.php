@@ -204,7 +204,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 		</div>
 		<div id="about">
 			<div id="about-main">
-				<div id="about-data">
+				<div id="about1">
 					<h2><?php echo _("About"); ?></h2>
 					<p>
 						<?php echo _("The Kamusi Project "); ?>(<a href="http://kamusi.org/" target="_blank">http://kamusi.org/</a>) <?php echo _("is a participatory international effort dedicated to improving knowledge of the world's languages. Our long term mission is to produce dictionaries and other language resources for every language, and to make those resources available for free to everyone."); ?>
