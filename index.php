@@ -271,11 +271,10 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 <p>Remember, you will score points if you and others all agree to "skip", and you will score points if you and others all agree to "select". </p>
 <p><strong>Play at your own risk </strong><br />
   We try to filter out inappropriate content in advance. Please be warned, however, that some objectionable content might slip through our automated filters. We apologize in advance for the possibility that you might see offensive Tweets. We do not have humans reviewing the content you see in the Examples games – YOU are the filter. By ignoring offensive examples, you will help make them vanish from our data collection.</p>
-		</div>
-
-		<div id="about4">
+	</div>
 
 	</div>
+
 	<div id="about-footer">
 		<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick();return_to_game(); ">
 	</div>
