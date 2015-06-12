@@ -230,7 +230,7 @@ function getSwahiliwords($uid){
 //	debugVariable($pageNumber, 'page numebr');
 
 	$json = json_decode($plainResult, true);
-	debugVariable($json, 'words: ' );
+	debugVariable($json[$pageEntry], 'words: ' );
 
 	//What we will return to the javascript
 	json_encode($json[$pageEntry], true);
