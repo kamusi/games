@@ -30,7 +30,7 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	$plainresult =  curl_exec($ch);
 
 	$sentHeaders = curl_getinfo($ch);
-	debugVariable($sentHeaders, "Sent headers in connect"); 
+//	debugVariable($sentHeaders, "Sent headers in connect"); 
 	
 	$result = tryToparseToJSONElseDie($plainresult);
 
@@ -39,7 +39,7 @@ function connect($session_name, $session_id, $csrf_token, $base_url) {
 	}
 	else { 
             // Show me the result 
-		debugVariable($result, "JSON response in connect"); 
+//		debugVariable($result, "JSON response in connect"); 
 		if($result->user->uid == 0){
 			return false;
 		}
@@ -107,7 +107,7 @@ function getToken($session_name, $session_id, $base_url) {
 	$plainresult =  curl_exec($ch);
 
 	$sentHeaders = curl_getinfo($ch);
-	debugVariable($sentHeaders, "Sent headers in getToken"); 
+//	debugVariable($sentHeaders, "Sent headers in getToken"); 
 	
 	$result = tryToparseToJSONElseDie($plainresult);
 
@@ -115,7 +115,7 @@ function getToken($session_name, $session_id, $base_url) {
 		print "Error: " . curl_error($ch); 
 	}
 	else { 
-		debugVariable($result, "JSON response in getToken"); 
+//		debugVariable($result, "JSON response in getToken"); 
 
 		$kamusiUser['csrf_token'] = $result->token;
 
@@ -169,7 +169,7 @@ function logout() {
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $logoutHeaders);
 
 	$plainresult =  curl_exec($ch);
-	debugVariable($plainresult, 'logout ');
+//	debugVariable($plainresult, 'logout ');
 	setCurlDefaults($ch,$base_url);
 
 }
