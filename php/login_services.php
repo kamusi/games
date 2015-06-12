@@ -151,7 +151,7 @@ function authentification(){
 }
 
 function loginProcess(){
-	global $base_url;
+	global $base_url, $sess_user, $sess_pass;
 	getToken('', '', $base_url);
 	login($sess_user, $sess_pass, $base_url);
 	getToken($kamusiUser['session_name'], $kamusiUser['session_id'], $base_url);
