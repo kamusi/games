@@ -186,6 +186,7 @@ function getSwahiliwords(){
 	global $kamusiUser, $base_url;
 	
 	$ch = curl_init();
+		setCurlDefaults($ch,$base_url);
 	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/search-define.json");
 	$getSwahiliwordsHeaders = array();
 	if (array_key_exists ('csrf_token', $kamusiUser)) {
@@ -195,7 +196,7 @@ function getSwahiliwords(){
 		die("Not logged in for swahili headers");
 	}
 
-	setCurlDefaults($ch,$base_url);
+
 	curl_setopt($ch, CURLINFO_HEADER_OUT, true);
 
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $getSwahiliwordsHeaders);
