@@ -218,14 +218,22 @@ function getSwahiliwords($uid){
 	$pageNumber = $result / 25;
 	$pageEntry = $result % 25;
 
+	$plainResult = '';
+	$numberOfTimeITry = 3;
+	$nuberOfTries = 0;
+	while($nuberOfTries < $numberOfTimeITry && $plainResult == '') {
 	$plainResult = authenticatedGETRequest("/facebook_game_v1/search-define.json?to_language=371&page=".$pageNumber);
+	}
+	if($plainResult == ''){
+		die("Services are down!");
+	}
 //	debugVariable($plainResult, 'words: ' );
 //	debugVariable($pageNumber, 'page numebr');
 
 	$json = json_decode($plainResult, true);
 
 	//What we will return to the javascript
-	var_dump($json);
+	var_dump($json[$pageEntry]);
 
 	debugVariable($plainResult, 'akfnerfknrfg : ' . $pageEntry );
 
@@ -261,52 +269,6 @@ function getUserPosAndOffset($uid){
 		$stmt->close();
 	}
 	return $position + $offset;
-
-	/*
-	if($currentPage ==$numberOfPages){
-	//We are at the last page. Will need to either increment position or to go bacj to beginning
-		if($currentEntry == $numberOfPageEntries){
-
-			echo "WE WENT THROUGH ALL WORDS, Strating over...";
-
-			$stmt = $mysqli->prepare("UPDATE games SET offset = 0 WHERE userid=? AND language = 4 AND game = 4;");
-			$stmt->bind_param("s", $uid);
-			$stmt->execute();
-			$stmt->close();
-
-			$stmt = $mysqli->prepare("UPDATE games SET position = 0 WHERE userid=? AND language = 4 AND game = 4;");
-			$stmt->bind_param("s", $uid);
-			$stmt->execute();
-			$stmt->close();
-		}
-		else {
-			//Just go back to first page and go to next entry
-
-			$stmt = $mysqli->prepare("UPDATE games SET position = position +1 WHERE userid=? AND language = 4 AND game = 4;");
-			$stmt->bind_param("s", $uid);
-			$stmt->execute();
-			$stmt->close();			
-
-			$stmt = $mysqli->prepare("UPDATE games SET offset = 0 WHERE userid=? AND language = 4 AND game = 4;");
-			$stmt->bind_param("s", $uid);
-			$stmt->execute();
-			$stmt->close();
-		}
-	}
-	else {
-		//We are not at the last page
-		if($currentEntry == $numberOfPageEntries){
-			//But we are at the last entry
-			//Just continue incrementing pages until we hit the end
-		}
-	}
-
-	*/
-
-
-
-
-
 
 }
 
