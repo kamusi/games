@@ -186,7 +186,7 @@ function getSwahiliwords(){
 	global $kamusiUser, $base_url;
 	
 	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $base_url . "/facebook_game_v1/search-define.json?to_language=371&page=1");
+	curl_setopt($ch, CURLOPT_URL, "http://dev.kamusi.org:8282/facebook_game_v1/search-define.json?to_language=371");
 	$getSwahiliwordsHeaders = array();
 	if (array_key_exists ('csrf_token', $kamusiUser)) {
 		$getSwahiliwordsHeaders = array('X-CSRF-Token: ' .$kamusiUser['csrf_token'], 'Cookie: ' . $kamusiUser['session_name'] . "=" . $kamusiUser['session_id']);
