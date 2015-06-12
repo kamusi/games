@@ -212,7 +212,7 @@ function getSwahiliwords($uid){
 
 
 
-	$plainResult = authenticatedGETRequest("/facebook_game_v1/search-define.json?to_language=371&page=150");
+	$plainResult = authenticatedGETRequest("/facebook_game_v1/search-define.json?to_language=371&page=100");
 	debugVariable($plainResult, 'words: ');
 }
 
