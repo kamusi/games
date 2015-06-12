@@ -218,7 +218,7 @@ function getSwahiliwords($uid){
 	//So we will take result 1 of page 1, then result 1 of page 2, etc until last page then return to first pgae with offest +=1
 		
 
-	for($i = 125; $i < 200; $i++){
+	for($i = 125; $i < 127; $i++){
 	$plainResult = authenticatedGETRequest("/facebook_game_v1/search-define.json?to_language=371&page=".$i);
 	debugVariable($plainResult, 'words: ' . $i );
 	}
