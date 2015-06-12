@@ -26,10 +26,9 @@ getToken($kamusiUser['session_name'], $kamusiUser['session_id'], $base_url);
 connect($kamusiUser['session_name'], $kamusiUser['session_id'], $kamusiUser['csrf_token'], $base_url);
 echo "END 4";
 var_dump($kamusiUser);
-/*
 connect($kamusiUser['session_name'], $kamusiUser['session_id'], $kamusiUser['csrf_token'], $base_url);
-var_dump($kamusiUser);
-*/
+
+
 $wordID = $_GET['wordID'];
 $definitionID = $_GET['definitionID'];
 $vote = $_GET['vote'];
