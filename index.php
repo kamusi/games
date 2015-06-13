@@ -247,7 +247,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 <ul type="disc">
   <li><?php echo _("Short and sweet: A definition should be as brief as possible to explain the concept, but long enough to describe it fully. If the same word has"); ?> <strong><em><?php echo _("different meanings"); ?></em></strong>, <?php echo _("those are"); ?><strong><em> <?php echo _("different concepts"); ?></em></strong> <?php echo _("with different definitions."); ?> <strong><em><?php echo _("A definition"); ?></em></strong> <?php echo _("in Kamusi only explains "); ?><strong><em><?php echo _("one concept"); ?></em></strong>.</li>
   <li><?php echo _("Easy does it: Use the simplest words you can. Definitions should not force readers to jump around the dictionary more, unless technical terms are absolutely necessary."); ?></li>
-  <li><?php echo _('No circles: Definitions should NOT contain the word that is being defined, nor its close relatives. "Happiness" is "A feeling of, not "The feeling of being happy." Definitions should not be circular - we cannot now say'); ?> <em><?php echo _('joy'); ?></em> <?php echo _('is "A feeling of happiness."); ?></li>
+  <li><?php echo _('No circles: Definitions should NOT contain the word that is being defined, nor its close relatives. "Happiness" is "A feeling of, not "The feeling of being happy." Definitions should not be circular - we cannot now say'); ?> <em><?php echo _('joy'); ?></em> <?php echo _('is "A feeling of happiness.'); ?></li>
   <li><?php echo _('No fluff: Do not start with "A term meaning", or "This is a", or "X refers to", etc. Style: Begin with a Capital letter and end with a period.'); ?></li>
 </ul>
 <p><br />
