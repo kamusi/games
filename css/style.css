@@ -477,11 +477,18 @@ body {
 		opacity:0.5;
 	}
 
+	.controlTiny {
+		cursor:pointer;
+		height:20px;
+		width:20px;
+		opacity:0.5;
+	}
+
 	.settings_button {
 		float:right;
 	}
 
-	.controlSmall:hover {
+	.controlSmall:hover, .controlTiny:hover {
 		opacity:1;
 		transform: scale(1.05);
 	}
