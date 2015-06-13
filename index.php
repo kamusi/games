@@ -234,7 +234,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 </div>
 <div id="info1">
 			<div id="info1-main">
-				<div id="info1">
+				<div id="bla">
 					<p><strong>Definition Game</strong><br />
   Write a definition: 1 point<br />
   Vote for the winning definition: 1 point<br />
