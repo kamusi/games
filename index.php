@@ -262,7 +262,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 <div id="info2">
 			<div id="info2-main">
 				<div class="bla">
-<p><strong>Translation Game</strong><br />
+<p><h1>Translation Game</h1><br />
   Submit a term that becomes the consensus: 3 points<br />
   Skip a term where the consensus is "skip" for this language: 1 point</p>
 <p>When we do not already have an equivalent term in your language for an idea that we have in our English dataset, we ask you to tell us the best way to express the same meaning.</p>
@@ -280,7 +280,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 <div id="info3">
 			<div id="info3-main">
 				<div class="bla">
-<p><strong>Examples Games (Tweets and Sentences)</strong><br />
+<p><h1><strong>Examples Games (Tweets and Sentences)</strong> </h1><br />
   Skip an example where the consensus is "skip": 1 point<br />
   Select an example where the consensus is "select": 1 point</p>
 <p>Usage examples help people understand how a term is really used. Finding a good example can be hard, however.</p>
