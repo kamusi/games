@@ -258,6 +258,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 		<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick();return_to_game(); ">
 	</div>
 </div>
+</div>
 <div id="info2">
 			<div id="info2-main">
 				<div class="bla">
@@ -274,6 +275,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 	<div class="info-footer">
 		<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick();return_to_game(); ">
 	</div>
+</div>
 </div>
 <div id="info3">
 			<div id="info3-main">
