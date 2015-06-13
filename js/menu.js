@@ -201,6 +201,18 @@ function display_info1(){
 
 	document.getElementById("info1").style.display = "inline-block";
 }
+function display_info2(){
+	console.log("Displaying info 1")
+	document.getElementById("game").style.display = "none";
+
+	document.getElementById("info2").style.display = "inline-block";
+}
+function display_info3(){
+	console.log("Displaying info 1")
+	document.getElementById("game").style.display = "none";
+
+	document.getElementById("info3").style.display = "inline-block";
+}
 
 function display_about() {
 	document.getElementById("game").style.display = "none";

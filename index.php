@@ -130,7 +130,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 				<div id="gamezone2" ng-controller="InlineEditorController2" ng-click="hideTooltip2();">
 					<div id="gamezone-main2">
 						<div class="entry">
-						<h1 id="title2", class="title"> <?php printf(_("%s"),$gameNames["2"]); ?>  </h1>
+						<h1 id="title2", class="title"> <?php printf(_("%s"),$gameNames["2"]); ?> <img title="Info" id="information" class="controlTiny" src="media/infoSmall.png" onclick="playClick();display_info2();"> </h1>
 							<p id="instructions2"></p>
 			
 							<p id="translation_word"></p>
@@ -159,7 +159,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 			<div id="gamezone3" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 				<div id="gamezone-main3" >
 					<div class="entry">
-					<h1 id="title3", class="title"> <?php printf(_("%s"),$gameNames["3"]); ?>  </h1>
+					<h1 id="title3", class="title"> <?php printf(_("%s"),$gameNames["3"]); ?> <img title="Info" id="information" class="controlTiny" src="media/infoSmall.png" onclick="playClick();display_info3();"> </h1>
 						<p id="instructions"><?php echo _("Check ONLY the tweets that are excellent examples of THIS meaning: "); ?>   </p>
 						<p id="word3"></p>		
 						<p id="pos3"></p>					
@@ -235,7 +235,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 <div id="info1">
 			<div id="info1-main">
 				<div id="bla">
-					<p><strong>Definition Game</strong><br />
+					<p><h1><strong>Definition Game</strong></h1><br />
   Write a definition: 1 point<br />
   Vote for the winning definition: 1 point<br />
   <em><strong>Write the winning definition</strong></em>: 5 points + credit on the dictionary entry page<br />
@@ -254,7 +254,53 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
   For <strong>English</strong>, we have 200,000 entries with "working definitions" borrowed from the <a href="http://wordnet-rdf.princeton.edu" target="_blank">Princeton WordNet</a>. Some of these definitions are great, but many can be much better. When you improve the definitions in English, we can provide better guidance for translations across languages.</p>
 <p>For more insight about writing definitions, you can <a href="https://www.youtube.com/watch?v=aaqOQQOYuHA" target="_blank">watch this video</a>.</p>
 	</div>
-	<div id="info1-footer">
+	<div class="info-footer">
+		<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick();return_to_game(); ">
+	</div>
+</div>
+<div id="info2">
+			<div id="info2-main">
+				<div class="bla">
+<p><strong>Translation Game</strong><br />
+  Submit a term that becomes the consensus: 3 points<br />
+  Skip a term where the consensus is "skip" for this language: 1 point</p>
+<p>When we do not already have an equivalent term in your language for an idea that we have in our English dataset, we ask you to tell us the best way to express the same meaning.</p>
+<ul>
+  <li>You may not be able to give any translation. For example, many languages do not have a term for <strong><em>run</em></strong>, "a point in the game of baseball". If you cannot translate a term, <strong>skip</strong> to the next.</li>
+  <li>Your term may not have exactly the same meaning as the English term. For example, English has 10 <strong><em>fingers</em></strong> and 10 <strong><em>toes</em></strong>, while Spanish has 20 <strong><em>dedos</em></strong>. For the translation game, just give us the closest equivalent, and we'll figure out non-parallel meanings in a different game.</li>
+  <li>Your language might have more than one word that means the same thing. For example, you might use the words <strong><em>sofa</em></strong> and <strong><em>couch</em></strong> interchangeably. For the translation game, just tell us your favorite. We'll figure out synonyms in a different game, and you'll earn your points if you provide an answer that eventually reaches consensus.</li>
+</ul>
+	</div>
+	<div class="info-footer">
+		<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick();return_to_game(); ">
+	</div>
+</div>
+<div id="info3">
+			<div id="info3-main">
+				<div class="bla">
+<p><strong>Examples Games (Tweets and Sentences)</strong><br />
+  Skip an example where the consensus is "skip": 1 point<br />
+  Select an example where the consensus is "select": 1 point</p>
+<p>Usage examples help people understand how a term is really used. Finding a good example can be hard, however.</p>
+<ul>
+  <li>Bad: "Your eyes are blue."</li>
+  <li>Good: "Your eyes are the same blue as the water in the bay, and sparkle even more in the sunlight."</li>
+</ul>
+<p>Because words have different senses, an example might be excellent in one context but completely wrong in another.</p>
+<ul>
+  <li>Good example for a different meaning of <strong><em>blue</em></strong>: "My heart is aching from the pain of missing you, I'm feeling so blue."</li>
+</ul>
+<p>In the Examples games, your goal is to find sentences that are real gems for a specific meaning of a term. The Tweet game shows you a bunch of recent postings to Twitter, while the Sentences game grabs examples from other sources. You read the definition, and click on the tweets or sentences that will be a great help for dictionary users to understand the exact meaning we show.</p>
+<ul>
+  <li>Do NOT click on an entry if it is a good example of a <em>different</em> meaning.</li>
+  <li>Do NOT click on an entry if it kind-of, sort-of works with the meaning in question.</li>
+  <li>ONLY click on an entry if it <strong><em>perfectly demonstrates</em></strong> the meaning <strong><font color="#EBA634">written in orange</font></strong>.</li>
+</ul>
+<p>Remember, you will score points if you and others all agree to "skip", and you will score points if you and others all agree to "select". </p>
+<p><strong>Play at your own risk </strong><br />
+  We try to filter out inappropriate content in advance. Please be warned, however, that some objectionable content might slip through our automated filters. We apologize in advance for the possibility that you might see offensive Tweets. We do not have humans reviewing the content you see in the Examples games – YOU are the filter. By ignoring offensive examples, you will help make them vanish from our data collection.</p>
+  	</div>
+	<div class="info-footer">
 		<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick();return_to_game(); ">
 	</div>
 </div>
