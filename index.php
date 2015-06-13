@@ -210,7 +210,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 <p><strong><?php echo _('Purpose'); ?></strong><br />
   <?php echo _('Our games are designed to learn all about your language, from you, so that we can share that knowledge with the rest of the world. Different games seek different pieces of information. What we learn in one game builds information we can use in the next. Our goal is a detailed dictionary for your language, linked to translations for all other languages, available to you for free.'); ?></p>
 <p><strong><?php echo _('Play'); ?></strong><br />
-  <?php echo _('Our games ask you a variety of types of questions. You earn points when your answer agrees with the consensus. Your points will remain '); ?><strong><em><?php echo _('in play'); ?></em></strong> <?php echo _('until consensus, when they are '); ?><strong><em><?php echo _('banked'); ?></em></strong> if you are on the winning team. If you do not have an answer, just skip to the next question! When enough people agree to the same answer, it is published to the live Kamusi. For definitions, the winning author will receive credit on the entry page.'); ?></p>
+  <?php echo _('Our games ask you a variety of types of questions. You earn points when your answer agrees with the consensus. Your points will remain '); ?><strong><em><?php echo _('in play'); ?></em></strong> <?php echo _('until consensus, when they are '); ?><strong><em><?php echo _('banked'); ?></em></strong> <?php echo _('if you are on the winning team. If you do not have an answer, just skip to the next question! When enough people agree to the same answer, it is published to the live Kamusi. For definitions, the winning author will receive credit on the entry page.'); ?></p>
 <p><strong><?php echo _('Honor Code'); ?></strong><br />
   <?php echo _('We ask each player to give their one best answer to each question. Please do not attempt to game the game, and please alert us to suspicious items so we can remove spammers and all their spam.'); ?></p>
 <p><strong><?php echo _('Friends'); ?></strong><br />
@@ -250,14 +250,14 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 <div id="info2">
 			<div id="info2-main">
 				<div class="bla">
-<p><h1><strong>Translation Game</strong></h1><br />
-  Submit a term that becomes the consensus: 3 points<br />
-  Skip a term where the consensus is "skip" for this language: 1 point</p>
-<p>When we do not already have an equivalent term in your language for an idea that we have in our English dataset, we ask you to tell us the best way to express the same meaning.</p>
+<p><h1><strong><?php echo _('Translation Game'); ?></strong></h1><br />
+  <?php echo _('Submit a term that becomes the consensus: 3 points'); ?><br />
+  <?php echo _('Skip a term where the consensus is "skip" for this language: 1 point'); ?></p>
+<p><?php echo _('When we do not already have an equivalent term in your language for an idea that we have in our English dataset, we ask you to tell us the best way to express the same meaning.'); ?></p>
 <ul>
-  <li>You may not be able to give any translation. For example, many languages do not have a term for <strong><em>run</em></strong>, "a point in the game of baseball". If you cannot translate a term, <strong>skip</strong> to the next.</li>
-  <li>Your term may not have exactly the same meaning as the English term. For example, English has 10 <strong><em>fingers</em></strong> and 10 <strong><em>toes</em></strong>, while Spanish has 20 <strong><em>dedos</em></strong>. For the translation game, just give us the closest equivalent, and we'll figure out non-parallel meanings in a different game.</li>
-  <li>Your language might have more than one word that means the same thing. For example, you might use the words <strong><em>sofa</em></strong> and <strong><em>couch</em></strong> interchangeably. For the translation game, just tell us your favorite. We'll figure out synonyms in a different game, and you'll earn your points if you provide an answer that eventually reaches consensus.</li>
+  <li><?php echo _('You may not be able to give any translation. For example, many languages do not have a term for <strong><em>run</em></strong>, "a point in the game of baseball". If you cannot translate a term, <strong>skip</strong> to the next.'); ?></li>
+  <li><?php echo _('Your term may not have exactly the same meaning as the English term. For example, English has 10 <strong><em>fingers</em></strong> and 10 <strong><em>toes</em></strong>, while Spanish has 20 <strong><em>dedos</em></strong>. For the translation game, just give us the closest equivalent, and we will figure out non-parallel meanings in a different game.'); ?></li>
+  <li><?php echo _('Your language might have more than one word that means the same thing. For example, you might use the words'); ?> <strong><em><?php echo _('sofa'); ?></em></strong> <?php echo _('and'); ?> <strong><em><?php echo _('couch'); ?></em></strong> <?php echo _('interchangeably. For the translation game, just tell us your favorite. We will figure out synonyms in a different game, and you will earn your points if you provide an answer that eventually reaches consensus.'); ?></li>
 </ul>
 	</div>
 	<div class="info-footer">
