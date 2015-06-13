@@ -484,6 +484,10 @@ body {
 		opacity:0.5;
 	}
 
+	.bla, #bla {
+		margin-left:20px;
+	}
+
 	.settings_button {
 		float:right;
 	}
