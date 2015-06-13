@@ -81,7 +81,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 				<div id="gamezone1" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 					<div id="gamezone-main1" >
 						<div class="entry">
-							<h1 id="title1", class="title"> <?php printf(_("%s"), $gameNames["1"]);; ?> <img title="Info" id="information" class="controlSmall" src="media/infoSmall.png" onclick="playClick();display_info1();"> </h1>
+							<h1 id="title1", class="title"> <?php printf(_("%s"), $gameNames["1"]);; ?> <img title="Info" id="information" class="controlTiny" src="media/infoSmall.png" onclick="playClick();display_info1();"> </h1>
 
 							<p id="instructions1"> </p>
 
