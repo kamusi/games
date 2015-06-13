@@ -130,7 +130,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 				<div id="gamezone2" ng-controller="InlineEditorController2" ng-click="hideTooltip2();">
 					<div id="gamezone-main2">
 						<div class="entry">
-						<h1 id="title2", class="title"> <?php printf(_("%s"),$gameNames["2"]); ?> <img title="Info" id="information" class="controlTiny" src="media/infoSmall.png" onclick="playClick();display_info2();"> </h1>
+						<h1 id="title2", class="title"> <?php printf(_("%s"),$gameNames["2"]); ?> <img title="Info" class="controlTiny" src="media/infoSmall.png" onclick="playClick();display_info2();"> </h1>
 							<p id="instructions2"></p>
 			
 							<p id="translation_word"></p>
@@ -159,7 +159,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 			<div id="gamezone3" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 				<div id="gamezone-main3" >
 					<div class="entry">
-					<h1 id="title3", class="title"> <?php printf(_("%s"),$gameNames["3"]); ?> <img title="Info" id="information" class="controlTiny" src="media/infoSmall.png" onclick="playClick();display_info3();"> </h1>
+					<h1 id="title3", class="title"> <?php printf(_("%s"),$gameNames["3"]); ?> <img title="Info" class="controlTiny" src="media/infoSmall.png" onclick="playClick();display_info3();"> </h1>
 						<p id="instructions"><?php echo _("Check ONLY the tweets that are excellent examples of THIS meaning: "); ?>   </p>
 						<p id="word3"></p>		
 						<p id="pos3"></p>					
