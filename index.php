@@ -306,6 +306,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 		<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick();return_to_game(); ">
 	</div>
 </div>
+</div>
 <div id="profile">
 	<div id="profile-main">
 		<h1 id= "yourachievements"></h1>
