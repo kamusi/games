@@ -170,7 +170,7 @@ body {
 		background-height:100%;
 	}
 
-	#about, #profile, #settings, #leaderboard, #changeMenuLanguage {
+	#about, #profile, #settings, #leaderboard, #changeMenuLanguage, #info1, #info2, #info3 {
 		width: 100%;
 		height: 100%;
 		text-align:center;
