@@ -195,41 +195,16 @@ function display_leaderboard() {
 	document.getElementById("leaderboard").style.display = "inline-block";	
 }
 
+function display_info1(){
+	console.log("Displaying info 1")
+	document.getElementById("game").style.display = "none";
+
+	document.getElementById("info1").style.display = "inline-block";
+}
+
 function display_about() {
-	document.getElementById("game").style.display = "none";/*
-	switch(game) {
-		case 1:
-		document.getElementById("about2").style.display = "none";
-		document.getElementById("about3").style.display = "none";
-		document.getElementById("about4").style.display = "none";
-		document.getElementById("about1").style.display = "inline-block";
+	document.getElementById("game").style.display = "none";
 
-		break;
-		case 2:
-		document.getElementById("about1").style.display = "none";
-		document.getElementById("about3").style.display = "none";
-		document.getElementById("about4").style.display = "none";
-
-		document.getElementById("about2").style.display = "inline-block";
-		break;
-		case 3:
-		document.getElementById("about1").style.display = "none";
-		document.getElementById("about2").style.display = "none";
-		document.getElementById("about3").style.display = "inline-block";
-		document.getElementById("about4").style.display = "none";
-
-		break;
-		case 4:
-		document.getElementById("about1").style.display = "none";
-		document.getElementById("about2").style.display = "none";
-		document.getElementById("about3").style.display = "inline-block";
-		document.getElementById("about4").style.display = "none";
-
-		break;
-		default:
-		alert("ERROR DO NOT KNOW THIS ABOUT PAGE!")
-	}
-	*/
 	document.getElementById("about").style.display = "inline-block";
 }
 
@@ -260,6 +235,11 @@ function return_to_game() {
 	document.getElementById("about").style.display = "none";
 	document.getElementById("profile").style.display = "none";
 	document.getElementById("game").style.display = "inline-block";
+
+	document.getElementById("info1").style.display = "none";
+	document.getElementById("info2").style.display = "none";
+	document.getElementById("info3").style.display = "none";
+
 
 }
 

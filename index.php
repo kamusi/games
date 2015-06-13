@@ -81,7 +81,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 				<div id="gamezone1" ng-controller="InlineEditorController" ng-click="hideTooltip();">
 					<div id="gamezone-main1" >
 						<div class="entry">
-							<h1 id="title1", class="title"> <?php printf(_("%s"), $gameNames["1"]);; ?>  </h1>
+							<h1 id="title1", class="title"> <?php printf(_("%s"), $gameNames["1"]);; ?> <img title="Info" id="information" class="controlSmall" src="media/infoSmall.png" onclick="playClick();display_info1();"> </h1>
 
 							<p id="instructions1"> </p>
 
@@ -229,6 +229,32 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 		</div>
 	</div>
 	<div id="about-footer">
+		<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick();return_to_game(); ">
+	</div>
+</div>
+<div id="info1">
+			<div id="info1-main">
+				<div id="info1">
+					<p><strong>Definition Game</strong><br />
+  Write a definition: 1 point<br />
+  Vote for the winning definition: 1 point<br />
+  <em><strong>Write the winning definition</strong></em>: 5 points + credit on the dictionary entry page<br />
+  Submit a <em>spam</em> definition: -10 points + watchlist</p>
+<p><strong>How to write a great definition</strong><br />
+  Definitions are explanations of what a word means. They are not single words (those are synonyms). You can usually use a definition instead of the actual word. </p>
+<p>Definitions are NOT translations. They are written in the same language as the term you are defining. If you are defining a word in your language, the definition should be in that language, too. Definitions should define what the term means in your language – the meaning may differ somewhat from the English definition we show of a matched English concept!</p>
+<p>Stick to these rules:</p>
+<ul type="disc">
+  <li>Short and sweet: A definition should be as brief as possible to explain the concept, but long enough to describe it fully. If the same word has <strong><em>different meanings</em></strong>, those are <strong><em>different concepts</em></strong> with different definitions. <strong><em>A definition</em></strong> in Kamusi only explains <strong><em>one concept</em></strong>.</li>
+  <li>Easy does it: Use the simplest words you can. Definitions should not force readers to jump around the dictionary more, unless technical terms are absolutely necessary.</li>
+  <li>No circles: Definitions should NOT contain the word that is being defined, nor its close relatives. <em>Happiness</em> is "A feeling of joy.", not "The feeling of being happy." Definitions should not be circular - we cannot now say <em>joy</em> is "A feeling of happiness."</li>
+  <li>No fluff: Do not start with "A term meaning", or "This is a", or "X refers to", etc. Style: Begin with a Capital letter and end with a period.</li>
+</ul>
+<p><br />
+  For <strong>English</strong>, we have 200,000 entries with "working definitions" borrowed from the <a href="http://wordnet-rdf.princeton.edu" target="_blank">Princeton WordNet</a>. Some of these definitions are great, but many can be much better. When you improve the definitions in English, we can provide better guidance for translations across languages.</p>
+<p>For more insight about writing definitions, you can <a href="https://www.youtube.com/watch?v=aaqOQQOYuHA" target="_blank">watch this video</a>.</p>
+	</div>
+	<div id="info1-footer">
 		<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick();return_to_game(); ">
 	</div>
 </div>
