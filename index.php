@@ -75,7 +75,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 					</div>
 					<img title="Invite" id="shield" class="control" src="media/invite.png" onclick="playClick();request();">
 					<img title="Share" id="gossip" class="control" src="media/balloon.png" onclick="playClick();share();">
-					<img title="Info" id="information" class="control" src="media/info.png" onclick="playClick();display_about();">
+					<img title="About" id="information" class="control" src="media/info.png" onclick="playClick();display_about();">
 					<img title="Home" id="auction" class="control" src="media/home.png" onclick="playClick();display_welcome();">
 				</div>
 				<div id="gamezone1" ng-controller="InlineEditorController" ng-click="hideTooltip();">
