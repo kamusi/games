@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kamusi\n"
-"POT-Creation-Date: 2015-06-08 16:09+0100\n"
-"PO-Revision-Date: 2015-06-08 16:11+0100\n"
+"POT-Creation-Date: 2015-06-16 12:34+0100\n"
+"PO-Revision-Date: 2015-06-16 12:34+0100\n"
 "Last-Translator: \n"
 "Language-Team: timo\n"
 "Language: fr_FR\n"
@@ -15,11 +15,11 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: php\n"
 
-#: index.php:45
+#: index.php:45 index.php:226
 msgid "Definition Game"
 msgstr "Jeu avec les définitions"
 
-#: index.php:45
+#: index.php:45 index.php:253
 msgid "Translation Game"
 msgstr "Jeu des traductions"
 
@@ -35,19 +35,19 @@ msgstr "Jeu avec les phrases"
 msgid "Undefined Language"
 msgstr "Langue non définie"
 
-#: index.php:46 index.php:280 index.php:288 index.php:342
+#: index.php:46 index.php:242 index.php:343 index.php:351 index.php:405
 msgid "English"
 msgstr "Anglais"
 
-#: index.php:46 index.php:281 index.php:289 index.php:343
+#: index.php:46 index.php:344 index.php:352 index.php:406
 msgid "French"
 msgstr "Français"
 
-#: index.php:46 index.php:290 index.php:344
+#: index.php:46 index.php:353 index.php:407
 msgid "Vietnamese"
 msgstr "Vietnamien"
 
-#: index.php:46 index.php:291 index.php:345
+#: index.php:46 index.php:354 index.php:408
 msgid "Swahili"
 msgstr ""
 
@@ -75,13 +75,13 @@ msgstr "adverbe"
 msgid "phrase"
 msgstr "phrase"
 
-#: index.php:84 index.php:133 index.php:162 index.php:187 index.php:353
-#: index.php:354 index.php:355 index.php:356
+#: index.php:84 index.php:133 index.php:162 index.php:187 index.php:416
+#: index.php:417 index.php:418 index.php:419
 #, php-format
 msgid "%s"
 msgstr "%s"
 
-#: index.php:98 index.php:400
+#: index.php:98 index.php:463
 msgid " I can write the winning definition for this idea!"
 msgstr "Je peux écrire la définition gagnante pour cette idée!"
 
@@ -102,229 +102,570 @@ msgstr "Cochez les phrases qui corresponden bien à ce mot:"
 msgid "About"
 msgstr "A propos"
 
-#: index.php:210
-msgid "The Kamusi Project "
+#: index.php:209
+#, fuzzy
+msgid "The Kamusi Project ("
 msgstr "Le Projet Kamusi"
 
-#: index.php:210
+#: index.php:209
 msgid ""
 "is a participatory international effort dedicated to improving knowledge of "
-"the world's languages. Our long term mission is to produce dictionaries and "
+"the world s languages. Our long term mission is to produce dictionaries and "
 "other language resources for every language, and to make those resources "
 "available for free to everyone."
 msgstr ""
 
+#: index.php:210
+msgid "Purpose"
+msgstr ""
+
+#: index.php:211
+msgid ""
+"Our games are designed to learn all about your language, from you, so that "
+"we can share that knowledge with the rest of the world. Different games seek "
+"different pieces of information. What we learn in one game builds "
+"information we can use in the next. Our goal is a detailed dictionary for "
+"your language, linked to translations for all other languages, available to "
+"you for free."
+msgstr ""
+
+#: index.php:212
+#, fuzzy
+msgid "Play"
+msgstr "En jeu: "
+
 #: index.php:213
-msgid "How to write a great definition"
-msgstr "Comment écrire une bonne définition"
+msgid ""
+"Our games ask you a variety of types of questions. You earn points when your "
+"answer agrees with the consensus. Your points will remain "
+msgstr ""
+
+#: index.php:213
+msgid "in play"
+msgstr ""
+
+#: index.php:213
+msgid "until consensus, when they are "
+msgstr ""
+
+#: index.php:213
+#, fuzzy
+msgid "banked"
+msgstr "Assuré: "
+
+#: index.php:213
+msgid ""
+"if you are on the winning team. If you do not have an answer, just skip to "
+"the next question! When enough people agree to the same answer, it is "
+"published to the live Kamusi. For definitions, the winning author will "
+"receive credit on the entry page."
+msgstr ""
+
+#: index.php:214
+msgid "Honor Code"
+msgstr ""
 
 #: index.php:215
 msgid ""
+"We ask each player to give their one best answer to each question. Please do "
+"not attempt to game the game, and please alert us to suspicious items so we "
+"can remove spammers and all their spam."
+msgstr ""
+
+#: index.php:216
+msgid "Friends"
+msgstr ""
+
+#: index.php:217
+msgid ""
+"The more people who play for your language, the more fun you will have - you "
+"score points more quickly, and move toward more advanced questions. If you "
+"enjoy playing, please tell your friends to join us! They will have fun too, "
+"and together you will contribute to a great resource for your whole "
+"community."
+msgstr ""
+
+#: index.php:227
+#, fuzzy
+msgid "Write a definition: 1 point"
+msgstr "Vote pour une définition ou crées-en une en "
+
+#: index.php:228
+#, fuzzy
+msgid "Vote for the winning definition: 1 point"
+msgstr "Je peux écrire la définition gagnante pour cette idée!"
+
+#: index.php:229
+#, fuzzy
+msgid "Write the winning definition"
+msgstr "Je peux écrire la définition gagnante pour cette idée!"
+
+#: index.php:229
+msgid ": 5 points + credit on the dictionary entry page"
+msgstr ""
+
+#: index.php:230
+msgid "Submit a"
+msgstr ""
+
+#: index.php:230
+msgid "spam"
+msgstr ""
+
+#: index.php:230
+msgid " definition: -10 points + watchlist"
+msgstr ""
+
+#: index.php:231
+msgid "How to write a great definition"
+msgstr "Comment écrire une bonne définition"
+
+#: index.php:232
+msgid ""
 "Definitions are explanations of what a word means. They are not single words "
 "(those are synonyms). You can usually use a definition instead of the actual "
-"word. Stick to these rules:"
+"word."
 msgstr ""
 
-#: index.php:218
+#: index.php:233
+msgid ""
+"Definitions are NOT translations. They are written in the same language as "
+"the term you are defining. If you are defining a word in your language, the "
+"definition should be in that language, too. Definitions should define what "
+"the term means in your language - the meaning may differ somewhat from the "
+"English definition we show of a matched English concept!"
+msgstr ""
+
+#: index.php:234
+msgid "Stick to these rules:"
+msgstr ""
+
+#: index.php:236
 msgid ""
 "Short and sweet: A definition should be as brief as possible to explain the "
-"concept, but long enough to describe it fully. If the same word has "
-"different meanings, those are different concepts with different definitions- "
-"a definition in Kamusi only explains *one* concept."
+"concept, but long enough to describe it fully. If the same word has"
 msgstr ""
 
-#: index.php:220
+#: index.php:236
+msgid "different meanings"
+msgstr ""
+
+#: index.php:236
+msgid "those are"
+msgstr ""
+
+#: index.php:236
+msgid "different concepts"
+msgstr ""
+
+#: index.php:236
+#, fuzzy
+msgid "with different definitions."
+msgstr "Comment écrire une bonne définition"
+
+#: index.php:236
+#, fuzzy
+msgid "A definition"
+msgstr "Définition courante: "
+
+#: index.php:236
+msgid "in Kamusi only explains "
+msgstr ""
+
+#: index.php:236
+msgid "one concept"
+msgstr ""
+
+#: index.php:237
 msgid ""
-"Easy does it: Use the simplest words you can -definitions should not force "
+"Easy does it: Use the simplest words you can. Definitions should not force "
 "readers to jump around the dictionary more, unless technical terms are "
 "absolutely necessary."
 msgstr ""
 
-#: index.php:222
+#: index.php:238
 msgid ""
 "No circles: Definitions should NOT contain the word that is being defined, "
-"nor its close relatives. \"Happiness\" is \"A feeling of joy.\", not \"The "
-"feeling of being happy.\" Definitions should not be circular - we cannot now "
-"say \"joy\" is \"A feeling of happiness.\""
+"nor its close relatives. \"Happiness\" is \"A feeling of, not \"The feeling "
+"of being happy.\" Definitions should not be circular - we cannot now say"
 msgstr ""
 
-#: index.php:224
+#: index.php:238
+msgid "joy"
+msgstr ""
+
+#: index.php:238
+msgid "is \"A feeling of happiness."
+msgstr ""
+
+#: index.php:239
 msgid ""
 "No fluff: Do not start with \"A term meaning\", or \"This is a\", or \"X "
 "refers to\", etc. Style: Begin with a Capital letter and end with a period."
 msgstr ""
 
-#: index.php:228
-msgid "For more information, you can watch this video: "
-msgstr "Pour plus d'informations, veuillez regarder cette vidéo: "
+#: index.php:242
+msgid "For"
+msgstr ""
 
-#: index.php:245
+#: index.php:242
+msgid ""
+", we have 200,000 entries with \"working definitions\" borrowed from the"
+msgstr ""
+
+#: index.php:242
+msgid ""
+"Some of these definitions are great, but many can be much better. When you "
+"improve the definitions in English, we can provide better guidance for "
+"translations across languages."
+msgstr ""
+
+#: index.php:243
+msgid "For more insight about writing definitions, you can "
+msgstr ""
+
+#: index.php:243
+msgid "watch this video"
+msgstr ""
+
+#: index.php:254
+msgid "Submit a term that becomes the consensus: 3 points"
+msgstr ""
+
+#: index.php:255
+msgid "Skip a term where the consensus is \"skip\" for this language: 1 point"
+msgstr ""
+
+#: index.php:256
+msgid ""
+"When we do not already have an equivalent term in your language for an idea "
+"that we have in our English dataset, we ask you to tell us the best way to "
+"express the same meaning."
+msgstr ""
+
+#: index.php:258
+msgid ""
+"You may not be able to give any translation. For example, many languages do "
+"not have a term for <strong><em>run</em></strong>, \"a point in the game of "
+"baseball\". If you cannot translate a term, <strong>skip</strong> to the "
+"next."
+msgstr ""
+
+#: index.php:259
+msgid ""
+"Your term may not have exactly the same meaning as the English term. For "
+"example, English has 10 <strong><em>fingers</em></strong> and 10 "
+"<strong><em>toes</em></strong>, while Spanish has 20 <strong><em>dedos</em></"
+"strong>. For the translation game, just give us the closest equivalent, and "
+"we will figure out non-parallel meanings in a different game."
+msgstr ""
+
+#: index.php:260
+msgid ""
+"Your language might have more than one word that means the same thing. For "
+"example, you might use the words"
+msgstr ""
+
+#: index.php:260
+msgid "sofa"
+msgstr ""
+
+#: index.php:260
+msgid "and"
+msgstr ""
+
+#: index.php:260
+msgid "couch"
+msgstr ""
+
+#: index.php:260
+msgid ""
+"interchangeably. For the translation game, just tell us your favorite. We "
+"will figure out synonyms in a different game, and you will earn your points "
+"if you provide an answer that eventually reaches consensus."
+msgstr ""
+
+#: index.php:271
+msgid "Examples Games (Tweets and Sentences)"
+msgstr ""
+
+#: index.php:272
+msgid "Skip an example where the consensus is \"skip\": 1 point"
+msgstr ""
+
+#: index.php:273
+msgid "Select an example where the consensus is \"select\": 1 point"
+msgstr ""
+
+#: index.php:274
+msgid ""
+"Usage examples help people understand how a term is really used. Finding a "
+"good example can be hard, however."
+msgstr ""
+
+#: index.php:276
+msgid "Bad: \"Your eyes are blue.\""
+msgstr ""
+
+#: index.php:277
+msgid ""
+"Good: \"Your eyes are the same blue as the water in the bay, and sparkle "
+"even more in the sunlight.\""
+msgstr ""
+
+#: index.php:279
+msgid ""
+"Because words have different senses, an example might be excellent in one "
+"context but completely wrong in another."
+msgstr ""
+
+#: index.php:281
+msgid "Good example for a different meaning of"
+msgstr ""
+
+#: index.php:281
+msgid "blue"
+msgstr ""
+
+#: index.php:281
+msgid ""
+"\"My heart is aching from the pain of missing you, I am feeling so blue.\""
+msgstr ""
+
+#: index.php:283
+msgid ""
+"In the Examples games, your goal is to find sentences that are real gems for "
+"a specific meaning of a term. The Tweet game shows you a bunch of recent "
+"postings to Twitter, while the Sentences game grabs examples from other "
+"sources. You read the definition, and click on the tweets or sentences that "
+"will be a great help for dictionary users to understand the exact meaning we "
+"show."
+msgstr ""
+
+#: index.php:285
+msgid "Do NOT click on an entry if it is a good example of a"
+msgstr ""
+
+#: index.php:285
+msgid "different"
+msgstr ""
+
+#: index.php:285
+msgid "meaning"
+msgstr ""
+
+#: index.php:286
+msgid ""
+"Do NOT click on an entry if it kind-of, sort-of works with the meaning in "
+"question."
+msgstr ""
+
+#: index.php:287
+msgid "ONLY click on an entry if it"
+msgstr ""
+
+#: index.php:287
+msgid "perfectly demonstrates"
+msgstr ""
+
+#: index.php:287
+msgid "the meaning"
+msgstr ""
+
+#: index.php:287
+msgid "written in orange"
+msgstr ""
+
+#: index.php:289
+msgid ""
+"Remember, you will score points if you and others all agree to \"skip\", and "
+"you will score points if you and others all agree to \"select\". "
+msgstr ""
+
+#: index.php:290
+msgid "Play at your own risk"
+msgstr ""
+
+#: index.php:291
+msgid ""
+"We try to filter out inappropriate content in advance. Please be warned, "
+"however, that some objectionable content might slip through our automated "
+"filters. We apologize in advance for the possibility that you might see "
+"offensive Tweets. We do not have humans reviewing the content you see in the "
+"Examples games - YOU are the filter. By ignoring offensive examples, you "
+"will help make them vanish from our data collection."
+msgstr ""
+
+#: index.php:308
 msgid "Name"
 msgstr "Nom"
 
-#: index.php:249
+#: index.php:312
 msgid "Points"
 msgstr "Points"
 
-#: index.php:253
+#: index.php:316
 msgid "Pending points"
 msgstr "Points potentiels"
 
-#: index.php:257 index.php:373
+#: index.php:320 index.php:436
 msgid "Success Rate"
 msgstr "Ratio de succès"
 
-#: index.php:276
+#: index.php:339
 msgid "Hints and Help Language"
 msgstr "Langue pour les Indices et pour l'Aide"
 
-#: index.php:286
+#: index.php:349
 msgid "Game Language"
 msgstr "Langue du jeu"
 
-#: index.php:294
+#: index.php:357
 msgid "Notify me about new points I earn..."
 msgstr "Notifiez moi à propos des points que j'ai gagné..."
 
-#: index.php:296
+#: index.php:359
 msgid "Real time"
 msgstr "En temps réel"
 
-#: index.php:297
+#: index.php:360
 msgid "Once daily"
 msgstr "Une fois par jour"
 
-#: index.php:298
+#: index.php:361
 msgid "Once weekly"
 msgstr "Une fois par semaine"
 
-#: index.php:299
+#: index.php:362
 msgid "When pigs fly..."
 msgstr "Lorsque les cochons voleront..."
 
-#: index.php:302
+#: index.php:365
 msgid "Post achievements to my timeline..."
 msgstr "Publier mes exploits..."
 
-#: index.php:305
+#: index.php:368
 msgid "Always (Every time I have a winning entry)"
 msgstr "A chaque fois que mon ajout gagne"
 
-#: index.php:306
+#: index.php:369
 msgid "Often (Max once a day)"
 msgstr "Souvent (Une fois par jour max)"
 
-#: index.php:307
+#: index.php:370
 msgid "Sometimes (Max once a week)"
 msgstr "Parfois (Une fois par semaine max)"
 
-#: index.php:308
+#: index.php:371
 msgid "Occasionally (Max once monthly)"
 msgstr "Occasionnellement (Une fois par mois au max)"
 
-#: index.php:309
+#: index.php:372
 msgid "When pigs fly... (Never)"
 msgstr "Lorsque les cochons voleront (Jamais)"
 
-#: index.php:339
+#: index.php:402
 msgid "Language"
 msgstr "Langue"
 
-#: index.php:341
+#: index.php:404
 msgid "All languages"
 msgstr "Toutes langues"
 
-#: index.php:350
+#: index.php:413
 msgid "Game"
 msgstr "Jeu"
 
-#: index.php:352
+#: index.php:415
 msgid "All games"
 msgstr "Tous les jeux"
 
-#: index.php:360
+#: index.php:423
 msgid "TimePeriod"
 msgstr "Période de temps"
 
-#: index.php:362
+#: index.php:425
 msgid "All time"
 msgstr "Toujours"
 
-#: index.php:363
+#: index.php:426
 msgid "Last Month"
 msgstr "Le mois passé"
 
-#: index.php:364
+#: index.php:427
 msgid "Last Week"
 msgstr "La semaine passée"
 
-#: index.php:365
+#: index.php:428
 msgid "Last 24 Hours"
 msgstr "Les dernières 24 heures"
 
-#: index.php:369
+#: index.php:432
 msgid "What to compare"
 msgstr "Score a comparer"
 
-#: index.php:371
+#: index.php:434
 msgid "Points Earned"
 msgstr "Points gagnés"
 
-#: index.php:372
+#: index.php:435
 msgid "# of Submissions"
 msgstr "# d'ajouts"
 
-#: index.php:378
+#: index.php:441
 msgid "Auto-Loop"
 msgstr "Boucle automatique"
 
-#: index.php:381
+#: index.php:444
 msgid "Leaderboard"
 msgstr "Liste des scores"
 
-#: index.php:401
+#: index.php:464
 msgid " I can't say - skip this one..."
 msgstr "Je ne saurais dire... Passons à la suivante."
 
-#: index.php:402
+#: index.php:465
 msgid " I can translate this word!"
 msgstr "Je peux traduire ce mot"
 
-#: index.php:403
+#: index.php:466
 msgid " Keep the working definition. It's spectacular as it is!"
 msgstr "Garder la définition provisoire. C'est spectaculaire ainsi"
 
-#: index.php:404
+#: index.php:467
 msgid "Working definition: "
 msgstr "Définition courante: "
 
-#: index.php:405
+#: index.php:468
 msgid "Translate the following word to : "
 msgstr "Traduisez le mot suivant vers la langue suivante : "
 
-#: index.php:406
+#: index.php:469
 msgid "Your achievements for the "
 msgstr "Vos scores pour le "
 
-#: index.php:407
+#: index.php:470
 msgid " in "
 msgstr " en "
 
-#: index.php:408
+#: index.php:471
 msgid "Write or vote for a definition in "
 msgstr "Vote pour une définition ou crées-en une en "
 
-#: index.php:409
+#: index.php:472
 msgid "Rank: "
 msgstr "Rang: "
 
-#: index.php:411
+#: index.php:474
 msgid "In Play: "
 msgstr "En jeu: "
 
-#: index.php:412
+#: index.php:475
 msgid "Banked: "
 msgstr "Assuré: "
+
+#~ msgid "For more information, you can watch this video: "
+#~ msgstr "Pour plus d'informations, veuillez regarder cette vidéo: "
 
 #~ msgid " Keep the General Sense. It's a good definition as is!"
 #~ msgstr "Garder le sense général : c'est une bonne définition ainsi!"

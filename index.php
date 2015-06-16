@@ -214,7 +214,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 <p><strong><?php echo _('Honor Code'); ?></strong><br />
   <?php echo _('We ask each player to give their one best answer to each question. Please do not attempt to game the game, and please alert us to suspicious items so we can remove spammers and all their spam.'); ?></p>
 <p><strong><?php echo _('Friends'); ?></strong><br />
-  <?php echo _('The more people who play for your language, the more fun you will have – you score points more quickly, and move toward more advanced questions. If you enjoy playing, please tell your friends to join us! They will have fun too, and together you will contribute to a great resource for your whole community.'); ?></p>		</div>
+  <?php echo _('The more people who play for your language, the more fun you will have - you score points more quickly, and move toward more advanced questions. If you enjoy playing, please tell your friends to join us! They will have fun too, and together you will contribute to a great resource for your whole community.'); ?></p>		</div>
 	</div>
 	<div id="about-footer">
 		<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick();return_to_game(); ">
@@ -230,7 +230,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
   <?php echo _("Submit a"); ?> <em><?php echo _("spam"); ?></em> <?php echo _(" definition: -10 points + watchlist"); ?></p>
 <p><strong><?php echo _("How to write a great definition"); ?></strong><br />
   <?php echo _("Definitions are explanations of what a word means. They are not single words (those are synonyms). You can usually use a definition instead of the actual word."); ?> </p>
-<p><?php echo _("Definitions are NOT translations. They are written in the same language as the term you are defining. If you are defining a word in your language, the definition should be in that language, too. Definitions should define what the term means in your language – the meaning may differ somewhat from the English definition we show of a matched English concept!"); ?></p>
+<p><?php echo _("Definitions are NOT translations. They are written in the same language as the term you are defining. If you are defining a word in your language, the definition should be in that language, too. Definitions should define what the term means in your language - the meaning may differ somewhat from the English definition we show of a matched English concept!"); ?></p>
 <p><?php echo _("Stick to these rules:"); ?></p>
 <ul type="disc">
   <li><?php echo _("Short and sweet: A definition should be as brief as possible to explain the concept, but long enough to describe it fully. If the same word has"); ?> <strong><em><?php echo _("different meanings"); ?></em></strong>, <?php echo _("those are"); ?><strong><em> <?php echo _("different concepts"); ?></em></strong> <?php echo _("with different definitions."); ?> <strong><em><?php echo _("A definition"); ?></em></strong> <?php echo _("in Kamusi only explains "); ?><strong><em><?php echo _("one concept"); ?></em></strong>.</li>
@@ -288,7 +288,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 </ul>
 <p><?php echo _('Remember, you will score points if you and others all agree to "skip", and you will score points if you and others all agree to "select". '); ?></p>
 <p><strong><?php echo _('Play at your own risk'); ?> </strong><br />
-  <?php echo _('We try to filter out inappropriate content in advance. Please be warned, however, that some objectionable content might slip through our automated filters. We apologize in advance for the possibility that you might see offensive Tweets. We do not have humans reviewing the content you see in the Examples games – YOU are the filter. By ignoring offensive examples, you will help make them vanish from our data collection.'); ?></p>
+  <?php echo _('We try to filter out inappropriate content in advance. Please be warned, however, that some objectionable content might slip through our automated filters. We apologize in advance for the possibility that you might see offensive Tweets. We do not have humans reviewing the content you see in the Examples games - YOU are the filter. By ignoring offensive examples, you will help make them vanish from our data collection.'); ?></p>
   	</div>
 	<div class="info-footer">
 		<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick();return_to_game(); ">
