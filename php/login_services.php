@@ -239,6 +239,8 @@ function getSwahiliwords($uid){
 	}
 	else {
 		debugVariable($pageEntry, 'pahe entry');
+		debugVariable($pageNumber, 'page number');
+
 		debugVariable($json, 'json');
 		debugVariable($plainResult, 'plainResult');
 	}
