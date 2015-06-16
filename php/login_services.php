@@ -78,7 +78,7 @@ function login($sess_user, $sess_pass, $base_url) {
 	}
 	else { 
 
-		debugVariable($result, "JSON response in login"); 
+	//	debugVariable($result, "JSON response in login"); 
 
 		storeUserData($base_url, $result->user->uid, $result->session_name, $result->sessid, '');
 		curl_close($ch); 
