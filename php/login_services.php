@@ -221,7 +221,7 @@ function getSwahiliwords($uid){
 	$plainResult = null;
 	$numberOfTimeITry = 3;
 	$nuberOfTries = 0;
-	while($nuberOfTries < $numberOfTimeITry && ($plainResult == null || $plainResult == '')) {
+	while($nuberOfTries < $numberOfTimeITry && ($plainResult == null || $plainResult == '' || empty($plainResult))) {
 	$plainResult = authenticatedGETRequest("/facebook_game_v1/search-define.json?to_language=371&page=".$pageNumber);
 	}
 	if($plainResult == null){
