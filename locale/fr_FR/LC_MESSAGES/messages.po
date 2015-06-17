@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kamusi\n"
-"POT-Creation-Date: 2015-06-16 12:34+0100\n"
-"PO-Revision-Date: 2015-06-16 12:34+0100\n"
+"POT-Creation-Date: 2015-06-17 13:25+0100\n"
+"PO-Revision-Date: 2015-06-17 13:25+0100\n"
 "Last-Translator: \n"
 "Language-Team: timo\n"
 "Language: fr_FR\n"
@@ -196,9 +196,8 @@ msgid "Vote for the winning definition: 1 point"
 msgstr "Je peux écrire la définition gagnante pour cette idée!"
 
 #: index.php:229
-#, fuzzy
-msgid "Write the winning definition"
-msgstr "Je peux écrire la définition gagnante pour cette idée!"
+msgid "Write the winning definition <strong> test </strong>"
+msgstr "Je peux écrire la définition gagnante pour cette idée <test>!"
 
 #: index.php:229
 msgid ": 5 points + credit on the dictionary entry page"

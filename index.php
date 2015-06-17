@@ -226,7 +226,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 					<p><h1><strong><?php echo _("Definition Game"); ?></strong></h1><br />
   <?php echo _("Write a definition: 1 point"); ?><br />
   <?php echo _("Vote for the winning definition: 1 point"); ?><br />
-  <em><strong><?php echo _("Write the winning definition"); ?></strong></em><?php echo _(": 5 points + credit on the dictionary entry page"); ?><br />
+  <em><strong><?php echo _("Write the winning definition <strong> test </strong>"); ?></strong></em><?php echo _(": 5 points + credit on the dictionary entry page"); ?><br />
   <?php echo _("Submit a"); ?> <em><?php echo _("spam"); ?></em> <?php echo _(" definition: -10 points + watchlist"); ?></p>
 <p><strong><?php echo _("How to write a great definition"); ?></strong><br />
   <?php echo _("Definitions are explanations of what a word means. They are not single words (those are synonyms). You can usually use a definition instead of the actual word."); ?> </p>
