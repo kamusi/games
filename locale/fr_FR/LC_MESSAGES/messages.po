@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kamusi\n"
-"POT-Creation-Date: 2015-06-17 13:48+0100\n"
-"PO-Revision-Date: 2015-06-17 13:49+0100\n"
+"POT-Creation-Date: 2015-06-17 13:49+0100\n"
+"PO-Revision-Date: 2015-06-17 13:51+0100\n"
 "Last-Translator: \n"
 "Language-Team: timo\n"
 "Language: fr_FR\n"
@@ -262,8 +262,9 @@ msgid ""
 msgstr ""
 
 #: index.php:254
+#, fuzzy
 msgid " <p><strong>Translation Game</strong><br />"
-msgstr ""
+msgstr "Comment écrire une bonne définition"
 
 #: index.php:255
 msgid "   Submit a term that becomes the consensus: 3 points<br />"
@@ -568,6 +569,18 @@ msgstr "En jeu: "
 msgid "Banked: "
 msgstr "Assuré: "
 
+#, fuzzy
+#~ msgid "Write the winning definition <strong> test </strong>"
+#~ msgstr "Je peux écrire la définition gagnante pour cette idée!"
+
+#, fuzzy
+#~ msgid "with different definitions."
+#~ msgstr "Comment écrire une bonne définition"
+
+#, fuzzy
+#~ msgid "A definition"
+#~ msgstr "Définition courante: "
+
 #~ msgid "About"
 #~ msgstr "A propos"
 
@@ -582,17 +595,6 @@ msgstr "Assuré: "
 #, fuzzy
 #~ msgid "banked"
 #~ msgstr "Assuré: "
-
-#~ msgid "Write the winning definition <strong> test </strong>"
-#~ msgstr "Je peux écrire la définition gagnante pour cette idée <test>!"
-
-#, fuzzy
-#~ msgid "with different definitions."
-#~ msgstr "Comment écrire une bonne définition"
-
-#, fuzzy
-#~ msgid "A definition"
-#~ msgstr "Définition courante: "
 
 #~ msgid "For more information, you can watch this video: "
 #~ msgstr "Pour plus d'informations, veuillez regarder cette vidéo: "
