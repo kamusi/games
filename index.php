@@ -230,7 +230,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
  <?php echo _(' Submit a <em>spam</em> definition: -10 points + watchlist</p>'); ?>
 <?php echo _('<p><strong>How to write a great definition</strong><br />'); ?>
  <?php echo _(' Definitions are explanations of what a word means. They are not single words (those are synonyms). You can usually use a definition instead of the actual word. </p>'); ?>
-<?php echo _('<p>Definitions are NOT translations. They are written in the same language as the term you are defining. If you are defining a word in your language, the definition should be in that language, too. Definitions should define what the term means in your language – the meaning may differ somewhat from the English definition we show of a matched English concept!</p>'); ?>
+<?php echo _('<p>Definitions are NOT translations. They are written in the same language as the term you are defining. If you are defining a word in your language, the definition should be in that language, too. Definitions should define what the term means in your language - the meaning may differ somewhat from the English definition we show of a matched English concept!</p>'); ?>
 <?php echo _('<p>Stick to these rules:</p>'); ?>
 <ul type="disc">
 <?php echo _('  <li>Short and sweet: A definition should be as brief as possible to explain the concept, but long enough to describe it fully. If the same word has <strong><em>different meanings</em></strong>, those are <strong><em>different concepts</em></strong> with different definitions. <strong><em>A definition</em></strong> in Kamusi only explains <strong><em>one concept</em></strong>.</li>'); ?>
