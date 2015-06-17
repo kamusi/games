@@ -216,6 +216,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 <?php echo _('<p><strong>Friends</strong><br />'); ?>
   <?php echo _('The more people who play for your language, the more fun you will have - you score points more quickly, and move toward more advanced questions. If you enjoy playing, please tell your friends to join us! They&rsquo;ll have fun too, and together you will contribute to a great resource for your whole community.</p>'); ?>
   	</div>
+  	</div>
 	<div id="about-footer">
 		<img title="Return" class="control" src="media/leftarrow.png" onclick="playClick();return_to_game(); ">
 	</div>
