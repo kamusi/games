@@ -408,6 +408,7 @@ $partOfSpeechArray= array('noun' => _("noun"), 'verb' => _('verb'), 'adjective' 
 				<option><?php echo _("French"); ?></option>
 				<option><?php echo _("Vietnamese"); ?></option>
 				<option><?php echo _("Swahili"); ?></option>
+				<option><?php echo _("German"); ?></option>
 
 			</select>
 		</div>
