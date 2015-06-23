@@ -20,6 +20,10 @@ body {
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+li {
+  	margin-left: 40px;
+}
+
 /*#animation {
 	width:930px;height="550"
 	}*/
@@ -487,10 +491,6 @@ body {
 	.bla, #bla {
 		margin-left:20px;
 		text-align: left;
-	}
-
-	li {
-  	margin-left: 50px;
 	}
 
 	.settings_button {
