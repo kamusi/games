@@ -489,8 +489,8 @@ body {
 		text-align: left;
 	}
 
-	.li {
-  margin-left: 10px;
+	.li, #li {
+  	margin-left: 50px;
 	}
 
 	.settings_button {
