@@ -486,6 +486,7 @@ body {
 
 	.bla, #bla {
 		margin-left:20px;
+		text-align: left;
 	}
 
 	.settings_button {
